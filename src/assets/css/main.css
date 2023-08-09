@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply px-6 border py-2 rounded-full hover:transition-all hover:duration-300 whitespace-nowrap;
+  }
+
+  .btn-outline-primary {
+    @apply border-primary text-primary  hover:text-slate-100 hover:bg-primary;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-slate-200 hover:bg-slate-100  hover:border-primary hover:text-primary;
+  }
+
+  .transition300 {
+    @apply transition-all duration-300;
+  }
+}
