@@ -78,7 +78,9 @@
 
     <!-- Banner -->
     <div class="myContainer h-80">
-      <h1 class="mt-32 w-5/6 lg:w-1/2 font-bold text-6xl text-primary">
+      <h1
+        class="mt-32 w-5/6 lg:w-1/2 font-bold md:text-6xl text-5xl text-primary"
+      >
         Find the right
         <span class="font-light text-secondary">world class job </span>
       </h1>
@@ -90,99 +92,296 @@
   </section>
 
   <!-- FILTER & JOB CARD -->
-  <section class="myContainer py-10 grid grid-cols-3 lg:gap-10 sm:gap-3">
-    <!-- Filter -->
-    <div class="filter border py-6 lg:px-8 px-5 rounded-lg space-y-5 bg-white">
-      <!-- Job Type -->
-      <div class="">
-        <h3 class="h6 font-semibold text-slate-700 mb-3">Job Type</h3>
-        <div class="text-slate-600 font-light space-y-1">
-          <div class="form-check">
-            <input class="mr-2" type="checkbox" id="fulltime" />
-            <label class="" for="fulltime">Full-time</label>
-          </div>
-          <div class="form-check">
-            <input class="mr-2" type="checkbox" id="fulltime" />
-            <label class="" for="fulltime">Part-time</label>
-          </div>
-          <div class="form-check">
-            <input class="mr-2" type="checkbox" id="fulltime" />
-            <label class="" for="fulltime">Internship</label>
-          </div>
-          <div class="form-check">
-            <input class="mr-2" type="checkbox" id="fulltime" />
-            <label class="" for="fulltime">Contract/Freelance</label>
-          </div>
-          <div class="form-check">
-            <input class="mr-2" type="checkbox" id="fulltime" />
-            <label class="" for="fulltime">Co-founder</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- Job Type -->
-      <div class="">
-        <h3 class="h6 font-semibold text-slate-700 mb-3">Job Type</h3>
-        <div class="text-slate-600 font-light space-y-1">
-          <div class="form-check">
-            <input class="mr-2" type="checkbox" id="fulltime" />
-            <label class="" for="fulltime">Full-time</label>
-          </div>
-          <div class="form-check">
-            <input class="mr-2" type="checkbox" id="fulltime" />
-            <label class="" for="fulltime">Part-time</label>
-          </div>
-          <div class="form-check">
-            <input class="mr-2" type="checkbox" id="fulltime" />
-            <label class="" for="fulltime">Internship</label>
-          </div>
-          <div class="form-check">
-            <input class="mr-2" type="checkbox" id="fulltime" />
-            <label class="" for="fulltime">Contract/Freelance</label>
-          </div>
-          <div class="form-check">
-            <input class="mr-2" type="checkbox" id="fulltime" />
-            <label class="" for="fulltime">Co-founder</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- Job Type -->
-      <div class="">
-        <h3 class="h6 font-semibold text-slate-700 mb-3">Job Type</h3>
-        <div class="text-slate-600 font-light space-y-1">
-          <div class="form-check">
-            <input class="mr-2" type="checkbox" id="fulltime" />
-            <label class="" for="fulltime">Full-time</label>
-          </div>
-          <div class="form-check">
-            <input class="mr-2" type="checkbox" id="fulltime" />
-            <label class="" for="fulltime">Part-time</label>
-          </div>
-          <div class="form-check">
-            <input class="mr-2" type="checkbox" id="fulltime" />
-            <label class="" for="fulltime">Internship</label>
-          </div>
-          <div class="form-check">
-            <input class="mr-2" type="checkbox" id="fulltime" />
-            <label class="" for="fulltime">Contract/Freelance</label>
-          </div>
-          <div class="form-check">
-            <input class="mr-2" type="checkbox" id="fulltime" />
-            <label class="" for="fulltime">Co-founder</label>
-          </div>
-        </div>
-      </div>
+  <section class="myContainer mb-5">
+    <div class="py-14 text-center">
+      <h1 class="text-4xl font-bold text-primary mb-2">FIND YOUR JOB</h1>
+      <p class="font-light text-slate-600">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit
+      </p>
     </div>
 
-    <!-- Job Card -->
-    <div class="col-span-2 bg-slate-400">
-      <div>
-        <p>robinhood</p>
-        <h4>Senior Site Reliability Engineer</h4>
+    <div class="grid grid-cols-3 gap-1 lg:gap-10 sm:gap-3">
+      <!-- Filter -->
+      <div
+        class="filter border py-6 lg:px-8 px-5 rounded-lg space-y-5 bg-white truncate"
+      >
+        <!-- Job Type -->
+        <div class="">
+          <h3 class="h6 font-medium text-slate-700 mb-3">Job Type</h3>
+          <div class="text-slate-500 font-light space-y-1">
+            <div class="form-check">
+              <input class="mr-2" type="checkbox" id="fulltime" />
+              <label class="" for="fulltime">Full-time</label>
+            </div>
+            <div class="form-check">
+              <input class="mr-2" type="checkbox" id="fulltime" />
+              <label class="" for="fulltime">Part-time</label>
+            </div>
+            <div class="form-check">
+              <input class="mr-2" type="checkbox" id="fulltime" />
+              <label class="" for="fulltime">Internship</label>
+            </div>
+            <div class="form-check">
+              <input class="mr-2" type="checkbox" id="fulltime" />
+              <label class="" for="fulltime">Contract/Freelance</label>
+            </div>
+            <div class="form-check">
+              <input class="mr-2" type="checkbox" id="fulltime" />
+              <label class="" for="fulltime">Co-founder</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job Type -->
+        <div class="">
+          <h3 class="h6 font-medium text-slate-700 mb-3">Job Type</h3>
+          <div class="text-slate-500 font-light space-y-1">
+            <div class="form-check">
+              <input class="mr-2" type="checkbox" id="fulltime" />
+              <label class="" for="fulltime">Full-time</label>
+            </div>
+            <div class="form-check">
+              <input class="mr-2" type="checkbox" id="fulltime" />
+              <label class="" for="fulltime">Part-time</label>
+            </div>
+            <div class="form-check">
+              <input class="mr-2" type="checkbox" id="fulltime" />
+              <label class="" for="fulltime">Internship</label>
+            </div>
+            <div class="form-check">
+              <input class="mr-2" type="checkbox" id="fulltime" />
+              <label class="" for="fulltime">Contract/Freelance</label>
+            </div>
+            <div class="form-check">
+              <input class="mr-2" type="checkbox" id="fulltime" />
+              <label class="" for="fulltime">Co-founder</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Remote Only -->
+        <div class="">
+          <h3 class="h6 font-medium text-slate-700 mb-3">Remote Only</h3>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" value="" class="sr-only peer" checked />
+            <div
+              class="w-10 h-5 bg-gray-300 rounded-full peer peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.2 after:left-[0px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-800 peer-checked:bg-secondary"
+            ></div>
+            <span
+              class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >Off</span
+            >
+          </label>
+        </div>
+
+        <!-- Job Type -->
+        <div class="">
+          <h3 class="h6 font-medium text-slate-700 mb-3">Salary Range</h3>
+          <div class="text-slate-500 font-light space-y-1">
+            <div class="form-check">
+              <input class="mr-2" type="checkbox" id="fulltime" />
+              <label class="" for="fulltime">$20k-$50k</label>
+            </div>
+            <div class="form-check">
+              <input class="mr-2" type="checkbox" id="fulltime" />
+              <label class="" for="fulltime">$50k-$100k</label>
+            </div>
+            <div class="form-check">
+              <input class="mr-2" type="checkbox" id="fulltime" />
+              <label class="" for="fulltime">>$100k</label>
+            </div>
+            <div class="form-check">
+              <input class="mr-2" type="checkbox" id="fulltime" />
+              <label class="" for="fulltime">Drawing / Painting</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="">
+          <h3 class="font-medium text-slate-700 mb-3">Location</h3>
+          <select
+            id="countrys"
+            name="countrys"
+            class="w-full border px-1 py-1 font-light text-slate-500 focus:outline-none"
+          >
+            <option value="volvo" class="disable disable:text-slate-400">
+              Anywhere
+            </option>
+            <option value="saab">Bangladesh</option>
+            <option value="fiat">United State</option>
+            <option value="audi">India</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Job Card -->
+      <div class="col-span-2 border py-6 lg:px-10 px-5 rounded-lg bg-white">
+        <!-- card -->
+        <div class="md:flex justify-between border-b pb-8 mb-8 items-center">
+          <div class="flex items-center gap-4">
+            <div
+              class="bg-secondary w-10 h-10 text-slate-100 text-xl rounded-full flex justify-center relative items-center"
+            >
+              <p class="absolute">P</p>
+            </div>
+
+            <div class="">
+              <p class="text-slate-500 text-sm mb-1">robinhood</p>
+              <h4 class="font-semibold text-slate-600 mb-2">
+                Senior Site Reliability Engineer
+              </h4>
+
+              <div class="flex gap-2">
+                <button
+                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
+                >
+                  Full Time
+                </button>
+                <button
+                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
+                >
+                  Remote
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 ms-14 md:ms-0 md:mt-0 mt-4">
+            <button class="btn-sm">Apply Now</button>
+
+            <p class="text-xs text-slate-400">3hr</p>
+          </div>
+        </div>
+
+        <!-- card -->
+        <div class="md:flex justify-between border-b pb-8 mb-8 items-center">
+          <div class="flex items-center gap-4">
+            <div
+              class="bg-secondary w-10 h-10 text-slate-100 text-xl rounded-full flex justify-center relative items-center"
+            >
+              <p class="absolute">P</p>
+            </div>
+
+            <div class="">
+              <p class="text-slate-500 text-sm mb-1">robinhood</p>
+              <h4 class="font-semibold text-slate-600 mb-2">
+                Senior Site Reliability Engineer
+              </h4>
+
+              <div class="flex gap-2">
+                <button
+                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
+                >
+                  Full Time
+                </button>
+                <button
+                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
+                >
+                  Remote
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 ms-14 md:ms-0 md:mt-0 mt-4">
+            <button class="btn-sm">Apply Now</button>
+
+            <p class="text-xs text-slate-400">3hr</p>
+          </div>
+        </div>
+
+        <!-- card -->
+        <div class="md:flex justify-between border-b pb-8 mb-8 items-center">
+          <div class="flex items-center gap-4">
+            <div
+              class="bg-secondary w-10 h-10 text-slate-100 text-xl rounded-full flex justify-center relative items-center"
+            >
+              <p class="absolute">P</p>
+            </div>
+
+            <div class="">
+              <p class="text-slate-500 text-sm mb-1">robinhood</p>
+              <h4 class="font-semibold text-slate-600 mb-2">
+                Senior Site Reliability Engineer
+              </h4>
+
+              <div class="flex gap-2">
+                <button
+                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
+                >
+                  Full Time
+                </button>
+                <button
+                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
+                >
+                  Remote
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 ms-14 md:ms-0 md:mt-0 mt-4">
+            <button class="btn-sm">Apply Now</button>
+
+            <p class="text-xs text-slate-400">3hr</p>
+          </div>
+        </div>
+
+        <!-- card -->
+        <div class="md:flex justify-between border-b pb-8 mb-8 items-center">
+          <div class="flex items-center gap-4">
+            <div
+              class="bg-secondary w-10 h-10 text-slate-100 text-xl rounded-full flex justify-center relative items-center"
+            >
+              <p class="absolute">P</p>
+            </div>
+
+            <div class="">
+              <p class="text-slate-500 text-sm mb-1">robinhood</p>
+              <h4 class="font-semibold text-slate-600 mb-2">
+                Senior Site Reliability Engineer
+              </h4>
+
+              <div class="flex gap-2">
+                <button
+                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
+                >
+                  Full Time
+                </button>
+                <button
+                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
+                >
+                  Remote
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 ms-14 md:ms-0 md:mt-0 mt-4">
+            <button class="btn-sm">Apply Now</button>
+
+            <p class="text-xs text-slate-400">3hr</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary py-6 text-slate-200 font-light">
+    <div class="myContainer flex justify-between">
+      <p>@ Shuvo Mallick | All rights Reserved</p>
+      <div class="flex gap-2">
+        Follow us:
+        <div class="social-icon">
+          <p class="absolute text-sm">
+            <i class="fa-brands fa-twitter"></i>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <!-- FUNCTIONALITY -->
