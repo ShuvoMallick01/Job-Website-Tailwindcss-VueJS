@@ -369,7 +369,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-primary py-6 text-slate-200 font-light">
+  <footer class="bg-primary py-6 text-slate-200 font-light mt-16">
     <div class="myContainer flex justify-between">
       <p>@ Shuvo Mallick | All rights Reserved</p>
       <div class="flex gap-2">
@@ -377,6 +377,24 @@
         <div class="social-icon">
           <p class="absolute text-sm">
             <i class="fa-brands fa-twitter"></i>
+          </p>
+        </div>
+
+        <div class="social-icon">
+          <p class="absolute text-sm">
+            <i class="fa-brands fa-facebook"></i>
+          </p>
+        </div>
+
+        <div class="social-icon">
+          <p class="absolute text-sm">
+            <i class="fa-brands fa-youtube"></i>
+          </p>
+        </div>
+
+        <div class="social-icon">
+          <p class="absolute text-sm">
+            <i class="fa-brands fa-linkedin"></i>
           </p>
         </div>
       </div>
