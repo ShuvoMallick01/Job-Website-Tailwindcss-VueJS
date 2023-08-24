@@ -21,11 +21,15 @@
   }
 
   .btn-outline-primary {
-    @apply border-primary text-primary  hover:text-slate-100 hover:bg-primary;
+    @apply border-primary text-primary  hover:text-slate-100 hover:bg-primary cursor-pointer;
   }
 
   .btn-primary {
-    @apply bg-primary text-slate-200 hover:bg-slate-100  hover:border-primary hover:text-primary;
+    @apply bg-primary text-slate-200 hover:bg-slate-100  hover:border-primary hover:text-primary cursor-pointer;
+  }
+
+  .btn-text {
+    @apply text-primary font-medium hover:text-primaryDark cursor-pointer;
   }
 
   .transition300 {
@@ -33,12 +37,22 @@
   }
 
   .btn-sm {
-    @apply bg-secondary text-slate-200 text-sm py-2 px-3 rounded-full border transition300 hover:bg-slate-100 hover:border-secondaryDark hover:text-secondaryDark;
+    @apply bg-secondary whitespace-nowrap  text-slate-200 text-sm py-2 px-3 rounded-full border transition300 hover:bg-slate-100 hover:border-secondaryDark hover:text-secondaryDark;
   }
 
   .social-icon {
     @apply bg-secondary h-6 w-6 rounded-full relative inset-0 flex justify-center items-center hover:bg-primaryDark transition300 cursor-pointer;
   }
 
+  /* Typography */
+  .heading {
+    @apply font-semibold text-2xl text-primary;
+  }
+  .heading-paragraph {
+    @apply font-semibold text-lg text-slate-800;
+  }
+  .description-text {
+    @apply text-sm text-justify text-slate-600;
+  }
   /* Form */
 }
