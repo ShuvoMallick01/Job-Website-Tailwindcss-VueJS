@@ -108,26 +108,26 @@
         <!-- Job Type -->
         <div class="">
           <h3 class="h6 font-medium text-slate-700 mb-3">Job Type</h3>
-          <div class="text-slate-500 font-light space-y-1">
+          <div class="text-slate-500 font-light space-y-1.5 text-sm">
             <div class="form-check">
               <input class="mr-2" type="checkbox" id="fulltime" />
               <label class="" for="fulltime">Full-time</label>
             </div>
             <div class="form-check">
-              <input class="mr-2" type="checkbox" id="fulltime" />
-              <label class="" for="fulltime">Part-time</label>
+              <input class="mr-2" type="checkbox" id="parttime" />
+              <label class="" for="parttime">Part-time</label>
             </div>
             <div class="form-check">
-              <input class="mr-2" type="checkbox" id="fulltime" />
-              <label class="" for="fulltime">Internship</label>
+              <input class="mr-2" type="checkbox" id="internship" />
+              <label class="" for="internship">Internship</label>
             </div>
             <div class="form-check">
-              <input class="mr-2" type="checkbox" id="fulltime" />
-              <label class="" for="fulltime">Contract/Freelance</label>
+              <input class="mr-2" type="checkbox" id="contract" />
+              <label class="" for="contract">Contract/Freelance</label>
             </div>
             <div class="form-check">
-              <input class="mr-2" type="checkbox" id="fulltime" />
-              <label class="" for="fulltime">Co-founder</label>
+              <input class="mr-2" type="checkbox" id="cofounder" />
+              <label class="" for="cofounder">Co-founder</label>
             </div>
           </div>
         </div>
@@ -135,26 +135,26 @@
         <!-- Job Type -->
         <div class="">
           <h3 class="h6 font-medium text-slate-700 mb-3">Job Type</h3>
-          <div class="text-slate-500 font-light space-y-1">
+          <div class="text-slate-500 font-light space-y-1.5 text-sm">
             <div class="form-check">
               <input class="mr-2" type="checkbox" id="fulltime" />
               <label class="" for="fulltime">Full-time</label>
             </div>
             <div class="form-check">
-              <input class="mr-2" type="checkbox" id="fulltime" />
-              <label class="" for="fulltime">Part-time</label>
+              <input class="mr-2" type="checkbox" id="parttime" />
+              <label class="" for="parttime">Part-time</label>
             </div>
             <div class="form-check">
-              <input class="mr-2" type="checkbox" id="fulltime" />
-              <label class="" for="fulltime">Internship</label>
+              <input class="mr-2" type="checkbox" id="internship" />
+              <label class="" for="internship">Internship</label>
             </div>
             <div class="form-check">
-              <input class="mr-2" type="checkbox" id="fulltime" />
-              <label class="" for="fulltime">Contract/Freelance</label>
+              <input class="mr-2" type="checkbox" id="contract" />
+              <label class="" for="contract">Contract/Freelance</label>
             </div>
             <div class="form-check">
-              <input class="mr-2" type="checkbox" id="fulltime" />
-              <label class="" for="fulltime">Co-founder</label>
+              <input class="mr-2" type="checkbox" id="cofounder" />
+              <label class="" for="cofounder">Co-founder</label>
             </div>
           </div>
         </div>
@@ -177,22 +177,22 @@
         <!-- Job Type -->
         <div class="">
           <h3 class="h6 font-medium text-slate-700 mb-3">Salary Range</h3>
-          <div class="text-slate-500 font-light space-y-1">
+          <div class="text-slate-500 font-light space-y-1.5 text-sm">
             <div class="form-check">
-              <input class="mr-2" type="checkbox" id="fulltime" />
-              <label class="" for="fulltime">$20k-$50k</label>
+              <input class="mr-2" type="checkbox" id="20kto50k" />
+              <label class="" for="20kto50k">$20k-$50k</label>
             </div>
             <div class="form-check">
-              <input class="mr-2" type="checkbox" id="fulltime" />
-              <label class="" for="fulltime">$50k-$100k</label>
+              <input class="mr-2" type="checkbox" id="50kto100k" />
+              <label class="" for="50kto100k">$50k-$100k</label>
             </div>
             <div class="form-check">
-              <input class="mr-2" type="checkbox" id="fulltime" />
-              <label class="" for="fulltime">>$100k</label>
+              <input class="mr-2" type="checkbox" id="100kup" />
+              <label class="" for="100kup">>$100k</label>
             </div>
             <div class="form-check">
-              <input class="mr-2" type="checkbox" id="fulltime" />
-              <label class="" for="fulltime">Drawing / Painting</label>
+              <input class="mr-2" type="checkbox" id="drawingpainting" />
+              <label class="" for="drawingpainting">Drawing / Painting</label>
             </div>
           </div>
         </div>
@@ -203,7 +203,7 @@
           <select
             id="countrys"
             name="countrys"
-            class="w-full border px-1 py-1 font-light text-slate-500 focus:outline-none"
+            class="w-full border px-1 py-1 font-light text-slate-500 focus:outline-none text-sm"
           >
             <option value="volvo" class="disable disable:text-slate-400">
               Anywhere
@@ -221,14 +221,14 @@
         <div class="md:flex justify-between border-b pb-8 mb-8 items-center">
           <div class="flex items-center gap-4">
             <div
-              class="bg-secondary w-10 h-10 text-slate-100 text-xl rounded-full flex justify-center relative items-center"
+              class="bg-secondary w-8 h-8 md:w-10 md:h-10 text-slate-100 text-base md:text-xl rounded-full flex justify-center relative items-center"
             >
               <p class="absolute">P</p>
             </div>
 
             <div class="">
-              <p class="text-slate-500 text-sm mb-1">robinhood</p>
-              <h4 class="font-semibold text-slate-600 mb-2">
+              <p class="text-slate-500 text-xs md:text-sm mb-1">robinhood</p>
+              <h4 class="font-semibold text-slate-600 mb-2 md:text-lg text-sm">
                 Senior Site Reliability Engineer
               </h4>
 
@@ -258,14 +258,14 @@
         <div class="md:flex justify-between border-b pb-8 mb-8 items-center">
           <div class="flex items-center gap-4">
             <div
-              class="bg-secondary w-10 h-10 text-slate-100 text-xl rounded-full flex justify-center relative items-center"
+              class="bg-secondary w-8 h-8 md:w-10 md:h-10 text-slate-100 text-base md:text-xl rounded-full flex justify-center relative items-center"
             >
               <p class="absolute">P</p>
             </div>
 
             <div class="">
-              <p class="text-slate-500 text-sm mb-1">robinhood</p>
-              <h4 class="font-semibold text-slate-600 mb-2">
+              <p class="text-slate-500 text-xs md:text-sm mb-1">robinhood</p>
+              <h4 class="font-semibold text-slate-600 mb-2 md:text-lg text-sm">
                 Senior Site Reliability Engineer
               </h4>
 
@@ -295,14 +295,14 @@
         <div class="md:flex justify-between border-b pb-8 mb-8 items-center">
           <div class="flex items-center gap-4">
             <div
-              class="bg-secondary w-10 h-10 text-slate-100 text-xl rounded-full flex justify-center relative items-center"
+              class="bg-secondary w-8 h-8 md:w-10 md:h-10 text-slate-100 text-base md:text-xl rounded-full flex justify-center relative items-center"
             >
               <p class="absolute">P</p>
             </div>
 
             <div class="">
-              <p class="text-slate-500 text-sm mb-1">robinhood</p>
-              <h4 class="font-semibold text-slate-600 mb-2">
+              <p class="text-slate-500 text-xs md:text-sm mb-1">robinhood</p>
+              <h4 class="font-semibold text-slate-600 mb-2 md:text-lg text-sm">
                 Senior Site Reliability Engineer
               </h4>
 
@@ -332,14 +332,14 @@
         <div class="md:flex justify-between border-b pb-8 mb-8 items-center">
           <div class="flex items-center gap-4">
             <div
-              class="bg-secondary w-10 h-10 text-slate-100 text-xl rounded-full flex justify-center relative items-center"
+              class="bg-secondary w-8 h-8 md:w-10 md:h-10 text-slate-100 text-base md:text-xl rounded-full flex justify-center relative items-center"
             >
               <p class="absolute">P</p>
             </div>
 
             <div class="">
-              <p class="text-slate-500 text-sm mb-1">robinhood</p>
-              <h4 class="font-semibold text-slate-600 mb-2">
+              <p class="text-slate-500 text-xs md:text-sm mb-1">robinhood</p>
+              <h4 class="font-semibold text-slate-600 mb-2 md:text-lg text-sm">
                 Senior Site Reliability Engineer
               </h4>
 
@@ -370,9 +370,12 @@
 
   <!-- FOOTER -->
   <footer class="bg-primary py-6 text-slate-200 font-light mt-16">
-    <div class="myContainer flex justify-between">
+    <div
+      class="myContainer flex-col text-center space-y-3 lg:space-y-3 lg:flex-row lg:justify-between lg:items-center"
+    >
       <p>@ Shuvo Mallick | All rights Reserved</p>
-      <div class="flex gap-2">
+
+      <div class="flex gap-2 justify-center">
         Follow us:
         <div class="social-icon">
           <p class="absolute text-sm">
