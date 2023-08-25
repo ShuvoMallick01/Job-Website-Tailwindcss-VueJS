@@ -457,7 +457,7 @@
   <!-- FOOTER -->
   <footer class="bg-primary py-6 text-slate-200 font-light mt-16">
     <div
-      class="myContainer flex-col text-center space-y-3 lg:space-y-3 lg:flex-row lg:justify-between lg:items-center"
+      class="myContainer flex flex-col text-center space-y-3 lg:space-y-3 lg:flex-row lg:justify-between lg:items-center"
     >
       <p>@ Shuvo Mallick | All rights Reserved</p>
 
