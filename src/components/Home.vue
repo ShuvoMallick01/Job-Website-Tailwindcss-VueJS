@@ -304,7 +304,7 @@
       <!-- Job Card -->
       <div class="col-span-2 border py-6 lg:px-10 px-5 rounded-lg bg-white">
         <!-- card -->
-        <div class="md:flex justify-between border-b pb-8 mb-8 items-center">
+        <div class="md:flex justify-between border-b pb-5 mb-5 items-center">
           <div class="flex items-center gap-4">
             <div
               class="bg-secondary w-8 h-8 md:w-10 md:h-10 text-slate-100 text-base md:text-xl rounded-full flex justify-center relative items-center"
@@ -341,7 +341,7 @@
         </div>
 
         <!-- card -->
-        <div class="md:flex justify-between border-b pb-8 mb-8 items-center">
+        <div class="md:flex justify-between border-b pb-5 mb-5 items-center">
           <div class="flex items-center gap-4">
             <div
               class="bg-secondary w-8 h-8 md:w-10 md:h-10 text-slate-100 text-base md:text-xl rounded-full flex justify-center relative items-center"
@@ -378,7 +378,7 @@
         </div>
 
         <!-- card -->
-        <div class="md:flex justify-between border-b pb-8 mb-8 items-center">
+        <div class="md:flex justify-between border-b pb-5 mb-5 items-center">
           <div class="flex items-center gap-4">
             <div
               class="bg-secondary w-8 h-8 md:w-10 md:h-10 text-slate-100 text-base md:text-xl rounded-full flex justify-center relative items-center"
@@ -415,7 +415,7 @@
         </div>
 
         <!-- card -->
-        <div class="md:flex justify-between border-b pb-8 mb-8 items-center">
+        <div class="md:flex justify-between border-b pb-5 mb-5 items-center">
           <div class="flex items-center gap-4">
             <div
               class="bg-secondary w-8 h-8 md:w-10 md:h-10 text-slate-100 text-base md:text-xl rounded-full flex justify-center relative items-center"
