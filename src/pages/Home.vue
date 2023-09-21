@@ -36,48 +36,8 @@
 
   <!-- NAVBAR & BANNER -->
   <section class="gradient">
-    <header
-      class="myContainer md:flex justify-between items-center py-3 space-y-3 md:space-y-0"
-    >
-      <div
-        class="flex items-center gap-8 lg:space-y-0 justify-between md:justify-start"
-      >
-        <img
-          src="./assets/images/logo-skyber.svg"
-          class="w-32 shrink-0"
-          alt=""
-        />
-
-        <ul class="flex gap-6">
-          <a href="#"
-            ><li class="hover:font-medium hover:text-primary transition300">
-              Home
-            </li></a
-          >
-
-          <a href="#"
-            ><li class="hover:font-medium hover:text-primary transition300">
-              My Account
-            </li></a
-          >
-          <a href="#"
-            ><li class="hover:font-medium hover:text-primary transition300">
-              Contact
-            </li></a
-          >
-        </ul>
-      </div>
-
-      <div class="flex gap-4 flex-wrap hidden md:block">
-        <button class="btn btn-outline-primary me-3">Sign In</button>
-        <button class="btn btn-primary">Register</button>
-      </div>
-    </header>
-
-    <div class="myContainer h-80">
-      <h1
-        class="mt-32 w-5/6 lg:w-1/2 font-bold md:text-6xl text-5xl text-primary"
-      >
+    <div class="myContainer py-32">
+      <h1 class="w-5/6 lg:w-1/2 font-bold md:text-6xl text-5xl text-primary">
         Find the right
         <span class="font-light text-secondary">world class job </span>
       </h1>
@@ -453,42 +413,6 @@
       </div>
     </div>
   </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-primary py-6 text-slate-200 font-light mt-16">
-    <div
-      class="myContainer flex flex-col text-center space-y-3 lg:space-y-3 lg:flex-row lg:justify-between lg:items-center"
-    >
-      <p>@ Shuvo Mallick | All rights Reserved</p>
-
-      <div class="flex gap-2 justify-center">
-        Follow us:
-        <div class="social-icon">
-          <p class="absolute text-sm">
-            <i class="fa-brands fa-twitter"></i>
-          </p>
-        </div>
-
-        <div class="social-icon">
-          <p class="absolute text-sm">
-            <i class="fa-brands fa-facebook"></i>
-          </p>
-        </div>
-
-        <div class="social-icon">
-          <p class="absolute text-sm">
-            <i class="fa-brands fa-youtube"></i>
-          </p>
-        </div>
-
-        <div class="social-icon">
-          <p class="absolute text-sm">
-            <i class="fa-brands fa-linkedin"></i>
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer>
 </template>
 
 <!-- FUNCTIONALITY -->
