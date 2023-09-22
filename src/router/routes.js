@@ -8,6 +8,7 @@ import Login from "../pages/Login.vue";
 import Registration from "../pages/Registration.vue";
 import UserProfile from "../pages/UserProfile.vue";
 import AdminProfile from "../pages/AdminProfile.vue";
+import JobApplyForm from "../pages/jobapplyform.vue";
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -26,6 +27,11 @@ export const router = createRouter({
       path: "/jobpost",
       component: JobPost,
       name: "jobpost",
+    },
+    {
+      path: "/jobapplyform",
+      component: JobApplyForm,
+      name: "jobapplyform",
     },
     {
       path: "/login",

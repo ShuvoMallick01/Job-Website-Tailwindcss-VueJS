@@ -1,39 +1,4 @@
 <template>
-  <!-- Animated Navbar -->
-  <!-- <header
-    class="bg-gray-900 text-gray-100 py-3.5 px-6 shadow md:flex justify-between items-center"
-  >
-    <a
-      ><img
-        src="./assets/images/logo-skyber-white.svg"
-        class="w-32 shrink-0"
-        alt=""
-    /></a>
-
-    <span
-      @click="menuToggle"
-      class="text-2xl cursor-pointer md:hidden absolute right-6 top-3"
-      ><i :class="[open ? 'fa-solid fa-x' : 'fa-solid fa-bars']"></i
-    ></span>
-
-    <ul
-      class="md:flex md:items-center gap-10 md:px-0 px-10 ms-0 md:py-0 py-5 md:static absolute bg-gray-900 md:w-auto w-full top-14 duration-400 ease-in"
-      :class="[open ? 'leeft-0' : 'left-[-100%]']"
-    >
-      <li
-        v-for="link in links"
-        class="hover:font-medium hover:text-primary transition300 md:my-0 my-6"
-      >
-        <a :href="link.link">{{ link.name }}</a>
-      </li>
-
-      <div class="md:flex gap-0 md:items-center md:ms-15">
-        <button class="btn btn-outline-primary me-3">Sign In</button>
-        <button class="btn btn-primary">Register</button>
-      </div>
-    </ul>
-  </header> -->
-
   <!-- NAVBAR & BANNER -->
   <section class="gradient">
     <div class="myContainer py-32">
@@ -64,6 +29,7 @@
           >Flowbite</span
         >
       </a>
+
       <div class="flex md:order-2">
         <button
           type="button"
@@ -71,8 +37,10 @@
         >
           Get started
         </button>
+
         <button
           data-collapse-toggle="navbar-cta"
+          id="triggerEl"
           type="button"
           class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-cta"
@@ -96,9 +64,10 @@
           </svg>
         </button>
       </div>
+
       <div
         class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-        id="navbar-cta"
+        id="targetEl"
       >
         <ul
           class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
@@ -261,180 +230,20 @@
         </div>
       </div>
 
-      <!-- Job Card -->
-      <div class="col-span-2 border py-6 lg:px-10 px-5 rounded-lg bg-white">
-        <!-- card -->
-        <div class="md:flex justify-between border-b pb-5 mb-5 items-center">
-          <div class="flex items-center gap-4">
-            <div
-              class="bg-secondary w-8 h-8 md:w-10 md:h-10 text-slate-100 text-base md:text-xl rounded-full flex justify-center relative items-center"
-            >
-              <p class="absolute">P</p>
-            </div>
-
-            <div class="">
-              <p class="text-slate-500 text-xs md:text-sm mb-1">robinhood</p>
-              <h4 class="font-semibold text-slate-600 mb-2 md:text-lg text-sm">
-                Senior Site Reliability Engineer
-              </h4>
-
-              <div class="flex gap-2">
-                <button
-                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
-                >
-                  Full Time
-                </button>
-                <button
-                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
-                >
-                  Remote
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-2 ms-14 md:ms-0 md:mt-0 mt-4">
-            <button class="btn-sm">Apply Now</button>
-
-            <p class="text-xs text-slate-400">3hr</p>
-          </div>
-        </div>
-
-        <!-- card -->
-        <div class="md:flex justify-between border-b pb-5 mb-5 items-center">
-          <div class="flex items-center gap-4">
-            <div
-              class="bg-secondary w-8 h-8 md:w-10 md:h-10 text-slate-100 text-base md:text-xl rounded-full flex justify-center relative items-center"
-            >
-              <p class="absolute">P</p>
-            </div>
-
-            <div class="">
-              <p class="text-slate-500 text-xs md:text-sm mb-1">robinhood</p>
-              <h4 class="font-semibold text-slate-600 mb-2 md:text-lg text-sm">
-                Senior Site Reliability Engineer
-              </h4>
-
-              <div class="flex gap-2">
-                <button
-                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
-                >
-                  Full Time
-                </button>
-                <button
-                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
-                >
-                  Remote
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-2 ms-14 md:ms-0 md:mt-0 mt-4">
-            <button class="btn-sm">Apply Now</button>
-
-            <p class="text-xs text-slate-400">3hr</p>
-          </div>
-        </div>
-
-        <!-- card -->
-        <div class="md:flex justify-between border-b pb-5 mb-5 items-center">
-          <div class="flex items-center gap-4">
-            <div
-              class="bg-secondary w-8 h-8 md:w-10 md:h-10 text-slate-100 text-base md:text-xl rounded-full flex justify-center relative items-center"
-            >
-              <p class="absolute">P</p>
-            </div>
-
-            <div class="">
-              <p class="text-slate-500 text-xs md:text-sm mb-1">robinhood</p>
-              <h4 class="font-semibold text-slate-600 mb-2 md:text-lg text-sm">
-                Senior Site Reliability Engineer
-              </h4>
-
-              <div class="flex gap-2">
-                <button
-                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
-                >
-                  Full Time
-                </button>
-                <button
-                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
-                >
-                  Remote
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-2 ms-14 md:ms-0 md:mt-0 mt-4">
-            <button class="btn-sm">Apply Now</button>
-
-            <p class="text-xs text-slate-400">3hr</p>
-          </div>
-        </div>
-
-        <!-- card -->
-        <div class="md:flex justify-between border-b pb-5 mb-5 items-center">
-          <div class="flex items-center gap-4">
-            <div
-              class="bg-secondary w-8 h-8 md:w-10 md:h-10 text-slate-100 text-base md:text-xl rounded-full flex justify-center relative items-center"
-            >
-              <p class="absolute">P</p>
-            </div>
-
-            <div class="">
-              <p class="text-slate-500 text-xs md:text-sm mb-1">robinhood</p>
-              <h4 class="font-semibold text-slate-600 mb-2 md:text-lg text-sm">
-                Senior Site Reliability Engineer
-              </h4>
-
-              <div class="flex gap-2">
-                <button
-                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
-                >
-                  Full Time
-                </button>
-                <button
-                  class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded"
-                >
-                  Remote
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-2 ms-14 md:ms-0 md:mt-0 mt-4">
-            <button class="btn-sm">Apply Now</button>
-
-            <p class="text-xs text-slate-400">3hr</p>
-          </div>
-        </div>
+      <!-- Job Cards -->
+      <div class="col-span-2 border py-6 lg:px-5 px-3 rounded-lg bg-white">
+        <!-- Card -->
+        <JobPostCard></JobPostCard>
+        <JobPostCard></JobPostCard>
+        <JobPostCard></JobPostCard>
+        <JobPostCard></JobPostCard>
+        <JobPostCard></JobPostCard>
       </div>
     </div>
   </section>
 </template>
 
 <!-- FUNCTIONALITY -->
-<script>
-export default {
-  data() {
-    return {
-      links: [
-        { name: "Home", link: "#" },
-        { name: "Account", link: "#" },
-        { name: "Contact", link: "#" },
-        { name: "Blog", link: "#" },
-      ],
-
-      open: false,
-    };
-  },
-
-  methods: {
-    menuToggle() {
-      return (this.open = !this.open);
-    },
-  },
-};
+<script setup>
+import JobPostCard from "../components/JobPostCard.vue";
 </script>

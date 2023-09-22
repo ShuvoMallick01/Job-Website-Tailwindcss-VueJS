@@ -14,22 +14,13 @@
         />
 
         <ul class="flex gap-6">
-          <router-link to="/"
-            ><li class="hover:font-medium hover:text-primary transition300">
-              Home
-            </li></router-link
+          <li
+            v-for="menuItem in menu"
+            :key="menuItem"
+            class="hover:font-medium hover:text-primary transition300"
           >
-
-          <a href="#"
-            ><li class="hover:font-medium hover:text-primary transition300">
-              My Account
-            </li></a
-          >
-          <a href="#"
-            ><li class="hover:font-medium hover:text-primary transition300">
-              Contact
-            </li></a
-          >
+            <router-link :to="menuItem.path">{{ menuItem.title }}</router-link>
+          </li>
         </ul>
       </div>
 
@@ -41,6 +32,40 @@
   </section>
 </template>
 
-<script>
-export default {};
+<script setup>
+import { ref } from "vue";
+
+// State
+const menu = ref([
+  {
+    title: "Home",
+    path: "/",
+    private: false,
+  },
+  {
+    title: "Job Post",
+    path: "/jobpost",
+    private: true,
+  },
+  {
+    title: "Login",
+    path: "/login",
+    private: false,
+  },
+  {
+    title: "Registration",
+    path: "/registration",
+    private: false,
+  },
+  {
+    title: "User",
+    path: "/userProfile",
+    private: false,
+  },
+  {
+    title: "Admin",
+    path: "/adminProfile",
+    private: false,
+  },
+]);
 </script>

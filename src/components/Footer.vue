@@ -1,13 +1,13 @@
 <template>
   <!-- FOOTER -->
   <footer class="bg-primary py-6 text-slate-200 font-light mt-6">
-    <div
-      class="myContainer flex flex-col text-center space-y-3 lg:space-y-3 lg:flex-row lg:justify-between lg:items-center"
-    >
-      <p>@ Shuvo Mallick | All rights Reserved</p>
+    <div class="myContainer md:flex md:justify-between items-center">
+      <p class="text-center mb-2 md:mb-0">
+        @ Shuvo Mallick | All rights Reserved
+      </p>
 
       <!-- Follow Us -->
-      <div class="flex gap-2 justify-center">
+      <div class="flex gap-2 justify-center mt-0">
         Follow us:
         <div class="social-icon">
           <p class="absolute text-sm">

@@ -12,6 +12,7 @@ import Login from "./pages/Login.vue";
 import Registration from "./pages/Registration.vue";
 import UserProfile from "./pages/UserProfile.vue";
 import AdminProfile from "./pages/AdminProfile.vue";
+import JobApplyForm from "./pages/jobapplyform.vue";
 import Layout from "./components/Layout.vue";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
@@ -29,7 +30,8 @@ app
   .component("AdminProfile", AdminProfile)
   .component("Layout", Layout)
   .component("Header", Header)
-  .component("Footer", Footer);
+  .component("Footer", Footer)
+  .component("JobApplyForm", JobApplyForm);
 
 app.use(router);
 app.use(pinia);
