@@ -124,52 +124,28 @@
         <div class="">
           <h3 class="h6 font-medium text-slate-700 mb-3">Job Type</h3>
           <div class="text-slate-500 font-light space-y-1.5 text-sm">
-            <div class="form-check">
-              <input class="mr-2" type="checkbox" id="fulltime" />
-              <label class="" for="fulltime">Full-time</label>
-            </div>
-            <div class="form-check">
-              <input class="mr-2" type="checkbox" id="parttime" />
-              <label class="" for="parttime">Part-time</label>
-            </div>
-            <div class="form-check">
-              <input class="mr-2" type="checkbox" id="internship" />
-              <label class="" for="internship">Internship</label>
-            </div>
-            <div class="form-check">
-              <input class="mr-2" type="checkbox" id="contract" />
-              <label class="" for="contract">Contract/Freelance</label>
-            </div>
-            <div class="form-check">
-              <input class="mr-2" type="checkbox" id="cofounder" />
-              <label class="" for="cofounder">Co-founder</label>
+            <div
+              class="form-check"
+              v-for="jobtype in jobTypeCheckList"
+              :key="jobtype"
+            >
+              <input class="mr-2" type="checkbox" id="jobtype.id" />
+              <label class="" for="jobtype.id">{{ jobtype.title }}</label>
             </div>
           </div>
         </div>
 
-        <!-- Job Type -->
+        <!-- Job Roles -->
         <div class="">
-          <h3 class="h6 font-medium text-slate-700 mb-3">Job Type</h3>
+          <h3 class="h6 font-medium text-slate-700 mb-3">Job Role</h3>
           <div class="text-slate-500 font-light space-y-1.5 text-sm">
-            <div class="form-check">
-              <input class="mr-2" type="checkbox" id="fulltime" />
-              <label class="" for="fulltime">Full-time</label>
-            </div>
-            <div class="form-check">
-              <input class="mr-2" type="checkbox" id="parttime" />
-              <label class="" for="parttime">Part-time</label>
-            </div>
-            <div class="form-check">
-              <input class="mr-2" type="checkbox" id="internship" />
-              <label class="" for="internship">Internship</label>
-            </div>
-            <div class="form-check">
-              <input class="mr-2" type="checkbox" id="contract" />
-              <label class="" for="contract">Contract/Freelance</label>
-            </div>
-            <div class="form-check">
-              <input class="mr-2" type="checkbox" id="cofounder" />
-              <label class="" for="cofounder">Co-founder</label>
+            <div
+              class="form-check"
+              v-for="jobRole in jobRolesCheckList"
+              :key="jobRole"
+            >
+              <input class="mr-2" type="checkbox" id="jobRole.id" />
+              <label class="" for="jobtype.id">{{ jobRole.title }}</label>
             </div>
           </div>
         </div>
@@ -189,25 +165,19 @@
           </label>
         </div>
 
-        <!-- Job Type -->
+        <!-- Salary Range -->
         <div class="">
           <h3 class="h6 font-medium text-slate-700 mb-3">Salary Range</h3>
           <div class="text-slate-500 font-light space-y-1.5 text-sm">
-            <div class="form-check">
-              <input class="mr-2" type="checkbox" id="20kto50k" />
-              <label class="" for="20kto50k">$20k-$50k</label>
-            </div>
-            <div class="form-check">
-              <input class="mr-2" type="checkbox" id="50kto100k" />
-              <label class="" for="50kto100k">$50k-$100k</label>
-            </div>
-            <div class="form-check">
-              <input class="mr-2" type="checkbox" id="100kup" />
-              <label class="" for="100kup">>$100k</label>
-            </div>
-            <div class="form-check">
-              <input class="mr-2" type="checkbox" id="drawingpainting" />
-              <label class="" for="drawingpainting">Drawing / Painting</label>
+            <div
+              class="form-check"
+              v-for="salary in salaryRangeCheckList"
+              :key="salary.name"
+            >
+              <input class="mr-2" type="checkbox" id="salary.name" />
+              <label class="" for="jobtype.id"
+                >${{ salary.start }}k - ${{ salary.end }}k</label
+              >
             </div>
           </div>
         </div>
@@ -245,5 +215,30 @@
 
 <!-- FUNCTIONALITY -->
 <script setup>
+import { ref } from "vue";
 import JobPostCard from "../components/JobPostCard.vue";
+
+// State
+const jobTypeCheckList = ref([
+  { title: "Full-time", id: "fulltime" },
+  { title: "Part-time", id: "partime" },
+  { title: "Internship", id: "internship" },
+  { title: "Contract/Freelance", id: "contract-freelance" },
+  { title: "Co-founder", id: "cofounder" },
+]);
+
+const jobRolesCheckList = ref([
+  { title: "Programming", id: "programming" },
+  { title: "Design", id: "design" },
+  { title: "Management / Finance", id: "management-finance" },
+  { title: "Customer Support", id: "customerSupport" },
+  { title: "Sales / Marketing", id: "sales-marketing" },
+]);
+
+const salaryRangeCheckList = ref([
+  { start: "20", end: "50", name: "20-50" },
+  { start: "50", end: "10", name: "50-100" },
+  { start: "100", end: "200", name: "100-200" },
+  { start: "200", end: "infinity", name: "200-infinity" },
+]);
 </script>
