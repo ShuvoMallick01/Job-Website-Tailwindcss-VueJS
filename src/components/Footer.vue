@@ -7,7 +7,7 @@
       </p>
 
       <!-- Follow Us -->
-      <div class="flex gap-2 justify-center mt-0">
+      <div class="flex gap-4 justify-center mt-0">
         Follow us:
         <div class="social-icon">
           <p class="absolute text-sm">

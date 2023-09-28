@@ -1,6 +1,6 @@
 <template>
-  <!-- NAVBAR & BANNER -->
-  <section class="gradient">
+  <!-- BANNER -->
+  <section class="gradient mt-16">
     <div class="myContainer py-32">
       <h1 class="w-5/6 lg:w-1/2 font-bold md:text-6xl text-5xl text-primary">
         Find the right
@@ -215,7 +215,7 @@
 
 <!-- FUNCTIONALITY -->
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import JobPostCard from "../components/JobPostCard.vue";
 
 // State
@@ -241,4 +241,6 @@ const salaryRangeCheckList = ref([
   { start: "100", end: "200", name: "100-200" },
   { start: "200", end: "infinity", name: "200-infinity" },
 ]);
+
+// Methods
 </script>

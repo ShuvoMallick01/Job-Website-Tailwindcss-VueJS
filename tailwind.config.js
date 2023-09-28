@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{vue,js}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js}",
+    "./node_modules/flowbite/**/*.js",
+  ],
   theme: {
     extend: {
       colors: {
@@ -15,5 +19,6 @@ export default {
       sans: ["Poppins", "Helvetica", "Arial", "sans-serif"],
     },
   },
-  plugins: [],
+  darkMode: "class",
+  plugins: [require("flowbite/plugin")],
 };

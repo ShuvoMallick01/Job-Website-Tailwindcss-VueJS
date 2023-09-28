@@ -41,7 +41,7 @@
   }
 
   .social-icon {
-    @apply bg-secondary  h-6 w-6 rounded-full relative inset-0 flex justify-center items-center hover:bg-primaryDark transition300 cursor-pointer;
+    @apply bg-slate-200 text-primaryDark  h-7 w-7 rounded-full relative inset-0 flex justify-center items-center hover:bg-primaryDark hover:text-slate-200 transition300 cursor-pointer;
   }
 
   .social-icon-body {
