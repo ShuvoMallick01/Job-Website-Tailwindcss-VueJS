@@ -1,24 +1,18 @@
 <template>
   <!-- FILTER & JOB CARD -->
-  <section class="myContainer mb-5">
+  <section class="myContainer mb-5 mt-20">
     <div class="py-14 text-center">
-      <h1 class="text-4xl font-bold text-primary mb-2">Job Post</h1>
-      <p class="font-light text-slate-600">
-        Lorem ipsum dolor, sit amet consectetur
-      </p>
+      <h1 class="sectionHeading mb-2">Job Post</h1>
+      <p class="description-text">Lorem ipsum dolor, sit amet consectetur</p>
     </div>
 
     <!-- Form -->
     <div class="mb-24 lg:px-32 lg:mx-22 2xl:px-52 2xl:mx-32">
       <form>
-        <h4 class="text-xl mb-5 font-semibold text-slate-800">
-          1. Your company
-        </h4>
+        <h4 class="formSubHeading">1. Your company</h4>
 
         <div class="mb-6">
-          <label
-            for="email"
-            class="block mb-2 text-sm font-normal text-gray-600"
+          <label for="email" class="block mb-2 formLabel"
             >Company Name <span class="text-red-600">*</span></label
           >
           <input
@@ -31,9 +25,7 @@
         </div>
 
         <div class="mb-6">
-          <label
-            for="email"
-            class="block mb-2 text-sm font-normal text-gray-600"
+          <label for="email" class="block formLabel mb-2"
             >Contact Email <span class="text-red-600">*</span></label
           >
           <input
@@ -63,12 +55,10 @@
         </div>
 
         <!-- The Role -->
-        <h4 class="text-xl mb-5 font-semibold text-slate-600">2. The role</h4>
+        <h4 class="formSubHeading">2. The role</h4>
 
         <div class="mb-6">
-          <label
-            for="email"
-            class="block mb-2 text-sm font-normal text-slate-800"
+          <label for="email" class="block mb-2 formLabel"
             >Position Name <span class="text-red-600">*</span></label
           >
           <input
@@ -81,9 +71,7 @@
         </div>
 
         <div class="mb-6">
-          <label
-            for="email"
-            class="block mb-2 text-sm font-normal text-slate-800"
+          <label for="email" class="block mb-2 formLabel"
             >Role <span class="text-red-600">*</span></label
           >
           <select
@@ -98,9 +86,7 @@
         </div>
 
         <div class="mb-6">
-          <label
-            for="email"
-            class="block mb-2 text-sm font-normal text-slate-800"
+          <label for="email" class="block mb-2 formLabel"
             >Commitment <span class="text-red-600">*</span></label
           >
           <select
@@ -113,9 +99,7 @@
         </div>
 
         <div class="mb-6">
-          <label
-            for="email"
-            class="block mb-2 text-sm font-normal text-slate-800"
+          <label for="email" class="block mb-2 formLabel"
             >Job Description <span class="text-red-600">*</span></label
           >
           <textarea
@@ -127,9 +111,7 @@
         </div>
 
         <div class="mb-6">
-          <label
-            for="email"
-            class="block mb-2 text-sm font-normal text-slate-800"
+          <label for="email" class="block mb-2 formLabel"
             >Salary <span class="text-slate-400">(optional)</span></label
           >
           <input

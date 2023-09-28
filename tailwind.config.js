@@ -12,6 +12,7 @@ export default {
         primaryDark: "#07406f",
         secondary: "#048785",
         secondaryDark: "#017771",
+        bgPrimary: "#F6EBE6",
       },
     },
 

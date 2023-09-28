@@ -1,8 +1,8 @@
 <template>
   <!-- FILTER & JOB CARD -->
-  <section class="myContainer my-5 pt-5">
-    <a href="#" class="btn-text"
-      ><i class="fa-solid fa-arrow-left me-2"></i>All Jobs</a
+  <section class="myContainer mb-5 pt-5 mt-24">
+    <router-link to="/" class="btn-text dark:text-secondary"
+      ><i class="fa-solid fa-arrow-left me-2"></i>All Jobs</router-link
     >
 
     <div
@@ -14,7 +14,7 @@
         <h1 class="heading">Engineering Management Delopment Experience</h1>
 
         <h4 class="pb-2 mt-6 heading-paragraph">The Role</h4>
-        <p class="description-text">
+        <p class="paragraph-primary text-justify">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis
           atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores
           iusto, perferendis quae perspiciatis blanditiis cum quaerat facilis
@@ -25,7 +25,7 @@
         </p>
 
         <h4 class="pb-2 mt-6 heading-paragraph">The Role</h4>
-        <p class="description-text">
+        <p class="paragraph-primary text-justify">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis
           atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores
           iusto, perferendis quae perspiciatis blanditiis cum quaerat facilis
@@ -36,7 +36,7 @@
         </p>
 
         <h4 class="pb-2 mt-6 heading-paragraph">The Role</h4>
-        <p class="description-text">
+        <p class="paragraph-primary text-justify">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis
           atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores
           iusto, perferendis quae perspiciatis blanditiis cum quaerat facilis
@@ -48,7 +48,7 @@
 
         <!-- Social Media -->
         <div class="flex gap-2 justify-end mt-8 pb-10">
-          <p class="description-text">Share Job</p>
+          <p class="paragraph-primary">Share Job</p>
           <div class="social-icon-body">
             <p class="absolute text-sm">
               <i class="fa-brands fa-twitter"></i>
@@ -87,7 +87,9 @@
 
       <!-- Right Company Details -->
       <div class="order-1 md:order-2">
-        <div class="bg-gray-200/50 border border-slate-300 p-6 rounded-lg">
+        <div
+          class="bg-gray-200/50 border border-slate-300 p-6 rounded-lg dark:bg-gray-700 dark:border-slate-500"
+        >
           <div class="text-center">
             <div
               class="mx-auto bg-secondary w-16 h-16 text-slate-100 text-base md:text-xl rounded-full flex justify-center relative items-center"
@@ -97,7 +99,7 @@
             <h2 class="heading mt-2">Medium Inc</h2>
           </div>
 
-          <div class="space-y-2 mt-6 text-slate-600 mb-10">
+          <div class="space-y-2 mt-6 text-slate-600 mb-10 dark:text-gray-300">
             <p>
               <i class="fa-regular fa-calendar-days me-2"></i>24 August, 2024
             </p>

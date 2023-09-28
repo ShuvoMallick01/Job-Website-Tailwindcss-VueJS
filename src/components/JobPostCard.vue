@@ -1,7 +1,7 @@
 <template>
   <router-link to="/jobdetails">
     <div
-      class="group/item md:flex justify-between border-b pb-5 mb-5 items-center lg:px-5 px-2 py-3 hover:bg-slate-100 cursor-pointer rounded-lg"
+      class="group/item md:flex justify-between border-b pb-5 mb-5 items-center lg:px-5 px-2 py-3 hover:bg-slate-100 cursor-pointer rounded-lg dark:border-b-slate-700 dark:hover:bg-gray-800"
     >
       <div class="flex items-center gap-4">
         <div
@@ -11,16 +11,24 @@
         </div>
 
         <div class="">
-          <p class="text-slate-500 text-xs md:text-sm mb-1">robinhood</p>
-          <h4 class="font-semibold text-slate-600 mb-2 md:text-lg text-sm">
+          <p class="text-slate-500 text-xs md:text-sm mb-1 dark:text-slate-400">
+            robinhood
+          </p>
+          <h4
+            class="font-semibold text-slate-600 mb-2 md:text-lg text-sm dark:text-slate-300"
+          >
             Senior Site Reliability Engineer
           </h4>
 
           <div class="flex gap-2">
-            <span class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded">
+            <span
+              class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded dark:bg-gray-300 dark:text-slate-700"
+            >
               Full Time
             </span>
-            <span class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded">
+            <span
+              class="text-xs bg-slate-200 text-slate-500 py-1 px-1 rounded dark:text-slate-700"
+            >
               Remote
             </span>
           </div>

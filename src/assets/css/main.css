@@ -2,6 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .font-secondary {
+    font-family: "Dancing Script", cursive;
+  }
+
+  h3 {
+    @apply font-medium text-slate-700 dark:text-slate-400;
+  }
+}
+
+@layer utilities {
+  /* Typography */
+  .sectionHeading {
+    @apply text-3xl font-bold text-primary mb-2 uppercase dark:text-secondary;
+  }
+  .sectionSubHeading {
+    @apply font-medium text-slate-700;
+  }
+  .formSubHeading {
+    @apply text-xl mb-5 font-semibold text-slate-800 dark:text-slate-300;
+  }
+  .formLabel {
+    @apply text-sm font-normal text-gray-600 dark:text-gray-400;
+  }
+  .heading {
+    @apply font-semibold text-2xl text-primary dark:text-gray-200;
+  }
+  .heading-paragraph {
+    @apply font-semibold text-lg text-slate-800 dark:text-gray-200;
+  }
+  .description-text {
+    @apply text-sm text-slate-600 dark:text-gray-300;
+  }
+  .paragraph-primary {
+    @apply text-sm text-gray-500 font-light  dark:text-gray-400;
+  }
+}
+
 @layer components {
   .myContainer {
     @apply container mx-auto px-4 sm:px-6 lg:px-8;
@@ -21,11 +59,11 @@
   }
 
   .btn-outline-primary {
-    @apply border-primary text-primary  hover:text-slate-100 hover:bg-primary cursor-pointer;
+    @apply border-primary text-primary  hover:text-slate-100 hover:bg-primary cursor-pointer dark:text-slate-200 dark:border-slate-200 dark:hover:bg-slate-200 dark:hover:text-slate-700;
   }
 
   .btn-primary {
-    @apply bg-primary text-slate-200 hover:bg-slate-100  hover:border-primary hover:text-primary cursor-pointer;
+    @apply bg-primary text-slate-200 hover:bg-slate-100  hover:border-primary hover:text-primary cursor-pointer dark:border-slate-200 dark:text-slate-700 dark:bg-slate-200 hover:dark:text-slate-200 hover:dark:bg-gray-800;
   }
 
   .btn-text {
@@ -41,22 +79,12 @@
   }
 
   .social-icon {
-    @apply bg-slate-200 text-primaryDark  h-7 w-7 rounded-full relative inset-0 flex justify-center items-center hover:bg-primaryDark hover:text-slate-200 transition300 cursor-pointer;
+    @apply bg-primary text-slate-100  h-7 w-7 rounded-full relative inset-0 flex justify-center items-center hover:bg-slate-100 hover:text-primary transition300 cursor-pointer;
   }
 
   .social-icon-body {
     @apply bg-secondary  text-white h-6 w-6 rounded-full relative inset-0 flex justify-center items-center hover:bg-primaryDark hover:text-slate-200 transition300 cursor-pointer;
   }
 
-  /* Typography */
-  .heading {
-    @apply font-semibold text-2xl text-primary;
-  }
-  .heading-paragraph {
-    @apply font-semibold text-lg text-slate-800;
-  }
-  .description-text {
-    @apply text-sm text-justify text-slate-600;
-  }
   /* Form */
 }

@@ -1,13 +1,11 @@
 <template>
   <!-- FILTER & JOB CARD -->
-  <section class="myContainer mt-16">
+  <section class="myContainer mt-32">
     <!-- Form -->
     <div class="mb-24 lg:px-32 lg:mx-32 2xl:px-52 2xl:mx-52">
       <div class="py-6 text-center">
-        <h1 class="text-4xl font-bold text-primary mb-2">
-          Sign up for an account
-        </h1>
-        <p class="text-gray-500 font-light text-sm">
+        <h1 class="sectionHeading mb-2">Sign up for an account</h1>
+        <p class="text-gray-500 font-light text-sm dark:text-slate-300">
           Already have an account?
           <router-link to="/login" class="underline"
             >Login to your account</router-link
@@ -26,7 +24,9 @@
 
         <div class="flex justify-between items-center">
           <hr class="border flex-grow" />
-          <p class="text-gray-500 font-light text-sm px-5">or sign in with</p>
+          <p class="text-gray-500 font-light text-sm px-5 dark:text-slate-400">
+            or sign in with
+          </p>
 
           <hr class="border flex-grow" />
         </div>
@@ -34,9 +34,7 @@
 
       <form>
         <div class="mb-6">
-          <label
-            for="email"
-            class="block mb-2 text-sm font-normal text-gray-600"
+          <label for="email" class="block mb-2 formLabel"
             >Name <span class="text-red-600">*</span></label
           >
           <input
@@ -49,9 +47,7 @@
         </div>
 
         <div class="mb-6">
-          <label
-            for="email"
-            class="block mb-2 text-sm font-normal text-gray-600"
+          <label for="email" class="block mb-2 formLabel"
             >Email <span class="text-red-600">*</span></label
           >
           <input
@@ -65,9 +61,7 @@
 
         <div class="mb-12">
           <div class="flex justify-between">
-            <label
-              for="email"
-              class="block mb-2 text-sm font-normal text-slate-800"
+            <label for="email" class="block mb-2 formLabel"
               >Password <span class="text-red-600">*</span></label
             >
           </div>

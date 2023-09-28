@@ -1,12 +1,19 @@
 <template>
   <nav
-    class="dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600"
+    class="bg-[#F6EBE6] dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600"
   >
     <div
       class="myContainer mx-auto flex flex-wrap items-center justify-between p-4"
     >
       <router-link to="/" class="flex items-center">
         <img
+          v-if="isDark"
+          src="../assets/images/logo-skyber-white.svg"
+          class="h-8 mr-3"
+          alt="Flowbite Logo"
+        />
+        <img
+          v-else
           src="../assets/images/logo-skyber.svg"
           class="h-8 mr-3"
           alt="Flowbite Logo"
@@ -22,7 +29,7 @@
           ></i>
           <i
             v-else
-            class="fa-solid fa-moon text-lg hover:bg-slate-200 bg-slate-100 px-4 py-2 rounded-md"
+            class="fa-solid fa-moon text-lg hover:bg-slate-100 px-4 py-2 rounded-md"
           ></i>
         </button>
 
