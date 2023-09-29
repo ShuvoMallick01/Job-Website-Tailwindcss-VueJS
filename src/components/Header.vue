@@ -80,7 +80,10 @@
           <li v-for="menuItem in menu" :key="menuItem">
             <router-link
               :to="menuItem.path"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 md:dark:hover:text-secondary dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondaryDark md:p-0 md:dark:hover:text-secondary dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              :class="
+                activeNav === menuItem.path ? 'text text-secondaryDark' : ''
+              "
               aria-current="page"
               >{{ menuItem.title }}</router-link
             >
@@ -92,9 +95,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import { initCollapses, initFlowbite } from "flowbite";
 import { useDark, useToggle, useElementHover } from "@vueuse/core";
+
+const route = useRoute();
+const router = useRouter();
 
 // State
 const menu = ref([
@@ -120,7 +127,6 @@ const menu = ref([
     private: false,
   },
 ]);
-
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 
@@ -129,4 +135,15 @@ const toggleDark = useToggle(isDark);
 onMounted(() => {
   initFlowbite();
 });
+
+const activeNav = computed(() => {
+  return route.path;
+});
+
+// console.log(route.fullPath);
+// // Methods
+// const handleActiveNavbar = computed(() => {
+//   activeNav = route.fullPath;
+// });
+// console.log(activeNav.value);
 </script>

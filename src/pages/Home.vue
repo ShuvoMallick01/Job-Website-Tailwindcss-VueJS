@@ -233,7 +233,7 @@
 
 <!-- FUNCTIONALITY -->
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import JobPostCard from "../components/JobPostCard.vue";
 
 // State
@@ -259,6 +259,4 @@ const salaryRangeCheckList = ref([
   { start: "100", end: "200", name: "100-200" },
   { start: "200", end: "infinity", name: "200-infinity" },
 ]);
-
-// Methods
 </script>

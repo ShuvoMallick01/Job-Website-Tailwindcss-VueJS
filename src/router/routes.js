@@ -9,6 +9,9 @@ import Registration from "../pages/Registration.vue";
 import UserProfile from "../pages/UserProfile.vue";
 import AdminProfile from "../pages/AdminProfile.vue";
 import JobApplyForm from "../pages/jobapplyform.vue";
+import NotFound from "../pages/NotFound.vue";
+import UserAppliedJobs from "../pagesProfile/UserAppliedJobs.vue";
+import UserProfileInfo from "../pagesProfile/UserProfileInfo.vue";
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -17,6 +20,7 @@ export const router = createRouter({
       path: "/",
       component: Home,
       name: "home",
+      alias: "/home",
     },
     {
       path: "/jobdetails",
@@ -47,11 +51,24 @@ export const router = createRouter({
       path: "/userprofile",
       component: UserProfile,
       name: "userprofile",
+      children: [
+        {
+          path: "appliedjobs",
+          component: UserAppliedJobs,
+          name: "appliedjobs",
+        },
+        {
+          path: "profile",
+          component: UserProfileInfo,
+          name: "userprofileinfo",
+        },
+      ],
     },
     {
       path: "/adminprofile",
       component: AdminProfile,
       name: "adminprofile",
     },
+    { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFound },
   ],
 });

@@ -29,7 +29,7 @@
         <div>
           <ul class="description-text">
             <li
-              class="px-2 py-2.5 border-s-2 border-s-white hover:bg-slate-100 hover:border-s-2 hover:border-s-primary cursor-pointer border-b transition300 dark:border-s-transparent dark:border-b-slate-600"
+              class="px-2 py-2.5 border-s-2 border-s-white hover:bg-slate-100 hover:border-s-2 hover:border-s-primary cursor-pointer border-b transition300 dark:border-s-transparent dark:border-b-slate-600 dark:hover:bg-gray-800 dark:hover:border-s-slate-400"
               v-for="nav in userNavList"
               :key="nav.id"
             >
