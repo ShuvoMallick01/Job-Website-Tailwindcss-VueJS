@@ -1,6 +1,6 @@
 # Job Website Vuejs
 
-Live: https://skyber-job-website-vuejs.netlify.app/
+Live: https://job-website-tailwindcss-vuejs.netlify.app
 
 This template should help get you started developing with Vue 3 in Vite.
 
