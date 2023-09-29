@@ -23,9 +23,7 @@
   .formSubHeading {
     @apply text-xl mb-5 font-semibold text-slate-800 dark:text-slate-300;
   }
-  .formLabel {
-    @apply text-sm font-normal text-gray-600 dark:text-gray-400;
-  }
+
   .heading {
     @apply font-semibold text-2xl text-primary dark:text-gray-200;
   }
@@ -37,6 +35,9 @@
   }
   .paragraph-primary {
     @apply text-sm text-gray-500 font-light  dark:text-gray-400;
+  }
+  .formLabel {
+    @apply text-sm font-normal text-gray-600 dark:text-gray-400;
   }
 }
 

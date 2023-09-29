@@ -49,7 +49,7 @@
             <span class="sr-only">Choose profile photo</span>
             <input
               type="file"
-              class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"
+              class="block formLabel w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"
             />
           </label>
         </div>
@@ -126,12 +126,7 @@
           >
         </div>
 
-        <button
-          type="submit"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
-        >
-          Post Job
-        </button>
+        <button type="submit" class="btn btn-primary w-full">Post Job</button>
       </form>
     </div>
   </section>

@@ -10,17 +10,17 @@
           v-if="isDark"
           src="../assets/images/logo-skyber-white.svg"
           class="h-8 mr-3"
-          alt="Flowbite Logo"
+          alt="Skyber Logo"
         />
         <img
           v-else
           src="../assets/images/logo-skyber.svg"
           class="h-8 mr-3"
-          alt="Flowbite Logo"
+          alt="Skyber Logo"
         />
       </router-link>
 
-      <div class="flex md:order-2 gap-2">
+      <div class="flex md:order-2 md:gap-2 gap-1">
         <button @click="toggleDark()" class="">
           <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
           <i
@@ -69,6 +69,7 @@
           </svg>
         </button>
       </div>
+
       <div
         class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
         id="navbar-sticky"
@@ -93,7 +94,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { initCollapses, initFlowbite } from "flowbite";
-import { useDark, useToggle } from "@vueuse/core";
+import { useDark, useToggle, useElementHover } from "@vueuse/core";
 
 // State
 const menu = ref([

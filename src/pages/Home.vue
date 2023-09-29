@@ -133,7 +133,11 @@
               v-for="jobtype in jobTypeCheckList"
               :key="jobtype"
             >
-              <input class="mr-2" type="checkbox" id="jobtype.id" />
+              <input
+                class="mr-2 focus:ring-0"
+                type="checkbox"
+                id="jobtype.id"
+              />
               <label class="" for="jobtype.id">{{ jobtype.title }}</label>
             </div>
           </div>
@@ -148,7 +152,11 @@
               v-for="jobRole in jobRolesCheckList"
               :key="jobRole"
             >
-              <input class="mr-2" type="checkbox" id="jobRole.id" />
+              <input
+                class="mr-2 focus:ring-0"
+                type="checkbox"
+                id="jobRole.id"
+              />
               <label class="" for="jobtype.id">{{ jobRole.title }}</label>
             </div>
           </div>
@@ -178,7 +186,11 @@
               v-for="salary in salaryRangeCheckList"
               :key="salary.name"
             >
-              <input class="mr-2" type="checkbox" id="salary.name" />
+              <input
+                class="mr-2 focus:ring-0"
+                type="checkbox"
+                id="salary.name"
+              />
               <label class="" for="jobtype.id"
                 >${{ salary.start }}k - ${{ salary.end }}k</label
               >

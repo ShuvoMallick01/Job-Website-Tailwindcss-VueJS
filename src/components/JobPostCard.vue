@@ -38,7 +38,7 @@
       <div class="flex items-center gap-2 ms-14 md:ms-0 md:mt-0 mt-4">
         <router-link
           to="/jobapplyform"
-          class="bg-secondary whitespace-nowrap text-slate-200 text-sm py-2 ps-3 pe-6 rounded-full border transition300 hover:bg-slate-100 hover:border-secondaryDark hover:text-secondaryDark group/apply invisible group-hover/item:visible transition300 relative"
+          class="bg-secondary whitespace-nowrap text-slate-200 text-sm py-2 ps-3 pe-6 rounded-full border transition300 hover:bg-slate-100 hover:border-secondaryDark hover:text-secondaryDark group/apply invisible group-hover/item:visible transition300 relative order-2 md:order-1"
           >Apply Now
           <span
             class="group-hover/apply:translate-x-1 absolute right-0 ps-2 mx-2 transition300"
@@ -46,7 +46,7 @@
           ></span>
         </router-link>
 
-        <p class="text-sm text-slate-400">3hr</p>
+        <p class="text-sm text-slate-400 order-1 md:order-2">3hr</p>
       </div>
     </div>
   </router-link>
