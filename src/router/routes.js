@@ -8,7 +8,7 @@ import Login from "../pages/Login.vue";
 import Registration from "../pages/Registration.vue";
 import UserProfile from "../pages/UserProfile.vue";
 import AdminProfile from "../pages/AdminProfile.vue";
-import JobApplyForm from "../pages/jobapplyform.vue";
+import JobApplyForm from "../pages/JobApplyForm.vue";
 import NotFound from "../pages/NotFound.vue";
 import UserAppliedJobs from "../pagesProfile/UserAppliedJobs.vue";
 import UserProfileInfo from "../pagesProfile/UserProfileInfo.vue";
