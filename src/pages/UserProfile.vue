@@ -29,20 +29,20 @@ const userNavList = ref([
   {
     title: "Profile",
     icon: "icon-default-user ",
-    path: "userProfile/profile",
+    path: "/userProfile/profile",
     id: 1,
   },
   { title: "My Resume", icon: "icon-file", path: "userProfile/profile", id: 2 },
   {
     title: "Saved Jobs",
     icon: "icon-default-user ",
-    path: "userProfile/profile",
+    path: "/userProfile/profile",
     id: 3,
   },
   {
     title: "Applied Jobs",
     icon: "icon-heart-default ",
-    path: "userProfile/appliedjobs",
+    path: "/userProfile/appliedjobs",
     id: 4,
   },
   {

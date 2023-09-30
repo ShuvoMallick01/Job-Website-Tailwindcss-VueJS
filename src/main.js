@@ -12,7 +12,7 @@ import Login from "./pages/Login.vue";
 import Registration from "./pages/Registration.vue";
 import UserProfile from "./pages/UserProfile.vue";
 import AdminProfile from "./pages/AdminProfile.vue";
-import JobApplyForm from "./pages/Jobapplyform.vue";
+import JobApplyForm from "./pages/JobApplyForm.vue";
 import Layout from "./components/Layout.vue";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
