@@ -37,7 +37,9 @@
 
       <div class="flex items-center gap-2 ms-14 md:ms-0 md:mt-0 mt-4">
         <router-link
+          v-if="jobApplyStatus"
           to="/jobapplyform"
+          disabled
           class="bg-secondary whitespace-nowrap text-slate-200 text-sm py-2 ps-3 pe-6 rounded-full border transition300 hover:bg-slate-100 hover:border-secondaryDark hover:text-secondaryDark group/apply invisible group-hover/item:visible transition300 relative order-2 md:order-1"
           >Apply Now
           <span
@@ -46,10 +48,30 @@
           ></span>
         </router-link>
 
+        <button v-else class="description-text">
+          <i class="icon-check"></i> Applied
+          <span
+            class="group-hover/apply:translate-x-1 absolute right-0 ps-2 mx-2 transition300"
+            ><i class="icon-arrow-single-right align-middle"></i
+          ></span>
+        </button>
+
         <p class="text-sm text-slate-400 order-1 md:order-2">3hr</p>
+        <button
+          class="md:order-3 text-white bg-secondary hover:bg-slate-300 hover:text-secondary h-8 w-8 rounded-full flex justify-center items-center transition-all"
+        >
+          <i class="icon-heart-default"></i>
+        </button>
       </div>
     </div>
   </router-link>
 </template>
 
-<script></script>
+<script setup>
+defineProps({
+  jobApplyStatus: {
+    type: Boolean,
+    required: true,
+  },
+});
+</script>

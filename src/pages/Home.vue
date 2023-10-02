@@ -127,7 +127,7 @@
         <!-- Job Type -->
         <div class="">
           <h3 class="sectionSubHeading mb-3">Job Type</h3>
-          <div class="paragraph-primary font-light space-y-1.5 text-sm">
+          <div class="paragraph-primary font-light space-y-2 text-sm">
             <div
               class="form-check"
               v-for="jobtype in jobTypeCheckList"
@@ -146,7 +146,7 @@
         <!-- Job Roles -->
         <div class="">
           <h3 class="sectionSubHeading mb-3">Job Role</h3>
-          <div class="paragraph-primary space-y-1.5">
+          <div class="paragraph-primary space-y-2">
             <div
               class="form-check"
               v-for="jobRole in jobRolesCheckList"
@@ -180,7 +180,7 @@
         <!-- Salary Range -->
         <div class="">
           <h3 class="sectionSubHeading mb-3">Salary Range</h3>
-          <div class="paragraph-primary font-light space-y-1.5 text-sm">
+          <div class="paragraph-primary font-light space-y-2 text-sm">
             <div
               class="form-check"
               v-for="salary in salaryRangeCheckList"
@@ -221,11 +221,11 @@
         class="col-span-2 border py-6 lg:px-5 px-3 rounded-lg bg-white dark:bg-gray-900 dark:border-slate-700"
       >
         <!-- Card -->
-        <JobPostCard></JobPostCard>
-        <JobPostCard></JobPostCard>
-        <JobPostCard></JobPostCard>
-        <JobPostCard></JobPostCard>
-        <JobPostCard></JobPostCard>
+        <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
+        <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
+        <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
+        <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
+        <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
       </div>
     </div>
   </section>
@@ -244,7 +244,6 @@ const jobTypeCheckList = ref([
   { title: "Contract/Freelance", id: "contract-freelance" },
   { title: "Co-founder", id: "cofounder" },
 ]);
-
 const jobRolesCheckList = ref([
   { title: "Programming", id: "programming" },
   { title: "Design", id: "design" },
@@ -252,11 +251,11 @@ const jobRolesCheckList = ref([
   { title: "Customer Support", id: "customerSupport" },
   { title: "Sales / Marketing", id: "sales-marketing" },
 ]);
-
 const salaryRangeCheckList = ref([
   { start: "20", end: "50", name: "20-50" },
   { start: "50", end: "10", name: "50-100" },
   { start: "100", end: "200", name: "100-200" },
   { start: "200", end: "infinity", name: "200-infinity" },
 ]);
+const jobApplyStatus = ref(true);
 </script>

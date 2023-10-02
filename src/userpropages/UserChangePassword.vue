@@ -1,7 +1,11 @@
 <template>
-  <h2 class="heading-paragraph mb-4">Profile</h2>
-  <!-- Card -->
+  <h2
+    class="heading-paragraph mb-5 border-b pb-4 uppercase dark:border-slate-600"
+  >
+    Job Alert
+  </h2>
 
+  <!-- Form -->
   <form>
     <div class="mb-6">
       <label
@@ -71,6 +75,4 @@
   </form>
 </template>
 
-<script setup>
-import JobPostCard from "../components/JobPostCard.vue";
-</script>
+<script setup></script>

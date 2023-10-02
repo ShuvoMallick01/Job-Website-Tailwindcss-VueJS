@@ -27,7 +27,7 @@
     @apply font-semibold text-2xl text-primary dark:text-gray-200;
   }
   .heading-paragraph {
-    @apply font-semibold text-lg text-gray-500 dark:text-gray-200;
+    @apply font-semibold text-lg text-gray-600 dark:text-gray-200;
   }
   .description-text {
     @apply text-sm text-slate-600 dark:text-gray-300;
@@ -67,7 +67,7 @@
   }
 
   .btn-text {
-    @apply text-primary font-medium hover:text-primaryDark cursor-pointer;
+    @apply text-primary font-medium hover:text-primaryDark cursor-pointer dark:text-secondary;
   }
 
   .transition300 {

@@ -10,8 +10,13 @@ import UserProfile from "../pages/UserProfile.vue";
 import AdminProfile from "../pages/AdminProfile.vue";
 import JobApplyForm from "../pages/JobApplyForm.vue";
 import NotFound from "../pages/NotFound.vue";
-import UserAppliedJobs from "../pagesProfile/UserAppliedJobs.vue";
-import UserProfileInfo from "../pagesProfile/UserProfileInfo.vue";
+import UserAppliedJobs from "../userpropages/UserAppliedJobs.vue";
+import UserProfileInfo from "../userpropages/UserProfileInfo.vue";
+import UserChangePassword from "../userpropages/UserChangePassword.vue";
+import UserCVManager from "../userpropages/UserCVManager.vue";
+import UserJobAlerts from "../userpropages/UserJobAlerts.vue";
+import UserResume from "../userpropages/UserResume.vue";
+import UserSavedJobs from "../userpropages/UserSavedJobs.vue";
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -53,14 +58,44 @@ export const router = createRouter({
       name: "userprofile",
       children: [
         {
-          path: "appliedjobs",
-          component: UserAppliedJobs,
-          name: "appliedjobs",
-        },
-        {
           path: "profile",
           component: UserProfileInfo,
           name: "userprofileinfo",
+        },
+        {
+          path: "",
+          component: UserProfileInfo,
+          name: "userprofileinfo",
+        },
+        {
+          path: "myresume",
+          component: UserResume,
+          name: "userresume",
+        },
+        {
+          path: "savedjobs",
+          component: UserSavedJobs,
+          name: "usersavedjobs",
+        },
+        {
+          path: "appliedjobs",
+          component: UserAppliedJobs,
+          name: "userappliedjobs",
+        },
+        {
+          path: "jobalerts",
+          component: UserJobAlerts,
+          name: "userjobalerts",
+        },
+        {
+          path: "cvmanager",
+          component: UserCVManager,
+          name: "usercvmanager",
+        },
+        {
+          path: "changepassword",
+          component: UserChangePassword,
+          name: "userchangepassword",
         },
       ],
     },
