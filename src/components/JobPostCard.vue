@@ -57,9 +57,7 @@
         </button>
 
         <p class="text-sm text-slate-400 order-1 md:order-2">3hr</p>
-        <button
-          class="md:order-3 text-white bg-secondary hover:bg-slate-300 hover:text-secondary h-8 w-8 rounded-full flex justify-center items-center transition-all"
-        >
+        <button class="md:order-3 btn-icon">
           <i class="icon-heart-default"></i>
         </button>
       </div>

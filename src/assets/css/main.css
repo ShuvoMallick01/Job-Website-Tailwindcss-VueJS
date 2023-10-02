@@ -29,8 +29,14 @@
   .heading-paragraph {
     @apply font-semibold text-lg text-gray-600 dark:text-gray-200;
   }
+  .heading-regular {
+    @apply font-medium text-slate-700 dark:text-slate-400;
+  }
   .description-text {
     @apply text-sm text-slate-600 dark:text-gray-300;
+  }
+  .description-sm-text {
+    @apply text-gray-500 font-light text-xs dark:text-gray-400;
   }
   .paragraph-primary {
     @apply text-sm text-gray-500 font-light  dark:text-gray-400;
@@ -70,6 +76,13 @@
     @apply text-primary font-medium hover:text-primaryDark cursor-pointer dark:text-secondary;
   }
 
+  .btn-sm-text {
+    @apply bg-gray-200 px-4 py-1 rounded-full font-light text-sm whitespace-nowrap;
+  }
+  .btn-icon {
+    @apply text-white bg-secondary hover:bg-slate-300 hover:text-secondary h-8 w-8 rounded-full flex justify-center items-center transition-all whitespace-nowrap flex-shrink-0;
+  }
+
   .transition300 {
     @apply transition-all duration-300;
   }
@@ -86,5 +99,8 @@
     @apply bg-secondary  text-white h-6 w-6 rounded-full relative inset-0 flex justify-center items-center hover:bg-primaryDark hover:text-slate-200 transition300 cursor-pointer;
   }
 
+  .btn-circle-icon {
+    @apply w-8 h-8 bg-secondary rounded-full flex justify-center items-center text-white;
+  }
   /* Form */
 }

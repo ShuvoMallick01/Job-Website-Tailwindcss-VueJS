@@ -62,11 +62,7 @@ export const router = createRouter({
           component: UserProfileInfo,
           name: "userprofileinfo",
         },
-        {
-          path: "",
-          component: UserProfileInfo,
-          name: "userprofileinfo",
-        },
+        { path: "", redirect: { name: "userprofileinfo" } },
         {
           path: "myresume",
           component: UserResume,
