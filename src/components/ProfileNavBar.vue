@@ -22,7 +22,7 @@
           :key="nav.id"
           :class="
             activeNav === nav.path
-              ? 'bg-slate-100 border-s-2 border-s-primary dark:border-s-slate-400 dark:bg-gray-800'
+              ? 'bg-slate-100 border-s-2 border-s-primaryDark dark:border-s-slate-400 dark:bg-gray-800'
               : ''
           "
         >
