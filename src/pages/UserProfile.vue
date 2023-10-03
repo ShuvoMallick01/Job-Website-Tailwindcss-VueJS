@@ -7,7 +7,11 @@
 
     <div class="grid grid-cols-3 gap-3 md:gap-6 lg:gap-10">
       <!-- LEFT -->
-      <ProfileNavBar :profileNavList="userNavList"></ProfileNavBar>
+      <ProfileNavBar
+        :profileInfo="userInfo"
+        :profileNavList="userNavList"
+        :activeNav="activeNav"
+      ></ProfileNavBar>
 
       <!-- RIGHT -->
       <div
@@ -19,10 +23,14 @@
   </section>
 </template>
 
+<!-- Functinality -->
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
+import { useRoute } from "vue-router";
 import ProfileNavBar from "../components/ProfileNavBar.vue";
 import UserAppliedJobs from "../userpropages/UserAppliedJobs.vue";
+
+const route = useRoute();
 
 // State
 const userNavList = ref([
@@ -69,4 +77,16 @@ const userNavList = ref([
     id: 6,
   },
 ]);
+const userInfo = ref({
+  id: 1,
+  name: "Shuvo Mallick",
+  designation: "Web Developer",
+  role: "user",
+  image: "../src/assets/images/user-profile-pic-1.jpg",
+});
+
+// Computed Function
+const activeNav = computed(() => {
+  return route.path;
+});
 </script>

@@ -118,12 +118,12 @@ const menu = ref([
 
   {
     title: "User",
-    path: "/userProfile",
+    path: "/userprofile",
     private: false,
   },
   {
     title: "Admin",
-    path: "/adminProfile",
+    path: "/admin-profile",
     private: false,
   },
 ]);
