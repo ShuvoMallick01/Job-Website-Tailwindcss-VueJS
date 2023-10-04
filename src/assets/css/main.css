@@ -13,7 +13,7 @@
 }
 
 @layer utilities {
-  /* Typography */
+  /* Typography Heading */
   .sectionHeading {
     @apply text-3xl font-bold text-primary mb-2 uppercase dark:text-secondary;
   }
@@ -36,6 +36,7 @@
     @apply font-normal text-base text-gray-900 dark:text-gray-400;
   }
 
+  /* Typography Description */
   .description-text {
     @apply text-sm text-slate-600 dark:text-gray-300;
   }
@@ -64,6 +65,7 @@
     background-image: linear-gradient(315deg, #aee1f9 0%, #f6ebe6 74%);
   }
 
+  /* Buttons */
   .btn {
     @apply px-6 border py-2 rounded-full hover:transition-all hover:duration-300 whitespace-nowrap;
   }
@@ -81,30 +83,33 @@
   }
 
   .btn-sm-text {
-    @apply bg-gray-200 px-4 py-1 rounded-full font-light text-sm whitespace-nowrap;
-  }
-  .btn-icon {
-    @apply text-primaryDark bg-secondaryLight hover:bg-secondary hover:text-white h-8 w-8 rounded-full flex justify-center items-center transition-all whitespace-nowrap flex-shrink-0;
+    @apply bg-gray-200 px-4 py-1 rounded-full font-light text-xs whitespace-nowrap;
   }
 
-  .transition300 {
-    @apply transition-all duration-300;
+  .btn-icon {
+    @apply text-primaryDark bg-secondaryLight hover:bg-secondary hover:text-white h-8 w-8 rounded-full flex justify-center items-center transition-all whitespace-nowrap flex-shrink-0;
   }
 
   .btn-sm {
     @apply bg-secondary whitespace-nowrap  text-slate-200 text-sm py-2 px-3 rounded-full border transition300 hover:bg-slate-100 hover:border-secondaryDark hover:text-secondaryDark;
   }
 
-  .social-icon {
-    @apply bg-primary text-slate-100  h-7 w-7 rounded-full relative inset-0 flex justify-center items-center hover:bg-slate-100 hover:text-primary transition300 cursor-pointer;
-  }
-
-  .social-icon-body {
-    @apply bg-secondary  text-white h-6 w-6 rounded-full relative inset-0 flex justify-center items-center hover:bg-primaryDark hover:text-slate-200 transition300 cursor-pointer;
-  }
-
   .btn-circle-icon {
     @apply w-8 h-8 bg-secondary rounded-full flex justify-center items-center text-white;
   }
-  /* Form */
+
+  .social-icon {
+    @apply bg-primaryLight text-primary  h-7 w-7 rounded-full relative inset-0 flex justify-center items-center hover:bg-primary hover:text-white transition300 cursor-pointer;
+  }
+
+  .social-icon-body {
+    @apply bg-primaryLight text-primary  h-7 w-7 rounded-full relative inset-0 flex justify-center items-center hover:bg-primary hover:text-white transition300 cursor-pointer;
+  }
+  /* /Buttons */
+
+  /* Animation */
+  .transition300 {
+    @apply transition-all duration-300;
+  }
+  /* / Animation */
 }

@@ -110,9 +110,8 @@
     </div>
   </section>
 
-  <!-- FILTER & JOB CARD -->
   <section class="myContainer mb-16">
-    <div class="py-14 text-center">
+    <div class="py-12 text-center">
       <h1 class="sectionHeading">FIND YOUR JOB</h1>
       <p class="description-text text-center">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit
@@ -120,105 +119,135 @@
     </div>
 
     <div class="grid grid-cols-3 gap-1 lg:gap-10 sm:gap-3">
-      <!-- Filter -->
-      <div
-        class="filter border py-6 lg:px-8 px-5 rounded-lg space-y-5 bg-white truncate dark:bg-gray-900 dark:border-slate-700"
-      >
-        <!-- Job Type -->
-        <div class="">
-          <h3 class="sectionSubHeading mb-3">Job Type</h3>
-          <div class="paragraph-primary font-light space-y-2 text-sm">
-            <div
-              class="form-check"
-              v-for="jobtype in jobTypeCheckList"
-              :key="jobtype"
-            >
-              <input
-                class="mr-2 focus:ring-0"
-                type="checkbox"
-                id="jobtype.id"
-              />
-              <label class="" for="jobtype.id">{{ jobtype.title }}</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Job Roles -->
-        <div class="">
-          <h3 class="sectionSubHeading mb-3">Job Role</h3>
-          <div class="paragraph-primary space-y-2">
-            <div
-              class="form-check"
-              v-for="jobRole in jobRolesCheckList"
-              :key="jobRole"
-            >
-              <input
-                class="mr-2 focus:ring-0"
-                type="checkbox"
-                id="jobRole.id"
-              />
-              <label class="" for="jobtype.id">{{ jobRole.title }}</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Remote Only -->
-        <div class="">
-          <h3 class="sectionSubHeading mb-3">Remote Only</h3>
-          <label class="relative inline-flex items-center cursor-pointer">
-            <input type="checkbox" value="" class="sr-only peer" checked />
-            <div
-              class="w-10 h-5 bg-gray-300 rounded-full peer peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.2 after:left-[0px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-800 peer-checked:bg-secondary"
-            ></div>
-            <span
-              class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >Off</span
-            >
-          </label>
-        </div>
-
-        <!-- Salary Range -->
-        <div class="">
-          <h3 class="sectionSubHeading mb-3">Salary Range</h3>
-          <div class="paragraph-primary font-light space-y-2 text-sm">
-            <div
-              class="form-check"
-              v-for="salary in salaryRangeCheckList"
-              :key="salary.name"
-            >
-              <input
-                class="mr-2 focus:ring-0"
-                type="checkbox"
-                id="salary.name"
-              />
-              <label class="" for="jobtype.id"
-                >${{ salary.start }}k - ${{ salary.end }}k</label
-              >
-            </div>
-          </div>
-        </div>
-
-        <!-- Location -->
-        <div class="">
-          <h3 class="font-medium text-slate-700 mb-3">Location</h3>
-          <select
-            id="countrys"
-            name="countrys"
-            class="w-full border px-1 py-1 font-light text-slate-500 focus:outline-none text-sm"
+      <!-- FILTER & JOB CARD -->
+      <div class="col-span-2 lg:col-span-1">
+        <button
+          data-drawer-target="default-sidebar"
+          data-drawer-toggle="default-sidebar"
+          aria-controls="default-sidebar"
+          type="button"
+          class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        >
+          <span class="sr-only">Open sidebar</span>
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <option value="volvo" class="disable disable:text-slate-400">
-              Anywhere
-            </option>
-            <option value="saab">Bangladesh</option>
-            <option value="fiat">United State</option>
-            <option value="audi">India</option>
-          </select>
-        </div>
+            <path
+              clip-rule="evenodd"
+              fill-rule="evenodd"
+              d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+            ></path>
+          </svg>
+        </button>
+
+        <aside
+          id="default-sidebar"
+          class="filter border py-6 lg:px-8 px-5 rounded-lg space-y-5 bg-white truncate dark:bg-gray-900 dark:border-slate-700 h-screen transition-transform -translate-x-full sm:translate-x-0"
+          aria-label="Sidebar"
+        >
+          <div
+            class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 space-y-8"
+          >
+            <!-- Job Type -->
+            <div class="">
+              <h3 class="sectionSubHeading mb-3">Job Type</h3>
+              <div class="paragraph-primary space-y-2">
+                <div
+                  class="form-check"
+                  v-for="jobtype in jobTypeCheckList"
+                  :key="jobtype"
+                >
+                  <input
+                    class="mr-2 focus:ring-0"
+                    type="checkbox"
+                    id="jobtype.id"
+                  />
+                  <label class="" for="jobtype.id">{{ jobtype.title }}</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Job Roles -->
+            <div class="">
+              <h3 class="sectionSubHeading mb-3">Job Role</h3>
+              <div class="paragraph-primary space-y-2">
+                <div
+                  class="form-check"
+                  v-for="jobRole in jobRolesCheckList"
+                  :key="jobRole"
+                >
+                  <input
+                    class="mr-2 focus:ring-0"
+                    type="checkbox"
+                    id="jobRole.id"
+                  />
+                  <label class="" for="jobtype.id">{{ jobRole.title }}</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Remote Only -->
+            <div class="">
+              <h3 class="sectionSubHeading mb-3">Remote Only</h3>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" value="" class="sr-only peer" checked />
+                <div
+                  class="w-10 h-5 bg-gray-300 rounded-full peer peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.2 after:left-[0px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-800 peer-checked:bg-secondary"
+                ></div>
+                <span
+                  class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >Off</span
+                >
+              </label>
+            </div>
+
+            <!-- Salary Range -->
+            <div class="">
+              <h3 class="sectionSubHeading mb-3">Salary Range</h3>
+              <div class="paragraph-primary font-light space-y-2 text-sm">
+                <div
+                  class="form-check"
+                  v-for="salary in salaryRangeCheckList"
+                  :key="salary.name"
+                >
+                  <input
+                    class="mr-2 focus:ring-0"
+                    type="checkbox"
+                    id="salary.name"
+                  />
+                  <label class="" for="jobtype.id"
+                    >${{ salary.start }}k - ${{ salary.end }}k</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="">
+              <h3 class="font-medium text-slate-700 mb-3">Location</h3>
+              <select
+                id="countrys"
+                name="countrys"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <option value="volvo" class="disable disable:text-slate-400">
+                  Anywhere
+                </option>
+                <option value="saab">Bangladesh</option>
+                <option value="fiat">United State</option>
+                <option value="audi">India</option>
+              </select>
+            </div>
+          </div>
+        </aside>
       </div>
 
-      <!-- Job Cards -->
       <div
-        class="col-span-2 border py-6 lg:px-5 px-3 rounded-lg bg-white dark:bg-gray-900 dark:border-slate-700"
+        class="col-span-3 lg:col-span-2 border py-6 lg:px-5 px-3 rounded-lg bg-white dark:bg-gray-900 dark:border-slate-700"
       >
         <!-- Card -->
         <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
@@ -234,6 +263,7 @@
 <!-- FUNCTIONALITY -->
 <script setup>
 import { ref, onMounted, computed } from "vue";
+import { initFlowbite } from "flowbite";
 import JobPostCard from "../components/JobPostCard.vue";
 
 // State
@@ -258,4 +288,9 @@ const salaryRangeCheckList = ref([
   { start: "200", end: "infinity", name: "200-infinity" },
 ]);
 const jobApplyStatus = ref(true);
+
+// Methods
+onMounted(() => {
+  initFlowbite();
+});
 </script>

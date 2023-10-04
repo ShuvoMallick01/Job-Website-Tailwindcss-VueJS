@@ -79,9 +79,9 @@
           <h1 class="heading pt-2 mb-8">Related Jobs</h1>
 
           <!-- card -->
-          <JobPostCard></JobPostCard>
-          <JobPostCard></JobPostCard>
-          <JobPostCard></JobPostCard>
+          <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
+          <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
+          <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
         </div>
       </div>
 
@@ -122,5 +122,9 @@
 
 <!-- FUNCTIONALITY -->
 <script setup>
+import { ref } from "vue";
 import JobPostCard from "../components/JobPostCard.vue";
+
+// State
+const jobApplyStatus = ref(true);
 </script>

@@ -121,6 +121,11 @@ const menu = ref([
     path: "/admin-profile",
     private: false,
   },
+  {
+    title: "Contact",
+    path: "/contact",
+    private: false,
+  },
 ]);
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
