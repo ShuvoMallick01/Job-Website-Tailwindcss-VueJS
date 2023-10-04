@@ -1,7 +1,7 @@
 <template>
   <!-- FILTER & JOB CARD -->
-  <section class="myContainer mb-16 mt-20">
-    <div class="py-10 text-center">
+  <section class="myContainerFuild mb-16 mt-20">
+    <div class="py-8 text-center">
       <h1 class="sectionHeading">USER PROFILE</h1>
     </div>
 

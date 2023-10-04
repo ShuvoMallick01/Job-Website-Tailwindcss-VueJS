@@ -30,8 +30,12 @@
     @apply font-semibold text-lg text-gray-600 dark:text-gray-200;
   }
   .heading-regular {
-    @apply font-medium text-slate-700 dark:text-slate-400;
+    @apply font-medium text-gray-700 dark:text-gray-400;
   }
+  .heading-message {
+    @apply font-normal text-base text-gray-900 dark:text-gray-400;
+  }
+
   .description-text {
     @apply text-sm text-slate-600 dark:text-gray-300;
   }
