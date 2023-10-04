@@ -110,11 +110,6 @@ const menu = ref([
     path: "/",
     private: false,
   },
-  {
-    title: "Job Post",
-    path: "/jobpost",
-    private: true,
-  },
 
   {
     title: "User",

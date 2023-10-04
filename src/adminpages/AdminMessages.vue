@@ -4,7 +4,7 @@
   <!-- Message -->
   <div class="grid grid-cols-3 gap-4 xl:gap-8">
     <!-- LEFT -->
-    <div class="invisible xl:visible bg-slate-100 rounded-lg">
+    <div class="hidden xl:block bg-slate-100 rounded-lg">
       <form class="p-4">
         <!-- Search -->
         <div class="relative">

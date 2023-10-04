@@ -7,7 +7,6 @@ import { createPinia } from "pinia";
 // Pages
 import Home from "./pages/Home.vue";
 import JobDetails from "./pages/JobDetails.vue";
-import JobPost from "./pages/JobPost.vue";
 import Login from "./pages/Login.vue";
 import Registration from "./pages/Registration.vue";
 import UserProfile from "./pages/UserProfile.vue";
@@ -23,7 +22,6 @@ const pinia = createPinia();
 app
   .component("Home", Home)
   .component("JobDetails", JobDetails)
-  .component("JobPost", JobPost)
   .component("Login", Login)
   .component("Registration", Registration)
   .component("UserProfile", UserProfile)
