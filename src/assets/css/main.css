@@ -18,7 +18,7 @@
     @apply text-3xl font-bold text-primary mb-2 uppercase dark:text-secondary;
   }
   .sectionSubHeading {
-    @apply font-medium text-slate-700;
+    @apply font-medium text-slate-700 uppercase text-lg;
   }
   .formSubHeading {
     @apply text-xl mb-5 font-semibold text-slate-800 dark:text-slate-300;
@@ -48,6 +48,11 @@
   }
   .formLabel {
     @apply text-sm font-normal text-gray-600 dark:text-gray-400;
+  }
+
+  /* Icon Effect */
+  .logoHover {
+    @apply hover:fill-slate-500/80 cursor-pointer transition300  hover:scale-x-90;
   }
 }
 

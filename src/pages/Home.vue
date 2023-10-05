@@ -16,7 +16,7 @@
   <!-- TRUSTED BY -->
   <section class="border-b dark:border-slate-600">
     <div
-      class="myContainer py-6 flex flex-wrap justify-between gap-6 lg:gap-3 fill-gray-400 items-center justify-items-center"
+      class="myContainer py-8 flex flex-wrap justify-between gap-6 lg:gap-3 fill-gray-400 items-center justify-items-center"
     >
       <p
         class="text-secondary text-center font-secondary text-xl w-full lg:w-20 whitespace-nowrap dark:text-slate-400"
@@ -24,7 +24,7 @@
         Tristed by
       </p>
 
-      <div class="">
+      <div class="logoHover">
         <svg
           class=""
           width="114"
@@ -40,7 +40,7 @@
 
       <div>
         <svg
-          class=""
+          class="logoHover"
           width="78"
           height="28"
           viewBox="0 0 83 30"
@@ -54,7 +54,7 @@
 
       <div>
         <svg
-          class=""
+          class="logoHover"
           width="116"
           height="36"
           viewBox="0 0 125 39"
@@ -68,7 +68,7 @@
 
       <div>
         <svg
-          class=""
+          class="logoHover"
           width="106"
           height="28"
           viewBox="0 0 113 30"
@@ -82,7 +82,7 @@
 
       <div>
         <svg
-          class=""
+          class="logoHover"
           width="99"
           height="30"
           viewBox="0 0 109 33"
@@ -96,7 +96,7 @@
 
       <div>
         <svg
-          class=""
+          class="logoHover"
           width="65"
           height="21"
           viewBox="0 0 65 21"
@@ -150,7 +150,7 @@
           aria-label="Sidebar"
         >
           <div
-            class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 space-y-8"
+            class="h-full px-3 py-4 overflow-y-auto 0 dark:bg-gray-800 space-y-8"
           >
             <!-- Job Type -->
             <div class="">
@@ -159,14 +159,14 @@
                 <div
                   class="form-check"
                   v-for="jobtype in jobTypeCheckList"
-                  :key="jobtype"
+                  :key="jobtype.id"
                 >
                   <input
                     class="mr-2 focus:ring-0"
                     type="checkbox"
-                    id="jobtype.id"
+                    :id="jobtype.id"
                   />
-                  <label class="" for="jobtype.id">{{ jobtype.title }}</label>
+                  <label class="" :for="jobtype.id">{{ jobtype.title }}</label>
                 </div>
               </div>
             </div>
@@ -178,14 +178,14 @@
                 <div
                   class="form-check"
                   v-for="jobRole in jobRolesCheckList"
-                  :key="jobRole"
+                  :key="jobRole.id"
                 >
                   <input
                     class="mr-2 focus:ring-0"
                     type="checkbox"
-                    id="jobRole.id"
+                    :id="jobRole.id"
                   />
-                  <label class="" for="jobtype.id">{{ jobRole.title }}</label>
+                  <label class="" :for="jobRole.id">{{ jobRole.title }}</label>
                 </div>
               </div>
             </div>
@@ -217,9 +217,9 @@
                   <input
                     class="mr-2 focus:ring-0"
                     type="checkbox"
-                    id="salary.name"
+                    :id="salary.name"
                   />
-                  <label class="" for="jobtype.id"
+                  <label class="" :for="salary.name"
                     >${{ salary.start }}k - ${{ salary.end }}k</label
                   >
                 </div>

@@ -15,6 +15,7 @@ import JobApplyForm from "./pages/JobApplyForm.vue";
 import Layout from "./components/Layout.vue";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
+import Contact from "./pages/Contact.vue";
 
 const app = createApp(App);
 const pinia = createPinia();
@@ -29,7 +30,8 @@ app
   .component("Layout", Layout)
   .component("Header", Header)
   .component("Footer", Footer)
-  .component("JobApplyForm", JobApplyForm);
+  .component("JobApplyForm", JobApplyForm)
+  .component("Contact", Contact);
 
 app.use(router);
 app.use(pinia);

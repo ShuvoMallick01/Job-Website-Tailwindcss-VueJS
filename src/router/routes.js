@@ -9,6 +9,7 @@ import UserProfile from "../pages/UserProfile.vue";
 import AdminProfile from "../pages/AdminProfile.vue";
 import JobApplyForm from "../pages/JobApplyForm.vue";
 import NotFound from "../pages/NotFound.vue";
+import Contact from "../pages/Contact.vue";
 // User Pages
 import UserAppliedJobs from "../userpropages/UserAppliedJobs.vue";
 import UserProfileInfo from "../userpropages/UserProfileInfo.vue";
@@ -40,6 +41,11 @@ export const router = createRouter({
       path: "/jobdetails",
       component: JobDetails,
       name: "jobdetails",
+    },
+    {
+      path: "/contact",
+      component: Contact,
+      name: "contact",
     },
 
     {
