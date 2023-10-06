@@ -5,7 +5,7 @@
       <h1 class="sectionHeading">CONTACT</h1>
     </div>
 
-    <div>
+    <div class="mb-24 lg:px-32 lg:mx-32 2xl:px-52 2xl:mx-52">
       <form>
         <div class="mb-6">
           <label
