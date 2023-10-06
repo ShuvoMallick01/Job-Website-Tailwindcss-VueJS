@@ -8,29 +8,21 @@
     <div class="mb-24 lg:px-32 lg:mx-32 2xl:px-52 2xl:mx-52">
       <form>
         <div class="mb-6">
-          <label
-            for="email"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Your email</label
-          >
+          <label for="email" class="block mb-2 formLabel">Your email</label>
           <input
             type="email"
             id="email"
-            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+            class="inputPrimary dark:focus:ring-none dark:focus:border-slate-500"
             placeholder="name@flowbite.com"
             required
           />
         </div>
 
-        <label
-          for="message"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Your message</label
-        >
+        <label for="message" class="block mb-2 formLabel">Your message</label>
         <textarea
           id="message"
           rows="4"
-          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          class="inputPrimary dark:focus:ring-none dark:focus:border-slate-500"
           placeholder="Leave a comment..."
         ></textarea>
 
