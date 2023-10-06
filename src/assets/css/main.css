@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* BASE */
 @layer base {
   .font-secondary {
     font-family: "Dancing Script", cursive;
@@ -12,6 +13,7 @@
   }
 }
 
+/* UTILITIES */
 @layer utilities {
   /* Typography Heading */
   .sectionHeading {
