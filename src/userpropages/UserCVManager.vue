@@ -10,9 +10,15 @@
         To upload file size is (Max 5Mb) and allowed file types are (.doc,
         .docx, .pdf)
       </p>
-      <button class="btn btn-primary">Upload Resume</button>
+      <button class="btn btn-primary relative overflow-hidden">
+        Upload Resume
+        <input
+          class="absolute cursor-pointer left-0 top-0 opacity-0"
+          id="resumeupload"
+          type="file"
+        />
+      </button>
     </form>
-    <!-- <input class="btn btn-primary" id="resumeupload" type="file" /> -->
   </div>
 
   <!-- Title -->
