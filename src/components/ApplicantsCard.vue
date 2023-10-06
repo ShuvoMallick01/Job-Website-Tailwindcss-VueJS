@@ -22,9 +22,9 @@
           >
         </div>
         <div class="flex gap-2 flex-wrap">
-          <p class="btn-sm-text description-sm-text">App</p>
-          <p class="btn-sm-text description-sm-text">Design</p>
-          <p class="btn-sm-text description-sm-text">Digital</p>
+          <p class="btn-sm-text">App</p>
+          <p class="btn-sm-text">Design</p>
+          <p class="btn-sm-text">Digital</p>
         </div>
       </div>
     </div>

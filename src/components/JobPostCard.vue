@@ -48,7 +48,8 @@
         </button>
 
         <p class="text-sm text-slate-400 order-1 md:order-2">3hr</p>
-        <button class="md:order-3 btn-icon">
+
+        <button class="group/heart md:order-3 btn-icon">
           <i class="icon-heart-default"></i>
         </button>
       </div>

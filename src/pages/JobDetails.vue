@@ -13,7 +13,7 @@
       >
         <h1 class="heading">Engineering Management Delopment Experience</h1>
 
-        <h4 class="pb-2 mt-6 heading-paragraph">The Role</h4>
+        <h4 class="pb-2 mt-6 heading-paragraph">The Role and Category</h4>
         <p class="paragraph-primary text-justify">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis
           atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores
@@ -24,7 +24,7 @@
           Ducimus.
         </p>
 
-        <h4 class="pb-2 mt-6 heading-paragraph">The Role</h4>
+        <h4 class="pb-2 mt-6 heading-paragraph">Responsibility</h4>
         <p class="paragraph-primary text-justify">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis
           atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores
@@ -35,7 +35,7 @@
           Ducimus.
         </p>
 
-        <h4 class="pb-2 mt-6 heading-paragraph">The Role</h4>
+        <h4 class="pb-2 mt-6 heading-paragraph">Rules</h4>
         <p class="paragraph-primary text-justify">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis
           atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores
@@ -75,17 +75,16 @@
         </div>
 
         <!-- Related Jobs -->
-        <div class="mt-6 pt-6 border-t border-slate-300 py-6">
-          <h1 class="heading pt-2 mb-8">Related Jobs</h1>
+        <div class="mt-6 pt-6 border-t border-slate-300 py-6 bg-white px-4">
+          <h1 class="heading pt-2 mb-8 px-6">Related Jobs</h1>
 
-          <!-- card -->
           <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
           <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
           <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
         </div>
       </div>
 
-      <!-- Right Company Details -->
+      <!-- RIGHT -->
       <div class="order-1 md:order-2">
         <div
           class="bg-gray-200/50 border border-slate-300 p-6 rounded-lg dark:bg-gray-700 dark:border-slate-500"
@@ -111,8 +110,15 @@
           </div>
 
           <div class="flex flex-col text-center gap-4">
-            <a class="btn btn-primary">Apply Now</a>
-            <a class="btn btn-outline-primary">Visit Website</a>
+            <router-link to="/login" class="btn btn-primary"
+              >Apply Now</router-link
+            >
+            <a
+              href="www.shuvomallick.com"
+              target="_blank"
+              class="btn btn-outline-primary"
+              >Visit Website</a
+            >
           </div>
         </div>
       </div>

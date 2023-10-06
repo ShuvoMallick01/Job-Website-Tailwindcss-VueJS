@@ -32,7 +32,22 @@
         </div>
       </div>
 
+      <!-- FORM -->
       <form>
+        <div class="mb-6">
+          <label for="countries" class="block mb-2 formLabel"
+            >Role <span class="text-red-600">*</span></label
+          >
+          <select
+            id="signinrole"
+            class="inputPrimary dark:focus:ring-none dark:focus:border-slate-500"
+          >
+            <option selected disabled value="">Select Role</option>
+            <option value="admin">Admin</option>
+            <option value="jobseeker">Job Seeker</option>
+          </select>
+        </div>
+
         <div class="mb-6">
           <label for="email" class="block mb-2 formLabel"
             >Name <span class="text-red-600">*</span></label
@@ -40,7 +55,7 @@
           <input
             type="text"
             id="name"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-2.5"
+            class="inputPrimary dark:focus:ring-none dark:focus:border-slate-500"
             placeholder="Your name"
             required
           />
@@ -53,7 +68,7 @@
           <input
             type="email"
             id="email"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-2.5"
+            class="inputPrimary dark:focus:ring-none dark:focus:border-slate-500"
             placeholder="email@email.com"
             required
           />
@@ -61,14 +76,14 @@
 
         <div class="mb-12">
           <div class="flex justify-between">
-            <label for="email" class="block mb-2 formLabel"
+            <label for="password" class="block mb-2 formLabel"
               >Password <span class="text-red-600">*</span></label
             >
           </div>
           <input
-            type="email"
-            id="email"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-2.5"
+            type="password"
+            id="password"
+            class="inputPrimary dark:focus:ring-none dark:focus:border-slate-500"
             placeholder="Password (min. 6 characters)"
             required
           />

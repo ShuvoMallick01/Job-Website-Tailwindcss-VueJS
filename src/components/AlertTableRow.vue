@@ -1,5 +1,6 @@
 <template>
   <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+    <!-- :v-for="data in alert" -->
     <td class="px-4 py-4">
       <input
         id="default-checkbox"
@@ -12,17 +13,33 @@
       scope="row"
       class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
     >
-      Accounting and Finance
+      {{ alertItem.jobTitle }} <br />
+      <div class="flex gap-2 flex-wrap mt-2">
+        <p class="btn-sm-text" v-for="subCat in alertItem.jobCategory">
+          {{ subCat }}
+        </p>
+      </div>
     </th>
     <td class="px-6 py-4">
-      Shuvo Mallick | B.Sc | Full time | Location: Chittagong
+      <span v-for="info in alertItem.applicantInfo"
+        >{{ info }}
+        {{
+          alertItem.applicantInfo[alertItem.applicantInfo.length - 1] === info
+            ? ""
+            : "| "
+        }}
+      </span>
     </td>
-    <td class="px-6 py-4">1 hr ago</td>
+    <td class="px-6 py-4">{{ alertItem.times }} ago</td>
 
     <td class="px-6 py-4 flex gap-1">
-      <a href="#" class="btn-icon"><i class="icon-trash"></i></a>
+      <span v-for="action in alertItem.actions">
+        <a href="#" class="btn-icon"><i :class="action.icon"></i></a>
+      </span>
     </td>
   </tr>
 </template>
 
-<script setup></script>
+<script setup>
+defineProps(["alertItem"]);
+</script>

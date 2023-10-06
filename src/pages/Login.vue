@@ -1,7 +1,6 @@
 <template>
   <!-- FILTER & JOB CARD -->
   <section class="myContainer mt-32">
-    <!-- Form -->
     <div class="mb-24 lg:px-32 lg:mx-32 2xl:px-52 2xl:mx-52">
       <div class="py-6 text-center">
         <h1 class="sectionHeading mb-2">Welcome Back</h1>
@@ -32,7 +31,36 @@
         </div>
       </div>
 
+      <!-- Form -->
       <form>
+        <!-- <div class="flex my-8 gap-4 items-center">
+          <label for="email" class="block mb-2 formLabel"
+            >Sign In Role:<span class="text-red-600">*</span></label
+          >
+
+          <button class="btn btn-primary">
+            <i class="icon-check-people me-2"></i>Admin
+          </button>
+
+          <button class="btn btn-primary">
+            <i class="icon-default-user me-2"></i>Job Seeker
+          </button>
+        </div> -->
+
+        <div class="mb-6">
+          <label for="countries" class="block mb-2 formLabel"
+            >Role <span class="text-red-600">*</span></label
+          >
+          <select
+            id="signinrole"
+            class="inputPrimary dark:focus:ring-none dark:focus:border-slate-500"
+          >
+            <option selected disabled value="">Select Role</option>
+            <option value="admin">Admin</option>
+            <option value="jobseeker">Job Seeker</option>
+          </select>
+        </div>
+
         <div class="mb-6">
           <label for="email" class="block mb-2 formLabel"
             >Email <span class="text-red-600">*</span></label
@@ -40,7 +68,7 @@
           <input
             type="email"
             id="email"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-2.5"
+            class="inputPrimary dark:focus:ring-none dark:focus:border-slate-500"
             placeholder="email@email.com"
             required
           />
@@ -48,7 +76,7 @@
 
         <div class="mb-12">
           <div class="flex justify-between">
-            <label for="email" class="block mb-2 formLabel"
+            <label for="password" class="block mb-2 formLabel"
               >Password <span class="text-red-600">*</span></label
             >
             <p
@@ -58,9 +86,9 @@
             </p>
           </div>
           <input
-            type="email"
-            id="email"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-2.5"
+            type="password"
+            id="password"
+            class="inputPrimary dark:focus:ring-none dark:focus:border-slate-500"
             placeholder="Password (min. 6 characters)"
             required
           />

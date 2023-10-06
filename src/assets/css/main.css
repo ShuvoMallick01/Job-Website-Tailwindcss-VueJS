@@ -46,13 +46,19 @@
   .paragraph-primary {
     @apply text-sm text-gray-500 font-light  dark:text-gray-400;
   }
-  .formLabel {
-    @apply text-sm font-normal text-gray-600 dark:text-gray-400;
-  }
 
   /* Icon Effect */
   .logoHover {
     @apply hover:fill-slate-500/80 cursor-pointer transition300  hover:scale-x-90;
+  }
+
+  /* Form */
+  .formLabel {
+    @apply text-sm font-normal text-gray-600 dark:text-gray-400;
+  }
+
+  .inputPrimary {
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-0 focus:ring-0 focus:border-slate-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-0;
   }
 }
 
@@ -88,7 +94,7 @@
   }
 
   .btn-sm-text {
-    @apply bg-gray-200 px-4 py-1 rounded-full font-light text-xs whitespace-nowrap;
+    @apply bg-gray-200 text-gray-700 px-4 py-1 rounded-full font-light text-xs whitespace-nowrap dark:bg-gray-500 dark:text-gray-300;
   }
 
   .btn-icon {
