@@ -190,11 +190,7 @@
         class="col-span-3 lg:col-span-2 border py-6 lg:px-5 px-3 rounded-lg bg-white dark:bg-gray-900 dark:border-slate-700"
       >
         <!-- Card -->
-        <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
-        <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
-        <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
-        <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
-        <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
+        <JobPostCard :jobList="jobList"></JobPostCard>
       </div>
     </div>
   </section>
@@ -240,7 +236,73 @@ const locationList = ref([
   { title: "Europe", value: "europe" },
 ]);
 
-const jobApplyStatus = ref(true);
+const jobList = ref([
+  {
+    id: 1,
+    companyName: "Facebook",
+    jobTitle: "Senior Ract Developer",
+    isRemote: true,
+    jobType: "Full time",
+    jobRole: "Programming",
+    location: "Bangladesh",
+    createdAt: "3hr ago",
+    salary: "2000",
+    jobApplyStatus: false,
+    adminId: 1,
+  },
+  {
+    id: 2,
+    companyName: "Facebook",
+    jobTitle: "Senior Ract Developer",
+    isRemote: true,
+    jobType: "Full time",
+    jobRole: "Programming",
+    location: "Bangladesh",
+    createdAt: "3hr ago",
+    salary: "2000",
+    jobApplyStatus: false,
+    adminId: 1,
+  },
+  {
+    id: 3,
+    companyName: "Facebook",
+    jobTitle: "Senior Ract Developer",
+    isRemote: true,
+    jobType: "Full time",
+    jobRole: "Programming",
+    location: "Bangladesh",
+    createdAt: "3hr ago",
+    salary: "2000",
+    jobApplyStatus: false,
+    adminId: 1,
+  },
+  {
+    id: 4,
+    companyName: "Facebook",
+    jobTitle: "Senior Ract Developer",
+    isRemote: true,
+    jobType: "Full time",
+    jobRole: "Programming",
+    location: "Bangladesh",
+    createdAt: "3hr ago",
+    salary: "2000",
+    jobApplyStatus: false,
+    adminId: 1,
+  },
+  {
+    id: 5,
+    companyName: "Facebook",
+    jobTitle: "Senior Ract Developer",
+    isRemote: true,
+    jobType: "Full time",
+    jobRole: "Programming",
+    location: "Bangladesh",
+    createdAt: "3hr ago",
+    salary: "2000",
+    jobApplyStatus: false,
+    adminId: 1,
+  },
+]);
 
 // Methods
 // onMounted(() => {

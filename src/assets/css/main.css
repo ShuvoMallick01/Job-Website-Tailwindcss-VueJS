@@ -96,10 +96,6 @@
     @apply text-primary font-medium hover:text-primaryDark cursor-pointer dark:text-secondary;
   }
 
-  .btn-sm-text {
-    @apply bg-gray-200 text-gray-700 px-4 py-1 rounded-full font-light text-xs whitespace-nowrap dark:bg-gray-500 dark:text-gray-300;
-  }
-
   .btn-icon {
     @apply text-primaryDark bg-secondaryLight hover:bg-secondary hover:text-white h-8 w-8 rounded-full flex justify-center items-center transition-all whitespace-nowrap flex-shrink-0;
   }
@@ -108,14 +104,20 @@
     @apply bg-secondary whitespace-nowrap  text-slate-200 text-sm py-2 px-3 rounded-full border transition300 hover:bg-slate-100 hover:border-secondaryDark hover:text-secondaryDark;
   }
 
+  /* delete */
+  .btn-sm-text {
+    @apply bg-gray-200 text-gray-700 px-4 py-1 rounded-full font-light text-xs whitespace-nowrap dark:bg-gray-500 dark:text-gray-300;
+  }
+
+  /* delete */
   .btn-circle-icon {
     @apply w-8 h-8 bg-secondary rounded-full flex justify-center items-center text-white;
   }
-
+  /* delete */
   .social-icon {
     @apply bg-primaryLight text-primary  h-7 w-7 rounded-full relative inset-0 flex justify-center items-center hover:bg-primary hover:text-white transition300 cursor-pointer;
   }
-
+  /* delete */
   .social-icon-body {
     @apply bg-primaryLight text-primary  h-7 w-7 rounded-full relative inset-0 flex justify-center items-center hover:bg-primary hover:text-white transition300 cursor-pointer;
   }

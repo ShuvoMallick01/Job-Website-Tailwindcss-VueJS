@@ -9,11 +9,11 @@
 </template>
 
 <script setup>
-defineProps({
-  checkList: {
-    type: Array,
-    default: [],
-    required: true,
-  },
-});
+// defineProps({
+//   checkList: {
+//     type: Array,
+//     default: [],
+//     required: true,
+//   },
+// });
 </script>
