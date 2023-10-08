@@ -111,6 +111,7 @@
   </section>
 
   <section class="myContainer mb-16">
+    <!-- Header -->
     <div class="py-12 text-center">
       <h1 class="sectionHeading">FIND YOUR JOB</h1>
       <p class="description-text text-center">
@@ -155,92 +156,31 @@
             <!-- Job Type -->
             <div class="">
               <h3 class="sectionSubHeading mb-3">Job Type</h3>
-              <div class="paragraph-primary space-y-2">
-                <div
-                  class="form-check"
-                  v-for="jobtype in jobTypeCheckList"
-                  :key="jobtype.id"
-                >
-                  <input
-                    class="mr-2 focus:ring-0"
-                    type="checkbox"
-                    :id="jobtype.id"
-                  />
-                  <label class="" :for="jobtype.id">{{ jobtype.title }}</label>
-                </div>
-              </div>
+              <FormCheckInput :checkList="jobTypeCheckList" />
             </div>
 
             <!-- Job Roles -->
             <div class="">
               <h3 class="sectionSubHeading mb-3">Job Role</h3>
-              <div class="paragraph-primary space-y-2">
-                <div
-                  class="form-check"
-                  v-for="jobRole in jobRolesCheckList"
-                  :key="jobRole.id"
-                >
-                  <input
-                    class="mr-2 focus:ring-0"
-                    type="checkbox"
-                    :id="jobRole.id"
-                  />
-                  <label class="" :for="jobRole.id">{{ jobRole.title }}</label>
-                </div>
-              </div>
+              <FormCheckInput :checkList="jobRolesCheckList" />
             </div>
 
             <!-- Remote Only -->
             <div class="">
               <h3 class="sectionSubHeading mb-3">Remote Only</h3>
-              <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" value="" class="sr-only peer" checked />
-                <div
-                  class="w-10 h-5 bg-gray-300 rounded-full peer peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.2 after:left-[0px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-800 peer-checked:bg-secondary"
-                ></div>
-                <span
-                  class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"
-                  >Off</span
-                >
-              </label>
+              <FormCheckboxInput />
             </div>
 
             <!-- Salary Range -->
             <div class="">
               <h3 class="sectionSubHeading mb-3">Salary Range</h3>
-              <div class="paragraph-primary font-light space-y-2 text-sm">
-                <div
-                  class="form-check"
-                  v-for="salary in salaryRangeCheckList"
-                  :key="salary.name"
-                >
-                  <input
-                    class="mr-2 focus:ring-0"
-                    type="checkbox"
-                    :id="salary.name"
-                  />
-                  <label class="" :for="salary.name"
-                    >${{ salary.start }}k - ${{ salary.end }}k</label
-                  >
-                </div>
-              </div>
+              <FormCheckInput :checkList="salaryRangeCheckList" />
             </div>
 
             <!-- Location -->
             <div class="">
               <h3 class="font-medium text-slate-700 mb-3">Location</h3>
-              <select
-                id="countrys"
-                name="countrys"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              >
-                <option value="volvo" class="disable disable:text-slate-400">
-                  Anywhere
-                </option>
-                <option value="saab">Bangladesh</option>
-                <option value="fiat">United State</option>
-                <option value="audi">India</option>
-              </select>
+              <FormSelect :optionList="locationList" />
             </div>
           </div>
         </aside>
@@ -265,32 +205,45 @@
 import { ref, onMounted, computed } from "vue";
 import { initFlowbite } from "flowbite";
 import JobPostCard from "../components/JobPostCard.vue";
+import FormCheckInput from "../components/form/FormCheckInput.vue";
+import FormCheckboxInput from "../components/form/FormCheckboxInput.vue";
+import FormSelect from "../components/form/FormSelect.vue";
 
 // State
 const jobTypeCheckList = ref([
-  { title: "Full-time", id: "fulltime" },
-  { title: "Part-time", id: "partime" },
-  { title: "Internship", id: "internship" },
-  { title: "Contract/Freelance", id: "contract-freelance" },
-  { title: "Co-founder", id: "cofounder" },
+  { title: "Full-time", name: "fulltime" },
+  { title: "Part-time", name: "partime" },
+  { title: "Internship", name: "internship" },
+  { title: "Contract/Freelance", name: "contract-freelance" },
+  { title: "Co-founder", name: "cofounder" },
 ]);
 const jobRolesCheckList = ref([
-  { title: "Programming", id: "programming" },
-  { title: "Design", id: "design" },
-  { title: "Management / Finance", id: "management-finance" },
-  { title: "Customer Support", id: "customerSupport" },
-  { title: "Sales / Marketing", id: "sales-marketing" },
+  { title: "Programming", name: "programming" },
+  { title: "Design", name: "design" },
+  { title: "Management / Finance", name: "management-finance" },
+  { title: "Customer Support", name: "customerSupport" },
+  { title: "Sales / Marketing", name: "sales-marketing" },
 ]);
 const salaryRangeCheckList = ref([
-  { start: "20", end: "50", name: "20-50" },
-  { start: "50", end: "10", name: "50-100" },
-  { start: "100", end: "200", name: "100-200" },
-  { start: "200", end: "infinity", name: "200-infinity" },
+  { title: "$10k - $50k", name: "10-50" },
+  { title: "$50k - $100k", name: "50-100" },
+  { title: "$100k - $200k", name: "100-200" },
+  { title: "$100k - Infinity", name: "200-infinity" },
 ]);
+
+const locationList = ref([
+  { title: "Choose a country", value: "" },
+  { title: "Bangladesh", value: "bangladesh" },
+  { title: "India", value: "india" },
+  { title: "United State", value: "unitedstate" },
+  { title: "Canada", value: "canada" },
+  { title: "Europe", value: "europe" },
+]);
+
 const jobApplyStatus = ref(true);
 
 // Methods
-onMounted(() => {
-  initFlowbite();
-});
+// onMounted(() => {
+//   initFlowbite();
+// });
 </script>

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* BASE */
+/* ==== BASE ==== */
 @layer base {
   .font-secondary {
     font-family: "Dancing Script", cursive;
@@ -13,8 +13,21 @@
   }
 }
 
-/* UTILITIES */
+/* ==== UTILITIES ==== */
 @layer utilities {
+  .myContainer {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .myContainerFuild {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .gradient {
+    background-color: #aee1f9;
+    background-image: linear-gradient(315deg, #aee1f9 0%, #f6ebe6 74%);
+  }
+
   /* Typography Heading */
   .sectionHeading {
     @apply text-3xl font-bold text-primary mb-2 uppercase dark:text-secondary;
@@ -64,21 +77,8 @@
   }
 }
 
-/* COMPONENT */
+/* === COMPONENT === */
 @layer components {
-  .myContainer {
-    @apply container mx-auto px-4 sm:px-6 lg:px-8;
-  }
-
-  .myContainerFuild {
-    @apply px-4 sm:px-6 lg:px-8;
-  }
-
-  .gradient {
-    background-color: #aee1f9;
-    background-image: linear-gradient(315deg, #aee1f9 0%, #f6ebe6 74%);
-  }
-
   /* Buttons */
   .btn {
     @apply px-6 border py-2 rounded-full hover:transition-all hover:duration-300 whitespace-nowrap;

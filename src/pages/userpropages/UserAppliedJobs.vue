@@ -11,8 +11,9 @@
 </template>
 
 <script setup>
-import JobPostCard from "../components/JobPostCard.vue";
+import JobPostCard from "../../components/JobPostCard.vue";
 import { ref } from "vue";
 
+// State
 const jobApplyStatus = ref(false);
 </script>

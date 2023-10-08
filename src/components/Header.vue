@@ -113,7 +113,7 @@ const menu = ref([
 
   {
     title: "User",
-    path: "/userprofile",
+    path: "/user-profile",
     private: false,
   },
   {

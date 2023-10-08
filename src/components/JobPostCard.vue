@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/jobdetails">
+  <router-link to="/job-details">
     <div
       class="group/item md:flex justify-between border-b pb-5 mb-5 items-center lg:px-5 px-2 py-3 hover:bg-slate-100 cursor-pointer rounded-lg dark:border-b-slate-700 dark:hover:bg-gray-800"
     >
@@ -29,7 +29,7 @@
       <div class="flex items-center gap-2 xl:gap-4 ms-14 md:ms-0 md:mt-0 mt-4">
         <router-link
           v-if="jobApplyStatus"
-          to="/login"
+          to="/job-apply-form"
           disabled
           class="bg-secondary whitespace-nowrap text-slate-200 text-sm py-2 ps-3 pe-6 rounded-full border transition300 hover:bg-slate-100 hover:border-secondaryDark hover:text-secondaryDark group/apply invisible group-hover/item:visible transition300 relative order-2 md:order-1"
           >Apply Now

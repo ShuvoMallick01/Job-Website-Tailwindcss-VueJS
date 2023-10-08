@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref, provide } from "vue";
-import AlertTable from "../components/AlertTable.vue";
+import AlertTable from "../../components/AlertTable.vue";
 
 // State
 const fieldList = ref(["Job Title", "Criteria", "Created", "Action"]);

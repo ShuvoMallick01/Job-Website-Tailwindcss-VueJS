@@ -10,5 +10,5 @@
 </template>
 
 <script setup>
-import PasswordChangeForm from "../components/PasswordChangeForm.vue";
+import PasswordChangeForm from "../../components/PasswordChangeForm.vue";
 </script>

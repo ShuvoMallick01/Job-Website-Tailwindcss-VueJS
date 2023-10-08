@@ -150,11 +150,7 @@
 
       <!-- Location  -->
       <div class="mb-6">
-        <label
-          for="location"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Location:</label
-        >
+        <label for="location" class="formlabel">Location:</label>
         <select id="location" class="inputPrimary" required>
           <option value="" selected disabled>Select</option>
           <option value="unitedstate">United Sate</option>

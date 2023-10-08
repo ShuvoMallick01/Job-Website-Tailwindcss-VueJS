@@ -28,7 +28,6 @@
 import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 import ProfileNavBar from "../components/ProfileNavBar.vue";
-import UserAppliedJobs from "../userpropages/UserAppliedJobs.vue";
 
 const route = useRoute();
 

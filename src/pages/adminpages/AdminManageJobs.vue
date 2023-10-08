@@ -52,5 +52,5 @@
 </template>
 
 <script setup>
-import JobManageTableRow from "../components/JobManageTableRow.vue";
+import JobManageTableRow from "../../components/JobManageTableRow.vue";
 </script>

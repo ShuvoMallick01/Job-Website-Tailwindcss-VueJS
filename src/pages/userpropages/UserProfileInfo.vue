@@ -200,5 +200,5 @@
 </template>
 
 <script setup>
-import JobPostCard from "../components/JobPostCard.vue";
+import JobPostCard from "../../components/JobPostCard.vue";
 </script>
