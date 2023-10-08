@@ -69,7 +69,7 @@
 
   /* Form */
   .formLabel {
-    @apply text-sm font-normal text-gray-600 dark:text-gray-400;
+    @apply text-sm font-medium text-gray-600 dark:text-white;
   }
 
   .inputPrimary {

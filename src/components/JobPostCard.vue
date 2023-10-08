@@ -23,7 +23,7 @@
       </div>
 
       <div class="flex items-center gap-2 xl:gap-4 ms-14 md:ms-0 md:mt-0 mt-4">
-        <BtnApply :title="'Apply Now'" v-if="item.jobApplyStatus" />
+        <BtnApply :title="'Apply Now'" v-if="!item.jobApplyStatus" />
         <BtnText v-else :icon="'icon-check'" :title="'Applied'" />
 
         <p class="text-sm text-slate-400 order-1 md:order-2">

@@ -1,26 +1,22 @@
 <template>
-  <!-- FILTER & JOB CARD -->
-  <section class="myContainerFuild mb-16 mt-20">
-    <div class="py-8 text-center">
+  <LayoutDashboard>
+    <!-- Title -->
+    <template v-slot:pageTitle>
       <h1 class="sectionHeading">USER PROFILE</h1>
-    </div>
+    </template>
 
-    <div class="grid grid-cols-3 gap-3 md:gap-6 lg:gap-10">
-      <!-- LEFT -->
+    <!-- LEFT -->
+    <template v-slot:leftNavBar>
       <ProfileNavBar
         :profileInfo="userInfo"
         :profileNavList="userNavList"
         :activeNav="activeNav"
       ></ProfileNavBar>
+    </template>
 
-      <!-- RIGHT -->
-      <div
-        class="col-span-3 md:col-span-2 border py-7 px-8 lg:px-8 xl:px-10 rounded-lg bg-white dark:bg-gray-900 dark:border-slate-700"
-      >
-        <router-view></router-view>
-      </div>
-    </div>
-  </section>
+    <!-- RIGHT -->
+    <router-view></router-view>
+  </LayoutDashboard>
 </template>
 
 <!-- Functinality -->
@@ -28,7 +24,7 @@
 import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 import ProfileNavBar from "../components/ProfileNavBar.vue";
-import UserAppliedJobs from "./userpropages/UserAppliedJobs.vue";
+import LayoutDashboard from "../components/LayoutDashboard.vue";
 
 const route = useRoute();
 

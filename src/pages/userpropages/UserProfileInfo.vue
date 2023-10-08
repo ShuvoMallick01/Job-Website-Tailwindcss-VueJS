@@ -5,194 +5,50 @@
 
   <form>
     <div class="md:grid grid-cols-2 gap-5">
-      <div class="mb-6">
-        <!-- Name -->
-        <label
-          for="name"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Your Name:</label
-        >
-        <input
-          type="text"
-          id="name"
-          class="inputPrimary"
-          placeholder="Ex.: Shuvo Mallick, John Smit"
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[0]" />
 
       <!-- Profession -->
-      <div class="mb-6">
-        <label
-          for="profession"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Professional title:</label
-        >
-        <input
-          type="text"
-          id="profession"
-          class="inputPrimary"
-          placeholder="Ex.: Web Developer"
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[1]" />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Language -->
-      <div class="mb-6">
-        <label
-          for="language"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Language:</label
-        >
-        <input
-          type="text"
-          id="language"
-          class="inputPrimary"
-          placeholder="Ex.: Web Developer"
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[2]" />
 
       <!-- Age -->
-      <div class="mb-6">
-        <label
-          for="age"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Age:</label
-        >
-        <input
-          type="text"
-          id="age"
-          class="inputPrimary"
-          placeholder="Ex.: 30, 28"
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[3]" />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Current Salary ($) -->
-      <div class="mb-6">
-        <label
-          for="currentsalary"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Current Salary ($):</label
-        >
-        <input
-          type="text"
-          id="currentsalary"
-          class="inputPrimary"
-          placeholder="Ex.: $2000"
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[4]" />
 
       <!-- Expected Salary -->
-      <div class="mb-6">
-        <label
-          for="expectedsalary"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Expected Salary:</label
-        >
-        <input
-          type="text"
-          id="expectedsalary"
-          class="inputPrimary"
-          placeholder="Ex.: $3500"
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[5]" />
     </div>
 
     <!-- Description -->
-    <div class="mb-6">
-      <label
-        for="description"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Description:</label
-      >
-      <textarea
-        type="text"
-        rows="4"
-        id="description"
-        class="inputPrimary"
-        placeholder="About Your Self .."
-        required
-      />
-    </div>
+
+    <FormTextarea :formTextarea="formTextareaList[0]" />
 
     <h2 class="heading-paragraph mb-5 border-b pb-4 mt-10 uppercase">
       CONTACT INFORMATION
     </h2>
 
     <div class="md:grid grid-cols-2 gap-5">
-      <!-- Current Salary ($) -->
-      <div class="mb-6">
-        <label
-          for="phone"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Phone:</label
-        >
-        <input
-          type="number"
-          id="phone"
-          class="inputPrimary"
-          placeholder="Ex.: +1 123 450 7890"
-          required
-        />
-      </div>
+      <!-- Phone -->
+      <FormInput :formInput="formInputList[6]" />
 
       <!-- Email -->
-      <div class="mb-6">
-        <label
-          for="email"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Email Address</label
-        >
-        <input
-          type="email"
-          id="email"
-          class="inputPrimary"
-          placeholder="name@flowbite.com"
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[7]" />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Country -->
-      <div class="mb-6">
-        <label
-          for="country"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Country:</label
-        >
-        <input
-          type="text"
-          id="country"
-          class="inputPrimary"
-          placeholder=""
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[8]" />
 
       <!-- Full Address -->
-      <div class="mb-6">
-        <label
-          for="fulladdress"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Full Address</label
-        >
-        <input
-          type="text"
-          id="fulladdress"
-          class="inputPrimary"
-          placeholder=""
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[9]" />
     </div>
 
     <button type="submit" class="btn btn-primary">Save Setting</button>
@@ -200,5 +56,104 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import JobPostCard from "../../components/JobPostCard.vue";
+import FormInput from "../../components/form/FormInput.vue";
+import FormTextarea from "../../components/form/FormTextarea.vue";
+
+const formInputList = ref([
+  {
+    title: "Your Name:",
+    name: "name",
+    value: "Shuvo Mallick",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Professional Title:",
+    name: "professional",
+    value: "Web Developer",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Language:",
+    name: "language",
+    value: "Bengali, English",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+  {
+    type: "number",
+    title: "Age:",
+    name: "age",
+    value: 27,
+    placeholder: "",
+    required: true,
+  },
+  {
+    type: "number",
+    title: "Current Salary ($):",
+    name: "currentsalary",
+    value: "$2000",
+    placeholder: "",
+    required: true,
+  },
+  {
+    type: "number",
+    title: "Expected Salary:",
+    name: "expectedsalary",
+    value: "$3000",
+    placeholder: "",
+    required: true,
+  },
+  {
+    type: "number",
+    title: "Phone:",
+    name: "phone",
+    value: +880123456789,
+    placeholder: "",
+    required: true,
+  },
+  {
+    type: "email",
+    title: "Email:",
+    name: "email",
+    value: "shuvomallick23@gmail.com",
+    placeholder: "",
+    required: true,
+  },
+  {
+    type: "text",
+    title: "Country:",
+    name: "country",
+    value: "Bangladesh",
+    placeholder: "",
+    required: true,
+  },
+  {
+    type: "text",
+    title: "Full Adddress:",
+    name: "fulladdress",
+    value: "Rangunia, Chittagong",
+    placeholder: "",
+    required: true,
+  },
+]);
+
+const formTextareaList = ref([
+  {
+    type: "text",
+    title: "Description:",
+    name: "description",
+    value: "Loren",
+    placeholder:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque officiis a totam obcaecati commodi quam hic molestiae, optio eos, reiciendis quae praesentium earum doloribus beatae deserunt quisquam ratione labore accusamus!",
+    required: true,
+    rows: 4,
+  },
+]);
 </script>
