@@ -1,5 +1,6 @@
 <template>
-  <h2 class="heading-paragraph mb-5 border-b pb-4 uppercase">Resume Alerts</h2>
+  <!-- Title -->
+  <SubSectionHeading :subHeading="subHeadingList[0]" />
 
   <!-- Table -->
   <AlertTable :fieldList="fieldList" :alertList="adminAlertList" />
@@ -8,9 +9,18 @@
 <script setup>
 import { ref, provide } from "vue";
 import AlertTable from "../../components/AlertTable.vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 
 // State
 const fieldList = ref(["Job Title", "Criteria", "Created", "Action"]);
+const subHeadingList = ref([
+  {
+    title: "Resume Alerts",
+    btnTitle: "",
+    btnIcon: "",
+  },
+]);
+
 const adminAlertList = ref([
   {
     id: 1,

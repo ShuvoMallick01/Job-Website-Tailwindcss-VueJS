@@ -26,24 +26,16 @@
               : ''
           "
         >
-          <router-link :to="nav.path" class="px-2 py-3 pe-80">
-            <i class="me-2 self-baseline" :class="nav.icon"></i>{{ nav.title }}
-          </router-link>
-        </li>
+          <span v-if="nav.path">
+            <router-link :to="nav.path" class="px-2 py-3 pe-80">
+              <i class="me-2 self-baseline" :class="nav.icon"></i
+              >{{ nav.title }}
+            </router-link>
+          </span>
 
-        <li
-          class="w-full py-3 pe-2 border-s-white border-b hover:bg-slate-100 border-s-2 hover:border-s-2 hover:border-s-primary cursor-pointer transition300 dark:border-s-transparent dark:border-b-slate-600 dark:hover:bg-gray-800 dark:hover:border-s-slate-400"
-        >
-          <a class="px-2 py-3 pe-80">
-            <i class="icon-logout me-2 self-baseline"></i>Logout</a
-          >
-        </li>
-        <li
-          class="w-full py-3 pe-2 border-s-white border-b hover:bg-slate-100 border-s-2 hover:border-s-2 hover:border-s-primary cursor-pointer transition300 dark:border-s-transparent dark:border-b-slate-600 dark:hover:bg-gray-800 dark:hover:border-s-slate-400"
-        >
-          <a class="px-2 py-3 pe-80">
-            <i class="icon-trash me-2 self-baseline"></i>Delete Profile</a
-          >
+          <a v-else class="px-2 py-3 pe-80">
+            <i class="me-2 self-baseline" :class="nav.icon"></i>{{ nav.title }}
+          </a>
         </li>
       </ul>
     </div>

@@ -72,6 +72,18 @@ const userNavList = ref([
     path: "/user-profile/change-password",
     id: 6,
   },
+  {
+    title: "Logout",
+    icon: "icon-logout ",
+    path: "",
+    id: 7,
+  },
+  {
+    title: "Delete Profile",
+    icon: "icon-trash ",
+    path: "",
+    id: 8,
+  },
 ]);
 
 const userInfo = ref({

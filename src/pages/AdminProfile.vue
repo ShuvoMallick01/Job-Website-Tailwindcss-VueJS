@@ -81,6 +81,18 @@ const userNavList = ref([
     path: "/admin-profile/change-password",
     id: 8,
   },
+  {
+    title: "Logout",
+    icon: "icon-logout ",
+    path: "",
+    id: 9,
+  },
+  {
+    title: "Delete Profile",
+    icon: "icon-trash ",
+    path: "",
+    id: 10,
+  },
 ]);
 
 const adminInfo = ref({
