@@ -1,17 +1,13 @@
 <template>
-  <div
-    v-for="(item, index) in educationList"
-    :key="index"
-    class="flex gap-6 mb-8"
-  >
-    <SingleTextCircle :title="item.degree" />
+  <div v-for="(item, index) in infoList" :key="index" class="flex gap-6 mb-8">
+    <SingleTextCircle :title="item.title" />
 
     <div>
       <div class="mb-4 flex gap-3 items-start">
         <div>
-          <h4 class="heading-regular">{{ item.degree }}</h4>
+          <h4 class="heading-regular">{{ item.title }}</h4>
           <p class="description-text text-primary">
-            {{ item.university }}
+            {{ item.institute }}
           </p>
         </div>
         <p class="btn-sm-text">{{ item.duration }}</p>
@@ -32,7 +28,7 @@ import SingleTextCircle from "../icons/SingleTextCircle.vue";
 import BtnIcon from "../buttons/BtnIcon.vue";
 
 defineProps({
-  educationList: {
+  infoList: {
     type: Array,
     default: [],
     required: true,

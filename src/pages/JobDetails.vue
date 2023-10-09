@@ -78,9 +78,7 @@
         <div class="mt-6 pt-6 border-t border-slate-300 py-6 bg-white px-4">
           <h1 class="heading pt-2 mb-8 px-6">Related Jobs</h1>
 
-          <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
-          <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
-          <JobPostCard :jobApplyStatus="jobApplyStatus"></JobPostCard>
+          <JobPostCard></JobPostCard>
         </div>
       </div>
 

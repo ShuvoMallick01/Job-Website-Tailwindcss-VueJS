@@ -31,7 +31,8 @@
         </p>
 
         <div class="group/heart md:order-3">
-          <BtnIcon :icon="'icon-heart-default'" />
+          <BtnIcon v-if="!item.isFavorite" :icon="'icon-heart-default'" />
+          <BtnIconFavorite v-else :icon="'icon-heart-filled'" />
         </div>
       </div>
     </div>
@@ -44,6 +45,7 @@ import BtnIcon from "./buttons/BtnIcon.vue";
 import BtnApply from "./buttons/BtnApply.vue";
 import SingleTextCircle from "./icons/SingleTextCircle.vue";
 import BtnText from "./buttons/BtnText.vue";
+import BtnIconFavorite from "./buttons/BtnIconFavorite.vue";
 
 defineProps({
   jobList: {

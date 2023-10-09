@@ -44,13 +44,13 @@ const userNavList = ref([
   },
   {
     title: "Saved Jobs",
-    icon: "icon-default-user ",
+    icon: "icon-heart-default",
     path: "/user-profile/saved-jobs",
     id: 3,
   },
   {
     title: "Applied Jobs",
-    icon: "icon-heart-default ",
+    icon: "icon-checkbox-filled-2 ",
     path: "/user-profile/applied-jobs",
     id: 4,
   },

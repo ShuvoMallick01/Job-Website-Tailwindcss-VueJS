@@ -1,6 +1,6 @@
 <template>
   <!-- Title -->
-  <h2 class="heading-paragraph mb-5 border-b pb-4 uppercase">My RESUME</h2>
+  <SubSectionHeading :subHeading="subHeadingList[0]" />
 
   <div>
     <div class="mb-5">
@@ -15,85 +15,20 @@
 
   <!-- Education -->
   <div class="mt-14">
-    <div class="flex justify-between items-center mb-5 pb-4 border-b">
-      <h2 class="sectionSubHeading uppercase">Education</h2>
-      <button class="btn-text">
-        <i class="icon-plus align-middle"></i> Add aducation
-      </button>
-    </div>
-
-    <Education :educationList="educationList" />
+    <SubSectionHeading :subHeading="subHeadingList[1]" />
+    <ComboInfoCard :infoList="educationList" />
   </div>
 
   <!-- Work & Experience -->
   <div class="mt-14">
-    <div class="flex justify-between items-center mb-5 pb-4 border-b">
-      <h2 class="heading-paragraph uppercase">Work & Experience</h2>
-      <button class="btn-text">
-        <i class="icon-plus align-middle"></i> Add work
-      </button>
-    </div>
-
-    <div class="flex gap-6 mb-8">
-      <div class="btn-circle-icon flex-shrink-0">
-        <p>S</p>
-      </div>
-
-      <div>
-        <div class="mb-4 flex gap-3 items-start">
-          <div>
-            <h4 class="heading-regular">Product Designer</h4>
-            <p class="description-text text-primary">Spotify Inc</p>
-          </div>
-          <p class="btn-sm-text">2017-2021</p>
-          <button class="btn-icon"><i class="icon-edit"></i></button>
-          <button class="btn-icon"><i class="icon-trash"></i></button>
-        </div>
-
-        <p class="description-sm-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum
-          tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-        </p>
-      </div>
-    </div>
-
-    <div class="flex gap-6 mb-8">
-      <div class="btn-circle-icon flex-shrink-0">
-        <p>D</p>
-      </div>
-
-      <div>
-        <div class="mb-4 flex gap-3 items-start">
-          <div>
-            <h4 class="heading-regular">Sr UX Engineer</h4>
-            <p class="description-text text-primary">Dropbox Inc.</p>
-          </div>
-          <p class="btn-sm-text">2012 - 2014</p>
-          <button class="btn-icon"><i class="icon-edit"></i></button>
-          <button class="btn-icon"><i class="icon-trash"></i></button>
-        </div>
-
-        <p class="description-sm-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum
-          tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-        </p>
-      </div>
-    </div>
+    <SubSectionHeading :subHeading="subHeadingList[2]" />
+    <ComboInfoCard :infoList="experienceList" />
   </div>
 
   <!-- Skills -->
   <div class="mt-14">
-    <h2 class="heading-paragraph uppercase mb-5 pb-4 border-b">Skills</h2>
-
-    <div class="mb-6">
-      <input
-        type="text"
-        id="skill"
-        class="inputPrimary"
-        placeholder="skills "
-        required
-      />
-    </div>
+    <SubSectionHeading :subHeading="subHeadingList[3]" />
+    <FormInput :formInput="formInputList[0]" />
   </div>
 
   <button class="btn btn-primary px-16">Save</button>
@@ -104,7 +39,9 @@
 import { ref, reactive } from "vue";
 import FormSelect from "../../components/form/FormSelect.vue";
 import FormTextarea from "../../components/form/FormTextarea.vue";
-import Education from "../../components/dashboard/Education.vue";
+import ComboInfoCard from "../../components/dashboard/ComboInfoCard.vue";
+import FormInput from "../../components/form/FormInput.vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 
 // State
 const locationList = ref([
@@ -127,18 +64,69 @@ const formTextareaList = reactive({
 
 const educationList = ref([
   {
-    degree: "Bachelor of Science in CSE",
-    university: "University of Science & Technology",
+    title: "Bachelor of Science in CSE",
+    institute: "University of Science & Technology",
     duration: "2017-2021",
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus minima magni voluptatem rem.",
   },
   {
-    degree: "Diploma in Computer Technology",
-    university: "Islami Bank Institute of Technology",
+    title: "Diploma in Computer Technology",
+    institute: "Islami Bank Institute of Technology",
     duration: "2013-2017",
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus minima magni voluptatem rem.",
+  },
+]);
+
+const experienceList = ref([
+  {
+    title: "Product Designer",
+    institute: "Spotify Inc",
+    duration: "2017-2021",
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus minima magni voluptatem rem.",
+  },
+  {
+    title: "Vue.js Developer",
+    institute: "Bit Skyber",
+    duration: "2021-2023",
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus minima magni voluptatem rem.",
+  },
+]);
+
+const formInputList = ref([
+  {
+    title: "",
+    name: "skills",
+    value: "Vue.js; React.js; Javascript; Html-css;",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+]);
+
+const subHeadingList = ref([
+  {
+    title: "My Resume",
+    btnTitle: "",
+    btnIcon: "",
+  },
+  {
+    title: "Education",
+    btnTitle: "Add Education",
+    btnIcon: "icon-plus",
+  },
+  {
+    title: "Work & Experience",
+    btnTitle: "Add Work",
+    btnIcon: "icon-plus",
+  },
+  {
+    title: "Skills",
+    btnTitle: "",
+    btnIcon: "",
   },
 ]);
 </script>

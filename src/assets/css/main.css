@@ -101,6 +101,9 @@
   .btn-icon {
     @apply text-primaryDark bg-secondaryLight hover:bg-secondary hover:text-white h-8 w-8 rounded-full flex justify-center items-center transition-all whitespace-nowrap flex-shrink-0;
   }
+  .btn-icon-active {
+    @apply text-white bg-primary hover:bg-secondaryLight hover:text-primaryDark h-8 w-8 rounded-full flex justify-center items-center transition-all whitespace-nowrap flex-shrink-0;
+  }
 
   .btn-sm {
     @apply bg-secondary whitespace-nowrap  text-slate-200 text-sm py-2 px-3 rounded-full border transition300 hover:bg-slate-100 hover:border-secondaryDark hover:text-secondaryDark;

@@ -248,6 +248,7 @@ const jobList = ref([
     createdAt: "3hr ago",
     salary: "2000",
     jobApplyStatus: false,
+    isFavorite: false,
     adminId: 1,
   },
   {
@@ -261,6 +262,7 @@ const jobList = ref([
     createdAt: "3hr ago",
     salary: "2000",
     jobApplyStatus: false,
+    isFavorite: true,
     adminId: 1,
   },
   {
@@ -274,6 +276,7 @@ const jobList = ref([
     createdAt: "3hr ago",
     salary: "2000",
     jobApplyStatus: false,
+    isFavorite: true,
     adminId: 1,
   },
   {
@@ -287,6 +290,7 @@ const jobList = ref([
     createdAt: "3hr ago",
     salary: "2000",
     jobApplyStatus: false,
+    isFavorite: false,
     adminId: 1,
   },
   {
@@ -300,6 +304,7 @@ const jobList = ref([
     createdAt: "3hr ago",
     salary: "2000",
     jobApplyStatus: false,
+    isFavorite: false,
     adminId: 1,
   },
 ]);

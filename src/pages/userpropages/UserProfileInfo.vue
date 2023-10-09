@@ -1,7 +1,6 @@
 <template>
-  <h2 class="heading-paragraph mb-5 border-b pb-4 uppercase">
-    BASIC INFORMATION
-  </h2>
+  <!-- Title -->
+  <SubSectionHeading :subHeading="subHeadingList[0]" />
 
   <form>
     <div class="md:grid grid-cols-2 gap-5">
@@ -31,9 +30,8 @@
 
     <FormTextarea :formTextarea="formTextareaList[0]" />
 
-    <h2 class="heading-paragraph mb-5 border-b pb-4 mt-10 uppercase">
-      CONTACT INFORMATION
-    </h2>
+    <!-- Title -->
+    <SubSectionHeading :subHeading="subHeadingList[1]" />
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Phone -->
@@ -60,6 +58,7 @@ import { ref } from "vue";
 import JobPostCard from "../../components/JobPostCard.vue";
 import FormInput from "../../components/form/FormInput.vue";
 import FormTextarea from "../../components/form/FormTextarea.vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 
 const formInputList = ref([
   {
@@ -154,6 +153,19 @@ const formTextareaList = ref([
     placeholder: "",
     required: true,
     rows: 4,
+  },
+]);
+
+const subHeadingList = ref([
+  {
+    title: "Basic Information",
+    btnTitle: "",
+    btnIcon: "",
+  },
+  {
+    title: "Contact Information",
+    btnTitle: "",
+    btnIcon: "",
   },
 ]);
 </script>

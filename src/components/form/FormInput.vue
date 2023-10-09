@@ -1,6 +1,7 @@
 <template>
   <div class="mb-6">
     <label
+      v-if="formInput.title"
       :for="formInput.name"
       class="block mb-2 formLabel"
       :class="formInput.required ? requiredUtilityStar : ''"
