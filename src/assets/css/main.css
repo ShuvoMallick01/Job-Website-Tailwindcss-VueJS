@@ -33,7 +33,7 @@
     @apply text-3xl font-bold text-primary mb-2 uppercase dark:text-secondary;
   }
   .sectionSubHeading {
-    @apply font-medium text-slate-700 uppercase text-lg;
+    @apply font-semibold text-lg text-gray-600 dark:text-gray-200;
   }
   .formSubHeading {
     @apply text-xl mb-5 font-semibold text-slate-800 dark:text-slate-300;
@@ -41,14 +41,16 @@
   .heading {
     @apply font-semibold text-2xl text-primary dark:text-gray-200;
   }
-  .heading-paragraph {
-    @apply font-semibold text-lg text-gray-600 dark:text-gray-200;
-  }
   .heading-regular {
     @apply font-medium text-gray-700 dark:text-gray-400;
   }
   .heading-message {
     @apply font-normal text-base text-gray-900 dark:text-gray-400;
+  }
+
+  /* delete */
+  .heading-paragraph {
+    @apply font-semibold text-lg text-gray-600 dark:text-gray-200;
   }
 
   /* Typography Description */
