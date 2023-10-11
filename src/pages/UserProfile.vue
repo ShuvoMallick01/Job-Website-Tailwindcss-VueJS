@@ -24,7 +24,7 @@
 import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 import ProfileNavBar from "../components/ProfileNavBar.vue";
-import LayoutDashboard from "../components/LayoutDashboard.vue";
+import LayoutDashboard from "../components/dashboard/LayoutDashboard.vue";
 
 const route = useRoute();
 

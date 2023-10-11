@@ -1,126 +1,34 @@
 <template>
-  <h2 class="heading-paragraph mb-5 border-b pb-4 uppercase">
-    COMPANY PROFILE
-  </h2>
+  <!-- Title -->
+  <SubSectionHeading :subHeading="subHeadingList[0]" />
 
   <form>
     <div class="md:grid grid-cols-2 gap-5">
-      <div class="mb-6">
-        <!-- company name -->
-        <label
-          for="companyname"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Company Name (optional):</label
-        >
-        <input
-          type="text"
-          id="companyname"
-          class="inputPrimary"
-          placeholder="Ex.: Bit Skyber, Facebook"
-        />
-      </div>
+      <!-- company name -->
+      <FormInput :formInput="formInputList[0]" />
 
       <!-- email -->
-      <div class="mb-6">
-        <label
-          for="companyemail"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Email:</label
-        >
-        <input
-          type="email"
-          id="companyemail"
-          class="inputPrimary"
-          placeholder="Ex.: company@domain.com"
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[1]" />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- phone -->
-      <div class="mb-6">
-        <label
-          for="phone"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Phone:</label
-        >
-        <input
-          type="number"
-          id="phone"
-          class="inputPrimary"
-          placeholder="Ex.: +88 0123456789"
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[2]" />
 
       <!-- website -->
-      <div class="mb-6">
-        <label
-          for="website"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Website:</label
-        >
-        <input
-          type="text"
-          id="website"
-          class="inputPrimary"
-          placeholder="Ex.: www.name.com"
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[3]" />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Est. Since -->
-      <div class="mb-6">
-        <label
-          for="estsince"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Est. Since:</label
-        >
-        <input
-          type="number"
-          id="estsince"
-          class="inputPrimary"
-          placeholder=""
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[4]" />
 
       <!-- Team Size -->
-      <div class="mb-6">
-        <label
-          for="teamsize"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Team Size:</label
-        >
-        <input
-          type="number"
-          id="teamsize"
-          class="inputPrimary"
-          placeholder=""
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[5]" />
     </div>
 
     <!-- about company -->
-    <div class="mb-6">
-      <label
-        for="aboutcompany"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >About Company:</label
-      >
-      <textarea
-        type="text"
-        rows="4"
-        id="aboutcompany"
-        class="inputPrimary"
-        placeholder="write about your company .."
-        required
-      />
-    </div>
+    <FormTextarea :formTextarea="formTextareaList[0]" />
 
     <!-- SOCIAL NETWORK -->
     <h2 class="heading-paragraph mb-5 border-b pb-4 mt-10 uppercase">
@@ -129,36 +37,10 @@
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- FACEBOOK -->
-      <div class="mb-6">
-        <label
-          for="facebook"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Facebook:</label
-        >
-        <input
-          type="text"
-          id="facebook"
-          class="inputPrimary"
-          placeholder=""
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[6]" />
 
       <!-- Linkdin -->
-      <div class="mb-6">
-        <label
-          for="linkedin"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Twitter:</label
-        >
-        <input
-          type="text"
-          id="linkedin"
-          class="inputPrimary"
-          placeholder=""
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[7]" />
     </div>
 
     <!-- CONTACT INFORMATION -->
@@ -168,56 +50,146 @@
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- country -->
-      <div class="mb-6">
-        <label
-          for="country"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Country:</label
-        >
-        <input
-          type="text"
-          id="country"
-          class="inputPrimary"
-          placeholder=""
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[8]" />
 
       <!-- city -->
-      <div class="mb-6">
-        <label
-          for="city"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >City:</label
-        >
-        <input
-          type="text"
-          id="city"
-          class="inputPrimary"
-          placeholder=""
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[9]" />
     </div>
 
     <!-- Complete Address -->
-    <div class="mb-6">
-      <label
-        for="completeaddress"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Complete Address:</label
-      >
-      <input
-        type="text"
-        id="completeaddress"
-        class="inputPrimary"
-        placeholder=""
-        required
-      />
-    </div>
+    <FormInput :formInput="formInputList[10]" />
 
-    <button type="submit" class="btn btn-primary px-16">Save</button>
+    <BtnPrimary :title="'Save'" :class="'btn btn-primary px-16'" />
   </form>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import FormInput from "../../components/form/FormInput.vue";
+import FormTextarea from "../../components/form/FormTextarea.vue";
+import BtnPrimary from "../../components/buttons/BtnPrimary.vue";
+
+// State
+const subHeadingList = ref([
+  {
+    title: "COMPANY PROFILE",
+    btnTitle: "",
+    btnIcon: "",
+  },
+  {
+    title: "SOCIAL NETWORK",
+    btnTitle: "",
+    btnIcon: "",
+  },
+  {
+    title: "CONTACT INFORMATION",
+    btnTitle: "",
+    btnIcon: "",
+  },
+]);
+
+const formInputList = ref([
+  {
+    title: "Company Name (optional):",
+    name: "companyName",
+    value: "Bit Skyber",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Email:",
+    name: "email",
+    value: "bitskyber@gmail.com",
+    type: "email",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Phone:",
+    name: "phone",
+    value: "phone",
+    type: "number",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Website:",
+    name: "website",
+    value: "www.bitskyber.com",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Est. Since:",
+    name: "estSince",
+    value: 2006,
+    type: "number",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Team Size:",
+    name: "teamSize",
+    value: 10,
+    type: "number",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Facebook:",
+    name: "facebook",
+    value: "fb/bitskyber",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Twitter:",
+    name: "twitter",
+    value: "twitter/bitskyber",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Country:",
+    name: "country",
+    value: "Bangadesh",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "City:",
+    name: "city",
+    value: "Chittagong",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Complete Address:",
+    name: "completeAddress",
+    value: "Rangunia, Chittagong-4200",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+]);
+
+const formTextareaList = ref([
+  {
+    type: "text",
+    title: "About Company:",
+    name: "aboutCompany",
+    value:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque officiis a totam obcaecati commodi quam hic molestiae, optio eos, reiciendis quae praesentium earum doloribus beatae deserunt quisquam ratione labore accusamus!",
+    placeholder: "",
+    required: true,
+    rows: 4,
+  },
+]);
+</script>

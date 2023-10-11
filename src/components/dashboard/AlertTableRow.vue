@@ -40,9 +40,9 @@
 </template>
 
 <script setup>
-import formCheckInputOnly from "./form/formCheckInputOnly.vue";
-import BtnIcon from "./buttons/BtnIcon.vue";
-import BtnExtraSmall from "./buttons/BtnExtraSmall.vue";
+import formCheckInputOnly from "../form/FormCheckInputOnly.vue";
+import BtnIcon from "../buttons/BtnIcon.vue";
+import BtnExtraSmall from "../buttons/BtnExtraSmall.vue";
 
 defineProps(["alertItem"]);
 </script>

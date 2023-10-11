@@ -1,84 +1,31 @@
 <template>
-  <h2 class="heading-paragraph mb-5 border-b pb-4 uppercase">POST A NEW JOB</h2>
+  <!-- Title -->
+  <SubSectionHeading :subHeading="subHeadingList[0]" />
 
   <form>
-    <div class="mb-6">
-      <!-- Job title -->
-      <label
-        for="jobtitle"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Job Title:</label
-      >
-      <input type="text" id="jobtitle" class="inputPrimary" placeholder="" />
-    </div>
+    <FormInput :formInput="formInputList[0]" />
 
     <!-- Job Description -->
-    <div class="mb-6">
-      <label
-        for="jobdescription"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Job Description:</label
-      >
-      <textarea
-        type="text"
-        rows="4"
-        id="jobdescription"
-        class="inputPrimary"
-        placeholder="write about job .."
-        required
-      />
-    </div>
+    <FormTextarea :formTextarea="formTextareaList[0]" />
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Email -->
-      <div class="mb-6">
-        <label
-          for="email"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Email Address:</label
-        >
-        <input
-          type="email"
-          id="email"
-          class="inputPrimary"
-          placeholder=""
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[1]" />
 
       <!-- Username -->
-      <div class="mb-6">
-        <label
-          for="username"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Username:</label
-        >
-        <input
-          type="text"
-          id="username"
-          class="inputPrimary"
-          placeholder=""
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[2]" />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Job Type -->
+
       <div class="mb-6">
         <label
           for="jobtype"
           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >Job Type:</label
         >
-        <select id="jobtype" class="inputPrimary" required>
-          <option value="" selected disabled>Select</option>
-          <option value="fulltime">Full-Time</option>
-          <option value="partime">Part-Time</option>
-          <option value="internship">Internship</option>
-          <option value="contact-freelance">Contract/Freelance</option>
-          <option value="cofounder">Co-Founder</option>
-        </select>
+        <FormSelect :optionList="formSelectList[0]" />
       </div>
 
       <!-- Job Roles -->
@@ -88,33 +35,13 @@
           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >Job Roles:</label
         >
-        <select id="jobtype" class="inputPrimary" required>
-          <option value="" selected disabled>Select</option>
-          <option value="programming">Programming</option>
-          <option value="design">Design</option>
-          <option value="management-finance">Management / Finance</option>
-          <option value="customer-support">Customer Support</option>
-          <option value="sales-marketing">Sales / Marketing</option>
-        </select>
+        <FormSelect :optionList="formSelectList[1]" />
       </div>
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Offered Salary -->
-      <div class="mb-6">
-        <label
-          for="offeredsalary"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Offered Salary:</label
-        >
-        <input
-          type="number"
-          id="offeredsalary"
-          class="inputPrimary"
-          placeholder=""
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[3]" />
 
       <!-- Remotely Only  -->
       <div class="mb-6">
@@ -123,46 +50,126 @@
           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >Remotely Only:</label
         >
-        <select id="joblocationtype" class="inputPrimary" required>
-          <option value="" selected disabled>Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
+        <FormSelect :optionList="formSelectList[2]" />
       </div>
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Company Name -->
-      <div class="mb-6">
-        <label
-          for="companyname"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Company Name:</label
-        >
-        <input
-          type="text"
-          id="companyname"
-          class="inputPrimary"
-          placeholder=""
-          required
-        />
-      </div>
+      <FormInput :formInput="formInputList[4]" />
 
       <!-- Location  -->
       <div class="mb-6">
         <label for="location" class="formlabel">Location:</label>
-        <select id="location" class="inputPrimary" required>
-          <option value="" selected disabled>Select</option>
-          <option value="unitedstate">United Sate</option>
-          <option value="canada">Canada</option>
-          <option value="bangladesh">Bangladesh</option>
-          <option value="europe">Europe</option>
-        </select>
+        <FormSelect :optionList="formSelectList[3]" />
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary px-16">Post</button>
+    <BtnPrimary :title="'Post New Job'" :class="'btn btn-primary px-10'" />
   </form>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import FormInput from "../../components/form/FormInput.vue";
+import FormTextarea from "../../components/form/FormTextarea.vue";
+import BtnPrimary from "../../components/buttons/BtnPrimary.vue";
+import FormSelect from "../../components/form/FormSelect.vue";
+
+// State
+const subHeadingList = ref([
+  {
+    title: "POST A NEW JOB",
+    btnTitle: "",
+    btnIcon: "",
+  },
+]);
+
+const formInputList = ref([
+  {
+    title: "Job Title:",
+    name: "jobTitle",
+    value: "",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Email Address:",
+    name: "email",
+    value: "",
+    type: "email",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Username:",
+    name: "username",
+    value: "",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Offered Salary:",
+    name: "offeredSalary",
+    value: "",
+    type: "number",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Company Name:",
+    name: "companyName",
+    value: "",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+]);
+
+const formSelectList = ref([
+  [
+    { title: "Select Job Type", value: "" },
+    { title: "Full-time", value: "fulltime" },
+    { title: "Part-time", value: "partime" },
+    { title: "Internship", value: "internship" },
+    { title: "Contract/Freelance", value: "contract-freelance" },
+    { title: "Co-founder", value: "cofounder" },
+  ],
+  [
+    { title: "Select Job Roles", value: "" },
+    { title: "Programming", value: "programming" },
+    { title: "Design", value: "design" },
+    { title: "Management / Finance", value: "management-finance" },
+    { title: "Customer Support", value: "customerSupport" },
+    { title: "Sales / Marketing", value: "sales-marketing" },
+  ],
+  [
+    { title: "Select", value: "" },
+    { title: "Yes", value: "yes" },
+    { title: "No", value: "no" },
+  ],
+  [
+    { title: "Choose a country", value: "" },
+    { title: "Bangladesh", value: "bangladesh" },
+    { title: "India", value: "india" },
+    { title: "United State", value: "unitedstate" },
+    { title: "Canada", value: "canada" },
+    { title: "Europe", value: "europe" },
+  ],
+]);
+
+const formTextareaList = ref([
+  {
+    type: "text",
+    title: "Job Description:",
+    name: "jobDescription",
+    value: "",
+    placeholder: "",
+    required: true,
+    rows: 4,
+  },
+]);
+</script>

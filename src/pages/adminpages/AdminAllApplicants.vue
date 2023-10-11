@@ -2,27 +2,8 @@
   <div class="mb-5 border-b pb-4 flex justify-between items-center gap-4">
     <h2 class="heading-paragraph uppercase">POST A NEW JOB</h2>
     <div class="flex gap-2">
-      <select
-        id="countries"
-        class="bg-gray-50 border description-text border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      >
-        <option>Select Jobs</option>
-        <option>Last 3 Months</option>
-        <option>Last 6 Months</option>
-        <option>Last 9 Months</option>
-        <option>Last 12 Months</option>
-      </select>
-
-      <select
-        id="countries"
-        class="bg-gray-50 border description-text border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      >
-        <option>All Status</option>
-        <option>Last 3 Months</option>
-        <option>Last 6 Months</option>
-        <option>Last 9 Months</option>
-        <option>Last 12 Months</option>
-      </select>
+      <FormSelect :optionList="formSelectList[0]" />
+      <FormSelect :optionList="formSelectList[1]" />
     </div>
   </div>
 
@@ -31,9 +12,11 @@
   >
     <h4 class="heading-regular">Senior Product Designer</h4>
     <div class="flex gap-2 description-sm-text flex-wrap justify-end">
-      <span class="text btn-sm-text">Total(s): 6</span>
-      <span class="text btn-sm-text">Approved: 2</span>
-      <span class="text btn-sm-text">Rejected(s): 4</span>
+      <BtnExtraSmall
+        v-for="(item, index) in status"
+        :title="item"
+        :key="index"
+      />
     </div>
   </div>
 
@@ -48,5 +31,27 @@
 </template>
 
 <script setup>
-import ApplicantsCard from "../../components/ApplicantsCard.vue";
+import { ref } from "vue";
+import ApplicantsCard from "../../components/dashboard/ApplicantsCard.vue";
+import FormSelect from "../../components/form/FormSelect.vue";
+import BtnExtraSmall from "../../components/buttons/BtnExtraSmall.vue";
+
+// State
+const formSelectList = ref([
+  [
+    { title: "Select Jobs", value: "" },
+    { title: "Last 3 Months", value: 3 },
+    { title: "Last 6 Months", value: 6 },
+    { title: "Last 9 Months", value: 9 },
+    { title: "Last 12 Months", value: 12 },
+  ],
+  [
+    { title: "All Status", value: "" },
+    { title: "Total", value: "total" },
+    { title: "Approved", value: "approved" },
+    { title: "Rejected", value: "rejected" },
+  ],
+]);
+const status = ref(["Total(s)", "Approved", "Rejected(s)"]);
+const applicants = ref([{}]);
 </script>

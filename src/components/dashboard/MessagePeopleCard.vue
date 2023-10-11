@@ -8,7 +8,7 @@
       >
         <img
           class=""
-          src="../assets/images/user-profile-pic-1.jpg"
+          src="../../assets/images/user-profile-pic-1.jpg"
           alt="User Profile"
         />
       </div>

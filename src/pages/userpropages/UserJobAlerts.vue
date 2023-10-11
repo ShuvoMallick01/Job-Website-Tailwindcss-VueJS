@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref, provide } from "vue";
-import AlertTable from "../../components/AlertTable.vue";
+import AlertTable from "../../components/dashboard/AlertTable.vue";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 
 // State

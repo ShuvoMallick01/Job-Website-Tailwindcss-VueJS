@@ -29,7 +29,7 @@
 
 <script setup>
 import AlertTableRow from "./AlertTableRow.vue";
-import formCheckInputOnly from "./form/formCheckInputOnly.vue";
+import formCheckInputOnly from "../form/FormCheckInputOnly.vue";
 
 defineProps({
   fieldList: { type: Array },

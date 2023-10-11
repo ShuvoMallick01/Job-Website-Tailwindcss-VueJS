@@ -91,6 +91,6 @@
 </template>
 
 <script setup>
-import MessagePeopleCard from "../../components/MessagePeopleCard.vue";
-import Message from "../../components/Message.vue";
+import MessagePeopleCard from "../../components/dashboard/MessagePeopleCard.vue";
+import Message from "../../components/dashboard/Message.vue";
 </script>

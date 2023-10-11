@@ -68,5 +68,5 @@
 </template>
 
 <script setup>
-import ApplicantsCard from "../../components/ApplicantsCard.vue";
+import ApplicantsCard from "../../components/dashboard/ApplicantsCard.vue";
 </script>

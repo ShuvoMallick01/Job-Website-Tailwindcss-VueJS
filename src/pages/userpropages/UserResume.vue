@@ -5,7 +5,7 @@
   <div>
     <div class="mb-5">
       <label for="countries" class="block mb-2 formLabel">Select Your CV</label>
-      <FormSelect :optionList="locationList" />
+      <FormSelect :optionList="CvVersionList" />
     </div>
 
     <div>
@@ -44,7 +44,7 @@ import FormInput from "../../components/form/FormInput.vue";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 
 // State
-const locationList = ref([
+const CvVersionList = ref([
   { title: "Choose your Update CV", value: "" },
   { title: "CV Version 1.0", value: "cv-version-1.0" },
   { title: "CV Version 2.0", value: "cv-version-2.0" },

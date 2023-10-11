@@ -55,7 +55,6 @@
 
 <script setup>
 import { ref } from "vue";
-import JobPostCard from "../../components/JobPostCard.vue";
 import FormInput from "../../components/form/FormInput.vue";
 import FormTextarea from "../../components/form/FormTextarea.vue";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
