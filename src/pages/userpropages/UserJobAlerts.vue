@@ -3,13 +3,16 @@
   <SubSectionHeading :subHeading="subHeadingList[0]" />
 
   <!-- Table -->
-  <AlertTable :fieldList="fieldList" :alertList="adminAlertList" />
+  <AlertTable :fieldList="fieldList">
+    <AlertTableRow v-for="alertItem in adminAlertList" :alertItem="alertItem" />
+  </AlertTable>
 </template>
 
 <script setup>
 import { ref, provide } from "vue";
 import AlertTable from "../../components/dashboard/AlertTable.vue";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import AlertTableRow from "../../components/dashboard/AlertTableRow.vue";
 
 // State
 const fieldList = ref(["Job Title", "Criteria", "Created", "Action"]);

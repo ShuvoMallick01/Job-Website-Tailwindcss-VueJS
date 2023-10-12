@@ -3,46 +3,10 @@
     <h2 class="heading-paragraph uppercase">Shortlisted Resumes</h2>
     <div class="flex gap-2 flex-wrap justify-end">
       <form>
-        <div class="relative">
-          <div
-            class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-          >
-            <svg
-              class="w-4 h-4 text-gray-500 dark:text-gray-400"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 20 20"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-              />
-            </svg>
-          </div>
-          <input
-            type="search"
-            id="default-search"
-            class="block w-full md:w-40 xl:w-full py-2.5 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Search Applicants"
-            required
-          />
-        </div>
+        <FormSearchbox />
       </form>
 
-      <select
-        id="countries"
-        class="bg-gray-50 border description-text border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      >
-        <option>Newest</option>
-        <option>Last 3 Months</option>
-        <option>Last 6 Months</option>
-        <option>Last 9 Months</option>
-        <option>Last 12 Months</option>
-      </select>
+      <span> <FormSelect :optionList="formSelectList[0]" /></span>
     </div>
   </div>
 
@@ -51,22 +15,101 @@
   >
     <h4 class="heading-regular">Senior Product Designer</h4>
     <div class="flex gap-2 description-sm-text flex-wrap justify-end">
-      <span class="text btn-sm-text">Total(s): 6</span>
-      <span class="text btn-sm-text">Approved: 2</span>
-      <span class="text btn-sm-text">Rejected(s): 4</span>
+      <BtnExtraSmall
+        v-for="(item, index) in status"
+        :title="item + ' : ' + 5"
+        :key="index"
+      />
     </div>
   </div>
 
   <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
-    <ApplicantsCard />
-    <ApplicantsCard />
-    <ApplicantsCard />
-    <ApplicantsCard />
-    <ApplicantsCard />
-    <ApplicantsCard />
+    <ApplicantsCard
+      v-for="item in applicants"
+      :applicant="item"
+      :key="item.applicantId"
+    />
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
 import ApplicantsCard from "../../components/dashboard/ApplicantsCard.vue";
+import FormSelect from "../../components/form/FormSelect.vue";
+import BtnExtraSmall from "../../components/buttons/BtnExtraSmall.vue";
+import FormSearchbox from "../../components/form/FormSearchbox.vue";
+
+// State
+const formSelectList = ref([
+  [
+    { title: "Select Jobs", value: "" },
+    { title: "Last 3 Months", value: 3 },
+    { title: "Last 6 Months", value: 6 },
+    { title: "Last 9 Months", value: 9 },
+    { title: "Last 12 Months", value: 12 },
+  ],
+  [
+    { title: "All Status", value: "" },
+    { title: "Total", value: "total" },
+    { title: "Approved", value: "approved" },
+    { title: "Rejected", value: "rejected" },
+  ],
+]);
+const status = ref(["Total(s)", "Approved", "Rejected(s)"]);
+const applicants = ref([
+  {
+    applicantId: 1,
+    name: "Shuvo Mallick",
+    image: "../../assets/images/user-profile-pic-1.jpg",
+    profession: "Web Developer",
+    location: "Bangladesh",
+    expectedSalary: 2000,
+    skills: ["Javascript", "Vuejs", "React"],
+  },
+  {
+    applicantId: 2,
+    name: "Nabed Khan",
+    image: "../../assets/images/user-profile-pic-1.jpg",
+    profession: "Web Developer",
+    location: "Bangladesh",
+    expectedSalary: 2000,
+    skills: ["Javascript", "Vuejs", "React"],
+  },
+  {
+    applicantId: 1,
+    name: "Pranto Mallick",
+    image: "../../assets/images/user-profile-pic-1.jpg",
+    profession: "Web Developer",
+    location: "Bangladesh",
+    expectedSalary: 2000,
+    skills: ["Javascript", "Vuejs", "React"],
+  },
+  {
+    applicantId: 1,
+    name: "Shuvo Mallick",
+    image: "../../assets/images/user-profile-pic-1.jpg",
+    profession: "Web Developer",
+    location: "Bangladesh",
+    expectedSalary: 2000,
+    skills: ["Javascript", "Vuejs", "React"],
+  },
+  {
+    applicantId: 2,
+    name: "Nabed Khan",
+    image: "../../assets/images/user-profile-pic-1.jpg",
+    profession: "Web Developer",
+    location: "Bangladesh",
+    expectedSalary: 2000,
+    skills: ["Javascript", "Vuejs", "React"],
+  },
+  {
+    applicantId: 1,
+    name: "Pranto Mallick",
+    image: "../../assets/images/user-profile-pic-1.jpg",
+    profession: "Web Developer",
+    location: "Bangladesh",
+    expectedSalary: 2000,
+    skills: ["Javascript", "Vuejs", "React"],
+  },
+]);
 </script>

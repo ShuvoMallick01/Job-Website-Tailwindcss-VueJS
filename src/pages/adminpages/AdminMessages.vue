@@ -1,5 +1,5 @@
 <template>
-  <h2 class="heading-paragraph mb-5 border-b pb-4 uppercase">Messages</h2>
+  <SubSectionHeading :title="Messages" />
 
   <!-- Message -->
   <div class="grid grid-cols-3 gap-4 xl:gap-8">
@@ -93,4 +93,5 @@
 <script setup>
 import MessagePeopleCard from "../../components/dashboard/MessagePeopleCard.vue";
 import Message from "../../components/dashboard/Message.vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 </script>

@@ -14,19 +14,18 @@
     <div class="flex gap-2 description-sm-text flex-wrap justify-end">
       <BtnExtraSmall
         v-for="(item, index) in status"
-        :title="item"
+        :title="item + ' : ' + 5"
         :key="index"
       />
     </div>
   </div>
 
   <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
-    <ApplicantsCard />
-    <ApplicantsCard />
-    <ApplicantsCard />
-    <ApplicantsCard />
-    <ApplicantsCard />
-    <ApplicantsCard />
+    <ApplicantsCard
+      v-for="item in applicants"
+      :applicant="item"
+      :key="item.applicantId"
+    />
   </div>
 </template>
 
@@ -53,5 +52,60 @@ const formSelectList = ref([
   ],
 ]);
 const status = ref(["Total(s)", "Approved", "Rejected(s)"]);
-const applicants = ref([{}]);
+const applicants = ref([
+  {
+    applicantId: 1,
+    name: "Shuvo Mallick",
+    image: "../../assets/images/user-profile-pic-1.jpg",
+    profession: "Web Developer",
+    location: "Bangladesh",
+    expectedSalary: 2000,
+    skills: ["Javascript", "Vuejs", "React"],
+  },
+  {
+    applicantId: 2,
+    name: "Nabed Khan",
+    image: "../../assets/images/user-profile-pic-1.jpg",
+    profession: "Web Developer",
+    location: "Bangladesh",
+    expectedSalary: 2000,
+    skills: ["Javascript", "Vuejs", "React"],
+  },
+  {
+    applicantId: 1,
+    name: "Pranto Mallick",
+    image: "../../assets/images/user-profile-pic-1.jpg",
+    profession: "Web Developer",
+    location: "Bangladesh",
+    expectedSalary: 2000,
+    skills: ["Javascript", "Vuejs", "React"],
+  },
+  {
+    applicantId: 1,
+    name: "Shuvo Mallick",
+    image: "../../assets/images/user-profile-pic-1.jpg",
+    profession: "Web Developer",
+    location: "Bangladesh",
+    expectedSalary: 2000,
+    skills: ["Javascript", "Vuejs", "React"],
+  },
+  {
+    applicantId: 2,
+    name: "Nabed Khan",
+    image: "../../assets/images/user-profile-pic-1.jpg",
+    profession: "Web Developer",
+    location: "Bangladesh",
+    expectedSalary: 2000,
+    skills: ["Javascript", "Vuejs", "React"],
+  },
+  {
+    applicantId: 1,
+    name: "Pranto Mallick",
+    image: "../../assets/images/user-profile-pic-1.jpg",
+    profession: "Web Developer",
+    location: "Bangladesh",
+    expectedSalary: 2000,
+    skills: ["Javascript", "Vuejs", "React"],
+  },
+]);
 </script>

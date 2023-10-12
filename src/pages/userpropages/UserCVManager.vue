@@ -2,7 +2,7 @@
   <!-- Title -->
   <SubSectionHeading :subHeading="subHeadingList[0]" />
 
-  <!-- Title -->
+  <!-- file Upload -->
   <div class="border text-center py-20 mb-10">
     <form action="">
       <h5 class="font heading-paragraph mb-2">Drop files here to upload</h5>
@@ -16,7 +16,6 @@
   </div>
 
   <!-- Title -->
-
   <SubSectionHeading :subHeading="subHeadingList[1]" />
 
   <div class="flex justify-between">

@@ -1,65 +1,190 @@
 <template>
   <!-- FILTER & JOB CARD -->
-  <section class="myContainer mb-5 mt-20">
+  <section class="myContainer mb-5 mt-20 xl:px-52">
     <div class="py-14 text-center">
       <h1 class="text-4xl font-bold text-primary mb-2">Job Apply Form</h1>
-      <p class="font-light text-slate-600">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit
-      </p>
+      <p class="heading-paragraph">Job Title: Vue JS Developer</p>
     </div>
 
     <form>
-      <div class="mb-6">
-        <label
-          for="email"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Your email</label
-        >
-        <input
-          type="email"
-          id="email"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="name@flowbite.com"
-          required
-        />
+      <div class="md:grid grid-cols-2 gap-5">
+        <FormInput :formInput="formInputList[0]" />
+
+        <!-- Profession -->
+        <FormInput :formInput="formInputList[1]" />
       </div>
-      <div class="mb-6">
-        <label
-          for="password"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Your password</label
-        >
-        <input
-          type="password"
-          id="password"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          required
-        />
+
+      <div class="md:grid grid-cols-2 gap-5">
+        <!-- Language -->
+        <FormInput :formInput="formInputList[2]" />
+
+        <!-- Age -->
+        <FormInput :formInput="formInputList[3]" />
       </div>
-      <div class="flex items-start mb-6">
-        <div class="flex items-center h-5">
-          <input
-            id="remember"
-            type="checkbox"
-            value=""
-            class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-            required
-          />
+
+      <div class="md:grid grid-cols-2 gap-5">
+        <!-- Current Salary ($) -->
+        <FormInput :formInput="formInputList[4]" />
+
+        <!-- Expected Salary -->
+        <FormInput :formInput="formInputList[5]" />
+      </div>
+
+      <!-- Description -->
+
+      <FormTextarea :formTextarea="formTextareaList[0]" />
+
+      <!-- Contact Information -->
+      <SubSecHeading :title="'Contact Information'" />
+
+      <div class="md:grid grid-cols-2 gap-5">
+        <!-- Phone -->
+        <FormInput :formInput="formInputList[6]" />
+
+        <!-- Email -->
+        <FormInput :formInput="formInputList[7]" />
+      </div>
+
+      <div class="md:grid grid-cols-2 gap-5">
+        <!-- Country -->
+        <FormInput :formInput="formInputList[8]" />
+
+        <!-- Full Address -->
+        <FormInput :formInput="formInputList[9]" />
+      </div>
+
+      <!-- Resume Upload -->
+      <div>
+        <SubSecHeading :title="'Resume Upload'" />
+
+        <!-- file Upload -->
+        <div class="border text-center py-5 mb-10">
+          <h5 class="font heading-paragraph mb-2">Drop files here to upload</h5>
+          <p class="text-gray-500 font-light text-xs mb-5">
+            To upload file size is (Max 5Mb) and allowed file types are (.doc,
+            .docx, .pdf)
+          </p>
+
+          <BtnFileUpload :title="'Upload Resume'" />
         </div>
-        <label
-          for="remember"
-          class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >Remember me</label
-        >
+
+        <!-- Title -->
+        <SubSecHeading :title="'Uploaded Resume'" />
+
+        <div class="flex justify-between">
+          <p class="description-text">
+            <i class="icon-file me-2"></i>Shuvo Mallick Resume
+          </p>
+          <BtnText title="Download" />
+        </div>
       </div>
-      <button
-        type="submit"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      >
-        Submit
-      </button>
+
+      <button type="submit" class="btn btn-primary my-10">Save Setting</button>
     </form>
   </section>
 </template>
 
-<script></script>
+<script setup>
+import { ref } from "vue";
+import FormInput from "../components/form/FormInput.vue";
+import FormTextarea from "../components/form/FormTextarea.vue";
+import SubSectionHeading from "../components/dashboard/SubSectionHeading.vue";
+import SubSecHeading from "../components/dashboard/SubSecHeading.vue";
+import BtnFileUpload from "../components/buttons/BtnFileUpload.vue";
+
+const formInputList = ref([
+  {
+    title: "Your Name:",
+    name: "name",
+    value: "Shuvo Mallick",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Professional Title:",
+    name: "professional",
+    value: "Web Developer",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Language:",
+    name: "language",
+    value: "Bengali, English",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+  {
+    type: "number",
+    title: "Age:",
+    name: "age",
+    value: 27,
+    placeholder: "",
+    required: true,
+  },
+  {
+    type: "number",
+    title: "Current Salary ($):",
+    name: "currentsalary",
+    value: 2000,
+    placeholder: "",
+    required: true,
+  },
+  {
+    type: "number",
+    title: "Expected Salary:",
+    name: "expectedsalary",
+    value: 3000,
+    placeholder: "",
+    required: true,
+  },
+  {
+    type: "number",
+    title: "Phone:",
+    name: "phone",
+    value: +880123456789,
+    placeholder: "",
+    required: true,
+  },
+  {
+    type: "email",
+    title: "Email:",
+    name: "email",
+    value: "shuvomallick23@gmail.com",
+    placeholder: "",
+    required: true,
+  },
+  {
+    type: "text",
+    title: "Country:",
+    name: "country",
+    value: "Bangladesh",
+    placeholder: "",
+    required: true,
+  },
+  {
+    type: "text",
+    title: "Full Adddress:",
+    name: "fulladdress",
+    value: "Rangunia, Chittagong",
+    placeholder: "",
+    required: true,
+  },
+]);
+
+const formTextareaList = ref([
+  {
+    type: "text",
+    title: "Description:",
+    name: "description",
+    value:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque officiis a totam obcaecati commodi quam hic molestiae, optio eos, reiciendis quae praesentium earum doloribus beatae deserunt quisquam ratione labore accusamus!",
+    placeholder: "",
+    required: true,
+    rows: 4,
+  },
+]);
+</script>

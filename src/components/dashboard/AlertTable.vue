@@ -21,22 +21,16 @@
       </thead>
 
       <tbody>
-        <AlertTableRow v-for="alertItem in alertList" :alertItem="alertItem" />
+        <slot></slot>
       </tbody>
     </table>
   </div>
 </template>
 
 <script setup>
-import AlertTableRow from "./AlertTableRow.vue";
 import formCheckInputOnly from "../form/FormCheckInputOnly.vue";
 
 defineProps({
   fieldList: { type: Array },
-  alertList: {
-    type: Array,
-    default: [],
-    required: true,
-  },
 });
 </script>
