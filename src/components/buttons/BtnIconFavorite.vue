@@ -1,5 +1,5 @@
 <template>
-  <button class="btn-icon-active">
+  <button class="btn-icon-active bg-secondary">
     <i :class="icon"></i>
   </button>
 </template>

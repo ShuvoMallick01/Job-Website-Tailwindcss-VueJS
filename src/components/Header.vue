@@ -132,9 +132,9 @@ const toggleDark = useToggle(isDark);
 
 // Methods
 // initialize components based on data attribute selectors
-onMounted(() => {
-  initFlowbite();
-});
+// onMounted(() => {
+//   initFlowbite();
+// });
 
 const activeNav = computed(() => {
   return route.path;

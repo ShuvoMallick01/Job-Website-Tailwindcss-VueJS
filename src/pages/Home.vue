@@ -121,75 +121,47 @@
 
     <div class="grid grid-cols-3 gap-1 lg:gap-10 sm:gap-3">
       <!-- FILTER & JOB CARD -->
-      <div class="col-span-2 lg:col-span-1">
-        <button
-          data-drawer-target="default-sidebar"
-          data-drawer-toggle="default-sidebar"
-          aria-controls="default-sidebar"
-          type="button"
-          class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        >
-          <span class="sr-only">Open sidebar</span>
-          <svg
-            class="w-6 h-6"
-            aria-hidden="true"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
-            ></path>
-          </svg>
-        </button>
-
-        <aside
-          id="default-sidebar"
-          class="filter border py-6 lg:px-8 px-5 rounded-lg space-y-5 bg-white truncate dark:bg-gray-900 dark:border-slate-700 h-screen transition-transform -translate-x-full sm:translate-x-0"
-          aria-label="Sidebar"
-        >
-          <div
-            class="h-full px-3 py-4 overflow-y-auto 0 dark:bg-gray-800 space-y-8"
-          >
-            <!-- Job Type -->
-            <div class="">
-              <h3 class="sectionSubHeading mb-3">Job Type</h3>
-              <FormCheckInput :checkList="jobTypeCheckList" />
-            </div>
-
-            <!-- Job Roles -->
-            <div class="">
-              <h3 class="sectionSubHeading mb-3">Job Role</h3>
-              <FormCheckInput :checkList="jobRolesCheckList" />
-            </div>
-
-            <!-- Remote Only -->
-            <div class="">
-              <h3 class="sectionSubHeading mb-3">Remote Only</h3>
-              <FormCheckboxInput />
-            </div>
-
-            <!-- Salary Range -->
-            <div class="">
-              <h3 class="sectionSubHeading mb-3">Salary Range</h3>
-              <FormCheckInput :checkList="salaryRangeCheckList" />
-            </div>
-
-            <!-- Location -->
-            <div class="">
-              <h3 class="font-medium text-slate-700 mb-3">Location</h3>
-              <FormSelect :optionList="locationList" />
-            </div>
-          </div>
-        </aside>
+      <div class="col-span-2 lg:col-span-1 hidden lg:block">
+        <Sidebar />
       </div>
 
+      <button
+        data-drawer-target="drawer-example"
+        data-drawer-toggle="drawer-example"
+        aria-controls="drawer-example"
+        type="button"
+        class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      >
+        <span class="sr-only">Open sidebar</span>
+        <svg
+          class="w-6 h-6"
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            fill-rule="evenodd"
+            d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+          ></path>
+        </svg>
+      </button>
+
+      <!-- drawer component -->
+      <div
+        id="drawer-example"
+        class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-gray-800"
+        tabindex="-1"
+        aria-labelledby="drawer-label"
+      >
+        <Sidebar />
+      </div>
+
+      <!-- RIGHT SIDE -->
       <div
         class="col-span-3 lg:col-span-2 border py-6 lg:px-5 px-3 rounded-lg bg-white dark:bg-gray-900 dark:border-slate-700"
       >
-        <!-- Card -->
         <JobPostCard :jobList="jobList"></JobPostCard>
       </div>
     </div>
@@ -201,40 +173,7 @@
 import { ref, onMounted, computed } from "vue";
 import { initFlowbite } from "flowbite";
 import JobPostCard from "../components/JobPostCard.vue";
-import FormCheckInput from "../components/form/FormCheckInput.vue";
-import FormCheckboxInput from "../components/form/FormCheckboxInput.vue";
-import FormSelect from "../components/form/FormSelect.vue";
-
-// State
-const jobTypeCheckList = ref([
-  { title: "Full-time", name: "fulltime" },
-  { title: "Part-time", name: "partime" },
-  { title: "Internship", name: "internship" },
-  { title: "Contract/Freelance", name: "contract-freelance" },
-  { title: "Co-founder", name: "cofounder" },
-]);
-const jobRolesCheckList = ref([
-  { title: "Programming", name: "programming" },
-  { title: "Design", name: "design" },
-  { title: "Management / Finance", name: "management-finance" },
-  { title: "Customer Support", name: "customerSupport" },
-  { title: "Sales / Marketing", name: "sales-marketing" },
-]);
-const salaryRangeCheckList = ref([
-  { title: "$10k - $50k", name: "10-50" },
-  { title: "$50k - $100k", name: "50-100" },
-  { title: "$100k - $200k", name: "100-200" },
-  { title: "$100k - Infinity", name: "200-infinity" },
-]);
-
-const locationList = ref([
-  { title: "Choose a country", value: "" },
-  { title: "Bangladesh", value: "bangladesh" },
-  { title: "India", value: "india" },
-  { title: "United State", value: "unitedstate" },
-  { title: "Canada", value: "canada" },
-  { title: "Europe", value: "europe" },
-]);
+import Sidebar from "../components/Sidebar.vue";
 
 const jobList = ref([
   {
