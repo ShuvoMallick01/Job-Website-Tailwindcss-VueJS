@@ -5,7 +5,7 @@
       <div
         class="rounded-full h-16 w-16 bg-slate-400 border-primary overflow-hidden flex-shrink-0"
       >
-        <img :src="applicant.image" alt="" />
+        <img src="../../assets/images/user-profile-pic-1.jpg" alt="" />
       </div>
 
       <div class="">

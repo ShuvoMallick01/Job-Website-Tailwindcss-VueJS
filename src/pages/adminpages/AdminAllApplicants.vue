@@ -65,7 +65,7 @@ const applicants = ref([
   {
     applicantId: 2,
     name: "Nabed Khan",
-    image: "../../assets/images/user-profile-pic-1.jpg",
+    image: "../../assets/images/user-profile-pic-2.jpg",
     profession: "Web Developer",
     location: "Bangladesh",
     expectedSalary: 2000,
@@ -74,7 +74,7 @@ const applicants = ref([
   {
     applicantId: 1,
     name: "Pranto Mallick",
-    image: "../../assets/images/user-profile-pic-1.jpg",
+    image: "../../assets/images/user-profile-pic-2.jpg",
     profession: "Web Developer",
     location: "Bangladesh",
     expectedSalary: 2000,
