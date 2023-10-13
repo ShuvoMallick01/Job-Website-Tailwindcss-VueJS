@@ -103,10 +103,10 @@
   }
 
   .btn-icon {
-    @apply text-primaryDark bg-secondaryLight hover:bg-secondary hover:text-white h-8 w-8 rounded-full flex justify-center items-center transition-all whitespace-nowrap flex-shrink-0;
+    @apply text-primary bg-secondaryLight hover:bg-secondary hover:text-white h-7 w-7 rounded-full flex justify-center items-center transition-all whitespace-nowrap flex-shrink-0;
   }
   .btn-icon-active {
-    @apply text-white bg-primary hover:bg-secondaryLight hover:text-primaryDark h-8 w-8 rounded-full flex justify-center items-center transition-all whitespace-nowrap flex-shrink-0;
+    @apply text-white bg-primary hover:bg-secondaryLight hover:text-primaryDark h-7 w-7 rounded-full flex justify-center items-center transition-all whitespace-nowrap flex-shrink-0;
   }
 
   .btn-sm {

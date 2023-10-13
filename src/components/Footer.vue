@@ -13,31 +13,13 @@
         </router-link>
 
         <!-- Follow Us -->
-        <div class="flex gap-4 justify-center mt-0">
+        <div class="flex gap-3 justify-center mt-0 items-center">
           Follow us:
-          <div class="social-icon">
-            <p class="absolute text-sm">
-              <i class="fa-brands fa-twitter"></i>
-            </p>
-          </div>
-
-          <div class="social-icon">
-            <p class="absolute text-sm">
-              <i class="fa-brands fa-facebook"></i>
-            </p>
-          </div>
-
-          <div class="social-icon">
-            <p class="absolute text-sm">
-              <i class="fa-brands fa-youtube"></i>
-            </p>
-          </div>
-
-          <div class="social-icon">
-            <p class="absolute text-sm">
-              <i class="fa-brands fa-linkedin"></i>
-            </p>
-          </div>
+          <BtnIcon
+            v-for="(social, index) in socialMediaList"
+            :icon="social"
+            key="index"
+          />
         </div>
       </div>
       <hr class="my-3 border-gray-300 sm:mx-auto dark:border-gray-400" />
@@ -48,4 +30,15 @@
   </footer>
 </template>
 
-<script></script>
+<script setup>
+import { ref } from "vue";
+import BtnIcon from "./buttons/BtnIcon.vue";
+
+// State
+const socialMediaList = ref([
+  "icon-facebook-1",
+  "icon-twitter",
+  "icon-youtube",
+  "icon-linkedin",
+]);
+</script>

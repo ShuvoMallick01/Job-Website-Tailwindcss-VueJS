@@ -7,35 +7,15 @@
 
     <div class="mb-24 lg:px-32 lg:mx-32 2xl:px-52 2xl:mx-52">
       <form>
-        <div class="mb-6">
-          <label for="email" class="block mb-2 formLabel">Your email</label>
-          <input
-            type="email"
-            id="email"
-            class="inputPrimary dark:focus:ring-none dark:focus:border-slate-500"
-            placeholder="name@flowbite.com"
-            required
-          />
-        </div>
-
-        <label for="message" class="block mb-2 formLabel">Your message</label>
-        <textarea
-          id="message"
-          rows="4"
-          class="inputPrimary dark:focus:ring-none dark:focus:border-slate-500"
-          placeholder="Leave a comment..."
-        ></textarea>
+        <FormInput :formInput="formInputList[0]" />
+        <FormInput :formInput="formInputList[1]" />
+        <FormTextarea :formTextarea="formTextareaList[0]" />
 
         <div class="flex items-start mb-6 mt-6">
           <div class="flex items-center h-5">
-            <input
-              id="terms"
-              type="checkbox"
-              value=""
-              class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-              required
-            />
+            <FormCheckInputOnly />
           </div>
+
           <label
             for="terms"
             class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -47,10 +27,49 @@
             ></label
           >
         </div>
-        <button type="submit" class="btn btn-primary px-10">Send</button>
+
+        <Btn_Primary :title="'Send'" :class="'px-10'" />
       </form>
     </div>
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import FormCheckInputOnlyVue from "../components/form/FormCheckInputOnly.vue";
+import FormInput from "../components/form/FormInput.vue";
+import FormTextarea from "../components/form/FormTextarea.vue";
+import FormCheckInputOnly from "../components/form/FormCheckInputOnly.vue";
+import Btn_Primary from "../components/buttons/Btn_Primary.vue";
+
+const formInputList = ref([
+  {
+    title: "Your Name:",
+    name: "name",
+    value: "",
+    type: "text",
+    placeholder: "",
+    required: true,
+  },
+  {
+    title: "Your Email:",
+    name: "email",
+    value: "",
+    type: "email",
+    placeholder: "",
+    required: true,
+  },
+]);
+
+const formTextareaList = ref([
+  {
+    type: "text",
+    title: "Your Message:",
+    name: "message",
+    value: "",
+    placeholder: "",
+    required: true,
+    rows: 4,
+  },
+]);
+</script>

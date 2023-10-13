@@ -1,6 +1,6 @@
 <template>
   <!-- FILTER & JOB CARD -->
-  <section class="myContainer mb-5 mt-20 xl:px-52">
+  <section class="myContainer mt-20 xl:px-52 bg-white">
     <div class="py-14 text-center">
       <h1 class="text-4xl font-bold text-primary mb-2">Job Apply Form</h1>
       <p class="heading-paragraph">Job Title: Vue JS Developer</p>

@@ -36,7 +36,7 @@
 
 <!-- FUNCTIONALITY -->
 <script setup>
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 import FormCheckInput from "../components/form/FormCheckInput.vue";
 import FormCheckboxInput from "../components/form/FormCheckboxInput.vue";
 import FormSelect from "../components/form/FormSelect.vue";

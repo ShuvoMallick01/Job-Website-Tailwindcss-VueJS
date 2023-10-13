@@ -1,6 +1,7 @@
 <template>
   <nav
     class="bg-[#F6EBE6] dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600"
+    ref="closeNavbar"
   >
     <div
       class="myContainer mx-auto flex flex-wrap items-center justify-between p-4"
@@ -71,7 +72,8 @@
       </div>
 
       <div
-        class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+        :class="navHidden"
+        class="items-center justify-between w-full md:flex md:w-auto md:order-1"
         id="navbar-sticky"
       >
         <ul
@@ -98,7 +100,12 @@
 import { ref, onMounted, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { initCollapses, initFlowbite } from "flowbite";
-import { useDark, useToggle, useElementHover } from "@vueuse/core";
+import {
+  useDark,
+  useToggle,
+  useElementHover,
+  onClickOutside,
+} from "@vueuse/core";
 
 const route = useRoute();
 const router = useRouter();
@@ -129,21 +136,18 @@ const menu = ref([
 ]);
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
+const closeNavbar = ref(null);
+const navHidden = ref("hidden");
 
 // Methods
-// initialize components based on data attribute selectors
-// onMounted(() => {
-//   initFlowbite();
-// });
-
 const activeNav = computed(() => {
   return route.path;
 });
 
-// console.log(route.fullPath);
-// // Methods
-// const handleActiveNavbar = computed(() => {
-//   activeNav = route.fullPath;
-// });
-// console.log(activeNav.value);
+const hiddenNav = () => {
+  console.log("hidden");
+  return (navHidden.value = "hidden");
+};
+
+onClickOutside(closeNavbar, hiddenNav);
 </script>

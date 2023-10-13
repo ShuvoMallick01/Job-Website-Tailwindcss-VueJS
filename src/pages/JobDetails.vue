@@ -47,38 +47,21 @@
         </p>
 
         <!-- Social Media -->
-        <div class="flex gap-2 justify-end mt-8 pb-10">
+        <div class="flex gap-2 justify-end mt-8 pb-10 items-center">
           <p class="paragraph-primary">Share Job</p>
-          <div class="social-icon-body">
-            <p class="absolute text-sm">
-              <i class="fa-brands fa-twitter"></i>
-            </p>
-          </div>
-
-          <div class="social-icon-body">
-            <p class="absolute text-sm">
-              <i class="fa-brands fa-facebook"></i>
-            </p>
-          </div>
-
-          <div class="social-icon-body">
-            <p class="absolute text-sm">
-              <i class="fa-brands fa-youtube"></i>
-            </p>
-          </div>
-
-          <div class="social-icon-body">
-            <p class="absolute text-sm">
-              <i class="fa-brands fa-linkedin"></i>
-            </p>
-          </div>
+          <BtnIcon
+            v-for="(social, index) in socialMediaList"
+            :icon="social"
+            key="index"
+          />
         </div>
 
         <!-- Related Jobs -->
-        <div class="mt-6 pt-6 border-t border-slate-300 py-6 bg-white px-4">
+        <div
+          class="mt-6 pt-6 border-t border-slate-300 py-6 bg-white px-4 mb-10"
+        >
           <h1 class="heading pt-2 mb-8 px-6">Related Jobs</h1>
-
-          <JobPostCard></JobPostCard>
+          <JobPostCard :jobList="store.jobList"></JobPostCard>
         </div>
       </div>
 
@@ -87,12 +70,8 @@
         <div
           class="bg-gray-200/50 border border-slate-300 p-6 rounded-lg dark:bg-gray-700 dark:border-slate-500"
         >
-          <div class="text-center">
-            <div
-              class="mx-auto bg-secondary w-16 h-16 text-slate-100 text-base md:text-xl rounded-full flex justify-center relative items-center"
-            >
-              <p class="absolute">P</p>
-            </div>
+          <div class="text-center content-center">
+            <SingleTextCircle :title="'J'" class="mx-auto" />
             <h2 class="heading mt-2">Medium Inc</h2>
           </div>
 
@@ -106,6 +85,7 @@
             </p>
             <p><i class="fa-solid fa-money-bill me-2"></i>$75k-$100k</p>
           </div>
+          <BtnApply :title="'Apply Now'" />
 
           <div class="flex flex-col text-center gap-4">
             <router-link to="/login" class="btn btn-primary"
@@ -128,7 +108,18 @@
 <script setup>
 import { ref } from "vue";
 import JobPostCard from "../components/JobPostCard.vue";
+import { useJobsStore } from "../stores/jobStore";
+import BtnIcon from "../components/buttons/BtnIcon.vue";
+import SingleTextCircle from "../components/icons/SingleTextCircle.vue";
+import BtnApply from "../components/buttons/BtnApply.vue";
+const store = useJobsStore();
 
 // State
+const socialMediaList = ref([
+  "icon-facebook-1",
+  "icon-twitter",
+  "icon-youtube",
+  "icon-linkedin",
+]);
 const jobApplyStatus = ref(true);
 </script>
