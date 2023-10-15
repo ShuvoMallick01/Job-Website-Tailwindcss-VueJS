@@ -4,7 +4,7 @@
       class="group/item md:flex justify-between border-b pb-5 mb-5 items-center lg:px-5 px-2 py-3 hover:bg-slate-100 cursor-pointer rounded-lg dark:border-b-slate-700 dark:hover:bg-gray-800"
     >
       <div class="flex items-center gap-4">
-        <SingleTextCircle :title="item.companyName" />
+        <IconText :title="item.companyName[0]" className="singleTextCircle" />
 
         <div class="">
           <p class="text-slate-500 text-xs md:text-sm mb-1 dark:text-slate-400">
@@ -15,24 +15,59 @@
           </h4>
 
           <div class="flex gap-2">
-            <BtnExtraSmall :title="item.isRemote ? 'Remote' : 'Not Remote'" />
-            <BtnExtraSmall :title="item.jobType" />
-            <BtnExtraSmall :title="item.jobRole" />
+            <Button
+              :isButton="true"
+              :title="item.isRemote ? 'Remote' : 'Not Remote'"
+              className="btn-sm-text"
+              :key="item.isRemote"
+            ></Button>
+            <Button
+              :isButton="true"
+              :title="item.jobType"
+              className="btn-sm-text "
+            ></Button>
+            <Button
+              :isButton="true"
+              :title="item.jobRole"
+              className="btn-sm-text "
+            ></Button>
           </div>
         </div>
       </div>
 
       <div class="flex items-center gap-2 xl:gap-4 ms-14 md:ms-0 md:mt-0 mt-4">
-        <BtnApply :title="'Apply Now'" v-if="!item.jobApplyStatus" />
-        <BtnText v-else :icon="'icon-check'" :title="'Applied'" />
+        <!-- <BtnApply :title="'Apply Now'" v-if="!item.jobApplyStatus" /> -->
+        <Button
+          v-if="!item.jobApplyStatus"
+          :isButton="false"
+          name="jobApplyButton"
+          className="btn-apply group/apply"
+          iconAnimation="group-hover/apply:translate-x-1 absolute right-0 ps-2 mx-2 transition300"
+          afterIcon="icon-arrow-single-right align-middle"
+          title="Apply Now"
+          url="/job-apply-form"
+        />
+        <Button
+          v-else
+          :isButton="true"
+          beforeIcon="icon-check"
+          className="btn-text"
+          title="Applied"
+        />
 
         <p class="text-sm text-slate-400 order-1 md:order-2">
           {{ item.createdAt }}
         </p>
 
         <div class="group/heart md:order-3">
-          <BtnIcon v-if="!item.isFavorite" :icon="'icon-heart-default'" />
-          <BtnIconFavorite v-else :icon="'icon-heart-filled'" />
+          <Button
+            :isButton="true"
+            :beforeIcon="
+              item.isFavorite ? 'icon-heart-filled' : 'icon-heart-default'
+            "
+            :className="item.isFavorite ? 'btn-icon-active' : 'btn-icon'"
+            @click.prevent="store.handleJobFavorite(item.id)"
+          ></Button>
         </div>
       </div>
     </div>
@@ -40,12 +75,11 @@
 </template>
 
 <script setup>
-import BtnExtraSmall from "./buttons/BtnExtraSmall.vue";
-import BtnIcon from "./buttons/BtnIcon.vue";
-import BtnApply from "./buttons/BtnApply.vue";
-import SingleTextCircle from "./icons/SingleTextCircle.vue";
-import BtnText from "./buttons/BtnText.vue";
-import BtnIconFavorite from "./buttons/BtnIconFavorite.vue";
+import Button from "./buttons/Button.vue";
+import IconText from "./icons/IconText.vue";
+import { useJobsStore } from "../stores/jobStore";
+
+const store = useJobsStore();
 
 defineProps({
   jobList: {
@@ -54,4 +88,6 @@ defineProps({
     required: true,
   },
 });
+
+const call = (a, e) => console.log(a, e);
 </script>

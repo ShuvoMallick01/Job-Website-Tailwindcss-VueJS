@@ -69,6 +69,11 @@
     @apply hover:fill-slate-500/80 cursor-pointer transition300  hover:scale-x-90;
   }
 
+  /* icons */
+  .singleTextCircle {
+    @apply bg-secondary whitespace-nowrap mt-1 w-6 h-6 md:w-8 md:h-8 text-slate-100 text-base md:text-xl rounded-full flex justify-center flex-shrink-0 relative items-center;
+  }
+
   /* Form */
   .formLabel {
     @apply text-sm font-medium text-gray-600 dark:text-white;
@@ -113,7 +118,10 @@
     @apply bg-secondary whitespace-nowrap  text-slate-200 text-sm py-2 px-3 rounded-full border transition300 hover:bg-slate-100 hover:border-secondaryDark hover:text-secondaryDark;
   }
 
-  /* delete */
+  .btn-apply {
+    @apply bg-secondary whitespace-nowrap text-slate-200 text-sm py-2 ps-3 pe-6 rounded-full border transition300 hover:bg-slate-100 hover:border-secondaryDark hover:text-secondaryDark  invisible group-hover/item:visible transition300 relative order-2 md:order-1;
+  }
+
   .btn-sm-text {
     @apply bg-gray-200 text-gray-700 px-4 py-1 rounded-full font-light text-xs whitespace-nowrap dark:bg-gray-500 dark:text-gray-300;
   }
@@ -138,24 +146,3 @@
   }
   /* / Animation */
 }
-
-/* CUSTOM CSS */
-
-/* .formLabel {
-    @apply text-sm font-normal text-gray-600 dark:text-gray-400;
-  } */
-/* .form-input {
-  @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-0 focus:ring-0 focus:border-slate-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-0;
-} */
-
-/* input[type="file"] {
-  display: none;
-} */
-
-/* .inputFile {
-  background-color: yellow;
-}
-
-::-webkit-file-upload-button {
-  background: yellow;
-} */

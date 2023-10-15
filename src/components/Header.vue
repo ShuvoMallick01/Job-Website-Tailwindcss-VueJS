@@ -145,7 +145,7 @@ const activeNav = computed(() => {
 });
 
 const hiddenNav = () => {
-  console.log("hidden");
+  // console.log("hidden");
   return (navHidden.value = "hidden");
 };
 

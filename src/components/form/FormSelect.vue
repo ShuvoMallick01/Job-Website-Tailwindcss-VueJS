@@ -1,10 +1,15 @@
 <template>
-  <select id="location" class="inputPrimary" required>
-    <!-- <option value="" selected disabled>Select</option> -->
+  <select
+    id="location"
+    class="inputPrimary"
+    required
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
+  >
     <option
       v-for="(item, index) in optionList"
       :key="index"
-      :v-model="item.value"
+      :value="item.value"
       :selected="!item.value"
     >
       {{ item.title }}
@@ -19,5 +24,6 @@ defineProps({
     default: [],
     required: true,
   },
+  modelValue: {},
 });
 </script>

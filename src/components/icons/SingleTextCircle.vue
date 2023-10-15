@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="bg-secondary mt-1 w-6 h-6 md:w-8 md:h-8 text-slate-100 text-base md:text-xl rounded-full flex justify-center flex-shrink-0 relative items-center"
-  >
+  <div class="singleTextCircle">
     <p class="absolute">{{ title[0] }}</p>
   </div>
 </template>

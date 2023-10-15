@@ -1,9 +1,11 @@
 <template>
-  <span class="whitespace-nowrap"
-    ><i class="me-1" :class="icon"></i>{{ title }}</span
-  >
+  <span :class="className" v-bind="$attrs">
+    <template v-if="beforeIcon"><i class="beforeIcon"></i></template>
+    {{ title }}
+    <template v-if="afterIcon"><i class="afterIcon"></i></template>
+  </span>
 </template>
 
 <script setup>
-defineProps(["icon", "title"]);
+defineProps(["title", "className", "beforeIcon", "afterIcon"]);
 </script>
