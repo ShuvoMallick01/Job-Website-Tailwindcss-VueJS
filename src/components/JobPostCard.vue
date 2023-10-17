@@ -1,5 +1,9 @@
 <template>
-  <router-link to="/job-details" v-for="(item, index) in jobList" :key="index">
+  <router-link
+    :to="'/job-details/' + item.id"
+    v-for="(item, index) in jobList"
+    :key="index"
+  >
     <div
       class="group/item md:flex justify-between border-b pb-5 mb-5 items-center lg:px-5 px-2 py-3 hover:bg-slate-100 cursor-pointer rounded-lg dark:border-b-slate-700 dark:hover:bg-gray-800"
     >
@@ -36,7 +40,6 @@
       </div>
 
       <div class="flex items-center gap-2 xl:gap-4 ms-14 md:ms-0 md:mt-0 mt-4">
-        <!-- <BtnApply :title="'Apply Now'" v-if="!item.jobApplyStatus" /> -->
         <Button
           v-if="!item.jobApplyStatus"
           :isButton="false"
@@ -78,9 +81,12 @@
 import Button from "./buttons/Button.vue";
 import IconText from "./icons/IconText.vue";
 import { useJobsStore } from "../stores/jobStore";
+import { onMounted, ref } from "vue";
 
+// State
 const store = useJobsStore();
 
+// Props
 defineProps({
   jobList: {
     type: Array,
@@ -88,6 +94,4 @@ defineProps({
     required: true,
   },
 });
-
-const call = (a, e) => console.log(a, e);
 </script>

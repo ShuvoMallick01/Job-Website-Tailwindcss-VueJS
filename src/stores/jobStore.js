@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { reactive, ref } from "vue";
 
 export const useJobsStore = defineStore("jobs", () => {
-  // State
+  // STATE
   const filterJobList = reactive({
     jobType: [],
     JobRole: [],
@@ -11,10 +11,12 @@ export const useJobsStore = defineStore("jobs", () => {
     location: [],
   });
 
-  let jobList = reactive([
+  let jobList = ref([
     {
       id: 1,
       companyName: "Meta Corporation",
+      description:
+        "The Role and Category Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores iusto, perferendis quae perspiciatis blanditiis cum quaerat facilis magni est. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias odio nihil quidem consequatur quos sunt! Ullam rem quaerat vel, ut quidem culpa eos qui voluptatum. Aliquam veniam animi tenetur? Ducimus.",
       jobTitle: "Senior React Developer",
       jobType: "Full-Time",
       jobRole: "Programming",
@@ -30,6 +32,8 @@ export const useJobsStore = defineStore("jobs", () => {
       id: 2,
       companyName: "Bit Skyber ltd.",
       jobTitle: "Web Developer",
+      description:
+        "The Role and Category Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores iusto, perferendis quae perspiciatis blanditiis cum quaerat facilis magni est. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias odio nihil quidem consequatur quos sunt! Ullam rem quaerat vel, ut quidem culpa eos qui voluptatum. Aliquam veniam animi tenetur? Ducimus.",
       jobType: "Part-Time",
       jobRole: "Design",
       location: "United State",
@@ -43,8 +47,10 @@ export const useJobsStore = defineStore("jobs", () => {
     {
       id: 3,
       companyName: "Info Sys",
-      jobTitle: "Data Scientist",
+      jobTitle: "Senior Data Scientist",
       jobType: "Internship",
+      description:
+        "The Role and Category Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores iusto, perferendis quae perspiciatis blanditiis cum quaerat facilis magni est. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias odio nihil quidem consequatur quos sunt! Ullam rem quaerat vel, ut quidem culpa eos qui voluptatum. Aliquam veniam animi tenetur? Ducimus.",
       jobRole: "Management",
       location: "Canada",
       isRemote: true,
@@ -58,6 +64,8 @@ export const useJobsStore = defineStore("jobs", () => {
       id: 4,
       companyName: "Google Incorporation",
       jobTitle: "Blockchain Developer",
+      description:
+        "The Role and Category Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores iusto, perferendis quae perspiciatis blanditiis cum quaerat facilis magni est. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias odio nihil quidem consequatur quos sunt! Ullam rem quaerat vel, ut quidem culpa eos qui voluptatum. Aliquam veniam animi tenetur? Ducimus.",
       jobType: "Full Time",
       jobRole: "Contract",
       location: "Europe",
@@ -68,11 +76,27 @@ export const useJobsStore = defineStore("jobs", () => {
       isFavorite: false,
       adminId: 1,
     },
+    {
+      id: 4,
+      companyName: "Microsoft Incorporation",
+      jobTitle: "Senior System Engineer",
+      description:
+        "The Role and Category Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores iusto, perferendis quae perspiciatis blanditiis cum quaerat facilis magni est. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias odio nihil quidem consequatur quos sunt! Ullam rem quaerat vel, ut quidem culpa eos qui voluptatum. Aliquam veniam animi tenetur? Ducimus.",
+      jobType: "Co-founder",
+      jobRole: "Customer Support",
+      location: "India",
+      isRemote: false,
+      createdAt: "3hr ago",
+      salary: "4000",
+      jobApplyStatus: false,
+      isFavorite: false,
+      adminId: 2,
+    },
   ]);
 
-  // Methods
+  // METHODS
   const handleJobFavorite = (id) => {
-    let newJobList = jobList.map((job) =>
+    let newJobList = jobList.value.map((job) =>
       job.id === id
         ? {
             ...job,
@@ -80,8 +104,9 @@ export const useJobsStore = defineStore("jobs", () => {
           }
         : job
     );
-    console.log(newJobList[3]);
+    console.log(newJobList[3].isFavorite);
   };
 
+  // RETURN
   return { filterJobList, jobList, handleJobFavorite };
 });

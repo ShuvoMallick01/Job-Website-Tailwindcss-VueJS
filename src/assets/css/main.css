@@ -71,7 +71,7 @@
 
   /* icons */
   .singleTextCircle {
-    @apply bg-secondary whitespace-nowrap mt-1 w-6 h-6 md:w-8 md:h-8 text-slate-100 text-base md:text-xl rounded-full flex justify-center flex-shrink-0 relative items-center;
+    @apply bg-secondary whitespace-nowrap mt-1 w-6 h-6 md:w-8 md:h-8 text-slate-100 text-base md:text-xl rounded-full flex justify-center flex-shrink-0  items-center;
   }
 
   /* Form */

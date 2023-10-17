@@ -1,6 +1,6 @@
 <template>
   <template v-if="isButton">
-    <button :class="className" v-bind="$attrs">
+    <button :class="className" v-bind="$attrs" v-on="$attrs">
       <template v-if="beforeIcon"><i :class="beforeIcon"></i></template>
       {{ title }}
       <template v-if="afterIcon"
@@ -11,7 +11,7 @@
 
   <template v-else>
     <router-link :to="url" :class="className" v-bind="$attrs">
-      <template v-if="afterIcon"
+      <template v-if="beforeIcon"
         ><i v-if="beforeIcon" :class="beforeIcon"></i
       ></template>
       {{ title }}

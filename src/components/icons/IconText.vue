@@ -1,8 +1,8 @@
 <template>
   <span :class="className" v-bind="$attrs">
-    <template v-if="beforeIcon"><i class="beforeIcon"></i></template>
+    <template v-if="beforeIcon"><i :class="beforeIcon"></i></template>
     {{ title }}
-    <template v-if="afterIcon"><i class="afterIcon"></i></template>
+    <template v-if="afterIcon"><i :class="afterIcon"></i></template>
   </span>
 </template>
 

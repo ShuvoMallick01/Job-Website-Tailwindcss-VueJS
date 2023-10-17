@@ -170,15 +170,12 @@
 
 <!-- FUNCTIONALITY -->
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, computed } from "vue";
 import { initFlowbite } from "flowbite";
+import { useJobsStore } from "../stores/jobStore";
 import JobPostCard from "../components/JobPostCard.vue";
 import Sidebar from "../components/Sidebar.vue";
-import { useJobsStore } from "../stores/jobStore";
 
+// State
 const store = useJobsStore();
-// Methods
-// onMounted(() => {
-//   initFlowbite();
-// });
 </script>

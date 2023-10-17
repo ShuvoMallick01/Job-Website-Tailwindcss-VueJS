@@ -22,10 +22,11 @@ export const router = createRouter({
       alias: "/home",
     },
     {
-      path: "/job-details",
+      path: "/job-details/:id",
       component: JobDetails,
       name: "jobDetails",
     },
+
     {
       path: "/contact",
       component: Contact,
