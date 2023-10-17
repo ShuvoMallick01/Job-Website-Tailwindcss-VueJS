@@ -36,7 +36,7 @@
           <p class="paragraph-primary">Share Job</p>
           <Button
             isButton="true"
-            v-for="social in socialMediaList"
+            v-for="social in store.socialMediaList"
             className="btn-icon"
             :beforeIcon="social"
           />
@@ -131,12 +131,6 @@ import Button from "../components/buttons/Button.vue";
 // STATE
 const route = useRoute();
 const store = useJobsStore();
-const socialMediaList = ref([
-  "icon-facebook-1",
-  "icon-twitter",
-  "icon-youtube",
-  "icon-linkedin",
-]);
 const id = route.params.id;
 let job = ref({});
 

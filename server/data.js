@@ -57,6 +57,45 @@ export const jobList = [
   },
 ];
 
-export const user = [];
+export const user = [
+  {
+    id: 1,
+    role: "Candidates",
+    name: "Shuvo Mallick",
+    profession: "Web Developer",
+    language: ["Bengali", "English"],
+    age: 27,
+    currentSalary: 2000,
+    expectedSalary: 3000,
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+    phone: 0123456789,
+    email: "shuvo@gmail.com",
+    password: "",
+    country: "Bangladesh",
+    fullAddress: "Rangunia, Chittagong",
+    favoriteJobId: [1, 3, 4],
+    appliedJobId: [2, 5],
+  },
+  {
+    id: 2,
+    role: "Employers",
+    name: "Shuvo Mallick",
+    profession: "Web Developer",
+    language: ["Bengali", "English"],
+    age: 27,
+    currentSalary: 2000,
+    expectedSalary: 3000,
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+    phone: 0123456789,
+    email: "shuvo@gmail.com",
+    password: "",
+    country: "Bangladesh",
+    fullAddress: "Rangunia, Chittagong",
+    favoriteJobId: [1, 3, 4],
+    appliedJobId: [2, 5],
+  },
+];
+
+export const userResumeList = [];
 
 export const admin = [];

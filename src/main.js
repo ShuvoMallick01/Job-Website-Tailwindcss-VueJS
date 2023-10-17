@@ -9,10 +9,10 @@ import Home from "./pages/Home.vue";
 import JobDetails from "./pages/JobDetails.vue";
 import Login from "./pages/Login.vue";
 import Registration from "./pages/Registration.vue";
-import UserProfile from "./pages/UserProfile.vue";
-import AdminProfile from "./pages/AdminProfile.vue";
+import JobseekerProfile from "./pages/jobseeker/Profile.vue";
+import EmployerProfile from "./pages/employer/Profile.vue";
 import JobApplyForm from "./pages/JobApplyForm.vue";
-import Layout from "./components/Layout.vue";
+import Layout from "./components/layout/Layout.vue";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 import Contact from "./pages/Contact.vue";
@@ -25,8 +25,8 @@ app
   .component("JobDetails", JobDetails)
   .component("Login", Login)
   .component("Registration", Registration)
-  .component("UserProfile", UserProfile)
-  .component("AdminProfile", AdminProfile)
+  .component("JobseekerProfile", JobseekerProfile)
+  .component("EmployerProfile", EmployerProfile)
   .component("Layout", Layout)
   .component("Header", Header)
   .component("Footer", Footer)

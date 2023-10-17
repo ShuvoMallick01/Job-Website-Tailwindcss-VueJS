@@ -119,13 +119,13 @@ const menu = ref([
   },
 
   {
-    title: "User",
-    path: "/user-profile",
+    title: "Job Seekers",
+    path: "/jobseeker-profile",
     private: false,
   },
   {
-    title: "Admin",
-    path: "/admin-profile",
+    title: "Employers",
+    path: "/employer-profile",
     private: false,
   },
   {

@@ -1,19 +1,10 @@
 <template>
-  <LayoutDashboard>
-    <!-- Title -->
-    <template v-slot:pageTitle>
-      <h1 class="sectionHeading">USER PROFILE</h1>
-    </template>
-
-    <!-- LEFT -->
-    <template v-slot:leftNavBar>
-      <ProfileNavBar
-        :profileInfo="userInfo"
-        :profileNavList="userNavList"
-        :activeNav="activeNav"
-      ></ProfileNavBar>
-    </template>
-
+  <LayoutDashboard
+    :pageTitle="'JOB SEEKER PROFILE'"
+    :navList="userNavList"
+    :userInfo="userInfo"
+    :activeNav="activeNav"
+  >
     <!-- RIGHT -->
     <router-view></router-view>
   </LayoutDashboard>
@@ -23,53 +14,51 @@
 <script setup>
 import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
-import ProfileNavBar from "../components/ProfileNavBar.vue";
-import LayoutDashboard from "../components/dashboard/LayoutDashboard.vue";
-
-const route = useRoute();
+import LayoutDashboard from "../../components/layout/LayoutDashboard.vue";
 
 // State
+const route = useRoute();
 const userNavList = ref([
   {
     title: "Profile",
     icon: "icon-default-user",
-    path: "/user-profile/profile",
+    path: "/jobseeker-profile/profile",
     id: 1,
   },
   {
     title: "My Resume",
     icon: "icon-file",
-    path: "/user-Profile/my-resume",
+    path: "/jobseeker-profile/my-resume",
     id: 2,
   },
   {
     title: "Saved Jobs",
     icon: "icon-heart-default",
-    path: "/user-profile/saved-jobs",
+    path: "/jobseeker-profile/saved-jobs",
     id: 3,
   },
   {
     title: "Applied Jobs",
     icon: "icon-checkbox-filled-2 ",
-    path: "/user-profile/applied-jobs",
+    path: "/jobseeker-profile/applied-jobs",
     id: 4,
   },
   {
     title: "Job Alerts",
     icon: "icon-alerm-default ",
-    path: "/user-profile/job-alerts",
+    path: "/jobseeker-profile/job-alerts",
     id: 5,
   },
   {
     title: "CV Manager",
     icon: "icon-burger-3-row ",
-    path: "/user-profile/cv-manager",
+    path: "/jobseeker-profile/cv-manager",
     id: 5,
   },
   {
     title: "Change Password",
     icon: "icon-edit ",
-    path: "/user-profile/change-password",
+    path: "/jobseeker-profile/change-password",
     id: 6,
   },
   {

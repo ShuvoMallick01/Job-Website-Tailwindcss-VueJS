@@ -5,12 +5,4 @@
 </template>
 
 <!-- FUNCTIONALITY -->
-<script>
-export default {
-  data() {
-    return {};
-  },
-
-  methods: {},
-};
-</script>
+<script setup></script>

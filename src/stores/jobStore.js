@@ -94,6 +94,13 @@ export const useJobsStore = defineStore("jobs", () => {
     },
   ]);
 
+  const socialMediaList = ref([
+    "icon-facebook-1",
+    "icon-twitter",
+    "icon-youtube",
+    "icon-linkedin",
+  ]);
+
   // METHODS
   const handleJobFavorite = (id) => {
     let newJobList = jobList.value.map((job) =>
@@ -108,5 +115,5 @@ export const useJobsStore = defineStore("jobs", () => {
   };
 
   // RETURN
-  return { filterJobList, jobList, handleJobFavorite };
+  return { filterJobList, jobList, handleJobFavorite, socialMediaList };
 });

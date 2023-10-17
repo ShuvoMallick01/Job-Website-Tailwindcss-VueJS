@@ -9,8 +9,8 @@ import JobApplyForm from "../pages/JobApplyForm.vue";
 import NotFound from "../pages/NotFound.vue";
 import Contact from "../pages/Contact.vue";
 
-import { userRoutes } from "./user-dashboard";
-import { adminRoutes } from "./admin-dashboard";
+import { jobseekerRoutes } from "./jobseeker";
+import { employerRoutes } from "./employer";
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -47,8 +47,8 @@ export const router = createRouter({
       component: Registration,
       name: "registration",
     },
-    ...userRoutes,
-    ...adminRoutes,
+    ...jobseekerRoutes,
+    ...employerRoutes,
 
     { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFound },
   ],
