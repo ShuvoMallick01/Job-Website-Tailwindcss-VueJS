@@ -1,6 +1,9 @@
 <template>
   <!-- Title -->
-  <SubSectionHeading :subHeading="subHeadingList[0]" />
+  <SubSecHeading
+    headingTitle="Basic Information"
+    divClassName="mb-8 pb-3 border-b"
+  />
 
   <form>
     <div class="md:grid grid-cols-2 gap-5">
@@ -30,7 +33,10 @@
     <FormTextarea :formTextarea="formTextareaList[0]" />
 
     <!-- Title -->
-    <SubSectionHeading :subHeading="subHeadingList[1]" />
+    <SubSecHeading
+      headingTitle="Contact Information"
+      divClassName="mb-8 pb-3 border-b"
+    />
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Phone -->
@@ -48,7 +54,12 @@
       <FormInput :formInput="formInputList[9]" />
     </div>
 
-    <button type="submit" class="btn btn-primary">Save Setting</button>
+    <Button
+      isButton="true"
+      className="btn btn-primary px-10"
+      type="submit"
+      title="Submit"
+    />
   </form>
 </template>
 
@@ -56,13 +67,13 @@
 import { ref } from "vue";
 import FormInput from "../../components/form/FormInput.vue";
 import FormTextarea from "../../components/form/FormTextarea.vue";
-import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
+import Button from "../../components/buttons/Button.vue";
 
 const formInputList = ref([
   {
     title: "Your Name:",
     name: "name",
-    value: "Shuvo Mallick",
     type: "text",
     placeholder: "",
     required: true,
@@ -70,7 +81,6 @@ const formInputList = ref([
   {
     title: "Professional Title:",
     name: "professional",
-    value: "Web Developer",
     type: "text",
     placeholder: "",
     required: true,
@@ -78,7 +88,6 @@ const formInputList = ref([
   {
     title: "Language:",
     name: "language",
-    value: "Bengali, English",
     type: "text",
     placeholder: "",
     required: true,
@@ -87,7 +96,6 @@ const formInputList = ref([
     type: "number",
     title: "Age:",
     name: "age",
-    value: 27,
     placeholder: "",
     required: true,
   },
@@ -95,7 +103,6 @@ const formInputList = ref([
     type: "number",
     title: "Current Salary ($):",
     name: "currentsalary",
-    value: 2000,
     placeholder: "",
     required: true,
   },
@@ -103,7 +110,6 @@ const formInputList = ref([
     type: "number",
     title: "Expected Salary:",
     name: "expectedsalary",
-    value: 3000,
     placeholder: "",
     required: true,
   },
@@ -111,7 +117,6 @@ const formInputList = ref([
     type: "number",
     title: "Phone:",
     name: "phone",
-    value: +880123456789,
     placeholder: "",
     required: true,
   },
@@ -119,7 +124,6 @@ const formInputList = ref([
     type: "email",
     title: "Email:",
     name: "email",
-    value: "shuvomallick23@gmail.com",
     placeholder: "",
     required: true,
   },
@@ -127,7 +131,6 @@ const formInputList = ref([
     type: "text",
     title: "Country:",
     name: "country",
-    value: "Bangladesh",
     placeholder: "",
     required: true,
   },
@@ -135,7 +138,6 @@ const formInputList = ref([
     type: "text",
     title: "Full Adddress:",
     name: "fulladdress",
-    value: "Rangunia, Chittagong",
     placeholder: "",
     required: true,
   },
@@ -146,24 +148,9 @@ const formTextareaList = ref([
     type: "text",
     title: "Description:",
     name: "description",
-    value:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque officiis a totam obcaecati commodi quam hic molestiae, optio eos, reiciendis quae praesentium earum doloribus beatae deserunt quisquam ratione labore accusamus!",
     placeholder: "",
     required: true,
     rows: 4,
-  },
-]);
-
-const subHeadingList = ref([
-  {
-    title: "Basic Information",
-    btnTitle: "",
-    btnIcon: "",
-  },
-  {
-    title: "Contact Information",
-    btnTitle: "",
-    btnIcon: "",
   },
 ]);
 </script>

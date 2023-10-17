@@ -2,7 +2,7 @@
   <LayoutDashboard
     :pageTitle="'JOB SEEKER PROFILE'"
     :navList="userNavList"
-    :userInfo="userInfo"
+    :userInfo="store.jobseekersList[0]"
     :activeNav="activeNav"
   >
     <!-- RIGHT -->
@@ -15,8 +15,10 @@
 import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 import LayoutDashboard from "../../components/layout/LayoutDashboard.vue";
+import { useJobseekersStore } from "../../stores/jobseekerStore";
 
 // State
+const store = useJobseekersStore();
 const route = useRoute();
 const userNavList = ref([
   {

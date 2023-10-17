@@ -11,7 +11,7 @@
         <Image :imgUrl="profileInfo.image" alt="User Picture" />
       </div>
       <h3 class="sectionSubHeading mb-0 pb-0">{{ profileInfo.name }}</h3>
-      <p class="text-xs font-light">{{ profileInfo.designation }}</p>
+      <p class="text-xs font-light">{{ profileInfo.profession }}</p>
     </div>
 
     <!-- Navbar -->
