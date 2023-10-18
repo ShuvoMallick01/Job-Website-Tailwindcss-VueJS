@@ -7,7 +7,7 @@
       >
         <tr>
           <th scope="col" class="px-4 py-3">
-            <formCheckInputOnly />
+            <FormCheck />
           </th>
           <th
             scope="col"
@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import formCheckInputOnly from "../form/FormCheckInputOnly.vue";
+import FormCheck from "../form/FormCheck.vue";
 
 defineProps({
   fieldList: { type: Array },

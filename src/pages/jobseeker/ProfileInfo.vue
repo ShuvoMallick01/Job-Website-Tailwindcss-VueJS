@@ -7,30 +7,30 @@
 
   <form>
     <div class="md:grid grid-cols-2 gap-5">
-      <FormInput :formInput="formInputList[0]" />
-
+      <FormInput :formInput="formInputList[0]" v-model="user.name" />
       <!-- Profession -->
-      <FormInput :formInput="formInputList[1]" />
+      <FormInput :formInput="formInputList[1]" v-model="user.profession" />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Language -->
-      <FormInput :formInput="formInputList[2]" />
-
+      <FormInput :formInput="formInputList[2]" v-model="user.language" />
       <!-- Age -->
-      <FormInput :formInput="formInputList[3]" />
+      <FormInput :formInput="formInputList[3]" v-model="user.age" />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Current Salary ($) -->
-      <FormInput :formInput="formInputList[4]" />
-
+      <FormInput :formInput="formInputList[4]" v-model="user.currentSalary" />
       <!-- Expected Salary -->
-      <FormInput :formInput="formInputList[5]" />
+      <FormInput :formInput="formInputList[5]" v-model="user.expectedSalary" />
     </div>
 
     <!-- Description -->
-    <FormTextarea :formTextarea="formTextareaList[0]" />
+    <FormTextarea
+      :formTextarea="formTextareaList[0]"
+      v-model="user.description"
+    />
 
     <!-- Title -->
     <SubSecHeading
@@ -40,18 +40,16 @@
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Phone -->
-      <FormInput :formInput="formInputList[6]" />
-
+      <FormInput :formInput="formInputList[6]" v-model="user.phone" />
       <!-- Email -->
-      <FormInput :formInput="formInputList[7]" />
+      <FormInput :formInput="formInputList[7]" v-model="user.email" />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Country -->
-      <FormInput :formInput="formInputList[8]" />
-
+      <FormInput :formInput="formInputList[8]" v-model="user.country" />
       <!-- Full Address -->
-      <FormInput :formInput="formInputList[9]" />
+      <FormInput :formInput="formInputList[9]" v-model="user.fullAddress" />
     </div>
 
     <Button
@@ -65,10 +63,15 @@
 
 <script setup>
 import { ref } from "vue";
+import { useJobseekersStore } from "../../stores/jobseekerStore";
 import FormInput from "../../components/form/FormInput.vue";
 import FormTextarea from "../../components/form/FormTextarea.vue";
 import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
 import Button from "../../components/buttons/Button.vue";
+
+// STATE
+const store = useJobseekersStore();
+const user = store.jobseekersList[0];
 
 const formInputList = ref([
   {

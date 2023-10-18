@@ -1,24 +1,19 @@
 <template>
   <!-- Title -->
-  <SubSectionHeading :subHeading="subHeadingList[0]" />
+  <SubSecHeading headingTitle="SAVED JOBS" divClassName="mb-8 pb-3 border-b" />
+
   <!-- Card -->
-  <JobPostCard :jobList="jobList"></JobPostCard>
+  <JobPostCard :jobList="savedJobsList"></JobPostCard>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import JobPostCard from "../../components/JobPostCard.vue";
-import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
+import { useJobseekersStore } from "../../stores/jobseekerStore";
 
 // State
-const subHeadingList = ref([
-  {
-    title: "Saved Jobs",
-    btnTitle: "",
-    btnIcon: "",
-  },
-]);
-
+const jobStore = useJobseekersStore();
 const jobList = ref([
   {
     id: 1,
@@ -77,4 +72,5 @@ const jobList = ref([
     adminId: 1,
   },
 ]);
+const savedJobsList = jobStore.handleFilterSavedJobs(1);
 </script>

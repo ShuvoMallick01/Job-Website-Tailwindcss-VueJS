@@ -2,47 +2,52 @@
   <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
     <!-- :v-for="data in alert" -->
     <td class="px-4 py-4">
-      <formCheckInputOnly />
+      <FormCheck />
     </td>
 
     <th
       scope="row"
       class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
     >
-      {{ alertItem.jobTitle }} <br />
+      {{ item.jobTitle }} <br />
 
       <div class="flex gap-2 flex-wrap mt-2">
-        <span v-for="subCat in alertItem.jobCategory">
-          <BtnExtraSmall :title="subCat" />
-        </span>
+        <Button isButton="true" :title="item.jobType" className="btn-sm-text" />
+        <Button
+          isButton="true"
+          :title="item.isRemote ? 'Remote' : 'Not Remote'"
+          className="btn-sm-text"
+        />
       </div>
     </th>
 
     <td class="px-6 py-4">
-      <span v-for="info in alertItem.applicantInfo"
+      <span v-for="info in item.applicantInfo"
         >{{ info }}
         {{
-          alertItem.applicantInfo[alertItem.applicantInfo.length - 1] === info
-            ? ""
-            : "| "
+          item.applicantInfo[item.applicantInfo.length - 1] === info ? "" : "| "
         }}
       </span>
+      <p>{{ item.jobRole + " | " + "$" + item.salary + " per Month" }}</p>
     </td>
 
-    <td class="px-6 py-4">{{ alertItem.times }} ago</td>
+    <td class="px-6 py-4">{{ item.createdAt }}</td>
 
     <td class="px-6 py-4 flex gap-1">
-      <span v-for="action in alertItem.actions">
-        <BtnIcon :icon="action.icon" />
-      </span>
+      <template v-for="action in actions">
+        <Button isButton="true" className="btn-icon" :beforeIcon="action" />
+      </template>
     </td>
   </tr>
 </template>
 
 <script setup>
-import formCheckInputOnly from "../form/FormCheckInputOnly.vue";
-import BtnIcon from "../buttons/BtnIcon.vue";
-import BtnExtraSmall from "../buttons/BtnExtraSmall.vue";
+import FormCheck from "../form/FormCheck.vue";
+import Button from "../buttons/Button.vue";
+import { ref } from "vue";
 
-defineProps(["alertItem"]);
+defineProps(["item"]);
+
+// State
+const actions = ref(["icon-trash", "icon-eye-on"]);
 </script>

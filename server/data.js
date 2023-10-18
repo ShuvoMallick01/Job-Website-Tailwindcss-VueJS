@@ -98,6 +98,50 @@ export const user = [
   },
 ];
 
-export const userResumeList = [];
+export const userResumeList = [
+  {
+    jobseekerId: 1,
+    uplodadedCvVersions: [
+      { version: "CV Version 1.0", cvUrl: "www.cv.com" },
+      { version: "CV Version 2.0", cvUrl: "www.cv.com" },
+    ],
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    education: [
+      {
+        id: 1,
+        degree: "Bachelor of Science in CSE",
+        university: "University of Science & Technology",
+        description: "Lorem ipsum dolor, sit amet consectetur",
+        duration: "2017-2021",
+      },
+      {
+        id: 2,
+        degree: "Bachelor of Science in CSE",
+        university: "University of Science & Technology",
+        description: "Lorem ipsum dolor, sit amet consectetur",
+        duration: "2017-2021",
+      },
+    ],
+
+    workExperience: [
+      {
+        id: 1,
+        jobRole: "Product Designer",
+        company: "Spotify Inc",
+        description: "Lorem ipsum dolor, sit amet consectetur",
+        duration: "2017-2021",
+      },
+      {
+        id: 2,
+        jobRole: "Vue.js Developer",
+        company: "Bit Skyber",
+        description: "Lorem ipsum dolor, sit amet consectetur",
+        duration: "2021-2023",
+      },
+    ],
+
+    skills: ["vuejs", "javascript", "reactjs"],
+  },
+];
 
 export const admin = [];

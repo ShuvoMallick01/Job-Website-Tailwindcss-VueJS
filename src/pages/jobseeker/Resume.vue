@@ -1,132 +1,92 @@
 <template>
   <!-- Title -->
-  <SubSectionHeading :subHeading="subHeadingList[0]" />
+  <SubSecHeading headingTitle="MY RESUME" divClassName="mb-8 pb-3 border-b" />
 
   <div>
-    <div class="mb-5">
-      <label for="countries" class="block mb-2 formLabel">Select Your CV</label>
-      <FormSelect :optionList="CvVersionList" />
-    </div>
-
-    <div>
-      <FormTextarea :formTextarea="formTextareaList" />
-    </div>
+    <!-- Updated CV Version List -->
+    <FormSelect
+      :optionList="CvVersionList"
+      :labelName="'Select Your CV'"
+      className="mb-5"
+      v-model="resume.cvVersion"
+    />
+    <!-- Description -->
+    <Textarea
+      labelName="Description"
+      name="description"
+      required="true"
+      v-model="resume.description"
+    />
   </div>
 
   <!-- Education -->
   <div class="mt-14">
-    <SubSectionHeading :subHeading="subHeadingList[1]" />
-    <ComboInfoCard :infoList="educationList" />
+    <div class="mb-8 pb-3 border-b flex justify-between">
+      <SubSecHeading headingTitle="EDUCATION" />
+      <Button
+        isButton="true"
+        beforeIcon="icon-plus align-baseline"
+        title="Add Education"
+        className="btn-text"
+      />
+    </div>
+    <ComboInfoCard :infoList="resume.education" />
   </div>
 
   <!-- Work & Experience -->
   <div class="mt-14">
-    <SubSectionHeading :subHeading="subHeadingList[2]" />
-    <ComboInfoCard :infoList="experienceList" />
+    <div class="mb-8 pb-3 border-b flex justify-between">
+      <SubSecHeading headingTitle="WORK & EXPERIENCE" />
+
+      <Button
+        isButton="true"
+        beforeIcon="icon-plus align-baseline"
+        title="Add Work"
+        className="btn-text"
+      />
+    </div>
+
+    <ComboInfoCard :infoList="resume.workExperience" />
   </div>
 
   <!-- Skills -->
   <div class="mt-14">
-    <SubSectionHeading :subHeading="subHeadingList[3]" />
-    <FormInput :formInput="formInputList[0]" />
+    <SubSecHeading headingTitle="SKILLS" divClassName="mb-8 pb-3 border-b" />
+    <FormInput :formInput="formInputList" v-model="resume.skills" />
   </div>
 
-  <button class="btn btn-primary px-16">Save</button>
+  <Button isButton="true" title="Save" className="btn btn-primary px-14" />
 </template>
 
 <!-- SCRIPT -->
 <script setup>
 import { ref, reactive } from "vue";
+import { useJobseekersStore } from "../../stores/jobseekerStore";
 import FormSelect from "../../components/form/FormSelect.vue";
-import FormTextarea from "../../components/form/FormTextarea.vue";
+import Textarea from "../../components/form/Textarea.vue";
 import ComboInfoCard from "../../components/dashboard/ComboInfoCard.vue";
 import FormInput from "../../components/form/FormInput.vue";
-import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
+import Button from "../../components/buttons/Button.vue";
 
 // State
+const store = useJobseekersStore();
+const resume = store.resumeList[0];
+
 const CvVersionList = ref([
-  { title: "Choose your Update CV", value: "" },
-  { title: "CV Version 1.0", value: "cv-version-1.0" },
-  { title: "CV Version 2.0", value: "cv-version-2.0" },
-  { title: "CV Version 3.0", value: "cv-version-3.0" },
-]);
-
-const formTextareaList = reactive({
-  type: "text",
-  title: "Description:",
-  name: "description",
-  value:
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque officiis a totam obcaecati commodi quam hic molestiae, optio eos, reiciendis quae praesentium earum doloribus beatae deserunt quisquam ratione labore accusamus!",
-  placeholder: "",
-  required: true,
-  rows: 4,
-});
-
-const educationList = ref([
-  {
-    title: "Bachelor of Science in CSE",
-    institute: "University of Science & Technology",
-    duration: "2017-2021",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus minima magni voluptatem rem.",
-  },
-  {
-    title: "Diploma in Computer Technology",
-    institute: "Islami Bank Institute of Technology",
-    duration: "2013-2017",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus minima magni voluptatem rem.",
-  },
-]);
-
-const experienceList = ref([
-  {
-    title: "Product Designer",
-    institute: "Spotify Inc",
-    duration: "2017-2021",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus minima magni voluptatem rem.",
-  },
-  {
-    title: "Vue.js Developer",
-    institute: "Bit Skyber",
-    duration: "2021-2023",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus minima magni voluptatem rem.",
-  },
+  { title: "Choose your Update CV", value: null },
+  { title: "CV Version 1.0", value: "CV Version 1.0" },
+  { title: "CV Version 2.0", value: "CV Version 2.0" },
+  { title: "CV Version 3.0", value: "CV Version 3.0" },
 ]);
 
 const formInputList = ref([
   {
     title: "",
     name: "skills",
-    value: "Vue.js; React.js; Javascript; Html-css;",
     type: "text",
     placeholder: "",
     required: true,
-  },
-]);
-
-const subHeadingList = ref([
-  {
-    title: "My Resume",
-    btnTitle: "",
-    btnIcon: "",
-  },
-  {
-    title: "Education",
-    btnTitle: "Add Education",
-    btnIcon: "icon-plus",
-  },
-  {
-    title: "Work & Experience",
-    btnTitle: "Add Work",
-    btnIcon: "icon-plus",
-  },
-  {
-    title: "Skills",
-    btnTitle: "",
-    btnIcon: "",
   },
 ]);
 </script>

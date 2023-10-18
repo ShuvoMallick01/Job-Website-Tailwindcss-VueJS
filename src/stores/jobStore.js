@@ -26,7 +26,7 @@ export const useJobsStore = defineStore("jobs", () => {
       salary: "2000",
       jobApplyStatus: true,
       isFavorite: true,
-      adminId: 1,
+      employerId: 1,
     },
     {
       id: 2,
@@ -42,7 +42,7 @@ export const useJobsStore = defineStore("jobs", () => {
       salary: "40000",
       jobApplyStatus: false,
       isFavorite: true,
-      adminId: 1,
+      employerId: 1,
     },
     {
       id: 3,
@@ -58,7 +58,7 @@ export const useJobsStore = defineStore("jobs", () => {
       salary: "1000",
       jobApplyStatus: false,
       isFavorite: false,
-      adminId: 1,
+      employerId: 1,
     },
     {
       id: 4,
@@ -74,7 +74,7 @@ export const useJobsStore = defineStore("jobs", () => {
       salary: "2000",
       jobApplyStatus: false,
       isFavorite: false,
-      adminId: 1,
+      employerId: 1,
     },
     {
       id: 4,
@@ -88,9 +88,9 @@ export const useJobsStore = defineStore("jobs", () => {
       isRemote: false,
       createdAt: "3hr ago",
       salary: "4000",
-      jobApplyStatus: false,
+      jobApplyStatus: true,
       isFavorite: false,
-      adminId: 2,
+      employerId: 2,
     },
   ]);
 

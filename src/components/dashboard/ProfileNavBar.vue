@@ -10,8 +10,14 @@
         <!-- <img class="" :src="profileInfo.image" alt="User Profile" /> -->
         <Image :imgUrl="profileInfo.image" alt="User Picture" />
       </div>
-      <h3 class="sectionSubHeading mb-0 pb-0">{{ profileInfo.name }}</h3>
-      <p class="text-xs font-light">{{ profileInfo.profession }}</p>
+      <h3 class="sectionSubHeading mb-0 pb-0">
+        {{ profileInfo.name ? profileInfo.name : "User Name" }}
+      </h3>
+      <p class="text-xs font-light">
+        {{
+          profileInfo.profession ? profileInfo.profession : "Profession Name"
+        }}
+      </p>
     </div>
 
     <!-- Navbar -->

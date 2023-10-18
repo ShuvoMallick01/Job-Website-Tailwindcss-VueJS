@@ -1,61 +1,22 @@
 <template>
   <!-- Title -->
-  <SubSectionHeading :subHeading="subHeadingList[0]" />
+  <SubSecHeading headingTitle="Job Alerts" divClassName="mb-8 pb-3 border-b" />
 
   <!-- Table -->
-  <AlertTable :fieldList="fieldList">
-    <AlertTableRow v-for="alertItem in adminAlertList" :alertItem="alertItem" />
-  </AlertTable>
+  <Table :fieldList="fieldList">
+    <AlertTableRow v-for="item in jobList" :item="item" />
+  </Table>
 </template>
 
 <script setup>
 import { ref, provide } from "vue";
-import AlertTable from "../../components/dashboard/AlertTable.vue";
-import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
+import Table from "../../components/dashboard/Table.vue";
 import AlertTableRow from "../../components/dashboard/AlertTableRow.vue";
+import { useJobsStore } from "../../stores/jobStore";
 
 // State
+const jobStore = useJobsStore();
+const jobList = jobStore.jobList;
 const fieldList = ref(["Job Title", "Criteria", "Created", "Action"]);
-const subHeadingList = ref([
-  {
-    title: "Resume Alerts",
-    btnTitle: "",
-    btnIcon: "",
-  },
-]);
-
-const adminAlertList = ref([
-  {
-    id: 1,
-    jobTitle: "Senior Full Stact Engineer",
-    jobCategory: ["Remote", "Full time"],
-    applicantInfo: ["React", "Vue", "JS"],
-    times: "1 hr",
-    actions: [{ icon: "icon-trash" }, { icon: "icon-eye-on" }],
-  },
-  {
-    id: 2,
-    jobTitle: "Senior Full Stact Engineer",
-    jobCategory: ["Remote", "Full time"],
-    applicantInfo: ["React", "Vue", "JS"],
-    times: "1 hr",
-    actions: [{ icon: "icon-trash" }, { icon: "icon-eye-on" }],
-  },
-  {
-    id: 3,
-    jobTitle: "Senior Full Stact Engineer",
-    jobCategory: ["Remote", "Full time"],
-    applicantInfo: ["React", "Vue", "JS"],
-    times: "1 hr",
-    actions: [{ icon: "icon-trash" }, { icon: "icon-eye-on" }],
-  },
-  {
-    id: 4,
-    jobTitle: "Senior Full Stact Engineer",
-    jobCategory: ["Remote", "Full time"],
-    applicantInfo: ["React", "Vue", "JS"],
-    times: "1 hr",
-    actions: [{ icon: "icon-trash" }, { icon: "icon-eye-on" }],
-  },
-]);
 </script>

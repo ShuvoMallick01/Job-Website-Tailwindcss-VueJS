@@ -1,6 +1,10 @@
 <template>
   <div v-for="(item, index) in infoList" :key="index" class="flex gap-6 mb-8">
-    <SingleTextCircle :title="item.title" />
+    <Button
+      isButton="true"
+      :title="item.title[0]"
+      className="singleTextCircle"
+    />
 
     <div>
       <div class="mb-4 flex gap-3 items-start">
@@ -12,8 +16,8 @@
         </div>
         <p class="btn-sm-text">{{ item.duration }}</p>
 
-        <BtnIcon :icon="'icon-edit'" />
-        <BtnIcon :icon="'icon-trash'" />
+        <Button isButton="true" beforeIcon="icon-edit" className="btn-icon" />
+        <Button isButton="true" beforeIcon="icon-trash" className="btn-icon" />
       </div>
 
       <p class="description-sm-text">
@@ -24,8 +28,7 @@
 </template>
 
 <script setup>
-import SingleTextCircle from "../icons/SingleTextCircle.vue";
-import BtnIcon from "../buttons/BtnIcon.vue";
+import Button from "../buttons/Button.vue";
 
 defineProps({
   infoList: {
@@ -33,5 +36,6 @@ defineProps({
     default: [],
     required: true,
   },
+  modelValue: {},
 });
 </script>

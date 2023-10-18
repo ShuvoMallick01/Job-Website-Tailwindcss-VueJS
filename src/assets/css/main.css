@@ -127,17 +127,17 @@
   }
 
   /* delete */
-  .btn-circle-icon {
+  /* .btn-circle-icon {
     @apply w-8 h-8 bg-secondary rounded-full flex justify-center items-center text-white;
-  }
+  } */
   /* delete */
-  .social-icon {
+  /* .social-icon {
     @apply bg-primaryLight text-primary  h-7 w-7 rounded-full relative inset-0 flex justify-center items-center hover:bg-primary hover:text-white transition300 cursor-pointer;
-  }
+  } */
   /* delete */
-  .social-icon-body {
+  /* .social-icon-body {
     @apply bg-primaryLight text-primary  h-7 w-7 rounded-full relative inset-0 flex justify-center items-center hover:bg-primary hover:text-white transition300 cursor-pointer;
-  }
+  } */
   /* /Buttons */
 
   /* Animation */

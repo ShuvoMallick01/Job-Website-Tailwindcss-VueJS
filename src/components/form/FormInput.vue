@@ -10,10 +10,11 @@
     <input
       :type="formInput.type"
       :id="formInput.name"
-      v-model="formInput.value"
       class="inputPrimary"
       :placeholder="formInput.placeholder"
       :required="formInput.required"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
     />
   </div>
 </template>
@@ -32,5 +33,6 @@ defineProps({
     required: true,
     default: {},
   },
+  modelValue: {},
 });
 </script>

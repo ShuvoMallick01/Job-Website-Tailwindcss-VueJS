@@ -10,7 +10,7 @@
 
 <script setup>
 import { ref, provide } from "vue";
-import AlertTable from "../../components/dashboard/AlertTable.vue";
+import AlertTable from "../../components/dashboard/Table.vue";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 import AlertTableRow from "../../components/dashboard/AlertTableRow.vue";
 

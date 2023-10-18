@@ -4,7 +4,7 @@
     class="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
   >
     <td class="px-4 py-4">
-      <FormCheckInputOnly />
+      <FormCheck />
     </td>
     <th
       scope="row"
@@ -15,6 +15,11 @@
         <BtnExtraSmall :title="item.isRemote ? 'Remote' : 'Not Remote'" />
         <BtnExtraSmall :title="item.jobType" />
         <BtnExtraSmall :title="item.location" />
+        <Button
+          isButton="true"
+          :title="item.isRemote ? 'Remote' : 'Not Remote'"
+          className="btn-sm-text"
+        />
       </div>
     </th>
 
@@ -32,6 +37,8 @@ import { ref } from "vue";
 import FormCheckInputOnly from "../../components/form/FormCheckInputOnly.vue";
 import BtnExtraSmall from "../buttons/BtnExtraSmall.vue";
 import BtnIcon from "../buttons/BtnIcon.vue";
+import FormCheck from "../form/FormCheck.vue";
+import Button from "../buttons/Button.vue";
 
 const actionIcons = ref(["icon-eye-on", "icon-edit", "icon-trash"]);
 
