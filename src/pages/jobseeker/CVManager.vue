@@ -1,6 +1,6 @@
 <template>
-  <!-- Title -->
-  <SubSectionHeading :subHeading="subHeadingList[0]" />
+  <!-- CV Manager -->
+  <SubSecHeading headingTitle="CV Manager" divClassName="mb-8 pb-3 border-b" />
 
   <!-- file Upload -->
   <div class="border text-center py-20 mb-10">
@@ -16,32 +16,23 @@
   </div>
 
   <!-- Title -->
-  <SubSectionHeading :subHeading="subHeadingList[1]" />
+  <SubSecHeading
+    headingTitle="Uploaded Resume"
+    divClassName="mb-8 pb-3 border-b"
+  />
 
   <div class="flex justify-between">
     <p class="description-text">
       <i class="icon-file me-2"></i>Shuvo Mallick Resume
+      <span>| Version 1.0</span>
     </p>
-    <BtnText title="Download" />
+    <Button isButton="true" title="Download" className="btn-text"></Button>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import BtnFileUpload from "../../components/buttons/BtnFileUpload.vue";
-import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
-import BtnText from "../../components/buttons/BtnText.vue";
-
-const subHeadingList = ref([
-  {
-    title: "CV MANAGER",
-    btnTitle: "",
-    btnIcon: "",
-  },
-  {
-    title: "UPLOADED RESUME",
-    btnTitle: "",
-    btnIcon: "",
-  },
-]);
+import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
+import Button from "../../components/buttons/Button.vue";
 </script>

@@ -1,6 +1,9 @@
 <template>
   <!-- Title -->
-  <SubSectionHeading :subHeading="subHeadingList[0]" />
+  <SubSecHeading
+    headingTitle="POST A NEW JOB"
+    divClassName="mb-8 pb-3 border-b"
+  />
 
   <form>
     <FormInput :formInput="formInputList[0]" />
@@ -71,21 +74,13 @@
 
 <script setup>
 import { ref } from "vue";
-import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 import FormInput from "../../components/form/FormInput.vue";
 import FormTextarea from "../../components/form/FormTextarea.vue";
 import BtnPrimary from "../../components/buttons/BtnPrimary.vue";
 import FormSelect from "../../components/form/FormSelect.vue";
+import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
 
 // State
-const subHeadingList = ref([
-  {
-    title: "POST A NEW JOB",
-    btnTitle: "",
-    btnIcon: "",
-  },
-]);
-
 const formInputList = ref([
   {
     title: "Job Title:",
@@ -104,8 +99,8 @@ const formInputList = ref([
     required: true,
   },
   {
-    title: "Username:",
-    name: "username",
+    title: "Website:",
+    name: "website",
     value: "",
     type: "text",
     placeholder: "",

@@ -1,63 +1,97 @@
 <template>
   <!-- Title -->
-  <SubSectionHeading :subHeading="subHeadingList[0]" />
+  <SubSecHeading
+    headingTitle="COMPANY PROFILE"
+    divClassName="mb-8 pb-3 border-b"
+  />
 
   <form>
     <div class="md:grid grid-cols-2 gap-5">
       <!-- company name -->
-      <FormInput :formInput="formInputList[0]" />
+      <FormInput
+        :formInput="formInputList[0]"
+        v-model="companyProfile.companyName"
+      />
 
       <!-- email -->
-      <FormInput :formInput="formInputList[1]" />
+      <FormInput :formInput="formInputList[1]" v-model="companyProfile.email" />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- phone -->
-      <FormInput :formInput="formInputList[2]" />
+      <FormInput :formInput="formInputList[2]" v-model="companyProfile.phone" />
 
       <!-- website -->
-      <FormInput :formInput="formInputList[3]" />
+      <FormInput
+        :formInput="formInputList[3]"
+        v-model="companyProfile.website"
+      />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Est. Since -->
-      <FormInput :formInput="formInputList[4]" />
+      <FormInput
+        :formInput="formInputList[4]"
+        v-model="companyProfile.estSince"
+      />
 
       <!-- Team Size -->
-      <FormInput :formInput="formInputList[5]" />
+      <FormInput
+        :formInput="formInputList[5]"
+        v-model="companyProfile.teamSize"
+      />
     </div>
 
     <!-- about company -->
-    <FormTextarea :formTextarea="formTextareaList[0]" />
+    <Textarea
+      v-model="companyProfile.aboutCompany"
+      labelName="About Company"
+      required="true"
+      name="aboutcomapny"
+    />
 
     <!-- SOCIAL NETWORK -->
-    <h2 class="heading-paragraph mb-5 border-b pb-4 mt-10 uppercase">
-      SOCIAL NETWORK
-    </h2>
+    <SubSecHeading
+      headingTitle="SOCIAL NETWORK"
+      divClassName="mb-5 pb-3 border-b"
+    />
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- FACEBOOK -->
-      <FormInput :formInput="formInputList[6]" />
+      <FormInput
+        :formInput="formInputList[6]"
+        v-model="companyProfile.facebook"
+      />
 
       <!-- Linkdin -->
-      <FormInput :formInput="formInputList[7]" />
+      <FormInput
+        :formInput="formInputList[7]"
+        v-model="companyProfile.linkedin"
+      />
     </div>
 
     <!-- CONTACT INFORMATION -->
-    <h2 class="heading-paragraph mb-5 border-b pb-4 mt-10 uppercase">
-      CONTACT INFORMATION
-    </h2>
+    <SubSecHeading
+      headingTitle="CONTACT INFORMATION"
+      divClassName="mb-5 pb-3 border-b"
+    />
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- country -->
-      <FormInput :formInput="formInputList[8]" />
+      <FormInput
+        :formInput="formInputList[8]"
+        v-model="companyProfile.country"
+      />
 
       <!-- city -->
-      <FormInput :formInput="formInputList[9]" />
+      <FormInput :formInput="formInputList[9]" v-model="companyProfile.city" />
     </div>
 
     <!-- Complete Address -->
-    <FormInput :formInput="formInputList[10]" />
+    <FormInput
+      :formInput="formInputList[10]"
+      v-model="companyProfile.completeAddress"
+    />
 
     <BtnPrimary :title="'Save'" :class="'btn btn-primary px-16'" />
   </form>
@@ -65,35 +99,20 @@
 
 <script setup>
 import { ref } from "vue";
-import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import { useEmployesStore } from "../../stores/employerStore";
 import FormInput from "../../components/form/FormInput.vue";
-import FormTextarea from "../../components/form/FormTextarea.vue";
 import BtnPrimary from "../../components/buttons/BtnPrimary.vue";
+import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
+import Textarea from "../../components/form/Textarea.vue";
 
 // State
-const subHeadingList = ref([
-  {
-    title: "COMPANY PROFILE",
-    btnTitle: "",
-    btnIcon: "",
-  },
-  {
-    title: "SOCIAL NETWORK",
-    btnTitle: "",
-    btnIcon: "",
-  },
-  {
-    title: "CONTACT INFORMATION",
-    btnTitle: "",
-    btnIcon: "",
-  },
-]);
+const employerStore = useEmployesStore();
+const companyProfile = employerStore.companyProfile[0];
 
 const formInputList = ref([
   {
     title: "Company Name (optional):",
     name: "companyName",
-    value: "Bit Skyber",
     type: "text",
     placeholder: "",
     required: true,
@@ -101,7 +120,6 @@ const formInputList = ref([
   {
     title: "Email:",
     name: "email",
-    value: "bitskyber@gmail.com",
     type: "email",
     placeholder: "",
     required: true,
@@ -109,7 +127,6 @@ const formInputList = ref([
   {
     title: "Phone:",
     name: "phone",
-    value: "phone",
     type: "number",
     placeholder: "",
     required: true,
@@ -117,7 +134,6 @@ const formInputList = ref([
   {
     title: "Website:",
     name: "website",
-    value: "www.bitskyber.com",
     type: "text",
     placeholder: "",
     required: true,
@@ -125,7 +141,6 @@ const formInputList = ref([
   {
     title: "Est. Since:",
     name: "estSince",
-    value: 2006,
     type: "number",
     placeholder: "",
     required: true,
@@ -133,7 +148,6 @@ const formInputList = ref([
   {
     title: "Team Size:",
     name: "teamSize",
-    value: 10,
     type: "number",
     placeholder: "",
     required: true,
@@ -141,15 +155,13 @@ const formInputList = ref([
   {
     title: "Facebook:",
     name: "facebook",
-    value: "fb/bitskyber",
     type: "text",
     placeholder: "",
     required: true,
   },
   {
-    title: "Twitter:",
-    name: "twitter",
-    value: "twitter/bitskyber",
+    title: "Likedin:",
+    name: "likedin",
     type: "text",
     placeholder: "",
     required: true,
@@ -157,7 +169,6 @@ const formInputList = ref([
   {
     title: "Country:",
     name: "country",
-    value: "Bangadesh",
     type: "text",
     placeholder: "",
     required: true,
@@ -165,7 +176,6 @@ const formInputList = ref([
   {
     title: "City:",
     name: "city",
-    value: "Chittagong",
     type: "text",
     placeholder: "",
     required: true,
@@ -173,23 +183,9 @@ const formInputList = ref([
   {
     title: "Complete Address:",
     name: "completeAddress",
-    value: "Rangunia, Chittagong-4200",
     type: "text",
     placeholder: "",
     required: true,
-  },
-]);
-
-const formTextareaList = ref([
-  {
-    type: "text",
-    title: "About Company:",
-    name: "aboutCompany",
-    value:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque officiis a totam obcaecati commodi quam hic molestiae, optio eos, reiciendis quae praesentium earum doloribus beatae deserunt quisquam ratione labore accusamus!",
-    placeholder: "",
-    required: true,
-    rows: 4,
   },
 ]);
 </script>

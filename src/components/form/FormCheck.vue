@@ -1,7 +1,7 @@
 <template>
   <div class="form-check" v-bind="$attrs">
     <input
-      class="text-primary-600 formCheckInput"
+      class="text-primary-600 formCheckInput me-2"
       type="checkbox"
       :id="name"
       :value="value"

@@ -16,9 +16,8 @@ import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 import LayoutDashboard from "../../components/layout/LayoutDashboard.vue";
 
-const route = useRoute();
-
 // State
+const route = useRoute();
 const userNavList = ref([
   {
     title: "Profile",
