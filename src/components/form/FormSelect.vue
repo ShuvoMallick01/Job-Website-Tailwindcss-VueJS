@@ -1,5 +1,9 @@
 <template>
-  <label for="countries" class="block mb-2 formLabel">{{ labelName }}</label>
+  <label
+    for="countries"
+    class="block mb-2 formLabel after:content-['*'] after:ml-0.5 after:text-red-500"
+    >{{ labelName }}</label
+  >
   <select
     id="location"
     class="inputPrimary"
@@ -12,7 +16,7 @@
       v-for="(item, index) in optionList"
       :key="index"
       :value="item.value"
-      :selected="item.value"
+      :selected="!item.value"
     >
       {{ item.title }}
     </option>
@@ -26,6 +30,7 @@ defineProps({
     default: [],
     required: true,
   },
+
   modelValue: {},
   labelName: {},
   className: {},

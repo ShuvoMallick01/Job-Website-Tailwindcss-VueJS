@@ -9,7 +9,12 @@
     <FormInput :formInput="formInputList[0]" />
 
     <!-- Job Description -->
-    <FormTextarea :formTextarea="formTextareaList[0]" />
+    <Textarea
+      labelName="Job Description"
+      required
+      v-model="user.description"
+      name="jobdescription"
+    />
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Email -->
@@ -79,10 +84,9 @@
 <script setup>
 import { ref } from "vue";
 import FormInput from "../../components/form/FormInput.vue";
-import FormTextarea from "../../components/form/FormTextarea.vue";
-// import BtnPrimary from "../../components/buttons/BtnPrimary.vue";
 import FormSelect from "../../components/form/FormSelect.vue";
 import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
+import Textarea from "../../components/form/Textarea.vue";
 import Button from "../../components/buttons/Button.vue";
 
 // State

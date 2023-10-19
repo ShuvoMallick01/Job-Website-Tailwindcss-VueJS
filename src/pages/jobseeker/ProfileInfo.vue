@@ -27,8 +27,10 @@
     </div>
 
     <!-- Description -->
-    <FormTextarea
-      :formTextarea="formTextareaList[0]"
+    <Textarea
+      title="Description"
+      labelName="Description"
+      required
       v-model="user.description"
     />
 
@@ -65,7 +67,7 @@
 import { ref } from "vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
 import FormInput from "../../components/form/FormInput.vue";
-import FormTextarea from "../../components/form/FormTextarea.vue";
+import Textarea from "../../components/form/Textarea.vue";
 import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
 import Button from "../../components/buttons/Button.vue";
 

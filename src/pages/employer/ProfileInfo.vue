@@ -46,7 +46,7 @@
     <Textarea
       v-model="companyProfile.aboutCompany"
       labelName="About Company"
-      required="true"
+      :required="true"
       name="aboutcomapny"
     />
 
