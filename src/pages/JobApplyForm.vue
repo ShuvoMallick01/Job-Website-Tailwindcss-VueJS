@@ -31,8 +31,11 @@
       </div>
 
       <!-- Description -->
-
-      <FormTextarea :formTextarea="formTextareaList[0]" />
+      <Textarea
+        :labelName="'Description'"
+        :required="true"
+        name="description"
+      />
 
       <!-- Contact Information -->
       <SubSecHeading :title="'Contact Information'" />
@@ -73,13 +76,18 @@
 
         <div class="flex justify-between">
           <p class="description-text">
-            <i class="icon-file me-2"></i>Shuvo Mallick Resume
+            <i class="icon-file me-2"></i>Shuvo Mallick Resume | Version 1.1
           </p>
-          <BtnText title="Download" />
+          <Button isButton="true" title="Download" className="btn-text" />
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary my-10">Save Setting</button>
+      <Button
+        isButton="true"
+        type="submit"
+        title="Submit Application"
+        className="btn btn-primary my-10"
+      />
     </form>
   </section>
 </template>
@@ -87,16 +95,15 @@
 <script setup>
 import { ref } from "vue";
 import FormInput from "../components/form/FormInput.vue";
-import FormTextarea from "../components/form/FormTextarea.vue";
-import SubSectionHeading from "../components/dashboard/SubSectionHeading.vue";
 import SubSecHeading from "../components/dashboard/SubSecHeading.vue";
 import BtnFileUpload from "../components/buttons/BtnFileUpload.vue";
+import Textarea from "../components/form/Textarea.vue";
+import Button from "../components/buttons/Button.vue";
 
 const formInputList = ref([
   {
     title: "Your Name:",
     name: "name",
-    value: "Shuvo Mallick",
     type: "text",
     placeholder: "",
     required: true,
@@ -104,7 +111,6 @@ const formInputList = ref([
   {
     title: "Professional Title:",
     name: "professional",
-    value: "Web Developer",
     type: "text",
     placeholder: "",
     required: true,
@@ -112,7 +118,6 @@ const formInputList = ref([
   {
     title: "Language:",
     name: "language",
-    value: "Bengali, English",
     type: "text",
     placeholder: "",
     required: true,
@@ -121,7 +126,6 @@ const formInputList = ref([
     type: "number",
     title: "Age:",
     name: "age",
-    value: 27,
     placeholder: "",
     required: true,
   },
@@ -129,7 +133,6 @@ const formInputList = ref([
     type: "number",
     title: "Current Salary ($):",
     name: "currentsalary",
-    value: 2000,
     placeholder: "",
     required: true,
   },
@@ -137,7 +140,6 @@ const formInputList = ref([
     type: "number",
     title: "Expected Salary:",
     name: "expectedsalary",
-    value: 3000,
     placeholder: "",
     required: true,
   },
@@ -145,7 +147,6 @@ const formInputList = ref([
     type: "number",
     title: "Phone:",
     name: "phone",
-    value: +880123456789,
     placeholder: "",
     required: true,
   },
@@ -153,7 +154,6 @@ const formInputList = ref([
     type: "email",
     title: "Email:",
     name: "email",
-    value: "shuvomallick23@gmail.com",
     placeholder: "",
     required: true,
   },
@@ -161,7 +161,6 @@ const formInputList = ref([
     type: "text",
     title: "Country:",
     name: "country",
-    value: "Bangladesh",
     placeholder: "",
     required: true,
   },
@@ -169,22 +168,8 @@ const formInputList = ref([
     type: "text",
     title: "Full Adddress:",
     name: "fulladdress",
-    value: "Rangunia, Chittagong",
     placeholder: "",
     required: true,
-  },
-]);
-
-const formTextareaList = ref([
-  {
-    type: "text",
-    title: "Description:",
-    name: "description",
-    value:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque officiis a totam obcaecati commodi quam hic molestiae, optio eos, reiciendis quae praesentium earum doloribus beatae deserunt quisquam ratione labore accusamus!",
-    placeholder: "",
-    required: true,
-    rows: 4,
   },
 ]);
 </script>

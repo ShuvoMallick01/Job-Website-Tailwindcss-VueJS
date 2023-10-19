@@ -9,9 +9,13 @@
     >
       {{ item.jobTitle }} <br />
       <div class="flex gap-2 mt-2">
-        <BtnExtraSmall :title="item.isRemote ? 'Remote' : 'Not Remote'" />
-        <BtnExtraSmall :title="item.jobType" />
-        <BtnExtraSmall :title="item.jobRole" />
+        <Button
+          isButton="true"
+          :title="item.isRemote ? 'Remote' : 'Not Remote'"
+          className="btn-sm-text"
+        />
+        <Button isButton="true" :title="item.jobType" className="btn-sm-text" />
+        <Button isButton="true" :title="item.jobRole" className="btn-sm-text" />
       </div>
     </th>
 
@@ -32,7 +36,6 @@
 
 <script setup>
 import { ref } from "vue";
-import BtnExtraSmall from "../buttons/BtnExtraSmall.vue";
 import FormCheck from "../form/FormCheck.vue";
 import Button from "../buttons/Button.vue";
 

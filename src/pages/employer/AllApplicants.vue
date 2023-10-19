@@ -1,6 +1,6 @@
 <template>
   <div class="mb-5 border-b pb-4 flex justify-between items-center gap-4">
-    <h2 class="heading-paragraph uppercase">POST A NEW JOB</h2>
+    <SubSecHeading headingTitle="POST A NEW JOB" />
     <div class="flex gap-2">
       <FormSelect :optionList="formSelectList[0]" />
       <FormSelect :optionList="formSelectList[1]" />
@@ -10,32 +10,67 @@
   <div
     class="flex gap-2 flex-shrink-0 pt-3 pb-6 whitespace-nowrap items-center justify-between"
   >
-    <h4 class="heading-regular">Senior Product Designer</h4>
+    <h4 class="heading-regular">{{ selectedJob.jobTitle }}</h4>
+
     <div class="flex gap-2 description-sm-text flex-wrap justify-end">
-      <BtnExtraSmall
-        v-for="(item, index) in status"
-        :title="item + ' : ' + 5"
-        :key="index"
+      <Button
+        isButton="true"
+        :title="'Total(s): ' + selectedJob.applicantsId.length"
+        className="btn-sm-text"
+      />
+      <Button
+        isButton="true"
+        :title="'Approved: ' + selectedJob.approvedApplicantsId.length"
+        className="btn-sm-text"
+      />
+      <Button
+        isButton="true"
+        :title="'Rejected: ' + selectedJob.rejectedApplicantsId.length"
+        className="btn-sm-text"
       />
     </div>
   </div>
 
   <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
     <ApplicantsCard
-      v-for="item in applicants"
-      :applicant="item"
-      :key="item.applicantId"
+      :applicant="filterApplicantsByJob"
+      :resume="filterResumeByJobseId"
     />
+    <ApplicantsCard
+      :applicant="filterApplicantsByJob"
+      :resume="filterResumeByJobseId"
+    />
+    <ApplicantsCard
+      :applicant="filterApplicantsByJob"
+      :resume="filterResumeByJobseId"
+    />
+    <ApplicantsCard
+      :applicant="filterApplicantsByJob"
+      :resume="filterResumeByJobseId"
+    />
+    <!-- v-for="item in filterApplicantsByJob" -->
+    <!-- :key="item.applicantId" -->
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import { useJobsStore } from "../../stores/jobStore";
 import ApplicantsCard from "../../components/dashboard/ApplicantsCard.vue";
 import FormSelect from "../../components/form/FormSelect.vue";
-import BtnExtraSmall from "../../components/buttons/BtnExtraSmall.vue";
+import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
+import Button from "../../components/buttons/Button.vue";
+import { useJobseekersStore } from "../../stores/jobseekerStore";
 
 // State
+const jobStore = useJobsStore();
+const jobseekerStore = useJobseekersStore();
+const selectedJob = jobStore.jobList[0];
+const filterApplicantsByJob = jobseekerStore.jobseekersList[0];
+const filterResumeByJobseId = jobseekerStore.resumeList[0];
+
+console.log(filterApplicantsByJob);
+
 const formSelectList = ref([
   [
     { title: "Select Jobs", value: "" },
@@ -50,62 +85,5 @@ const formSelectList = ref([
     { title: "Approved", value: "approved" },
     { title: "Rejected", value: "rejected" },
   ],
-]);
-const status = ref(["Total(s)", "Approved", "Rejected(s)"]);
-const applicants = ref([
-  {
-    applicantId: 1,
-    name: "Shuvo Mallick",
-    image: "../../assets/images/user-profile-pic-1.jpg",
-    profession: "Web Developer",
-    location: "Bangladesh",
-    expectedSalary: 2000,
-    skills: ["Javascript", "Vuejs", "React"],
-  },
-  {
-    applicantId: 2,
-    name: "Nabed Khan",
-    image: "../../assets/images/user-profile-pic-2.jpg",
-    profession: "Web Developer",
-    location: "Bangladesh",
-    expectedSalary: 2000,
-    skills: ["Javascript", "Vuejs", "React"],
-  },
-  {
-    applicantId: 1,
-    name: "Pranto Mallick",
-    image: "../../assets/images/user-profile-pic-2.jpg",
-    profession: "Web Developer",
-    location: "Bangladesh",
-    expectedSalary: 2000,
-    skills: ["Javascript", "Vuejs", "React"],
-  },
-  {
-    applicantId: 1,
-    name: "Shuvo Mallick",
-    image: "../../assets/images/user-profile-pic-1.jpg",
-    profession: "Web Developer",
-    location: "Bangladesh",
-    expectedSalary: 2000,
-    skills: ["Javascript", "Vuejs", "React"],
-  },
-  {
-    applicantId: 2,
-    name: "Nabed Khan",
-    image: "../../assets/images/user-profile-pic-1.jpg",
-    profession: "Web Developer",
-    location: "Bangladesh",
-    expectedSalary: 2000,
-    skills: ["Javascript", "Vuejs", "React"],
-  },
-  {
-    applicantId: 1,
-    name: "Pranto Mallick",
-    image: "../../assets/images/user-profile-pic-1.jpg",
-    profession: "Web Developer",
-    location: "Bangladesh",
-    expectedSalary: 2000,
-    skills: ["Javascript", "Vuejs", "React"],
-  },
 ]);
 </script>

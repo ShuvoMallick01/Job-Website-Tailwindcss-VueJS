@@ -97,11 +97,28 @@
           <BtnApply :title="'Apply Now'" />
 
           <div class="flex flex-col text-center gap-4">
-            <Button
-              isButton="false"
+            <!-- <Button
+              :isButton="false"
               url="/job-apply-form"
               className="btn btn-primary"
               title="Apply Now"
+            /> -->
+            <Button
+              v-if="!item.jobApplyStatus"
+              :isButton="false"
+              name="jobApplyButton"
+              className="btn-apply group/apply"
+              iconAnimation="group-hover/apply:translate-x-1 absolute right-0 ps-2 mx-2 transition300"
+              afterIcon="icon-arrow-single-right align-middle"
+              title="Apply Now"
+              url="/job-apply-form"
+            />
+            <Button
+              v-else
+              :isButton="true"
+              beforeIcon="icon-check"
+              className="btn-text"
+              title="Applied"
             />
 
             <Button
@@ -124,7 +141,6 @@ import { onMounted, ref } from "vue";
 import { useJobsStore } from "../stores/jobStore";
 import { useRoute } from "vue-router";
 import JobPostCard from "../components/JobPostCard.vue";
-import BtnApply from "../components/buttons/BtnApply.vue";
 import IconText from "../components/icons/IconText.vue";
 import Button from "../components/buttons/Button.vue";
 

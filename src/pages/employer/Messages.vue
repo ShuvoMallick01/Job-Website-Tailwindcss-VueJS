@@ -1,5 +1,5 @@
 <template>
-  <SubSectionHeading :title="Messages" />
+  <SubSecHeading headingTitle="Messages" divClassName="mb-8 pb-3 border-b" />
 
   <!-- Message -->
   <div class="grid grid-cols-3 gap-4 xl:gap-8">
@@ -58,7 +58,7 @@
           >
             <img
               class=""
-              src="../assets/images/user-profile-pic-1.jpg"
+              src="../../../src/assets/images/user-profile-pic-1.jpg"
               alt="User Profile"
             />
           </div>
@@ -93,5 +93,5 @@
 <script setup>
 import MessagePeopleCard from "../../components/dashboard/MessagePeopleCard.vue";
 import Message from "../../components/dashboard/Message.vue";
-import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
 </script>

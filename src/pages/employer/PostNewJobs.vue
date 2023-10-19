@@ -68,7 +68,11 @@
       </div>
     </div>
 
-    <BtnPrimary :title="'Post New Job'" :class="'btn btn-primary px-10'" />
+    <Button
+      :isButton="true"
+      :title="'Post New Job'"
+      :className="'btn btn-primary px-10'"
+    />
   </form>
 </template>
 
@@ -76,9 +80,10 @@
 import { ref } from "vue";
 import FormInput from "../../components/form/FormInput.vue";
 import FormTextarea from "../../components/form/FormTextarea.vue";
-import BtnPrimary from "../../components/buttons/BtnPrimary.vue";
+// import BtnPrimary from "../../components/buttons/BtnPrimary.vue";
 import FormSelect from "../../components/form/FormSelect.vue";
 import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
+import Button from "../../components/buttons/Button.vue";
 
 // State
 const formInputList = ref([

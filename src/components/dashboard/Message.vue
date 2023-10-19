@@ -7,7 +7,7 @@
         >
           <img
             class=""
-            src="../assets/images/user-profile-pic-2.jpg"
+            src="../../../src/assets/images/user-profile-pic-2.jpg"
             alt="User Profile"
           />
         </div>

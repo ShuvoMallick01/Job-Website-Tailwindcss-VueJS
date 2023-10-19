@@ -35,7 +35,7 @@
     <!-- Remote Only -->
     <div class="">
       <h3 class="sectionSubHeading mb-3">Remote Only</h3>
-      <FormCheckbox title="Off" v-model="store.filterJobList.remoteOnly" />
+      <FormCheck title="Off" v-model="store.filterJobList.remoteOnly" />
       <!-- {{ store.filterJobList }} -->
     </div>
 
@@ -61,7 +61,6 @@
 <!-- FUNCTIONALITY -->
 <script setup>
 import { reactive, ref } from "vue";
-import FormCheckbox from "./form/FormCheckbox.vue";
 import FormSelect from "../components/form/FormSelect.vue";
 import FormCheck from "../components/form/FormCheck.vue";
 import { useJobsStore } from "../stores/jobStore";

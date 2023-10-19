@@ -9,11 +9,12 @@
       <form>
         <FormInput :formInput="formInputList[0]" />
         <FormInput :formInput="formInputList[1]" />
-        <FormTextarea :formTextarea="formTextareaList[0]" />
 
-        <div class="flex items-start mb-6 mt-6">
+        <Textarea :labelName="'Your Message'" :required="true" name="message" />
+
+        <div class="flex items-start mt-6">
           <div class="flex items-center h-5">
-            <FormCheckInputOnly />
+            <FormCheck />
           </div>
 
           <label
@@ -28,7 +29,12 @@
           >
         </div>
 
-        <Btn_Primary :title="'Send'" :class="'px-10'" />
+        <Button
+          isButton="true"
+          type="submit"
+          title="Send Message"
+          className="btn btn-primary my-10"
+        />
       </form>
     </div>
   </section>
@@ -36,17 +42,15 @@
 
 <script setup>
 import { ref } from "vue";
-import FormCheckInputOnlyVue from "../components/form/FormCheckInputOnly.vue";
 import FormInput from "../components/form/FormInput.vue";
-import FormTextarea from "../components/form/FormTextarea.vue";
-import FormCheckInputOnly from "../components/form/FormCheckInputOnly.vue";
-import Btn_Primary from "../components/buttons/Btn_Primary.vue";
+import FormCheck from "../components/form/FormCheck.vue";
+import Textarea from "../components/form/Textarea.vue";
+import Button from "../components/buttons/Button.vue";
 
 const formInputList = ref([
   {
     title: "Your Name:",
     name: "name",
-    value: "",
     type: "text",
     placeholder: "",
     required: true,
@@ -54,22 +58,9 @@ const formInputList = ref([
   {
     title: "Your Email:",
     name: "email",
-    value: "",
     type: "email",
     placeholder: "",
     required: true,
-  },
-]);
-
-const formTextareaList = ref([
-  {
-    type: "text",
-    title: "Your Message:",
-    name: "message",
-    value: "",
-    placeholder: "",
-    required: true,
-    rows: 4,
   },
 ]);
 </script>

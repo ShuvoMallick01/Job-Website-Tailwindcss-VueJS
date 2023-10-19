@@ -93,7 +93,11 @@
       v-model="companyProfile.completeAddress"
     />
 
-    <BtnPrimary :title="'Save'" :class="'btn btn-primary px-16'" />
+    <Button
+      :isButton="true"
+      :title="'Save'"
+      :className="'btn btn-primary px-16'"
+    />
   </form>
 </template>
 
@@ -101,7 +105,6 @@
 import { ref } from "vue";
 import { useEmployesStore } from "../../stores/employerStore";
 import FormInput from "../../components/form/FormInput.vue";
-import BtnPrimary from "../../components/buttons/BtnPrimary.vue";
 import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
 import Textarea from "../../components/form/Textarea.vue";
 
