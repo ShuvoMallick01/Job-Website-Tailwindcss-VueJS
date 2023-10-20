@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { computed, reactive, ref } from "vue";
+import { computed, reactive, ref, watch } from "vue";
 
 export const useJobsStore = defineStore("jobs", () => {
   // STATE
@@ -12,7 +12,7 @@ export const useJobsStore = defineStore("jobs", () => {
     location: "",
   });
 
-  let jobList = reactive([
+  let jobList = ref([
     {
       id: 1,
       companyName: "Meta Corporation",
@@ -123,6 +123,28 @@ export const useJobsStore = defineStore("jobs", () => {
       isActice: true,
       employerId: 2,
     },
+    {
+      id: 5,
+      companyName: "State Bank of India",
+      jobTitle: "Senior Software Engineer",
+      description:
+        "The Role and Category Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores iusto, perferendis quae perspiciatis blanditiis cum quaerat facilis magni est. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias odio nihil quidem consequatur quos sunt! Ullam rem quaerat vel, ut quidem culpa eos qui voluptatum. Aliquam veniam animi tenetur? Ducimus.",
+      jobType: "Contract",
+      jobRole: "Programming",
+      location: "India",
+      isRemote: true,
+      createdAt: "3hr ago",
+      salary: "4000",
+      jobApplyStatus: true,
+      isFavorite: false,
+      email: "company@gmail.com",
+      website: "www.company.com",
+      applicantsId: [1, 3, 5, 6],
+      approvedApplicantsId: [3],
+      rejectedApplicantsId: [1, 5, 6],
+      isActice: true,
+      employerId: 2,
+    },
   ]);
 
   const socialMediaList = ref([
@@ -134,7 +156,7 @@ export const useJobsStore = defineStore("jobs", () => {
 
   // METHODS
   const handleJobFavorite = (jobId) => {
-    let newJobList = jobList.map((job) =>
+    jobList.value = jobList.value.map((job) =>
       job.id === jobId
         ? {
             ...job,
@@ -142,12 +164,11 @@ export const useJobsStore = defineStore("jobs", () => {
           }
         : job
     );
-    console.log(jobList[jobId - 1].isFavorite);
-    return (jobList = newJobList);
+    // console.log(jobList.value[jobId - 1].isFavorite);
   };
 
   const handleJobApplyByUser = (jobId) => {
-    let updatedJobList = jobList.map((job) =>
+    jobList.value = jobList.value.map((job) =>
       job.id === jobId
         ? {
             ...job,
@@ -155,9 +176,8 @@ export const useJobsStore = defineStore("jobs", () => {
           }
         : job
     );
-    jobList = updatedJobList;
 
-    console.log(jobList[jobId - 1].jobApplyStatus);
+    // console.log(jobList.value[jobId - 1].jobApplyStatus);
   };
 
   const handleJobFilterState = (e, type, filterName) => {
@@ -174,16 +194,16 @@ export const useJobsStore = defineStore("jobs", () => {
   };
 
   const filterJobsByJobseeker = computed(() => {
-    let filterJobsByJobseeker = [...jobList];
-    // console.log(filterJobList.jobType.length);
+    let filterJobsByJobseeker = [...jobList.value];
+
     if (filterJobList.jobType.length > 0) {
-      filterJobsByJobseeker = jobList.filter((job) =>
+      filterJobsByJobseeker = jobList.value.filter((job) =>
         filterJobList.jobType.includes(job.jobType.toLowerCase())
       );
     }
 
     if (filterJobList.jobRole.length > 0) {
-      filterJobsByJobseeker = jobList.filter((job) =>
+      filterJobsByJobseeker = jobList.value.filter((job) =>
         filterJobList.jobRole.includes(job.jobRole.toLowerCase())
       );
     }
@@ -199,19 +219,13 @@ export const useJobsStore = defineStore("jobs", () => {
         (job) => job.location.toLowerCase() === filterJobList.location
       );
     }
-    console.log(filterJobsByJobseeker);
+    // console.log(filterJobsByJobseeker);
     return filterJobsByJobseeker;
   });
 
-  //  const filteredJobs = computed(() => {
-  //     return jobList.filter((job) => {
-  //       const jobTypeFilter = filterJobList.jobType.length === 0 || filterJobList.jobType.includes(job.jobType.toLowerCase());
-  //       const jobRoleFilter = filterJobList.jobRole.length === 0 || filterJobList.jobRole.includes(job.jobRole.toLowerCase());
-  //       const isRemoteFilter = !filterJobList.isRemote || job.isRemote;
-  //       // You can add more filters for salaryRange and location as needed
-
-  //       return jobTypeFilter && jobRoleFilter && isRemoteFilter;
-  //     });
+  // watch(jobList, (newValue, oldValue) => {
+  //   console.log(newValue, oldValue);
+  // });
 
   // RETURN
   return {
