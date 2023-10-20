@@ -18,7 +18,6 @@
           </div>
           <!-- :checked="isSelected" -->
         </template>
-        <!-- {{ store.filterJobList }} -->
       </div>
     </div>
 
@@ -47,7 +46,7 @@
           v-model="store.filterJobList.isRemote"
         />
       </div>
-      <!-- {{ store.filterJobList }} -->
+      {{ store.filterJobList }}
     </div>
 
     <!-- Salary Range -->
@@ -59,7 +58,7 @@
             :title="item.title"
             :name="item.name"
             :value="item.name"
-            v-model="store.filterJobList.salaryRange"
+            @click="salaryFilter($event, item.name)"
           />
         </div>
       </template>
@@ -106,6 +105,12 @@ const jobRoleFilter = (event, filterValue) => {
   store.handleJobFilterState(event, type.value, filterValue);
 };
 
+const salaryFilter = (event, salaryValue) => {
+  const type = ref("salary");
+  console.log(event, salaryValue);
+  store.handleJobFilterState(event, type.value, salaryValue);
+};
+
 const jobTypeCheckList = ref([
   { title: "Full-time", name: "full-time", value: "full-time" },
   { title: "Part-time", name: "part-time", value: "part-time" },
@@ -139,10 +144,10 @@ const jobRolesCheckList = ref([
 ]);
 
 const salaryRangeCheckList = ref([
-  { title: "$10k - $50k", name: "10-50" },
-  { title: "$50k - $100k", name: "50-100" },
-  { title: "$100k - $200k", name: "100-200" },
-  { title: "$100k - Infinity", name: "200-infinity" },
+  { title: "$5k - $10k", name: "5000-10000" },
+  { title: "$10k - $20k", name: "10000-20000" },
+  { title: "$20k - $30k", name: "20000-30000" },
+  { title: "$30k - Infinity", name: "30000-infinity" },
 ]);
 
 const locationList = ref([

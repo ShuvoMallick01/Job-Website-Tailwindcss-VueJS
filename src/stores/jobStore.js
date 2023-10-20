@@ -8,7 +8,7 @@ export const useJobsStore = defineStore("jobs", () => {
     jobType: [],
     jobRole: [],
     isRemote: false,
-    salaryRange: [],
+    salary: [],
     location: "",
   });
 
@@ -24,7 +24,7 @@ export const useJobsStore = defineStore("jobs", () => {
       location: "Bangladesh",
       isRemote: true,
       createdAt: "3hr ago",
-      salary: "2000",
+      salary: "50000",
       email: "company@gmail.com",
       website: "www.company.com",
       jobApplyStatus: true,
@@ -68,7 +68,7 @@ export const useJobsStore = defineStore("jobs", () => {
       location: "Canada",
       isRemote: true,
       createdAt: "3hr ago",
-      salary: "1000",
+      salary: "30000",
       jobApplyStatus: false,
       isFavorite: false,
       email: "company@gmail.com",
@@ -90,7 +90,7 @@ export const useJobsStore = defineStore("jobs", () => {
       location: "Europe",
       isRemote: true,
       createdAt: "3hr ago",
-      salary: "2000",
+      salary: "20000",
       jobApplyStatus: false,
       isFavorite: false,
       email: "company@gmail.com",
@@ -112,7 +112,7 @@ export const useJobsStore = defineStore("jobs", () => {
       location: "India",
       isRemote: false,
       createdAt: "3hr ago",
-      salary: "4000",
+      salary: "10000",
       jobApplyStatus: true,
       isFavorite: false,
       email: "company@gmail.com",
@@ -134,7 +134,7 @@ export const useJobsStore = defineStore("jobs", () => {
       location: "India",
       isRemote: true,
       createdAt: "3hr ago",
-      salary: "4000",
+      salary: "6000",
       jobApplyStatus: true,
       isFavorite: false,
       email: "company@gmail.com",
@@ -197,13 +197,13 @@ export const useJobsStore = defineStore("jobs", () => {
     let filterJobsByJobseeker = [...jobList.value];
 
     if (filterJobList.jobType.length > 0) {
-      filterJobsByJobseeker = jobList.value.filter((job) =>
+      filterJobsByJobseeker = filterJobsByJobseeker.filter((job) =>
         filterJobList.jobType.includes(job.jobType.toLowerCase())
       );
     }
 
     if (filterJobList.jobRole.length > 0) {
-      filterJobsByJobseeker = jobList.value.filter((job) =>
+      filterJobsByJobseeker = filterJobsByJobseeker.filter((job) =>
         filterJobList.jobRole.includes(job.jobRole.toLowerCase())
       );
     }
@@ -211,6 +211,12 @@ export const useJobsStore = defineStore("jobs", () => {
     if (filterJobList.isRemote) {
       filterJobsByJobseeker = filterJobsByJobseeker.filter(
         (job) => job.isRemote === filterJobList.isRemote
+      );
+    }
+
+    if (filterJobList.salary.length > 0) {
+      filterJobsByJobseeker = filterJobsByJobseeker.filter((job) =>
+        filterJobList.salary.includes(job.jobRole.toLowerCase())
       );
     }
 
