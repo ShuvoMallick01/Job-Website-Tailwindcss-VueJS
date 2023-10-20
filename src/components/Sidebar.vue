@@ -18,7 +18,7 @@
           </div>
           <!-- :checked="isSelected" -->
         </template>
-        {{ store.filterJobList }}
+        <!-- {{ store.filterJobList }} -->
       </div>
     </div>
 

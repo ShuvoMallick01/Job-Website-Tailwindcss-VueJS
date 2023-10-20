@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 
 export const useJobsStore = defineStore("jobs", () => {
   // STATE
@@ -9,7 +9,7 @@ export const useJobsStore = defineStore("jobs", () => {
     jobRole: [],
     isRemote: false,
     salaryRange: [],
-    location: [],
+    location: "",
   });
 
   let jobList = reactive([
@@ -169,9 +169,49 @@ export const useJobsStore = defineStore("jobs", () => {
       );
       filterJobList[type] = newFilter;
     }
-    console.log(e.target.checked, type, filterName);
-    console.log(filterJobList.jobType);
+    // console.log(e.target.checked, type, filterName);
+    // console.log(filterJobList.jobType);
   };
+
+  const filterJobsByJobseeker = computed(() => {
+    let filterJobsByJobseeker = [...jobList];
+    // console.log(filterJobList.jobType.length);
+    if (filterJobList.jobType.length > 0) {
+      filterJobsByJobseeker = jobList.filter((job) =>
+        filterJobList.jobType.includes(job.jobType.toLowerCase())
+      );
+    }
+
+    if (filterJobList.jobRole.length > 0) {
+      filterJobsByJobseeker = jobList.filter((job) =>
+        filterJobList.jobRole.includes(job.jobRole.toLowerCase())
+      );
+    }
+
+    if (filterJobList.isRemote) {
+      filterJobsByJobseeker = filterJobsByJobseeker.filter(
+        (job) => job.isRemote === filterJobList.isRemote
+      );
+    }
+
+    if (filterJobList.location) {
+      filterJobsByJobseeker = filterJobsByJobseeker.filter(
+        (job) => job.location.toLowerCase() === filterJobList.location
+      );
+    }
+    console.log(filterJobsByJobseeker);
+    return filterJobsByJobseeker;
+  });
+
+  //  const filteredJobs = computed(() => {
+  //     return jobList.filter((job) => {
+  //       const jobTypeFilter = filterJobList.jobType.length === 0 || filterJobList.jobType.includes(job.jobType.toLowerCase());
+  //       const jobRoleFilter = filterJobList.jobRole.length === 0 || filterJobList.jobRole.includes(job.jobRole.toLowerCase());
+  //       const isRemoteFilter = !filterJobList.isRemote || job.isRemote;
+  //       // You can add more filters for salaryRange and location as needed
+
+  //       return jobTypeFilter && jobRoleFilter && isRemoteFilter;
+  //     });
 
   // RETURN
   return {
@@ -181,5 +221,6 @@ export const useJobsStore = defineStore("jobs", () => {
     socialMediaList,
     handleJobApplyByUser,
     handleJobFilterState,
+    filterJobsByJobseeker,
   };
 });
