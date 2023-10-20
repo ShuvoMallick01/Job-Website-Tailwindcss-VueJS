@@ -9,12 +9,7 @@
     <FormInput :formInput="formInputList[0]" />
 
     <!-- Job Description -->
-    <Textarea
-      labelName="Job Description"
-      required
-      v-model="user.description"
-      name="jobdescription"
-    />
+    <Textarea labelName="Job Description" required name="jobdescription" />
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Email -->

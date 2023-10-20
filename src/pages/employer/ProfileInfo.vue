@@ -107,6 +107,7 @@ import { useEmployesStore } from "../../stores/employerStore";
 import FormInput from "../../components/form/FormInput.vue";
 import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
 import Textarea from "../../components/form/Textarea.vue";
+import Button from "../../components/buttons/Button.vue";
 
 // State
 const employerStore = useEmployesStore();

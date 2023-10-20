@@ -46,7 +46,7 @@
           v-model="store.filterJobList.isRemote"
         />
       </div>
-      {{ store.filterJobList }}
+      <!-- {{ store.filterJobList }} -->
     </div>
 
     <!-- Salary Range -->
