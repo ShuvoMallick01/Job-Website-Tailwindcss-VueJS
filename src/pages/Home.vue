@@ -162,7 +162,7 @@
       <div
         class="col-span-3 lg:col-span-2 border py-6 lg:px-5 px-3 rounded-lg bg-white dark:bg-gray-900 dark:border-slate-700"
       >
-        <JobPostCard :jobList="store.jobList"></JobPostCard>
+        <JobPostCard :jobList="jobStore.jobList"></JobPostCard>
       </div>
     </div>
   </section>
@@ -177,5 +177,5 @@ import JobPostCard from "../components/JobPostCard.vue";
 import Sidebar from "../components/Sidebar.vue";
 
 // State
-const store = useJobsStore();
+const jobStore = useJobsStore();
 </script>

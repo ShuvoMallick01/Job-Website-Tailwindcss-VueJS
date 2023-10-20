@@ -46,11 +46,9 @@
         </div>
 
         <button
-          data-collapse-toggle="navbar-sticky"
+          @click="navHidden = !navHidden"
           type="button"
           class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="navbar-sticky"
-          aria-expanded="false"
         >
           <span class="sr-only">Open main menu</span>
           <svg
@@ -72,7 +70,8 @@
       </div>
 
       <div
-        :class="navHidden"
+        ref="target"
+        :class="navHidden ? 'hidden' : ''"
         class="items-center justify-between w-full md:flex md:w-auto md:order-1"
         id="navbar-sticky"
       >
@@ -107,10 +106,8 @@ import {
   onClickOutside,
 } from "@vueuse/core";
 
+// STATE
 const route = useRoute();
-const router = useRouter();
-
-// State
 const menu = ref([
   {
     title: "Home",
@@ -137,17 +134,15 @@ const menu = ref([
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 const closeNavbar = ref(null);
-const navHidden = ref("hidden");
+const navHidden = ref(true);
+const target = ref(null);
 
-// Methods
+// METHODS
 const activeNav = computed(() => {
   return route.path;
 });
 
-const hiddenNav = () => {
-  // console.log("hidden");
-  return (navHidden.value = "hidden");
-};
-
-onClickOutside(closeNavbar, hiddenNav);
+onClickOutside(target, (event) => {
+  navHidden.value = true;
+});
 </script>

@@ -1,30 +1,40 @@
 <template>
   <!-- FILTER & JOB CARD -->
   <section class="myContainer mt-32">
-    <!-- Form -->
     <div class="mb-24 lg:px-32 lg:mx-32 2xl:px-52 2xl:mx-52">
       <div class="py-6 text-center">
-        <h1 class="sectionHeading mb-2">Sign up for an account</h1>
-        <p class="text-gray-500 font-light text-sm dark:text-slate-300">
+        <h1 class="sectionHeading mb-2">SIGN UP FOR AN ACCOUNT</h1>
+        <p class="paragraph-primary">
           Already have an account?
-          <router-link to="/login" class="underline"
-            >Login to your account</router-link
-          >
+          <Button
+            :isButton="false"
+            title="Login to your account"
+            url="/login"
+            className="underline"
+          />
         </p>
 
         <div class="flex justify-center my-8 gap-4">
-          <button class="btn btn-outline-primary">
-            <i class="fa-brands fa-google me-2"></i>Sign in with Google
-          </button>
+          <Button
+            :isButton="true"
+            title="Sign in with Google"
+            @click="signInGoogle"
+            className="btn btn-outline-primary"
+            beforeIcon="fa-brands fa-google me-2"
+          />
 
-          <button class="btn btn-outline-primary">
-            <i class="fa-brands fa-apple me-2"></i>Sign in with Apple
-          </button>
+          <Button
+            :isButton="true"
+            title="Sign in with Apple"
+            @click="signInApple"
+            className="btn btn-outline-primary"
+            beforeIcon="fa-brands fa-apple me-2"
+          />
         </div>
 
         <div class="flex justify-between items-center">
           <hr class="border flex-grow" />
-          <p class="text-gray-500 font-light text-sm px-5 dark:text-slate-400">
+          <p class="text-gray-500 font-light text-sm px-5 dark:text-gray-400">
             or sign in with
           </p>
 
@@ -32,67 +42,83 @@
         </div>
       </div>
 
-      <!-- FORM -->
+      <!-- Form -->
       <form>
         <div class="mb-6">
-          <label for="countries" class="block mb-2 formLabel"
-            >Role <span class="text-red-600">*</span></label
-          >
-          <select
-            id="signinrole"
-            class="inputPrimary dark:focus:ring-none dark:focus:border-slate-500"
-          >
-            <option selected disabled value="">Select Role</option>
-            <option value="admin">Admin</option>
-            <option value="jobseeker">Job Seeker</option>
-          </select>
+          <FormSelect labelName="Role" :optionList="roleSelect" />
         </div>
 
         <div class="mb-6">
-          <label for="email" class="block mb-2 formLabel"
-            >Name <span class="text-red-600">*</span></label
-          >
-          <input
-            type="text"
-            id="name"
-            class="inputPrimary dark:focus:ring-none dark:focus:border-slate-500"
-            placeholder="Your name"
-            required
-          />
+          <FormInput :formInput="formInputList[0]" />
         </div>
 
         <div class="mb-6">
-          <label for="email" class="block mb-2 formLabel"
-            >Email <span class="text-red-600">*</span></label
+          <FormInput :formInput="formInputList[1]" />
+        </div>
+
+        <div class="mb-6 relative">
+          <FormInput :formInput="formInputList[2]" />
+
+          <p
+            class="underline text-gray-500 font-light text-sm dark:text-slate-400 absolute top-0 end-0"
           >
-          <input
-            type="email"
-            id="email"
-            class="inputPrimary dark:focus:ring-none dark:focus:border-slate-500"
-            placeholder="email@email.com"
-            required
-          />
+            Forgot password?
+          </p>
         </div>
 
-        <div class="mb-12">
-          <div class="flex justify-between">
-            <label for="password" class="block mb-2 formLabel"
-              >Password <span class="text-red-600">*</span></label
-            >
-          </div>
-          <input
-            type="password"
-            id="password"
-            class="inputPrimary dark:focus:ring-none dark:focus:border-slate-500"
-            placeholder="Password (min. 6 characters)"
-            required
-          />
-        </div>
-
-        <button type="submit" class="w-full btn btn-primary">Sign up</button>
+        <Button
+          :isButton="true"
+          title="Registration"
+          type="submit"
+          className="w-full btn btn-primary"
+        />
       </form>
     </div>
   </section>
 </template>
 
-<script></script>
+<script setup>
+import { ref } from "vue";
+import Button from "../components/buttons/Button.vue";
+import FormInput from "../components/form/FormInput.vue";
+import FormSelect from "../components/form/FormSelect.vue";
+
+// STATE
+const formInputList = ref([
+  {
+    title: "Name:",
+    name: "name",
+    type: "text",
+    placeholder: "Type your name",
+    required: true,
+  },
+  {
+    title: "Email:",
+    name: "email",
+    type: "email",
+    placeholder: "Type your email",
+    required: true,
+  },
+  {
+    title: "Password:",
+    name: "password",
+    type: "password",
+    placeholder: "Password (min. 6 characters)",
+    required: true,
+  },
+]);
+
+const roleSelect = ref([
+  { title: "Select your Role", value: "" },
+  { title: "Job Seeker", value: "jobseeeker" },
+  { title: "Employer", value: "employer" },
+]);
+
+// METHODS
+const signInGoogle = () => {
+  window.open("https://accounts.google.com/", "_blank");
+};
+const signInApple = () => {
+  window.open("https://appleid.apple.com/", "_blank");
+};
+</script>

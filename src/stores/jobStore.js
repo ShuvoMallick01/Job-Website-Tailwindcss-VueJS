@@ -3,6 +3,7 @@ import { reactive, ref } from "vue";
 
 export const useJobsStore = defineStore("jobs", () => {
   // STATE
+  let userId = ref(1);
   const filterJobList = reactive({
     jobType: [],
     JobRole: [],
@@ -11,7 +12,7 @@ export const useJobsStore = defineStore("jobs", () => {
     location: [],
   });
 
-  let jobList = ref([
+  let jobList = reactive([
     {
       id: 1,
       companyName: "Meta Corporation",
@@ -132,18 +133,49 @@ export const useJobsStore = defineStore("jobs", () => {
   ]);
 
   // METHODS
-  const handleJobFavorite = (id) => {
-    let newJobList = jobList.value.map((job) =>
-      job.id === id
+  const handleJobFavorite = (jobId) => {
+    let newJobList = jobList.map((job) =>
+      job.id === jobId
         ? {
             ...job,
             isFavorite: !job.isFavorite,
           }
         : job
     );
-    console.log(newJobList[3].isFavorite);
+    console.log(jobList[jobId - 1].isFavorite);
+    return (jobList = newJobList);
+  };
+
+  const handleJobApplyByUser = (jobId) => {
+    let updatedJobList = jobList.map((job) =>
+      job.id === jobId
+        ? {
+            ...job,
+            jobApplyStatus: !job.jobApplyStatus,
+          }
+        : job
+    );
+    jobList = updatedJobList;
+
+    console.log(jobList[jobId - 1].jobApplyStatus);
+  };
+
+  const handleJobFilterState = (e, type, filterName) => {
+    if (e.target.checked) {
+      filterJobList.jobType.push(filterName);
+    } else {
+      filterJobList.jobType = [];
+    }
+    console.log(e.target.checked, type, filterName);
   };
 
   // RETURN
-  return { filterJobList, jobList, handleJobFavorite, socialMediaList };
+  return {
+    filterJobList,
+    jobList,
+    handleJobFavorite,
+    socialMediaList,
+    handleJobApplyByUser,
+    handleJobFilterState,
+  };
 });

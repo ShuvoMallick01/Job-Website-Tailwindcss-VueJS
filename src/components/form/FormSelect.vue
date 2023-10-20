@@ -1,14 +1,17 @@
 <template>
   <label
     for="countries"
-    class="block mb-2 formLabel after:content-['*'] after:ml-0.5 after:text-red-500"
+    class="block mb-2 formLabel"
+    :class="
+      isRequired ? 'after:content-[' * '] after:ml-0.5 after:text-red-500' : ''
+    "
     >{{ labelName }}</label
   >
   <select
     id="location"
     class="inputPrimary"
     :class="className"
-    required
+    :required="isRequired ? 'required' : ''"
     :value="modelValue"
     @input="$emit('update:modelValue', $event.target.value)"
   >
@@ -34,5 +37,6 @@ defineProps({
   modelValue: {},
   labelName: {},
   className: {},
+  isRequired: {},
 });
 </script>

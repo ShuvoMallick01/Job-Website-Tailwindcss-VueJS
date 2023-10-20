@@ -42,14 +42,15 @@
       <div class="flex items-center gap-2 xl:gap-4 ms-14 md:ms-0 md:mt-0 mt-4">
         <Button
           v-if="!item.jobApplyStatus"
-          :isButton="false"
+          :isButton="true"
           name="jobApplyButton"
           className="btn-apply group/apply"
           iconAnimation="group-hover/apply:translate-x-1 absolute right-0 ps-2 mx-2 transition300"
           afterIcon="icon-arrow-single-right align-middle"
           title="Apply Now"
-          url="/job-apply-form"
+          @click.prevent="store.handleJobApplyByUser(item.id)"
         />
+        <!-- url="/job-apply-form" -->
         <Button
           v-else
           :isButton="true"
@@ -83,8 +84,10 @@ import IconText from "./icons/IconText.vue";
 import { useJobsStore } from "../stores/jobStore";
 import { onMounted, ref } from "vue";
 
-// State
+// STATE
 const store = useJobsStore();
+
+// METHODS
 
 // Props
 defineProps({

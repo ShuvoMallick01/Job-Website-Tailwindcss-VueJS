@@ -94,20 +94,13 @@
               :beforeIcon="'fa-solid fa-location-dot me-1'"
             />
           </div>
-          <BtnApply :title="'Apply Now'" />
 
           <div class="flex flex-col text-center gap-4">
-            <!-- <Button
-              :isButton="false"
-              url="/job-apply-form"
-              className="btn btn-primary"
-              title="Apply Now"
-            /> -->
             <Button
-              v-if="!item.jobApplyStatus"
+              v-if="!job.jobApplyStatus"
               :isButton="false"
               name="jobApplyButton"
-              className="btn-apply group/apply"
+              className="btn btn-primary group/apply"
               iconAnimation="group-hover/apply:translate-x-1 absolute right-0 ps-2 mx-2 transition300"
               afterIcon="icon-arrow-single-right align-middle"
               title="Apply Now"

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-full px-8 py-6 overflow-y-auto 0 bg-white border rounded-lg dark:border-slate-700 dark:bg-gray-800 space-y-8"
+    class="h-full px-8 py-6 overflow-y-auto 0 bg-white border rounded-lg dark:border-slate-700 dark:bg-gray-900 space-y-8"
   >
     <!-- Job Type -->
     <div class="">
@@ -12,8 +12,9 @@
             :title="item.title"
             :name="item.name"
             :value="item.value"
-            v-model="store.filterJobList.jobType"
+            @click="store.handleJobFilterState($event, jobType, item.value)"
           />
+          <!-- :checked="isSelected" -->
         </template>
         {{ store.filterJobList.jobType }}
       </div>
@@ -50,10 +51,8 @@
     <!-- Location -->
     <div class="">
       <h3 class="font-medium text-slate-700 mb-3">Location</h3>
-      <FormSelect
-        :optionList="locationList"
-        v-model="store.filterJobList.location"
-      />
+      <FormSelect :optionList="locationList" />
+      <!-- @click="store.handleJobFilterState()" -->
     </div>
   </div>
 </template>
@@ -65,7 +64,14 @@ import FormSelect from "../components/form/FormSelect.vue";
 import FormCheck from "../components/form/FormCheck.vue";
 import { useJobsStore } from "../stores/jobStore";
 
+// STATE
 const store = useJobsStore();
+// const isSelected = ref(true);
+
+// METHODS
+// const jobTypeisChecked=()=>{
+//   store.filterJobList.jobType.find(item => item === )
+// }
 
 const jobTypeCheckList = ref([
   { title: "Full-time", name: "full-time", value: "full-time" },
