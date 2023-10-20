@@ -102,7 +102,7 @@ export const useJobsStore = defineStore("jobs", () => {
       employerId: 1,
     },
     {
-      id: 4,
+      id: 5,
       companyName: "Microsoft Incorporation",
       jobTitle: "Senior System Engineer",
       description:
@@ -124,7 +124,7 @@ export const useJobsStore = defineStore("jobs", () => {
       employerId: 2,
     },
     {
-      id: 5,
+      id: 6,
       companyName: "State Bank of India",
       jobTitle: "Senior Software Engineer",
       description:
