@@ -8,15 +8,17 @@
         <h3 class="sectionSubHeading mb-3">Job Type</h3>
         <!-- <FormCheckInput :checkList="jobTypeCheckList" /> -->
         <template v-for="(item, index) in jobTypeCheckList" :key="index">
-          <FormCheck
-            :title="item.title"
-            :name="item.name"
-            :value="item.value"
-            @click="store.handleJobFilterState($event, jobType, item.value)"
-          />
+          <div class="form-check">
+            <FormCheck
+              :title="item.title"
+              :name="item.name"
+              :value="item.value"
+              @click="jobTypeFilter($event, item.value)"
+            />
+          </div>
           <!-- :checked="isSelected" -->
         </template>
-        {{ store.filterJobList.jobType }}
+        {{ store.filterJobList }}
       </div>
     </div>
 
@@ -24,19 +26,27 @@
     <div class="">
       <h3 class="sectionSubHeading mb-3">Job Role</h3>
       <template v-for="(item, index) in jobRolesCheckList" :key="index">
-        <FormCheck
-          :title="item.title"
-          :name="item.name"
-          :value="item.value"
-          v-model="store.filterJobList.JobRole"
-        />
+        <div class="form-check">
+          <FormCheck
+            :title="item.title"
+            :name="item.name"
+            :value="item.value"
+            @click="jobRoleFilter($event, item.value)"
+          />
+        </div>
       </template>
     </div>
 
     <!-- Remote Only -->
     <div class="">
       <h3 class="sectionSubHeading mb-3">Remote Only</h3>
-      <FormCheck title="Off" v-model="store.filterJobList.remoteOnly" />
+      <div class="form-check">
+        <!-- <FormCheck title="Off" v-model="store.filterJobList.remoteOnly" /> -->
+        <CheckToggle
+          :title="remoteStatus ? 'Yes' : 'No'"
+          v-model="store.filterJobList.isRemote"
+        />
+      </div>
       <!-- {{ store.filterJobList }} -->
     </div>
 
@@ -44,15 +54,24 @@
     <div class="">
       <h3 class="sectionSubHeading mb-3">Salary Range</h3>
       <template v-for="(item, index) in salaryRangeCheckList" :key="index">
-        <FormCheck :title="item.title" :name="item.name" :value="item.name" />
+        <div class="form-check">
+          <FormCheck
+            :title="item.title"
+            :name="item.name"
+            :value="item.name"
+            v-model="store.filterJobList.salaryRange"
+          />
+        </div>
       </template>
     </div>
 
     <!-- Location -->
     <div class="">
       <h3 class="font-medium text-slate-700 mb-3">Location</h3>
-      <FormSelect :optionList="locationList" />
-      <!-- @click="store.handleJobFilterState()" -->
+      <FormSelect
+        :optionList="locationList"
+        v-model="store.filterJobList.location"
+      />
     </div>
   </div>
 </template>
@@ -62,16 +81,30 @@
 import { reactive, ref } from "vue";
 import FormSelect from "../components/form/FormSelect.vue";
 import FormCheck from "../components/form/FormCheck.vue";
+import CheckToggle from "../components/form/CheckToggle.vue";
 import { useJobsStore } from "../stores/jobStore";
+import CheckToggleVue from "./form/CheckToggle.vue";
 
 // STATE
 const store = useJobsStore();
-// const isSelected = ref(true);
+const remoteStatus = ref(false);
 
+// const isSelected = ref(true);
 // METHODS
 // const jobTypeisChecked=()=>{
 //   store.filterJobList.jobType.find(item => item === )
 // }
+
+const jobTypeFilter = (event, filterValue) => {
+  const type = ref("jobType");
+  store.handleJobFilterState(event, type.value, filterValue);
+};
+
+const jobRoleFilter = (event, filterValue) => {
+  const type = ref("jobRole");
+  console.log(event, filterValue);
+  store.handleJobFilterState(event, type.value, filterValue);
+};
 
 const jobTypeCheckList = ref([
   { title: "Full-time", name: "full-time", value: "full-time" },

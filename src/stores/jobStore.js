@@ -4,10 +4,10 @@ import { reactive, ref } from "vue";
 export const useJobsStore = defineStore("jobs", () => {
   // STATE
   let userId = ref(1);
-  const filterJobList = reactive({
+  let filterJobList = reactive({
     jobType: [],
-    JobRole: [],
-    remoteOnly: false,
+    jobRole: [],
+    isRemote: false,
     salaryRange: [],
     location: [],
   });
@@ -162,11 +162,15 @@ export const useJobsStore = defineStore("jobs", () => {
 
   const handleJobFilterState = (e, type, filterName) => {
     if (e.target.checked) {
-      filterJobList.jobType.push(filterName);
-    } else {
-      filterJobList.jobType = [];
+      filterJobList[type].push(filterName);
+    } else if (!e.target.checked) {
+      const newFilter = filterJobList[type].filter(
+        (item) => item !== filterName
+      );
+      filterJobList[type] = newFilter;
     }
     console.log(e.target.checked, type, filterName);
+    console.log(filterJobList.jobType);
   };
 
   // RETURN
