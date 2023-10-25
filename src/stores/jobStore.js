@@ -226,7 +226,6 @@ export const useJobsStore = defineStore("jobs", () => {
     handleJobFavorite,
     socialMediaList,
     handleJobApplyByUser,
-    handleJobFilterState,
     filterJobsByJobseeker,
   };
 });

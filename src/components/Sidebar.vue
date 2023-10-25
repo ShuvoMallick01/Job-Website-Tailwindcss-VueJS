@@ -8,7 +8,7 @@
         <h3 class="sectionSubHeading mb-3">Job Type</h3>
 
         <div class="form-check" v-for="item in jobTypeCheckList" :key="item.id">
-          <CheckBox
+          <Checkbox
             :label="item.title"
             :id="item.value"
             :checked="store.filterJobList.jobType.includes(item.value)"
@@ -33,7 +33,7 @@
       <h3 class="sectionSubHeading mb-3">Job Role</h3>
 
       <div class="form-check" v-for="item in jobRoleCheckList" :key="item.id">
-        <CheckBox
+        <Checkbox
           :label="item.title"
           :id="item.value"
           :checked="store.filterJobList.jobRole.includes(item.value)"
@@ -73,7 +73,7 @@
         v-for="item in salaryRangeCheckList"
         :key="item.id"
       >
-        <CheckBox
+        <Checkbox
           :label="item.title"
           :id="item.value"
           :checked="store.filterJobList.salary.includes(item.value)"
@@ -109,7 +109,7 @@ import { reactive, ref } from "vue";
 import FormSelect from "../components/form/FormSelect.vue";
 import CheckToggle from "../components/form/CheckToggle.vue";
 import { useJobsStore } from "../stores/jobStore";
-import CheckBox from "./form/CheckBox.vue";
+import Checkbox from "../components/form/Checkbox.vue";
 
 // STATE
 const store = useJobsStore();
