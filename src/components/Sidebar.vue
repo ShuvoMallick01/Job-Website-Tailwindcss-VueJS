@@ -6,34 +6,50 @@
     <div class="">
       <div class="space-y-1">
         <h3 class="sectionSubHeading mb-3">Job Type</h3>
-        <!-- <FormCheckInput :checkList="jobTypeCheckList" /> -->
-        <template v-for="(item, index) in jobTypeCheckList" :key="index">
-          <div class="form-check">
-            <FormCheck
-              :title="item.title"
-              :name="item.name"
-              :value="item.value"
-              @click="jobTypeFilter($event, item.value)"
-            />
-          </div>
-          <!-- :checked="isSelected" -->
-        </template>
+
+        <div class="form-check" v-for="item in jobTypeCheckList" :key="item.id">
+          <CheckBox
+            :label="item.title"
+            :id="item.value"
+            :checked="store.filterJobList.jobType.includes(item.value)"
+            @input="
+              () => {
+                const index = store.filterJobList.jobType.indexOf(item.value);
+                console.log(index);
+                if (index > -1) {
+                  store.filterJobList.jobType.splice(index, 1);
+                } else {
+                  store.filterJobList.jobType.push(item.value);
+                }
+              }
+            "
+          />
+        </div>
       </div>
     </div>
 
     <!-- Job Roles -->
-    <div class="">
+    <div class="space-y-1">
       <h3 class="sectionSubHeading mb-3">Job Role</h3>
-      <template v-for="(item, index) in jobRolesCheckList" :key="index">
-        <div class="form-check">
-          <FormCheck
-            :title="item.title"
-            :name="item.name"
-            :value="item.value"
-            @click="jobRoleFilter($event, item.value)"
-          />
-        </div>
-      </template>
+
+      <div class="form-check" v-for="item in jobRoleCheckList" :key="item.id">
+        <CheckBox
+          :label="item.title"
+          :id="item.value"
+          :checked="store.filterJobList.jobRole.includes(item.value)"
+          @input="
+            () => {
+              const index = store.filterJobList.jobRole.indexOf(item.value);
+              console.log(index);
+              if (index > -1) {
+                store.filterJobList.jobRole.splice(index, 1);
+              } else {
+                store.filterJobList.jobRole.push(item.value);
+              }
+            }
+          "
+        />
+      </div>
     </div>
 
     <!-- Remote Only -->
@@ -46,22 +62,34 @@
           v-model="store.filterJobList.isRemote"
         />
       </div>
-      <!-- {{ store.filterJobList }} -->
     </div>
 
     <!-- Salary Range -->
-    <div class="">
+    <div class="space-y-1">
       <h3 class="sectionSubHeading mb-3">Salary Range</h3>
-      <template v-for="(item, index) in salaryRangeCheckList" :key="index">
-        <div class="form-check">
-          <FormCheck
-            :title="item.title"
-            :name="item.name"
-            :value="item.name"
-            @click="salaryFilter($event, item.name)"
-          />
-        </div>
-      </template>
+
+      <div
+        class="form-check"
+        v-for="item in salaryRangeCheckList"
+        :key="item.id"
+      >
+        <CheckBox
+          :label="item.title"
+          :id="item.value"
+          :checked="store.filterJobList.salary.includes(item.value)"
+          @input="
+            () => {
+              const index = store.filterJobList.salary.indexOf(item.value);
+              console.log(index);
+              if (index > -1) {
+                store.filterJobList.salary.splice(index, 1);
+              } else {
+                store.filterJobList.salary.push(item.value);
+              }
+            }
+          "
+        />
+      </div>
     </div>
 
     <!-- Location -->
@@ -79,83 +107,47 @@
 <script setup>
 import { reactive, ref } from "vue";
 import FormSelect from "../components/form/FormSelect.vue";
-import FormCheck from "../components/form/FormCheck.vue";
 import CheckToggle from "../components/form/CheckToggle.vue";
 import { useJobsStore } from "../stores/jobStore";
-import CheckToggleVue from "./form/CheckToggle.vue";
+import CheckBox from "./form/CheckBox.vue";
 
 // STATE
 const store = useJobsStore();
 const remoteStatus = ref(false);
 
-// const isSelected = ref(true);
-// METHODS
-// const jobTypeisChecked=()=>{
-//   store.filterJobList.jobType.find(item => item === )
-// }
-
-const jobTypeFilter = (event, filterValue) => {
-  const type = ref("jobType");
-  store.handleJobFilterState(event, type.value, filterValue);
-};
-
-const jobRoleFilter = (event, filterValue) => {
-  const type = ref("jobRole");
-  console.log(event, filterValue);
-  store.handleJobFilterState(event, type.value, filterValue);
-};
-
-const salaryFilter = (event, salaryValue) => {
-  const type = ref("salary");
-  console.log(event, salaryValue);
-  store.handleJobFilterState(event, type.value, salaryValue);
-};
-
 const jobTypeCheckList = ref([
-  { title: "Full-time", name: "full-time", value: "full-time" },
-  { title: "Part-time", name: "part-time", value: "part-time" },
-  { title: "Internship", name: "internship", value: "internship" },
-  {
-    title: "Contract",
-    name: "contract",
-    value: "contract",
-  },
-  { title: "Co-founder", name: "co-founder", value: "co-founder" },
+  { id: 1, title: "Full-time", value: "full-time" },
+  { id: 2, title: "Part-time", value: "part-time" },
+  { id: 3, title: "Internship", value: "internship" },
+  { id: 4, title: "Contract", value: "contract" },
+  { id: 5, title: "Co-founder", value: "co-founder" },
 ]);
 
-const jobRolesCheckList = ref([
-  { title: "Programming", name: "programming", value: "programming" },
-  { title: "Design", name: "design", value: "design" },
+const jobRoleCheckList = ref([
+  { id: 1, title: "Programming", value: "programming" },
+  { id: 2, title: "Design", value: "design" },
+  { id: 3, title: "Management", value: "management" },
   {
-    title: "Management",
-    name: "management",
-    value: "management",
-  },
-  {
+    id: 4,
     title: "Customer Support",
-    name: "customerSupport",
     value: "customer support",
   },
-  {
-    title: "Marketing",
-    name: "marketing",
-    value: "marketing",
-  },
+  { id: 5, title: "Marketing", value: "marketing" },
 ]);
 
 const salaryRangeCheckList = ref([
-  { title: "$5k - $10k", name: "5000-10000" },
-  { title: "$10k - $20k", name: "10000-20000" },
-  { title: "$20k - $30k", name: "20000-30000" },
-  { title: "$30k - Infinity", name: "30000-infinity" },
+  { id: 1, title: "$5k - $10k", value: "5000-10000" },
+  { id: 2, title: "$10k - $20k", value: "10000-20000" },
+  { id: 3, title: "$20k - $30k", value: "20000-30000" },
+  { id: 4, title: "$30k - Infinity", value: "30000-infinity" },
 ]);
 
 const locationList = ref([
-  { title: "Choose a country", value: "" },
-  { title: "Bangladesh", value: "bangladesh" },
-  { title: "India", value: "india" },
-  { title: "United State", value: "united state" },
-  { title: "Canada", value: "canada" },
-  { title: "Europe", value: "europe" },
+  { id: 1, title: "Choose a country", value: "" },
+  { id: 2, title: "Bangladesh", value: "bangladesh" },
+  { id: 3, title: "India", value: "india" },
+  { id: 4, title: "United State", value: "united state" },
+  { id: 5, title: "Canada", value: "canada" },
+  { id: 6, title: "Europe", value: "europe" },
 ]);
 </script>

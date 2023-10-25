@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { computed, reactive, ref, watch } from "vue";
 
 export const useJobsStore = defineStore("jobs", () => {
-  // STATE
+  // === STATE ===
   let userId = ref(1);
   let filterJobList = reactive({
     jobType: [],
@@ -154,7 +154,8 @@ export const useJobsStore = defineStore("jobs", () => {
     "icon-linkedin",
   ]);
 
-  // METHODS
+  // === METHODS ===
+  // Favorite Jobs
   const handleJobFavorite = (jobId) => {
     jobList.value = jobList.value.map((job) =>
       job.id === jobId
@@ -167,6 +168,7 @@ export const useJobsStore = defineStore("jobs", () => {
     // console.log(jobList.value[jobId - 1].isFavorite);
   };
 
+  // Apply Jobs
   const handleJobApplyByUser = (jobId) => {
     jobList.value = jobList.value.map((job) =>
       job.id === jobId
@@ -180,19 +182,7 @@ export const useJobsStore = defineStore("jobs", () => {
     // console.log(jobList.value[jobId - 1].jobApplyStatus);
   };
 
-  const handleJobFilterState = (e, type, filterName) => {
-    if (e.target.checked) {
-      filterJobList[type].push(filterName);
-    } else if (!e.target.checked) {
-      const newFilter = filterJobList[type].filter(
-        (item) => item !== filterName
-      );
-      filterJobList[type] = newFilter;
-    }
-    // console.log(e.target.checked, type, filterName);
-    // console.log(filterJobList.jobType);
-  };
-
+  // Filter Jobs
   const filterJobsByJobseeker = computed(() => {
     let filterJobsByJobseeker = [...jobList.value];
 
@@ -228,10 +218,6 @@ export const useJobsStore = defineStore("jobs", () => {
     // console.log(filterJobsByJobseeker);
     return filterJobsByJobseeker;
   });
-
-  // watch(jobList, (newValue, oldValue) => {
-  //   console.log(newValue, oldValue);
-  // });
 
   // RETURN
   return {
