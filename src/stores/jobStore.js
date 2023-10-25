@@ -205,9 +205,16 @@ export const useJobsStore = defineStore("jobs", () => {
     }
 
     if (filterJobList.salary.length > 0) {
-      filterJobsByJobseeker = filterJobsByJobseeker.filter((job) =>
-        filterJobList.salary.includes(job.jobRole.toLowerCase())
-      );
+      filterJobsByJobseeker = filterJobsByJobseeker.filter((job) => {
+        const salaryRange = filterJobList.salary[0].split("-");
+        // console.log(salaryRange);
+
+        if (job.salary >= salaryRange[0] && job.salary <= salaryRange[1]) {
+          // console.log("inner Range");
+          return true;
+        }
+        return false;
+      });
     }
 
     if (filterJobList.location) {

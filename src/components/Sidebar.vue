@@ -91,7 +91,7 @@
         />
       </div>
     </div>
-
+    <!-- {{ store.filterJobList.salary }} -->
     <!-- Location -->
     <div class="">
       <h3 class="font-medium text-slate-700 mb-3">Location</h3>

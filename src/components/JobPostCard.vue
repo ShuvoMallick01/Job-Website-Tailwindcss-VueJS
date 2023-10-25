@@ -50,6 +50,7 @@
           title="Apply Now"
           @click.prevent="store.handleJobApplyByUser(item.id)"
         />
+
         <!-- url="/job-apply-form" -->
         <Button
           v-else
