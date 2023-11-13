@@ -16,11 +16,12 @@
         <!-- Follow Us -->
         <div class="flex gap-3 justify-center mt-0 items-center">
           Follow us:
-          <Button
-            isButton="true"
+          <ButtonV1
             v-for="social in store.socialMediaList"
-            className="btn-icon"
-            :beforeIcon="social"
+            :prefixIcon="social"
+            size="circle-medium"
+            shape="circle"
+            color="primary-light"
           />
         </div>
       </div>
@@ -36,6 +37,7 @@
 import { ref } from "vue";
 import { useJobsStore } from "../stores/jobStore";
 import Button from "./buttons/Button.vue";
+import ButtonV1 from "./buttons/Button-v1.vue";
 import Image from "./small-components/Image.vue";
 
 // State

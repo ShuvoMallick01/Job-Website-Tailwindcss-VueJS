@@ -21,7 +21,7 @@
         />
       </router-link>
 
-      <div class="flex md:order-2 md:gap-2 gap-1">
+      <div class="flex md:order-2 md:gap-2 gap-1 items-center">
         <button @click="toggleDark()" class="">
           <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
           <i
@@ -35,14 +35,19 @@
         </button>
 
         <div class="flex gap-2">
-          <router-link to="/login"
-            ><button class="btn btn-outline-primary">
-              Sign In
-            </button></router-link
-          >
-          <router-link to="/registration">
-            <button class="btn btn-primary">Register</button></router-link
-          >
+          <ButtonV1
+            title="Sign In"
+            variant="outline"
+            size="medium"
+            href="/login"
+          />
+
+          <ButtonV1
+            title="Register"
+            variant="filled"
+            size="medium"
+            href="/registration"
+          />
         </div>
 
         <button
@@ -96,6 +101,7 @@
 </template>
 
 <script setup>
+import ButtonV1 from "./buttons/Button-v1.vue";
 import { ref, onMounted, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { initCollapses, initFlowbite } from "flowbite";

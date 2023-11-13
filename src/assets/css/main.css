@@ -18,11 +18,9 @@
   .myContainer {
     @apply container mx-auto px-4 sm:px-6 lg:px-8;
   }
-
   .myContainerFuild {
     @apply px-4 sm:px-6 lg:px-8;
   }
-
   .gradient {
     background-color: #aee1f9;
     background-image: linear-gradient(315deg, #aee1f9 0%, #f6ebe6 74%);
@@ -93,7 +91,7 @@
 /* === COMPONENT === */
 @layer components {
   /* Buttons */
-  .btn {
+  /* .btn {
     @apply px-6 border py-2 rounded-full hover:transition-all hover:duration-300 whitespace-nowrap;
   }
 
@@ -103,11 +101,11 @@
 
   .btn-primary {
     @apply bg-primary text-slate-200 hover:bg-slate-100  hover:border-primary hover:text-primary cursor-pointer dark:border-slate-200 dark:text-slate-700 dark:bg-slate-200 hover:dark:text-slate-200 hover:dark:bg-gray-800;
-  }
+  } */
 
-  .btn-text {
+  /* .btn-text {
     @apply text-primary font-medium hover:text-primaryDark cursor-pointer dark:text-secondary;
-  }
+  } */
 
   .btn-icon {
     @apply text-primary bg-secondaryLight hover:bg-secondary hover:text-white h-7 w-7 rounded-full flex justify-center items-center transition-all whitespace-nowrap flex-shrink-0;
@@ -116,9 +114,9 @@
     @apply text-white bg-primary hover:bg-secondaryLight hover:text-primaryDark h-7 w-7 rounded-full flex justify-center items-center transition-all whitespace-nowrap flex-shrink-0;
   }
 
-  .btn-sm {
+  /* .btn-sm {
     @apply bg-secondary whitespace-nowrap  text-slate-200 text-sm py-2 px-3 rounded-full border transition300 hover:bg-slate-100 hover:border-secondaryDark hover:text-secondaryDark;
-  }
+  } */
 
   .btn-apply {
     @apply bg-secondary whitespace-nowrap text-slate-200 text-sm py-2 ps-3 pe-6 rounded-full border transition300 hover:bg-slate-100 hover:border-secondaryDark hover:text-secondaryDark  invisible group-hover/item:visible transition300 relative order-2 md:order-1;
@@ -128,23 +126,105 @@
     @apply bg-gray-200 text-gray-700 px-4 py-1 rounded-full font-light text-xs whitespace-nowrap dark:bg-gray-500 dark:text-gray-300;
   }
 
-  /* delete */
-  /* .btn-circle-icon {
-    @apply w-8 h-8 bg-secondary rounded-full flex justify-center items-center text-white;
-  } */
-  /* delete */
-  /* .social-icon {
-    @apply bg-primaryLight text-primary  h-7 w-7 rounded-full relative inset-0 flex justify-center items-center hover:bg-primary hover:text-white transition300 cursor-pointer;
-  } */
-  /* delete */
-  /* .social-icon-body {
-    @apply bg-primaryLight text-primary  h-7 w-7 rounded-full relative inset-0 flex justify-center items-center hover:bg-primary hover:text-white transition300 cursor-pointer;
-  } */
-  /* /Buttons */
-
   /* Animation */
-  .transition300 {
+  .transition300,
+  .transition-300 {
     @apply transition-all duration-300;
   }
   /* / Animation */
+
+  /* ==== BUTTON ==== */
+  /* Button Variant */
+  .filled {
+    @apply text-white bg-black text-center focus:outline-none outline-none;
+
+    &.primary {
+      @apply bg-primary hover:bg-transparent hover:text-primary border border-primary dark:bg-primary dark:hover:bg-white;
+    }
+    &.secondary {
+      @apply bg-secondary hover:bg-secondaryDark border-none dark:bg-secondary dark:hover:bg-secondaryDark;
+    }
+    &.primary-light {
+      @apply bg-primaryLight text-primary border-none hover:border-none hover:bg-secondary hover:text-white;
+    }
+    &.disabled {
+      @apply text-gray-400 bg-gray-200  border-gray-400 dark:bg-gray-200;
+    }
+  }
+
+  .outline {
+    @apply text-black text-center border outline-none focus:outline-none hover:text-white border-black;
+
+    &.primary {
+      @apply text-primary border-primary hover:text-white hover:bg-primary dark:hover:bg-primary;
+    }
+    &.secondary {
+      @apply text-secondary border-secondary hover:text-white hover:bg-secondary dark:hover:bg-secondary;
+    }
+    &.disabled {
+      @apply text-gray-400  border-gray-400;
+    }
+  }
+
+  /* Shapes */
+  .shape-pill {
+    @apply rounded-full;
+  }
+  .shape-rounded {
+    @apply rounded-lg;
+  }
+  .shape-square {
+    @apply rounded-none;
+  }
+  .shape-circle {
+    @apply rounded-full flex justify-center items-center flex-shrink-0;
+  }
+  .shape-s-pill {
+    @apply rounded-s-full;
+  }
+  .shape-e-pill {
+    @apply rounded-e-full;
+  }
+  .shape-s-rounded {
+    @apply rounded-s-lg;
+  }
+  .shape-e-rounded {
+    @apply rounded-e-lg;
+  }
+
+  /* Size */
+  .btn-lg {
+    padding: 14px 32px;
+    @apply text-sm font-bold leading-6;
+  }
+  .btn-md {
+    @apply px-6 py-2 text-base font-normal leading-normal;
+  }
+  .btn-sm {
+    padding: 8px 20px;
+    @apply text-sm font-bold leading-6;
+  }
+  .btn-xs {
+    padding: 6px 16px;
+    @apply text-xs font-normal leading-6;
+  }
+  .circle-lg {
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    @apply text-xl;
+  }
+  .circle-md {
+    padding: 12px;
+    @apply h-7 w-7;
+  }
+  .icon-lg {
+    @apply text-xl align-bottom px-5 py-3;
+  }
+  .icon-md {
+    @apply text-xl align-bottom px-4 py-2;
+  }
+  .icon-sm {
+    @apply text-xl align-bottom px-4 py-1.5;
+  }
 }
