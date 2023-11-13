@@ -4,6 +4,10 @@
 
 /* ==== BASE ==== */
 @layer base {
+  .font-primary {
+    font-family: "Poppins", sans-serif;
+  }
+
   .font-secondary {
     font-family: "Dancing Script", cursive;
   }
@@ -141,12 +145,19 @@
     &.primary {
       @apply bg-primary hover:bg-transparent hover:text-primary border border-primary dark:bg-primary dark:hover:bg-white;
     }
-    &.secondary {
-      @apply bg-secondary hover:bg-secondaryDark border-none dark:bg-secondary dark:hover:bg-secondaryDark;
-    }
     &.primary-light {
-      @apply bg-primaryLight text-primary border-none hover:border-none hover:bg-secondary hover:text-white;
+      @apply bg-primaryLight text-primary border-none hover:border-none hover:bg-primary hover:text-white;
     }
+    &.secondary {
+      @apply bg-secondary hover:bg-transparent hover:text-secondary border border-primary dark:bg-secondary dark:hover:bg-secondaryDark;
+    }
+    &.secondary-light {
+      @apply bg-secondaryLight text-secondaryDark border-none hover:border-none hover:bg-secondary hover:text-white;
+    }
+    &.gray {
+      @apply bg-gray-200 text-gray-500 border-none hover:border-none hover:bg-gray-300 hover:text-gray-600;
+    }
+
     &.disabled {
       @apply text-gray-400 bg-gray-200  border-gray-400 dark:bg-gray-200;
     }
@@ -159,6 +170,9 @@
       @apply text-primary border-primary hover:text-white hover:bg-primary dark:hover:bg-primary;
     }
     &.secondary {
+      @apply text-secondary border-secondary hover:text-white hover:bg-secondary dark:hover:bg-secondary;
+    }
+    &.secondary-light {
       @apply text-secondary border-secondary hover:text-white hover:bg-secondary dark:hover:bg-secondary;
     }
     &.disabled {
@@ -198,7 +212,8 @@
     @apply text-sm font-bold leading-6;
   }
   .btn-md {
-    @apply px-6 py-2 text-base font-normal leading-normal;
+    padding: 8px 22px;
+    @apply text-base font-normal leading-normal;
   }
   .btn-sm {
     padding: 8px 20px;
@@ -209,8 +224,8 @@
     @apply text-xs font-normal leading-6;
   }
   .circle-lg {
-    width: 48px;
-    height: 48px;
+    width: 35px;
+    height: 35px;
     padding: 12px;
     @apply text-xl;
   }
@@ -219,12 +234,12 @@
     @apply h-7 w-7;
   }
   .icon-lg {
-    @apply text-xl align-bottom px-5 py-3;
+    @apply text-xl align-bottom;
   }
   .icon-md {
-    @apply text-xl align-bottom px-4 py-2;
+    @apply text-xl align-bottom;
   }
   .icon-sm {
-    @apply text-xl align-bottom px-4 py-1.5;
+    @apply text-xl align-bottom;
   }
 }

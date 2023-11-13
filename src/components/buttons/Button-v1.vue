@@ -4,6 +4,7 @@
     :[linkAttr]="href"
     :disabled="buttonComponent === 'button' && disabled"
     v-bind="$attrs"
+    class="font-[Poppins]"
     :class="{
       // [getButtonColor]: true,
       filled: variant === 'filled',
@@ -13,6 +14,7 @@
       secondary: color === 'secondary',
       disabled: color === 'disabled',
       'primary-light': color === 'primary-light',
+      'secondary-light': color === 'secondary-light',
 
       'shape-pill': shape === 'pill',
       'shape-rounded': shape === 'rounded',
@@ -33,20 +35,23 @@
       'circle-lg': size === 'circle-large',
       'circle-sm': size === 'circle-small',
 
-      'icon-lg': size === 'icon-large',
-      'icon-md': size === 'icon-medium',
-      'icon-sm': size === 'icon-small',
+      'icon-lg': iconSize === 'icon-large',
+      'icon-md': iconSize === 'icon-medium',
+      'icon-sm': iconSize === 'icon-small',
 
       'shadow-medium': shadow === 'medium',
       'shadow-large': shadow === 'large',
       'shadow-small': shadow === 'small',
 
       'transition-300': true,
+      [wrapperClasses]: true,
     }"
   >
     <i v-if="prefixIcon" :class="prefixIcon"></i>
     {{ title }}
-    <i v-if="suffixIcon" :class="suffixIcon"></i>
+    <span :class="suffixIconAnimation"
+      ><i v-if="suffixIcon" :class="suffixIcon"></i
+    ></span>
   </component>
 </template>
 
@@ -58,14 +63,16 @@ const props = defineProps({
   prefixIcon: String,
   suffixIcon: String,
   title: String,
+  suffixIconAnimation: String,
+  wrapperClasses: String,
 
   color: { type: String, default: "primary" },
   variant: { type: String, default: "filled" },
   shape: { type: String, default: "pill" },
   size: { type: String, default: "btn-md" },
+  iconSize: String,
 
   href: { type: String, default: "" },
-
   disabled: { type: Boolean, default: false },
   shadow: String,
 });

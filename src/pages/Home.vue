@@ -175,6 +175,7 @@ import { initFlowbite } from "flowbite";
 import { useJobsStore } from "../stores/jobStore";
 import JobPostCard from "../components/JobPostCard.vue";
 import Sidebar from "../components/Sidebar.vue";
+import ButtonV1 from "../components/buttons/Button-v1.vue";
 
 // State
 const jobStore = useJobsStore();
