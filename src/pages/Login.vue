@@ -47,22 +47,18 @@
       </div>
 
       <!-- Form -->
-      <form>
-        <div class="mb-6">
-          <FormSelectV1 labelName="Role" :optionList="roleSelect" />
-        </div>
+      <form class="space-y-6">
+        <FormSelectV1 labelName="Role" :optionList="roleSelect" />
 
-        <div class="mb-6">
-          <FormInputV1
-            labelName="Email:"
-            :required="true"
-            id="email"
-            type="email"
-            placeholder="Type your Email"
-          />
-        </div>
+        <FormInputV1
+          labelName="Email:"
+          :required="true"
+          id="email"
+          type="email"
+          placeholder="Type your Email"
+        />
 
-        <div class="mb-6 relative">
+        <div class="relative">
           <FormInputV1
             labelName="Password:"
             type="password"
