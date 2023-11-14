@@ -7,5 +7,14 @@
 </template>
 
 <script setup>
-defineProps(["title", "className", "beforeIcon", "afterIcon"]);
+defineOptions({
+  inheritAttrs: false,
+});
+
+defineProps({
+  title: String,
+  className: String,
+  beforeIcon: String,
+  afterIcon: String,
+});
 </script>

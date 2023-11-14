@@ -1,4 +1,13 @@
 @tailwind base;
+
+/* CUSTOM CSS */
+[type="checkbox"]:checked,
+[type="radio"]:checked,
+.dark [type="checkbox"]:checked,
+.dark [type="radio"]:checked {
+  background-size: 1.3em 1.3em;
+}
+
 @tailwind components;
 @tailwind utilities;
 
@@ -15,10 +24,13 @@
     @apply text-3xl font-bold text-primary uppercase dark:text-secondary;
   }
   h2 {
-    @apply text-xl;
+    @apply font-semibold text-2xl uppercase text-primary dark:text-gray-200;
   }
   h3 {
     @apply font-semibold text-lg uppercase text-gray-600 dark:text-gray-200;
+  }
+  h4 {
+    @apply font-semibold uppercase text-base text-gray-600 dark:text-gray-200;
   }
 }
 
@@ -63,15 +75,28 @@
   }
 
   /* Typography Description */
-  .base-text {
-    @apply text-base font-light text-slate-600 dark:text-gray-300;
+  .large-text {
+    @apply text-lg text-gray-600 dark:text-gray-400;
   }
+  .base-text {
+    @apply text-base font-light text-gray-600 dark:text-gray-400;
+  }
+  .small-text {
+    @apply text-sm text-gray-500 font-light  dark:text-gray-400;
+  }
+  .extrasmall-text {
+    @apply text-base font-light text-gray-600 dark:text-gray-400;
+  }
+
+  /* delete */
   .description-text {
     @apply text-sm text-slate-600 dark:text-gray-300;
   }
+  /* delete */
   .description-sm-text {
     @apply text-gray-500 font-light text-xs dark:text-gray-400;
   }
+  /* delete */
   .paragraph-primary {
     @apply text-sm text-gray-500 font-light  dark:text-gray-400;
   }
@@ -159,7 +184,7 @@
       @apply bg-primaryLight text-primary border-none hover:border-none hover:bg-primary hover:text-white;
     }
     &.secondary {
-      @apply bg-secondary hover:bg-transparent hover:text-secondary border border-primary dark:bg-secondary dark:hover:bg-secondaryDark;
+      @apply bg-secondary hover:bg-transparent hover:text-secondary border border-primary dark:bg-secondary dark:hover:bg-transparent  dark:hover:text-white dark:hover:border-secondaryLight;
     }
     &.secondary-light {
       @apply bg-secondaryLight text-secondaryDark border-none hover:border-none hover:bg-secondary hover:text-white;
@@ -176,7 +201,7 @@
     @apply text-black text-center border outline-none focus:outline-none hover:text-white border-black;
 
     &.primary {
-      @apply text-primary border-primary hover:text-white hover:bg-primary dark:hover:bg-primary;
+      @apply text-primary border-primary hover:text-white hover:bg-primary dark:hover:bg-primary dark:hover:border-primary dark:border-primaryLight dark:text-primaryLight dark:hover:text-white;
     }
     &.primary-light {
       @apply text-primary border-primaryLight hover:text-white hover:bg-primaryLight dark:hover:bg-primary;
@@ -189,6 +214,29 @@
     }
     &.disabled {
       @apply text-gray-400  border-gray-400;
+    }
+  }
+
+  .text-only {
+    @apply text-gray-700 text-center hover:text-gray-900;
+
+    &.primary {
+      @apply text-primary hover:text-primaryDark dark:text-primaryLight dark:hover:text-primary;
+    }
+    &.primary-light {
+      @apply text-secondaryLight hover:text-secondary dark:hover:text-primary;
+    }
+    &.secondary {
+      @apply text-secondary hover:text-secondaryDark dark:text-secondaryLight dark:hover:text-secondary;
+    }
+    &.secondary-light {
+      @apply bg-secondaryLight text-secondaryDark border-none hover:border-none hover:bg-secondary hover:text-white;
+    }
+    &.gray {
+      @apply bg-gray-200 text-gray-500 border-none hover:border-none hover:bg-gray-300 hover:text-gray-600;
+    }
+    &.disabled {
+      @apply text-gray-400 bg-gray-200  border-gray-400 dark:bg-gray-200;
     }
   }
 
@@ -235,6 +283,12 @@
     padding: 6px 16px;
     @apply text-xs font-normal leading-6;
   }
+  .circle-xl {
+    width: 45px;
+    height: 45px;
+    padding: 14px;
+    @apply text-2xl;
+  }
   .circle-lg {
     width: 35px;
     height: 35px;
@@ -254,7 +308,9 @@
   .icon-sm {
     @apply text-xl align-bottom;
   }
-
+  .link-sm {
+    @apply text-sm font-light p-1;
+  }
   /* === FORM STYLE === */
   /* Required */
   .required-mark {
@@ -285,7 +341,8 @@
 
   /* FORM CHECKBOX */
   .checkbox-primary {
-    @apply w-5 h-5 text-primary bg-gray-100 border-2 border-primary/70 rounded focus:ring-0 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-primary cursor-pointer;
+    /* background-size: 0 !important; */
+    @apply w-5 h-5 text-primary bg-gray-100 border-2 border-primary/70 rounded focus:ring-0 dark:ring-offset-gray-800 dark:text-primaryDark dark:bg-primaryLight dark:border-primary cursor-pointer;
   }
   .checkbox-inactive {
     @apply w-5 h-5 text-blue-600 bg-gray-100  border-2 border-gray-300 rounded focus:ring-0 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600 cursor-pointer;

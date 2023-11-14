@@ -60,10 +60,14 @@
           @click.prevent="store.handleJobApplyByUser(item.id)"
         />
 
-        <div v-else class="flex items-center flex-nowrap">
-          <i class="icon-check me-1"></i>
-          <p>Applied</p>
-        </div>
+        <Badge
+          v-else
+          title="Applied"
+          prefix="icon-check  align-middle"
+          variant="text"
+          size="text-medium"
+          color="secondary"
+        />
 
         <p class="text-sm text-slate-400 order-1 md:order-2">
           {{ item.createdAt }}

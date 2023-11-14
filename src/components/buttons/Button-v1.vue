@@ -4,11 +4,12 @@
     :[linkAttr]="href"
     :disabled="buttonComponent === 'button' && disabled"
     v-bind="$attrs"
-    class="font-[Poppins]"
+    class="font-[Poppins] whitespace-nowrap"
     :class="{
       // [getButtonColor]: true,
       filled: variant === 'filled',
       outline: variant === 'outline',
+      'text-only': variant === 'link',
 
       primary: color === 'primary',
       secondary: color === 'secondary',
@@ -34,6 +35,8 @@
       'circle-md': size === 'circle-medium',
       'circle-lg': size === 'circle-large',
       'circle-sm': size === 'circle-small',
+
+      'link-sm': linkSize === 'link-small',
 
       'icon-lg': iconSize === 'icon-large',
       'icon-md': iconSize === 'icon-medium',
@@ -69,7 +72,8 @@ const props = defineProps({
   color: { type: String, default: "primary" },
   variant: { type: String, default: "filled" },
   shape: { type: String, default: "pill" },
-  size: { type: String, default: "btn-md" },
+  size: { type: String, default: "medium" },
+  linkSize: String,
   iconSize: String,
 
   href: { type: String, default: "" },

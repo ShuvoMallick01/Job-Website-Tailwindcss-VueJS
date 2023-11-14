@@ -1,12 +1,11 @@
 <template>
   <!-- FILTER & JOB CARD -->
   <section class="myContainer mb-5 pt-5 mt-24">
-    <Button
-      :isButton="false"
-      url="/"
-      className="btn-text"
+    <ButtonV1
+      :href="'/'"
       title="All Jobs"
-      :beforeIcon="'fa-solid fa-arrow-left me-1'"
+      variant="link"
+      prefixIcon="fa-solid fa-arrow-left me-1"
     />
 
     <div
@@ -15,39 +14,43 @@
       <div
         class="col-span-1 md:col-span-1 lg:col-span-2 order-2 md:order-1 mt-10 md:mt-0"
       >
-        <h1 class="heading">{{ job.jobTitle }}</h1>
+        <h2 class="">JOB ROLE: {{ job.jobTitle }}</h2>
 
-        <h4 class="pb-2 mt-6 heading-paragraph">
+        <h4 class="pb-2 mt-6">
           {{ job ? String(job.description).slice(0, 20) : "" }}
         </h4>
-        <p class="paragraph-primary text-justify">
+        <p class="base-text text-justify">
           {{ job.description }}
         </p>
 
-        <h4 class="pb-2 mt-6 heading-paragraph">
+        <h4 class="pb-2 mt-6">
           {{ job ? String(job.description).slice(0, 20) : "" }}
         </h4>
-        <p class="paragraph-primary text-justify">
+        <p class="base-text text-justify">
           {{ job.description }}
         </p>
 
         <!-- Social Media -->
         <div class="flex gap-2 justify-end mt-8 pb-10 items-center">
-          <p class="paragraph-primary">Share Job</p>
-          <Button
-            isButton="true"
+          <p class="base-text">Share Job</p>
+          <ButtonV1
             v-for="social in store.socialMediaList"
-            className="btn-icon"
-            :beforeIcon="social"
+            :prefixIcon="social"
+            size="circle-medium"
+            shape="circle"
+            color="secondary-light"
           />
         </div>
 
         <!-- Related Jobs -->
         <div
-          class="mt-6 pt-6 border-t border-slate-300 py-6 bg-white px-4 mb-10"
+          class="mt-6 pt-6 border-t border-slate-300 py-6 bg-white dark:bg-gray-900 px-4 mb-10"
         >
           <h1 class="heading pt-2 mb-8 px-6">Related Jobs</h1>
-          <JobPostCard :jobList="store.jobList"></JobPostCard>
+          <JobPostCard
+            :jobList="store.jobList"
+            class="dark:hover:bg-slate-600"
+          ></JobPostCard>
         </div>
       </div>
 
@@ -57,12 +60,16 @@
           class="bg-gray-200/50 border border-slate-300 p-6 rounded-lg dark:bg-gray-700 dark:border-slate-500"
         >
           <div class="text-center content-center">
-            <!-- <SingleTextCircle :title="job.companyName" class="mx-auto" /> -->
-            <IconText
+            <Badge
               :title="job.companyName ? job.companyName[0] : ''"
-              :className="'singleTextCircle mx-auto md:h-10 md:w-10'"
+              size="circle-extralarge"
+              color="secondary"
+              variation="filled"
+              shape="circle"
+              class="mx-auto"
             />
-            <h2 class="heading mt-2">{{ job.companyName }}</h2>
+
+            <h3 class="mt-2">{{ job.companyName }}</h3>
           </div>
 
           <div class="space-y-2 mt-6 text-slate-600 mb-8 dark:text-gray-300">
@@ -96,30 +103,34 @@
           </div>
 
           <div class="flex flex-col text-center gap-4">
-            <Button
+            <ButtonV1
               v-if="!job.jobApplyStatus"
-              :isButton="false"
-              name="jobApplyButton"
-              className="btn btn-primary group/apply"
-              iconAnimation="group-hover/apply:translate-x-1 absolute right-0 ps-2 mx-2 transition300"
-              afterIcon="icon-arrow-single-right align-middle"
               title="Apply Now"
-              url="/job-apply-form"
-            />
-            <Button
-              v-else
-              :isButton="true"
-              beforeIcon="icon-check"
-              className="btn-text"
-              title="Applied"
+              size="medium"
+              variant="filled"
+              color="secondary"
+              name="jobApplyButton"
+              suffixIcon="icon-arrow-single-right align-middle"
+              wrapperClasses="z-10 group/apply relative pe-8  group-hover/item:visible transition300 relative order-2 md:order-1"
+              suffixIconAnimation="group-hover/apply:translate-x-4 absolute right-0 ps-4 mx-8 transition300"
+              @click.prevent="store.handleJobApplyByUser(item.id)"
             />
 
-            <Button
-              isButton="true"
+            <Badge
+              v-else
+              title="Applied"
+              prefix="icon-check align-middle"
+              variant="text"
+              size="text-medium"
+              color="secondary"
+            />
+
+            <ButtonV1
               @click="visitWebsite"
               target="_blank"
-              className="btn btn-outline-primary"
               title="Visit Website"
+              variant="outline"
+              color="primary"
             />
           </div>
         </div>
@@ -133,9 +144,12 @@
 import { onMounted, ref } from "vue";
 import { useJobsStore } from "../stores/jobStore";
 import { useRoute } from "vue-router";
+
 import JobPostCard from "../components/JobPostCard.vue";
 import IconText from "../components/icons/IconText.vue";
 import Button from "../components/buttons/Button.vue";
+import ButtonV1 from "../components/buttons/Button-v1.vue";
+import Badge from "../components/Badge.vue";
 
 // STATE
 const route = useRoute();
