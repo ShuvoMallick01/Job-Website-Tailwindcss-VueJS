@@ -6,7 +6,7 @@
         Find the right
         <span class="font-light text-secondary">world class job </span>
       </h1>
-      <p class="font-light text-slate-600 mt-5 md:w-1/2">
+      <p class="base-text mt-5 md:w-1/2">
         Be a member of a family of more than one million job seekers and apply
         to any of the 3000+ live jobs
       </p>
@@ -113,8 +113,8 @@
   <section class="myContainer mb-16">
     <!-- Header -->
     <div class="py-12 text-center">
-      <h1 class="sectionHeading">FIND YOUR JOB</h1>
-      <p class="description-text text-center">
+      <h1 class="mb-2">FIND YOUR JOB</h1>
+      <p class="base-text text-center">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit
       </p>
     </div>

@@ -86,21 +86,17 @@
   </router-link>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
 import Button from "./buttons/Button.vue";
 import ButtonV1 from "./buttons/Button-v1.vue";
 import Badge from "./Badge.vue";
-
 import IconText from "./icons/IconText.vue";
+
 import { useJobsStore } from "../stores/jobStore";
 import { onMounted, ref } from "vue";
 
-// STATE
-const store = useJobsStore();
-
-// METHODS
-
-// Props
+// PROPS
 defineProps({
   jobList: {
     type: Array,
@@ -108,4 +104,9 @@ defineProps({
     required: true,
   },
 });
+
+// STATE
+const store = useJobsStore();
+
+// METHODS
 </script>

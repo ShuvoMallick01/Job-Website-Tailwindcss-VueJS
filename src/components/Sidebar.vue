@@ -1,15 +1,15 @@
 <template>
   <div
-    class="h-full px-8 py-6 overflow-y-auto 0 bg-white border rounded-lg dark:border-slate-700 dark:bg-gray-900 space-y-8"
+    class="h-full px-8 py-6 overflow-y-auto 0 bg-white border rounded-lg dark:border-slate-700 dark:bg-gray-900"
   >
     <!-- Job Type -->
     <div class="">
-      <div class="space-y-1">
-        <h3 class="sectionSubHeading mb-3">Job Type</h3>
+      <div class="space-y-2 border-b mb-5 pb-5">
+        <h3 class="mb-3">Job Type</h3>
 
         <div class="form-check" v-for="item in jobTypeCheckList" :key="item.id">
-          <Checkbox
-            :label="item.title"
+          <CheckboxV1
+            :labelName="item.title"
             :id="item.value"
             :checked="store.filterJobList.jobType.includes(item.value)"
             @input="
@@ -29,12 +29,12 @@
     </div>
 
     <!-- Job Roles -->
-    <div class="space-y-1">
-      <h3 class="sectionSubHeading mb-3">Job Role</h3>
+    <div class="space-y-2 border-b mb-5 pb-5">
+      <h3 class="mb-3">Job Role</h3>
 
-      <div class="form-check" v-for="item in jobRoleCheckList" :key="item.id">
-        <Checkbox
-          :label="item.title"
+      <div v-for="item in jobRoleCheckList" :key="item.id">
+        <CheckboxV1
+          :labelName="item.title"
           :id="item.value"
           :checked="store.filterJobList.jobRole.includes(item.value)"
           @input="
@@ -53,8 +53,8 @@
     </div>
 
     <!-- Remote Only -->
-    <div class="">
-      <h3 class="sectionSubHeading mb-3">Remote Only</h3>
+    <div class="space-y-2 border-b mb-5 pb-5">
+      <h3 class="mb-3">Remote Only</h3>
       <div class="form-check">
         <!-- <FormCheck title="Off" v-model="store.filterJobList.remoteOnly" /> -->
         <CheckToggle
@@ -65,16 +65,12 @@
     </div>
 
     <!-- Salary Range -->
-    <div class="space-y-1">
-      <h3 class="sectionSubHeading mb-3">Salary Range</h3>
+    <div class="space-y-2 border-b mb-5 pb-5">
+      <h3 class="mb-3">Salary Range</h3>
 
-      <div
-        class="form-check"
-        v-for="item in salaryRangeCheckList"
-        :key="item.id"
-      >
-        <Checkbox
-          :label="item.title"
+      <div v-for="item in salaryRangeCheckList" :key="item.id">
+        <CheckboxV1
+          :labelName="item.title"
           :id="item.value"
           :checked="store.filterJobList.salary.includes(item.value)"
           @input="
@@ -91,11 +87,11 @@
         />
       </div>
     </div>
-    <!-- {{ store.filterJobList.salary }} -->
+
     <!-- Location -->
-    <div class="">
-      <h3 class="font-medium text-slate-700 mb-3">Location</h3>
-      <FormSelect
+    <div class="space-y-2">
+      <h3 class="mb-3">Location</h3>
+      <FormSelectV1
         :optionList="locationList"
         v-model="store.filterJobList.location"
       />
@@ -105,11 +101,14 @@
 
 <!-- FUNCTIONALITY -->
 <script setup>
-import { reactive, ref } from "vue";
 import FormSelect from "../components/form/FormSelect.vue";
 import CheckToggle from "../components/form/CheckToggle.vue";
-import { useJobsStore } from "../stores/jobStore";
 import Checkbox from "../components/form/Checkbox.vue";
+import CheckboxV1 from "./form/Checkbox-v1.vue";
+import FormSelectV1 from "./form/FormSelect-v1.vue";
+
+import { reactive, ref } from "vue";
+import { useJobsStore } from "../stores/jobStore";
 
 // STATE
 const store = useJobsStore();

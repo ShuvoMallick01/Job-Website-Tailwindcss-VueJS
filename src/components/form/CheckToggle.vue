@@ -16,6 +16,7 @@
   </label>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
 defineProps(["title", "modelValue"]);
 </script>

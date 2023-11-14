@@ -1,7 +1,6 @@
 <template>
   <span
     v-bind="$attrs"
-    :disabled="isDisabled"
     :class="{
       filled: variant === 'filled',
       outline: variant === 'outline',
@@ -48,14 +47,12 @@ defineProps({
   prefix: String,
   suffix: String,
   title: { type: String, required: true },
+  shadow: String,
 
   color: { type: String, default: "primary" },
   variant: { type: String, default: "filled" },
   shape: { type: String, default: "pill" },
   size: { type: String, default: "medium" },
-
-  isDisabled: { type: Boolean, default: false },
-  shadow: String,
 });
 </script>
 
