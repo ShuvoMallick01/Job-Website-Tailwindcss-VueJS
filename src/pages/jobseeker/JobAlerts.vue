@@ -1,6 +1,6 @@
 <template>
   <!-- Title -->
-  <SubSecHeading headingTitle="Job Alerts" divClassName="mb-8 pb-3 border-b" />
+  <SubSectionHeading headingName="Job Alerts" />
 
   <!-- Table -->
   <Table :fieldList="fieldList">
@@ -14,6 +14,7 @@ import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
 import Table from "../../components/dashboard/Table.vue";
 import AlertTableRow from "../../components/dashboard/AlertTableRow.vue";
 import { useJobsStore } from "../../stores/jobStore";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 
 // State
 const jobStore = useJobsStore();

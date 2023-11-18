@@ -1,6 +1,6 @@
 <template>
   <!-- Title -->
-  <SubSecHeading headingTitle="SAVED JOBS" divClassName="mb-8 pb-3 border-b" />
+  <SubSectionHeading headingName="SAVED JOBS" />
 
   <!-- Card -->
   <JobPostCard :jobList="savedJobsList"></JobPostCard>
@@ -8,9 +8,10 @@
 
 <script setup>
 import { ref } from "vue";
+import { useJobseekersStore } from "../../stores/jobseekerStore";
 import JobPostCard from "../../components/JobPostCard.vue";
 import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
-import { useJobseekersStore } from "../../stores/jobseekerStore";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 
 // State
 const jobStore = useJobseekersStore();

@@ -1,6 +1,6 @@
 <template>
   <!-- CV Manager -->
-  <SubSecHeading headingTitle="CV Manager" divClassName="mb-8 pb-3 border-b" />
+  <SubSectionHeading headingName="CV Manager" />
 
   <!-- file Upload -->
   <div class="border text-center py-20 mb-10">
@@ -35,4 +35,5 @@ import { ref } from "vue";
 import BtnFileUpload from "../../components/buttons/BtnFileUpload.vue";
 import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
 import Button from "../../components/buttons/Button.vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 </script>

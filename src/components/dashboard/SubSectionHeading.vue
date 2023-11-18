@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-between items-center mb-8 pb-1 border-b"
+    class="flex justify-between items-center mb-8 pb-2 border-b"
     :class="parentClasses"
   >
     <h3>{{ headingName }}</h3>

@@ -1,9 +1,6 @@
 <template>
   <!-- Title -->
-  <SubSecHeading
-    headingTitle="PASSWORD CHANGE"
-    divClassName="mb-8 pb-3 border-b"
-  />
+  <SubSectionHeading headingName="PASSWORD CHANGE" />
 
   <!-- Form -->
   <form>
@@ -20,6 +17,7 @@ import { ref } from "vue";
 import FormInput from "../../components/form/FormInput.vue";
 import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
 import Button from "../../components/buttons/Button.vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 
 const formInputList = ref([
   {
