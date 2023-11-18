@@ -29,8 +29,13 @@
   h3 {
     @apply font-semibold text-lg uppercase text-gray-600 dark:text-gray-200;
   }
-  h4 {
+  h4,
+  .h4 {
     @apply font-semibold uppercase text-base text-gray-600 dark:text-gray-200;
+  }
+  h5,
+  .h5 {
+    @apply font-semibold uppercase text-sm text-gray-600 dark:text-gray-200;
   }
 }
 
@@ -39,7 +44,8 @@
   .myContainer {
     @apply container mx-auto px-4 sm:px-6 lg:px-8;
   }
-  .myContainerFuild {
+  .myContainerFuild,
+  .container-fluid {
     @apply px-4 sm:px-6 lg:px-8;
   }
   .gradient {
@@ -76,16 +82,20 @@
 
   /* Typography Description */
   .large-text {
-    @apply text-lg text-gray-600 dark:text-gray-400;
+    @apply text-lg text-gray-500 dark:text-gray-400;
   }
   .base-text {
-    @apply text-base font-light text-gray-600 dark:text-gray-400;
+    @apply text-base text-gray-600 dark:text-gray-400;
+  }
+  .medium-text {
+    font-size: 15px;
+    @apply text-gray-600 dark:text-gray-400;
   }
   .small-text {
-    @apply text-sm text-gray-500 font-light  dark:text-gray-400;
+    @apply text-sm text-gray-600  dark:text-gray-400;
   }
   .extrasmall-text {
-    @apply text-base font-light text-gray-600 dark:text-gray-400;
+    @apply text-xs font-light text-gray-600 dark:text-gray-400;
   }
 
   /* delete */

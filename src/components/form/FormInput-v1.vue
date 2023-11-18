@@ -17,8 +17,6 @@
     <textarea
       v-if="textarea"
       v-bind="$attrs"
-      rows="4"
-      cols="50"
       :class="{
         'form-input-gray': inputColor === 'gray',
         'form-input-green': inputColor === 'green',
@@ -59,15 +57,15 @@ defineOptions({
 });
 
 defineProps({
+  modelValue: true,
+
   prefixIcon: String,
   suffixIcon: String,
   parentClasses: String,
 
-  required: { type: Boolean, default: false },
-  modelValue: { type: String, default: "" },
-
   labelName: String,
   labelColor: { type: String, default: "gray" },
+  required: { type: Boolean, default: false },
 
   inputColor: { type: String, default: "gray" },
   inputSize: { type: String, default: "medium" },

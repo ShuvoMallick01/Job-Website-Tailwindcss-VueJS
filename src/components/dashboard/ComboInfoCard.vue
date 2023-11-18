@@ -1,26 +1,45 @@
 <template>
   <div v-for="(item, index) in infoList" :key="index" class="flex gap-6 mb-8">
-    <Button
-      isButton="true"
+    <Badge
       :title="item.title[0]"
-      className="singleTextCircle"
+      size="circle-large"
+      color="secondary"
+      variation="filled"
+      shape="circle"
     />
 
     <div>
       <div class="mb-4 flex gap-3 items-start">
         <div>
-          <h4 class="heading-regular">{{ item.title }}</h4>
-          <p class="description-text text-primary">
+          <h4>{{ item.title }}</h4>
+          <p class="small-text text-primary">
             {{ item.institute }}
           </p>
         </div>
-        <p class="btn-sm-text">{{ item.duration }}</p>
+        <Badge :title="item.duration" color="gray"></Badge>
 
-        <Button isButton="true" beforeIcon="icon-edit" className="btn-icon" />
-        <Button isButton="true" beforeIcon="icon-trash" className="btn-icon" />
+        <ButtonV1
+          prefixIcon="icon-edit"
+          variant="filled"
+          size="circle-medium"
+          shape="circle"
+          color="secondary-light"
+          target="_blank"
+          @click="editEducation"
+        />
+
+        <ButtonV1
+          prefixIcon="icon-trash"
+          variant="filled"
+          size="circle-medium"
+          shape="circle"
+          color="secondary-light"
+          target="_blank"
+          @click="editEducation"
+        />
       </div>
 
-      <p class="description-sm-text">
+      <p class="extrasmall-text">
         {{ item.description }}
       </p>
     </div>
@@ -29,6 +48,8 @@
 
 <script setup>
 import Button from "../buttons/Button.vue";
+import ButtonV1 from "../buttons/Button-v1.vue";
+import Badge from "../Badge.vue";
 
 defineProps({
   infoList: {

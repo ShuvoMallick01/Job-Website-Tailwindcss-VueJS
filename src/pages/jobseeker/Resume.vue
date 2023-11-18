@@ -1,61 +1,70 @@
 <template>
-  <!-- Title -->
-  <SubSecHeading headingTitle="MY RESUME" divClassName="mb-8 pb-3 border-b" />
+  <div class="space-y-6">
+    <!-- Title -->
+    <SubSectionHeading headingName="MY RESUME" />
 
-  <div>
     <!-- Updated CV Version List -->
-    <FormSelect
+    <FormSelectV1
+      labelName="Select Your CV"
+      id="cvSelect"
       :optionList="CvVersionList"
-      :labelName="'Select Your CV'"
-      className="mb-5"
       v-model="resume.cvVersion"
     />
+
     <!-- Description -->
-    <Textarea
-      labelName="Description"
-      name="description"
-      required="true"
+    <FormInputV1
+      :textarea="true"
+      labelName="Description:"
+      id="description"
+      type="text"
+      :required="true"
+      rows="4"
+      placeholder="Type your description"
       v-model="resume.description"
     />
-  </div>
 
-  <!-- Education -->
-  <div class="mt-14">
-    <div class="mb-8 pb-3 border-b flex justify-between">
-      <SubSecHeading headingTitle="EDUCATION" />
-      <Button
-        isButton="true"
-        beforeIcon="icon-plus align-baseline"
-        title="Add Education"
-        className="btn-text"
-      />
-    </div>
-    <ComboInfoCard :infoList="resume.education" />
-  </div>
+    <!-- Education -->
+    <div>
+      <SubSectionHeading headingName="EDUCATION">
+        <ButtonV1
+          title="Add Work"
+          variant="onlyText"
+          prefixIcon="icon-plus align-baseline"
+          @click="unknwon"
+        />
+      </SubSectionHeading>
 
-  <!-- Work & Experience -->
-  <div class="mt-14">
-    <div class="mb-8 pb-3 border-b flex justify-between">
-      <SubSecHeading headingTitle="WORK & EXPERIENCE" />
-
-      <Button
-        isButton="true"
-        beforeIcon="icon-plus align-baseline"
-        title="Add Work"
-        className="btn-text"
-      />
+      <ComboInfoCard :infoList="resume.education" />
     </div>
 
-    <ComboInfoCard :infoList="resume.workExperience" />
-  </div>
+    <!-- Work & Experience -->
+    <div>
+      <SubSectionHeading headingName="WORK & EXPERIENCE">
+        <ButtonV1
+          title="Add Work"
+          variant="onlyText"
+          prefixIcon="icon-plus align-baseline"
+          @click="unknwon"
+        />
+      </SubSectionHeading>
 
-  <!-- Skills -->
-  <div class="mt-14">
-    <SubSecHeading headingTitle="SKILLS" divClassName="mb-8 pb-3 border-b" />
-    <FormInput :formInput="formInputList" v-model="resume.skills" />
-  </div>
+      <ComboInfoCard :infoList="resume.workExperience" />
+    </div>
 
-  <Button isButton="true" title="Save" className="btn btn-primary px-14" />
+    <!-- Skills -->
+    <div>
+      <SubSectionHeading headingName="SKILLS"> </SubSectionHeading>
+      <FormInputV1
+        id="language"
+        type="text"
+        :required="true"
+        placeholder="Type your Language"
+        v-model="resume.skills"
+      />
+    </div>
+
+    <ButtonV1 title="Save" wrapperClasses="px-10 " />
+  </div>
 </template>
 
 <!-- SCRIPT -->
@@ -63,11 +72,13 @@
 import { ref, reactive } from "vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
 import FormSelect from "../../components/form/FormSelect.vue";
-import Textarea from "../../components/form/Textarea.vue";
 import ComboInfoCard from "../../components/dashboard/ComboInfoCard.vue";
 import FormInput from "../../components/form/FormInput.vue";
-import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
 import Button from "../../components/buttons/Button.vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import FormSelectV1 from "../../components/form/FormSelect-v1.vue";
+import ButtonV1 from "../../components/buttons/Button-v1.vue";
+import FormInputV1 from "../../components/form/FormInput-V1.vue";
 
 // State
 const store = useJobseekersStore();
@@ -78,15 +89,5 @@ const CvVersionList = ref([
   { title: "CV Version 1.0", value: "CV Version 1.0" },
   { title: "CV Version 2.0", value: "CV Version 2.0" },
   { title: "CV Version 3.0", value: "CV Version 3.0" },
-]);
-
-const formInputList = ref([
-  {
-    title: "",
-    name: "skills",
-    type: "text",
-    placeholder: "",
-    required: true,
-  },
 ]);
 </script>

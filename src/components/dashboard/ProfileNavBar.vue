@@ -7,13 +7,17 @@
       <div
         class="shrink-0 h-20 w-20 bg-primary rounded-full overflow-hidden mx-auto mb-3 border-2 border-secondary"
       >
-        <!-- <img class="" :src="profileInfo.image" alt="User Profile" /> -->
-        <Image :imgUrl="profileInfo.image" alt="User Picture" />
+        <ImageV1
+          :imgUrl="profileInfo.image"
+          alt="Job Seeker Profile"
+          href="/jobseeker-profile"
+        />
       </div>
-      <h3 class="sectionSubHeading mb-0 pb-0">
+
+      <h3>
         {{ profileInfo.name ? profileInfo.name : "User Name" }}
       </h3>
-      <p class="text-xs font-light">
+      <p class="small-text">
         {{
           profileInfo.profession ? profileInfo.profession : "Profession Name"
         }}
@@ -22,14 +26,14 @@
 
     <!-- Navbar -->
     <div>
-      <ul class="description-text">
+      <ul class="medium-text">
         <li
           class="w-full py-3 pe-2 border-s-white border-b hover:bg-slate-100 border-s-2 hover:border-s-2 hover:border-s-primary cursor-pointer transition300 dark:border-s-transparent dark:border-b-slate-600 dark:hover:bg-gray-800 dark:hover:border-s-slate-400"
           v-for="nav in profileNavList"
           :key="nav.id"
           :class="
             activeNav === nav.path
-              ? 'bg-slate-100 border-s-2 border-s-primaryDark dark:border-s-slate-400 dark:bg-gray-800'
+              ? 'bg-slate-200/70 border-s-2 !border-s-primary dark:border-s-slate-400 dark:bg-gray-800'
               : ''
           "
         >
@@ -51,6 +55,7 @@
 
 <script setup>
 import Image from "../small-components/Image.vue";
+import ImageV1 from "../small-components/Image-v1.vue";
 
 defineProps({
   profileInfo: {

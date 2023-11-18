@@ -1,65 +1,131 @@
 <template>
   <!-- Title -->
-  <SubSecHeading
-    headingTitle="Basic Information"
-    divClassName="mb-8 pb-3 border-b"
-  />
+  <SubSectionHeading headingName="Basic Information" />
 
-  <form>
+  <form class="space-y-5">
     <div class="md:grid grid-cols-2 gap-5">
-      <FormInput :formInput="formInputList[0]" v-model="user.name" />
-      <!-- Profession -->
-      <FormInput :formInput="formInputList[1]" v-model="user.profession" />
+      <FormInputV1
+        labelName="Your Name:"
+        id="your-name"
+        type="text"
+        :required="true"
+        placeholder="Type your Full Name"
+        v-model="user.name"
+      />
+
+      <FormInputV1
+        labelName="Professional Title:"
+        id="your-profession"
+        type="text"
+        :required="true"
+        placeholder="Type your Profession"
+        v-model="user.profession"
+      />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Language -->
-      <FormInput :formInput="formInputList[2]" v-model="user.language" />
+      <FormInputV1
+        labelName="Language:"
+        id="language"
+        type="text"
+        :required="true"
+        placeholder="Type your Language"
+        v-model="user.language"
+      />
+
       <!-- Age -->
-      <FormInput :formInput="formInputList[3]" v-model="user.age" />
+      <FormInputV1
+        labelName="Age:"
+        id="age"
+        type="number"
+        :required="true"
+        placeholder="Type your Age"
+        v-model="user.age"
+      />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Current Salary ($) -->
-      <FormInput :formInput="formInputList[4]" v-model="user.currentSalary" />
+      <FormInputV1
+        labelName="Current Salary ($):"
+        id="currentsalary"
+        type="number"
+        :required="true"
+        placeholder="Type your current salary"
+        v-model="user.currentSalary"
+      />
+
       <!-- Expected Salary -->
-      <FormInput :formInput="formInputList[5]" v-model="user.expectedSalary" />
+      <FormInputV1
+        labelName="Expected Salary ($):"
+        id="expectedsalary"
+        type="number"
+        :required="true"
+        placeholder="Type your current salary"
+        v-model="user.expectedSalary"
+      />
     </div>
 
     <!-- Description -->
-    <Textarea
-      title="Description"
-      labelName="Description"
-      required
+    <FormInputV1
+      :textarea="true"
+      labelName="Description:"
+      id="description"
+      type="text"
+      :required="true"
+      rows="4"
+      placeholder="Type your description"
       v-model="user.description"
     />
 
     <!-- Title -->
-    <SubSecHeading
-      headingTitle="Contact Information"
-      divClassName="mb-8 pb-3 border-b"
-    />
+    <SubSectionHeading headingName="Contact Information" />
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Phone -->
-      <FormInput :formInput="formInputList[6]" v-model="user.phone" />
+      <FormInputV1
+        labelName="Phone:"
+        id="phone"
+        type="number"
+        :required="true"
+        placeholder="Type your phone"
+        v-model="user.phone"
+      />
       <!-- Email -->
-      <FormInput :formInput="formInputList[7]" v-model="user.email" />
+      <FormInputV1
+        labelName="Email:"
+        id="email"
+        type="email"
+        :required="true"
+        placeholder="Type your email"
+        v-model="user.phone"
+      />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Country -->
-      <FormInput :formInput="formInputList[8]" v-model="user.country" />
+      <FormInputV1
+        labelName="Country:"
+        id="country"
+        type="country"
+        :required="true"
+        placeholder="Type your country"
+        v-model="user.country"
+      />
+
       <!-- Full Address -->
-      <FormInput :formInput="formInputList[9]" v-model="user.fullAddress" />
+      <FormInputV1
+        labelName="Full Adddress:"
+        id="fulladdress"
+        type="fulladdress"
+        :required="true"
+        placeholder="Type your Full Address"
+        v-model="user.fullAddress"
+      />
     </div>
 
-    <Button
-      isButton="true"
-      className="btn btn-primary px-10"
-      type="submit"
-      title="Submit"
-    />
+    <ButtonV1 title="Submit" type="submit" wrapperClasses="px-10" />
   </form>
 </template>
 
@@ -70,6 +136,9 @@ import FormInput from "../../components/form/FormInput.vue";
 import Textarea from "../../components/form/Textarea.vue";
 import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
 import Button from "../../components/buttons/Button.vue";
+import ButtonV1 from "../../components/buttons/Button-v1.vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import FormInputV1 from "../../components/form/FormInput-v1.vue";
 
 // STATE
 const store = useJobseekersStore();

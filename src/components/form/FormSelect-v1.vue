@@ -47,7 +47,7 @@ defineProps({
     required: true,
   },
 
-  modelValue: {},
+  modelValue: true,
   labelName: String,
   labelColor: { type: String, default: "gray" },
   required: { type: Boolean, default: false },

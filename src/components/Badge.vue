@@ -32,7 +32,7 @@
       'shadow-large': shadow === 'large',
       'shadow-small': shadow === 'small',
 
-      'transition-300': true,
+      'transition-300 shrink-0': true,
     }"
   >
     <i v-if="prefix" :class="prefix" class="pe-1"></i>

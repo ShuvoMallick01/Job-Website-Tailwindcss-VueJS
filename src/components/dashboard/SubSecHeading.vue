@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-between items-center" :class="divClassName">
-    <h2 class="sectionSubHeading uppercase">{{ headingTitle }}</h2>
+  <div class="flex justify-between items-center" :class="parentClasses">
+    <h3 class="">{{ headingTitle }}</h3>
 
     <template v-if="btnTitle">
       <button :class="btnClass" v-bind="$attrs">
@@ -13,7 +13,7 @@
 <script setup>
 defineProps([
   "headingTitle",
-  "divClassName",
+  "parentClasses",
   "btnClass",
   "btnTitle",
   "beforeBtnIcon",

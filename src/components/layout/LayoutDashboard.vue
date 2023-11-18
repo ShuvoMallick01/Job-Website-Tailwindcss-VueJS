@@ -1,8 +1,8 @@
 <template>
-  <section class="myContainerFuild mb-16 mt-20">
+  <section class="container-fluid mb-16 mt-20">
     <div class="py-8 text-center">
       <!-- Title -->
-      <h1 class="sectionHeading">{{ pageTitle }}</h1>
+      <h1 class="">{{ pageTitle }}</h1>
     </div>
 
     <div class="grid grid-cols-3 gap-3 md:gap-6 lg:gap-10">
@@ -22,9 +22,8 @@
     </div>
   </section>
 </template>
-<!-- Left -->
 
-<!-- Right -->
+<!-- SCRIPT -->
 <script setup>
 import ProfileNavBar from "../dashboard/ProfileNavBar.vue";
 
