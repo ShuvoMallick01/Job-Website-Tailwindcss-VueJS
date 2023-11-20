@@ -173,9 +173,8 @@
 import { ref, computed } from "vue";
 import { initFlowbite } from "flowbite";
 import { useJobsStore } from "../stores/jobStore";
-import JobPostCard from "../components/JobPostCard.vue";
-import Sidebar from "../components/Sidebar.vue";
-import ButtonV1 from "../components/buttons/Button-v1.vue";
+import JobPostCard from "../components/local-components/Job-post-card.vue";
+import Sidebar from "../components/local-components/Sidebar.vue";
 
 // State
 const jobStore = useJobsStore();

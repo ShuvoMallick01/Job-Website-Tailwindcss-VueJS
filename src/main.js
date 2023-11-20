@@ -13,8 +13,8 @@ import JobseekerProfile from "./pages/jobseeker/Profile.vue";
 import EmployerProfile from "./pages/employer/Profile.vue";
 import JobApplyForm from "./pages/JobApplyForm.vue";
 import Layout from "./components/layout/Layout.vue";
-import Header from "./components/Header.vue";
-import Footer from "./components/Footer.vue";
+import Header from "./components/global-components/Header.vue";
+import Footer from "./components/global-components/Footer.vue";
 import Contact from "./pages/Contact.vue";
 
 const app = createApp(App);

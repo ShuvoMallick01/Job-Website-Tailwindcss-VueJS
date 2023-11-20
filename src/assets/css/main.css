@@ -260,9 +260,11 @@
   .shape-square {
     @apply rounded-none;
   }
+
   .shape-circle {
     @apply rounded-full flex justify-center items-center flex-shrink-0;
   }
+
   .shape-s-pill {
     @apply rounded-s-full;
   }
@@ -293,11 +295,10 @@
     padding: 6px 16px;
     @apply text-xs font-normal leading-6;
   }
-  .circle-xl {
-    width: 45px;
-    height: 45px;
-    padding: 14px;
-    @apply text-2xl;
+
+  .circle-md {
+    padding: 10px;
+    @apply text-lg h-7 w-7;
   }
   .circle-lg {
     width: 35px;
@@ -305,10 +306,13 @@
     padding: 12px;
     @apply text-xl;
   }
-  .circle-md {
-    padding: 12px;
-    @apply h-7 w-7;
+  .circle-xl {
+    width: 45px;
+    height: 45px;
+    padding: 14px;
+    @apply text-2xl;
   }
+
   .icon-lg {
     @apply text-xl align-bottom;
   }
@@ -318,6 +322,7 @@
   .icon-sm {
     @apply text-xl align-bottom;
   }
+
   .link-sm {
     @apply text-sm font-light p-1;
   }
