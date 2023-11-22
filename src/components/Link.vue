@@ -1,3 +1,0 @@
-<template>
-  <RouterLink> </RouterLink>
-</template>

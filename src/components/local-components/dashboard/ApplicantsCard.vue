@@ -5,11 +5,11 @@
       <div
         class="rounded-full h-16 w-16 bg-slate-400 border-primary overflow-hidden flex-shrink-0"
       >
-        <Image
+        <!-- <Image
           :isRoute="false"
           imgUrl="../../../src/assets/images/user-profile-pic-1.jpg"
           alt="Applicants Image"
-        />
+        /> -->
       </div>
 
       <div class="">
@@ -56,7 +56,7 @@
 
 <script setup>
 import Button from "../buttons/Button.vue";
-import Image from "../small-components/Image.vue";
+// import Image from "../small-components/Image.vue";
 import { ref } from "vue";
 
 // State

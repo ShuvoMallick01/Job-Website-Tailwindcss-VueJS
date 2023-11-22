@@ -77,14 +77,6 @@ const userNavList = ref([
   },
 ]);
 
-const userInfo = ref({
-  id: 1,
-  name: "Shuvo Mallick",
-  designation: "Web Developer",
-  role: "user",
-  image: "../src/assets/images/user-profile-pic-1.jpg",
-});
-
 // Computed Function
 const activeNav = computed(() => {
   return route.path;

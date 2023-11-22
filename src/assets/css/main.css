@@ -350,9 +350,9 @@
   .form-input-green {
     @apply bg-green-100 border border-gray-300 text-green-800 text-sm rounded-lg  focus:outline-none focus:ring-0 outline-none focus:border-green-500 block w-full  dark:bg-green-700 dark:border-green-600 dark:focus:outline-none dark:placeholder-gray-400 dark:text-white  dark:focus:border-green-500 dark:focus:ring-0;
   }
-  .form-input-search {
+  /* .form-input-search {
     @apply block text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
-  }
+  } */
 
   /* FORM CHECKBOX */
   .checkbox-primary {

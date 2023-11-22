@@ -7,10 +7,10 @@
       <div
         class="shrink-0 h-20 w-20 bg-primary rounded-full overflow-hidden mx-auto mb-3 border-2 border-secondary"
       >
-        <ImageV1
-          :imgUrl="profileInfo.image"
-          alt="Job Seeker Profile"
+        <Image
           href="/jobseeker-profile"
+          :src="profileInfo.image"
+          alt="Profile Picture"
         />
       </div>
 
@@ -53,9 +53,9 @@
   </div>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
-import Image from "../small-components/Image.vue";
-import ImageV1 from "../small-components/Image-v1.vue";
+import Image from "../../global-components/Image.vue";
 
 defineProps({
   profileInfo: {

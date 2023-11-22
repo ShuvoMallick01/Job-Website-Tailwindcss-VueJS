@@ -9,7 +9,7 @@
 <script setup>
 import { ref } from "vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
-import JobPostCard from "../../components/JobPostCard.vue";
+import JobPostCard from "../../components/local-components/JobPostCard.vue";
 import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 

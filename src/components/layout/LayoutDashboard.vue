@@ -25,7 +25,7 @@
 
 <!-- SCRIPT -->
 <script setup>
-import ProfileNavBar from "../dashboard/ProfileNavBar.vue";
+import ProfileNavBar from "../local-components/dashboard/ProfileNavBar.vue";
 
 defineProps(["pageTitle", "navList", "userInfo", "activeNav"]);
 </script>

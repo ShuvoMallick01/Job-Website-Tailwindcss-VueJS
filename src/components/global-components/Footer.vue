@@ -37,7 +37,7 @@
 import { ref } from "vue";
 import { useJobsStore } from "../../stores/jobStore";
 import Image from "../global-components/Image.vue";
-import IconButton from "../global-components/Button/Icon-Button.vue";
+import IconButton from "../global-components/Button/IconButton.vue";
 
 // State
 const logoUrl = ref("../src/assets/images/logo-skyber.svg");

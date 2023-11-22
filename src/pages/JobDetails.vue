@@ -144,12 +144,11 @@
 import { onMounted, ref } from "vue";
 import { useJobsStore } from "../stores/jobStore";
 import { useRoute } from "vue-router";
-
-import JobPostCard from "../components/JobPostCard.vue";
-import IconText from "../components/icons/IconText.vue";
-import Button from "../components/buttons/Button.vue";
+import JobPostCard from "../components/local-components/JobPostCard.vue";
+import IconText from "../components/global-components/Icon-text.vue";
+import Button from "../components/global-components/Button/Button.vue";
 import ButtonV1 from "../components/buttons/Button-v1.vue";
-import Badge from "../components/Badge.vue";
+import Badge from "../components/global-components/Badge/Badge.vue";
 
 // STATE
 const route = useRoute();

@@ -22,12 +22,10 @@
       />
 
       <div class="flex md:order-2 md:gap-2 gap-1 items-center">
-        <IconButton @click="toggleDark()" wrapperClasses="mx-5" size="medium">
-          <template #prefix>
-            <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
-            <i v-if="isDark" class="fa-regular fa-sun"></i>
-            <i v-else class="fa-solid fa-moon"></i>
-          </template>
+        <IconButton @click="toggleDark()" wrapperClasses="mx-5" color="primary">
+          <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
+          <i v-if="isDark" class="fa-regular fa-sun"></i>
+          <i v-else class="fa-solid fa-moon"></i>
         </IconButton>
 
         <div class="flex gap-2">
@@ -109,7 +107,7 @@ import {
 
 import Image from "../global-components/Image.vue";
 import Button from "../global-components/Button/Button.vue";
-import IconButton from "../global-components/Button/Icon-button.vue";
+import IconButton from "../global-components/Button/IconButton.vue";
 
 // STATE
 const route = useRoute();

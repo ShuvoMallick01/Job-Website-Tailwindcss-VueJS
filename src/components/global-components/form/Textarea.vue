@@ -1,33 +1,46 @@
 <template>
-  <div class="mb-6">
+  <div :class="wrapperClasses">
     <label
-      :for="name"
-      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      :class="required ? requiredUtilityStar : ''"
-      >{{ labelName }}</label
-    >
+      v-if="labelName"
+      :for="$attrs.id"
+      class="block mb-2"
+      :class="{
+        'form-label-gray': labelColor === 'gray',
+        'form-label-green': labelColor === 'green',
+        'required-mark': required,
+      }"
+      >{{ labelName }}
+    </label>
+
     <textarea
-      class="inputPrimary"
-      type="text"
-      :rows="4"
-      :id="name"
-      :required="required"
       v-bind="$attrs"
+      :required="required"
+      :class="{
+        'form-input-gray': inputColor === 'gray',
+        'form-input-green': inputColor === 'green',
+      }"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
-    />
-
-    <!-- required, placeholder  -->
+    >
+    </textarea>
   </div>
 </template>
 
+<!-- SCIRPT -->
 <script setup>
-import { ref } from "vue";
+defineOptions({
+  inheritAttrs: false,
+});
 
-defineProps(["modelValue", "name", "labelName", "required"]);
+defineProps({
+  modelValue: true,
+  wrapperClasses: String,
 
-// State
-const requiredUtilityStar = ref(
-  "after:content-['*'] after:ml-0.5 after:text-red-500"
-);
+  labelName: String,
+  labelColor: { type: String, default: "gray" },
+
+  inputColor: { type: String, default: "gray" },
+  inputSize: { type: String, default: "medium" },
+  required: { type: Boolean, default: false },
+});
 </script>

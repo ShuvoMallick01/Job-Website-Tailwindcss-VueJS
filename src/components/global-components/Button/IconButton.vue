@@ -41,8 +41,8 @@ import { ref } from "vue";
 const props = defineProps({
   wrapperClasses: String,
 
-  color: { type: String, default: "primary" },
   variant: { type: String, default: "filled" },
+  color: { type: String, default: "primary" },
   shape: { type: String, default: "circle" },
   size: { type: String, default: "medium" },
 

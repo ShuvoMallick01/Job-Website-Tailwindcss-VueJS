@@ -6,10 +6,10 @@
       outline: variant === 'outline',
 
       primary: color === 'primary',
-      'primary-light': color === 'primary-light',
       secondary: color === 'secondary',
-      'secondary-light': color === 'secondary-light',
       gray: color === 'gray',
+      'primary-light': color === 'primary-light',
+      'secondary-light': color === 'secondary-light',
 
       'shape-circle': shape === 'circle',
 

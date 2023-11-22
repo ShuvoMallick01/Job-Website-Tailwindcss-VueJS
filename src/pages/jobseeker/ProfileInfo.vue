@@ -4,16 +4,16 @@
 
   <form class="space-y-5">
     <div class="md:grid grid-cols-2 gap-5">
-      <FormInputV1
+      <FormInput
         labelName="Your Name:"
         id="your-name"
         type="text"
-        :required="true"
+        required
         placeholder="Type your Full Name"
         v-model="user.name"
       />
 
-      <FormInputV1
+      <FormInput
         labelName="Professional Title:"
         id="your-profession"
         type="text"
@@ -25,7 +25,7 @@
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Language -->
-      <FormInputV1
+      <FormInput
         labelName="Language:"
         id="language"
         type="text"
@@ -35,7 +35,7 @@
       />
 
       <!-- Age -->
-      <FormInputV1
+      <FormInput
         labelName="Age:"
         id="age"
         type="number"
@@ -47,7 +47,7 @@
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Current Salary ($) -->
-      <FormInputV1
+      <FormInput
         labelName="Current Salary ($):"
         id="currentsalary"
         type="number"
@@ -57,7 +57,7 @@
       />
 
       <!-- Expected Salary -->
-      <FormInputV1
+      <FormInput
         labelName="Expected Salary ($):"
         id="expectedsalary"
         type="number"
@@ -68,12 +68,11 @@
     </div>
 
     <!-- Description -->
-    <FormInputV1
-      :textarea="true"
+    <Textarea
       labelName="Description:"
       id="description"
       type="text"
-      :required="true"
+      required
       rows="4"
       placeholder="Type your description"
       v-model="user.description"
@@ -84,7 +83,7 @@
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Phone -->
-      <FormInputV1
+      <FormInput
         labelName="Phone:"
         id="phone"
         type="number"
@@ -93,7 +92,7 @@
         v-model="user.phone"
       />
       <!-- Email -->
-      <FormInputV1
+      <FormInput
         labelName="Email:"
         id="email"
         type="email"
@@ -105,7 +104,7 @@
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Country -->
-      <FormInputV1
+      <FormInput
         labelName="Country:"
         id="country"
         type="country"
@@ -115,7 +114,7 @@
       />
 
       <!-- Full Address -->
-      <FormInputV1
+      <FormInput
         labelName="Full Adddress:"
         id="fulladdress"
         type="fulladdress"
@@ -125,106 +124,19 @@
       />
     </div>
 
-    <ButtonV1 title="Submit" type="submit" wrapperClasses="px-10" />
+    <Button title="Submit" type="submit" wrapperClasses="px-10" />
   </form>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
-import FormInput from "../../components/form/FormInput.vue";
-import Textarea from "../../components/form/Textarea.vue";
-import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
-import Button from "../../components/buttons/Button.vue";
-import ButtonV1 from "../../components/buttons/Button-v1.vue";
+import Button from "../../components/global-components/Button/Button.vue";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
-import FormInputV1 from "../../components/form/FormInput-v1.vue";
+import FormInput from "../../components/global-components/form/FormInput.vue";
+import Textarea from "../../components/global-components/form/Textarea.vue";
 
 // STATE
 const store = useJobseekersStore();
 const user = store.jobseekersList[0];
-
-const formInputList = ref([
-  {
-    title: "Your Name:",
-    name: "name",
-    type: "text",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Professional Title:",
-    name: "professional",
-    type: "text",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Language:",
-    name: "language",
-    type: "text",
-    placeholder: "",
-    required: true,
-  },
-  {
-    type: "number",
-    title: "Age:",
-    name: "age",
-    placeholder: "",
-    required: true,
-  },
-  {
-    type: "number",
-    title: "Current Salary ($):",
-    name: "currentsalary",
-    placeholder: "",
-    required: true,
-  },
-  {
-    type: "number",
-    title: "Expected Salary:",
-    name: "expectedsalary",
-    placeholder: "",
-    required: true,
-  },
-  {
-    type: "number",
-    title: "Phone:",
-    name: "phone",
-    placeholder: "",
-    required: true,
-  },
-  {
-    type: "email",
-    title: "Email:",
-    name: "email",
-    placeholder: "",
-    required: true,
-  },
-  {
-    type: "text",
-    title: "Country:",
-    name: "country",
-    placeholder: "",
-    required: true,
-  },
-  {
-    type: "text",
-    title: "Full Adddress:",
-    name: "fulladdress",
-    placeholder: "",
-    required: true,
-  },
-]);
-
-const formTextareaList = ref([
-  {
-    type: "text",
-    title: "Description:",
-    name: "description",
-    placeholder: "",
-    required: true,
-    rows: 4,
-  },
-]);
 </script>

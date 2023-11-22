@@ -1,12 +1,12 @@
 <template>
   <div v-for="(item, index) in infoList" :key="index" class="flex gap-6 mb-8">
-    <Badge
+    <!-- <Badge
       :title="item.title[0]"
       size="circle-large"
       color="secondary"
       variation="filled"
       shape="circle"
-    />
+    /> -->
 
     <div>
       <div class="mb-4 flex gap-3 items-start">
@@ -16,7 +16,7 @@
             {{ item.institute }}
           </p>
         </div>
-        <Badge :title="item.duration" color="gray"></Badge>
+        <!-- <Badge :title="item.duration" color="gray"></Badge> -->
 
         <ButtonV1
           prefixIcon="icon-edit"
@@ -49,7 +49,7 @@
 <script setup>
 import Button from "../buttons/Button.vue";
 import ButtonV1 from "../buttons/Button-v1.vue";
-import Badge from "../Badge.vue";
+import Badge from "../../global-components/Badge/Badge.vue";
 
 defineProps({
   infoList: {

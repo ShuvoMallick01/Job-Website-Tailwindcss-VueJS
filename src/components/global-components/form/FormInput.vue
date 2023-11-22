@@ -1,38 +1,57 @@
 <template>
-  <div class="mb-6">
+  <div :class="wrapperClasses">
     <label
-      v-if="formInput.title"
-      :for="formInput.name"
-      class="block mb-2 formLabel"
-      :class="formInput.required ? requiredUtilityStar : ''"
-      >{{ formInput.title }}</label
-    >
-    <input
-      :type="formInput.type"
-      :id="formInput.name"
-      class="inputPrimary"
-      :placeholder="formInput.placeholder"
-      :required="formInput.required"
-      :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
-    />
+      v-if="labelName"
+      :for="$attrs.id"
+      class="block mb-2"
+      :class="{
+        'form-label-gray': labelColor === 'gray',
+        'form-label-green': labelColor === 'green',
+        'required-mark': required,
+      }"
+      >{{ labelName }}
+    </label>
+
+    <span :class="inputClasses">
+      <slot name="prefix"></slot>
+
+      <input
+        :required="required"
+        v-bind="$attrs"
+        :class="{
+          'form-input-gray': inputColor === 'gray',
+          'form-input-green': inputColor === 'green',
+
+          'form-input-size-lg': inputSize === 'large',
+          'form-input-size-md': inputSize === 'medium',
+          'form-input-size-sm': inputSize === 'small',
+
+          'search-input-size-md': inputSize === 'medium-search',
+        }"
+        :value="modelValue"
+        @input="$emit('update:modelValue', $event.target.value)"
+      />
+      <slot name="suffix"></slot>
+    </span>
   </div>
 </template>
 
+<!-- SCIRPT -->
 <script setup>
-import { ref } from "vue";
-
-// State
-const requiredUtilityStar = ref(
-  "after:content-['*'] after:ml-0.5 after:text-red-500"
-);
+defineOptions({
+  inheritAttrs: false,
+});
 
 defineProps({
-  formInput: {
-    type: Object,
-    required: true,
-    default: {},
-  },
-  modelValue: {},
+  modelValue: true,
+  wrapperClasses: String,
+  inputClasses: String,
+
+  labelName: String,
+  labelColor: { type: String, default: "gray" },
+  required: { type: Boolean, default: false },
+
+  inputColor: { type: String, default: "gray" },
+  inputSize: { type: String, default: "medium" },
 });
 </script>
