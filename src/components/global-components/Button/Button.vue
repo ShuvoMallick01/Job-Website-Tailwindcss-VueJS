@@ -8,6 +8,7 @@
     :class="{
       filled: variant === 'filled',
       outline: variant === 'outline',
+      'text-only': variant === 'text',
 
       primary: color === 'primary',
       secondary: color === 'secondary',

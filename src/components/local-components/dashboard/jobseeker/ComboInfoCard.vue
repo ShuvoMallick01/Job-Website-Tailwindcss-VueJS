@@ -1,12 +1,8 @@
 <template>
   <div v-for="(item, index) in infoList" :key="index" class="flex gap-6 mb-8">
-    <!-- <Badge
-      :title="item.title[0]"
-      size="circle-large"
-      color="secondary"
-      variation="filled"
-      shape="circle"
-    /> -->
+    <CircleBadge size="large" color="secondary">
+      {{ item.title[0] }}
+    </CircleBadge>
 
     <div>
       <div class="mb-4 flex gap-3 items-start">
@@ -16,27 +12,22 @@
             {{ item.institute }}
           </p>
         </div>
-        <!-- <Badge :title="item.duration" color="gray"></Badge> -->
 
-        <ButtonV1
-          prefixIcon="icon-edit"
-          variant="filled"
-          size="circle-medium"
-          shape="circle"
+        <IconButton
           color="secondary-light"
           target="_blank"
           @click="editEducation"
-        />
+        >
+          <i class="icon-edit"></i>
+        </IconButton>
 
-        <ButtonV1
-          prefixIcon="icon-trash"
-          variant="filled"
-          size="circle-medium"
-          shape="circle"
+        <IconButton
           color="secondary-light"
           target="_blank"
           @click="editEducation"
-        />
+        >
+          <i class="icon-trash"></i>
+        </IconButton>
       </div>
 
       <p class="extrasmall-text">
@@ -47,9 +38,8 @@
 </template>
 
 <script setup>
-import Button from "../buttons/Button.vue";
-import ButtonV1 from "../buttons/Button-v1.vue";
-import Badge from "../../global-components/Badge/Badge.vue";
+import IconButton from "../../../global-components/Button/IconButton.vue";
+import CircleBadge from "../../../global-components/Badge/CircleBadge.vue";
 
 defineProps({
   infoList: {

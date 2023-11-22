@@ -4,7 +4,7 @@
     <SubSectionHeading headingName="MY RESUME" />
 
     <!-- Updated CV Version List -->
-    <FormSelectV1
+    <FormSelect
       labelName="Select Your CV"
       id="cvSelect"
       :optionList="CvVersionList"
@@ -12,12 +12,11 @@
     />
 
     <!-- Description -->
-    <FormInputV1
-      :textarea="true"
+    <Textarea
       labelName="Description:"
       id="description"
       type="text"
-      :required="true"
+      required
       rows="4"
       placeholder="Type your description"
       v-model="resume.description"
@@ -26,12 +25,11 @@
     <!-- Education -->
     <div>
       <SubSectionHeading headingName="EDUCATION">
-        <ButtonV1
-          title="Add Work"
-          variant="onlyText"
-          prefixIcon="icon-plus align-baseline"
-          @click="unknwon"
-        />
+        <Button title="Add Work" variant="text" @click="unknwon">
+          <template #prefix>
+            <i class="icon-plus align-baseline"></i>
+          </template>
+        </Button>
       </SubSectionHeading>
 
       <ComboInfoCard :infoList="resume.education" />
@@ -40,12 +38,11 @@
     <!-- Work & Experience -->
     <div>
       <SubSectionHeading headingName="WORK & EXPERIENCE">
-        <ButtonV1
-          title="Add Work"
-          variant="onlyText"
-          prefixIcon="icon-plus align-baseline"
-          @click="unknwon"
-        />
+        <Button title="Add Work" variant="text" @click="unknwon">
+          <template #prefix>
+            <i class="icon-plus align-baseline"></i>
+          </template>
+        </Button>
       </SubSectionHeading>
 
       <ComboInfoCard :infoList="resume.workExperience" />
@@ -54,16 +51,16 @@
     <!-- Skills -->
     <div>
       <SubSectionHeading headingName="SKILLS"> </SubSectionHeading>
-      <FormInputV1
+      <FormInput
         id="language"
         type="text"
-        :required="true"
+        required
         placeholder="Type your Language"
         v-model="resume.skills"
       />
     </div>
 
-    <ButtonV1 title="Save" wrapperClasses="px-10 " />
+    <Button title="Save" wrapperClasses="px-10 " />
   </div>
 </template>
 
@@ -71,14 +68,12 @@
 <script setup>
 import { ref, reactive } from "vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
-import FormSelect from "../../components/form/FormSelect.vue";
-import ComboInfoCard from "../../components/dashboard/ComboInfoCard.vue";
-import FormInput from "../../components/form/FormInput.vue";
-import Button from "../../components/buttons/Button.vue";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
-import FormSelectV1 from "../../components/form/FormSelect-v1.vue";
-import ButtonV1 from "../../components/buttons/Button-v1.vue";
-import FormInputV1 from "../../components/form/FormInput-V1.vue";
+import FormInput from "../../components/global-components/form/FormInput.vue";
+import Textarea from "../../components/global-components/form/Textarea.vue";
+import FormSelect from "../../components/global-components/form/FormSelect.vue";
+import Button from "../../components/global-components/Button/Button.vue";
+import ComboInfoCard from "../../components/local-components/dashboard/jobseeker/ComboInfoCard.vue";
 
 // State
 const store = useJobseekersStore();

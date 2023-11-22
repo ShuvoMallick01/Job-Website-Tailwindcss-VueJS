@@ -7,7 +7,7 @@
       >
         <tr>
           <th scope="col" class="px-4 py-3">
-            <FormCheck />
+            <Checkbox />
           </th>
           <th
             scope="col"
@@ -27,8 +27,9 @@
   </div>
 </template>
 
+<!-- SCRIPT  -->
 <script setup>
-import FormCheck from "../form/FormCheck.vue";
+import Checkbox from "../../global-components/form/Checkbox.vue";
 
 defineProps({
   fieldList: { type: Array },

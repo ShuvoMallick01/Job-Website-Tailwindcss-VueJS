@@ -1,8 +1,7 @@
 <template>
   <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-    <!-- :v-for="data in alert" -->
     <td class="px-4 py-4">
-      <FormCheck />
+      <Checkbox />
     </td>
 
     <th
@@ -12,12 +11,8 @@
       {{ item.jobTitle }} <br />
 
       <div class="flex gap-2 flex-wrap mt-2">
-        <Button isButton="true" :title="item.jobType" className="btn-sm-text" />
-        <Button
-          isButton="true"
-          :title="item.isRemote ? 'Remote' : 'Not Remote'"
-          className="btn-sm-text"
-        />
+        <Badge :title="item.jobType" color="gray" />
+        <Badge :title="item.isRemote ? 'Remote' : 'Not Remote'" color="gray" />
       </div>
     </th>
 
@@ -28,23 +23,28 @@
           item.applicantInfo[item.applicantInfo.length - 1] === info ? "" : "| "
         }}
       </span>
-      <p>{{ item.jobRole + " | " + "$" + item.salary + " per Month" }}</p>
+      <p>{{ item.jobRole + " | " + "$" + item.salary + "/Month" }}</p>
     </td>
 
     <td class="px-6 py-4">{{ item.createdAt }}</td>
 
-    <td class="px-6 py-4 flex gap-1">
-      <template v-for="action in actions">
-        <Button isButton="true" className="btn-icon" :beforeIcon="action" />
-      </template>
+    <td class="px-6 py-4 flex gap-1 items-center h-full my-3">
+      <IconButton color="secondary-light">
+        <i class="icon-trash"></i
+      ></IconButton>
+
+      <IconButton color="secondary-light">
+        <i class="icon-eye-on"></i
+      ></IconButton>
     </td>
   </tr>
 </template>
 
 <script setup>
-import FormCheck from "../form/FormCheck.vue";
-import Button from "../buttons/Button.vue";
 import { ref } from "vue";
+import IconButton from "../../global-components/Button/IconButton.vue";
+import Badge from "../../global-components/Badge/Badge.vue";
+import Checkbox from "../../global-components/form/Checkbox.vue";
 
 defineProps(["item"]);
 

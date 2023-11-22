@@ -17,7 +17,7 @@
         labelName="Professional Title:"
         id="your-profession"
         type="text"
-        :required="true"
+        required
         placeholder="Type your Profession"
         v-model="user.profession"
       />
@@ -29,7 +29,7 @@
         labelName="Language:"
         id="language"
         type="text"
-        :required="true"
+        required
         placeholder="Type your Language"
         v-model="user.language"
       />
@@ -39,7 +39,7 @@
         labelName="Age:"
         id="age"
         type="number"
-        :required="true"
+        required
         placeholder="Type your Age"
         v-model="user.age"
       />
@@ -51,7 +51,7 @@
         labelName="Current Salary ($):"
         id="currentsalary"
         type="number"
-        :required="true"
+        required
         placeholder="Type your current salary"
         v-model="user.currentSalary"
       />

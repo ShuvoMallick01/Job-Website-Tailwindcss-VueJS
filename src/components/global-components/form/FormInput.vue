@@ -5,8 +5,8 @@
       :for="$attrs.id"
       class="block mb-2"
       :class="{
-        'form-label-gray': labelColor === 'gray',
-        'form-label-green': labelColor === 'green',
+        'form-label-gray': color === 'gray',
+        'form-label-green': color === 'green',
         'required-mark': required,
       }"
       >{{ labelName }}
@@ -19,12 +19,12 @@
         :required="required"
         v-bind="$attrs"
         :class="{
-          'form-input-gray': inputColor === 'gray',
-          'form-input-green': inputColor === 'green',
+          'form-input-gray': color === 'gray',
+          'form-input-green': color === 'green',
 
-          'form-input-size-lg': inputSize === 'large',
-          'form-input-size-md': inputSize === 'medium',
-          'form-input-size-sm': inputSize === 'small',
+          'form-input-size-lg': size === 'large',
+          'form-input-size-md': size === 'medium',
+          'form-input-size-sm': size === 'small',
 
           'search-input-size-md': inputSize === 'medium-search',
         }"
@@ -46,12 +46,9 @@ defineProps({
   modelValue: true,
   wrapperClasses: String,
   inputClasses: String,
-
   labelName: String,
-  labelColor: { type: String, default: "gray" },
   required: { type: Boolean, default: false },
-
-  inputColor: { type: String, default: "gray" },
-  inputSize: { type: String, default: "medium" },
+  color: { type: String, default: "gray" },
+  size: { type: String, default: "medium" },
 });
 </script>

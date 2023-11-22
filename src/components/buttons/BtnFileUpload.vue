@@ -10,5 +10,7 @@
 </template>
 
 <script setup>
+import Button from "../global-components/Button/Button.vue";
+
 defineProps(["title"]);
 </script>
