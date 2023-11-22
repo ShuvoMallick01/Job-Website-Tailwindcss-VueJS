@@ -14,7 +14,6 @@
 
     <span :class="inputClasses">
       <slot name="prefix"></slot>
-
       <input
         :required="required"
         v-bind="$attrs"
@@ -50,5 +49,6 @@ defineProps({
   required: { type: Boolean, default: false },
   color: { type: String, default: "gray" },
   size: { type: String, default: "medium" },
+  inputSize: String,
 });
 </script>

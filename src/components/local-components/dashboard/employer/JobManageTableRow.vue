@@ -9,13 +9,13 @@
     >
       {{ item.jobTitle }} <br />
       <div class="flex gap-2 mt-2">
+        <Button isButton="true" :title="item.jobType" className="btn-sm-text" />
+        <Button isButton="true" :title="item.jobRole" className="btn-sm-text" />
         <Button
           isButton="true"
           :title="item.isRemote ? 'Remote' : 'Not Remote'"
           className="btn-sm-text"
         />
-        <Button isButton="true" :title="item.jobType" className="btn-sm-text" />
-        <Button isButton="true" :title="item.jobRole" className="btn-sm-text" />
       </div>
     </th>
 
@@ -24,11 +24,11 @@
 
     <td class="px-6 py-4 flex gap-1">
       <Button
-        isButton="true"
         v-for="(item, index) in actionIcons"
-        :beforeIcon="item"
-        className="btn-icon"
         :key="index"
+        isButton="true"
+        className="btn-icon"
+        :beforeIcon="item"
       />
     </td>
   </tr>
@@ -36,8 +36,8 @@
 
 <script setup>
 import { ref } from "vue";
-import FormCheck from "../form/FormCheck.vue";
-import Button from "../buttons/Button.vue";
+import FormCheck from "../../../global-components/form/Checkbox.vue";
+import Button from "../../../buttons/Button.vue";
 
 // State
 const actionIcons = ref(["icon-eye-on", "icon-edit", "icon-trash"]);

@@ -3,43 +3,37 @@
   <SubSectionHeading headingName="PASSWORD CHANGE" />
 
   <!-- Form -->
-  <form>
-    <FormInput :formInput="formInputList[0]" />
-    <FormInput :formInput="formInputList[1]" />
-    <FormInput :formInput="formInputList[2]" />
+  <form class="space-y-6">
+    <FormInput
+      labelName="Old password:"
+      id="oldPassword"
+      type="password"
+      required
+      placeholder="Type your old Password"
+    />
+    <FormInput
+      labelName="New password:"
+      id="newPassword"
+      type="password"
+      required
+      placeholder="Type your new Password"
+    />
+    <FormInput
+      labelName="Repeat Password:"
+      id="repeatPassword"
+      type="password"
+      required
+      placeholder="Type your Repeat Password"
+    />
 
-    <Button isButton="true" title="Confirm" :className="'btn btn-primary'" />
+    <Button title="Confirm" wrapperClasses="px-10" />
   </form>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
 import { ref } from "vue";
-import FormInput from "../../components/form/FormInput.vue";
-import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
-import Button from "../../components/buttons/Button.vue";
+import FormInput from "../../components/global-components/form/FormInput.vue";
+import Button from "../../components/global-components/Button/Button.vue";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
-
-const formInputList = ref([
-  {
-    title: "Your old password:",
-    name: "oldpassword",
-    type: "password",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Your password:",
-    name: "password",
-    type: "password",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Repeat password:",
-    name: "repeatpassword",
-    type: "password",
-    placeholder: "",
-    required: true,
-  },
-]);
 </script>

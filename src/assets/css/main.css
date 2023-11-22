@@ -323,9 +323,6 @@
     @apply text-xl align-bottom;
   }
 
-  .link-sm {
-    @apply text-sm font-light p-1;
-  }
   /* === FORM STYLE === */
   /* Required */
   .required-mark {

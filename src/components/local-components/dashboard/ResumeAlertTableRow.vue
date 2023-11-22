@@ -35,9 +35,12 @@
     <td class="px-6 py-4">{{ job.createdAt }}</td>
 
     <td class="px-6 py-4 flex gap-1">
-      <template v-for="action in actions">
-        <Button isButton="true" className="btn-icon" :beforeIcon="action" />
-      </template>
+      <Button
+        v-for="(action, index) in actions"
+        isButton="true"
+        className="btn-icon"
+        :beforeIcon="action"
+      />
     </td>
   </tr>
 </template>

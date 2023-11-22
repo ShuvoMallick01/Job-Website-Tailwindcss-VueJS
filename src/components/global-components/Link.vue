@@ -1,6 +1,6 @@
 <template>
   <component
-    :is="buttonComponent"
+    :is="linkComponent"
     :[linkAttr]="href"
     v-bind="$attrs"
     class="whitespace-nowrap"
@@ -11,23 +11,17 @@
       'secondary-light': color === 'secondary-light',
       disabled: color === 'disabled',
 
-      sm: size === 'small',
-      md: size === 'medium',
-      lg: size === 'large',
-
-      'shadow-medium': shadow === 'medium',
-      'shadow-large': shadow === 'large',
-      'shadow-small': shadow === 'small',
+      'link-sm': size === 'small',
+      'link-md': size === 'medium',
+      'link-lg': size === 'large',
 
       'transition-300': true,
       [wrapperClasses]: true,
     }"
   >
-    <i v-if="prefixIcon" :class="prefixIcon"></i>
+    <slot name="prefix"></slot>
     {{ title }}
-    <span :class="suffixIconAnimation"
-      ><i v-if="suffixIcon" :class="suffixIcon"></i
-    ></span>
+    <slot name="suffix"></slot>
   </component>
 </template>
 
@@ -36,24 +30,27 @@
 import { ref } from "vue";
 
 const props = defineProps({
-  prefixIcon: String,
-  suffixIcon: String,
   title: String,
-  suffixIconAnimation: String,
   wrapperClasses: String,
 
   color: { type: String, default: "primary" },
-  variant: { type: String, default: "filled" },
-  shape: { type: String, default: "pill" },
   size: { type: String, default: "medium" },
-  linkSize: String,
-  iconSize: String,
-
   href: { type: String, default: "" },
-  disabled: { type: Boolean, default: false },
-  shadow: String,
 });
 
-const buttonComponent = ref(props.href ? "router-link" : "a");
+const linkComponent = ref(props.href ? "router-link" : "a");
 const linkAttr = ref(props.href ? "to" : "href");
 </script>
+
+<!-- STYLE -->
+<style scoped>
+.link-sm {
+  @apply text-sm font-light p-1;
+}
+.link-md {
+  @apply text-base p-1;
+}
+.link-lg {
+  @apply text-lg font-semibold p-1;
+}
+</style>

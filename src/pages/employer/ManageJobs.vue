@@ -1,12 +1,10 @@
 <template>
-  <div class="pb-4 mb-5 flex justify-between items-center border-b">
-    <SubSecHeading headingTitle="mANAGE jOBS" />
-
+  <SubSectionHeading headingName="Manage Jobs">
     <div class="flex items-center">
       <p class="whitespace-nowrap me-2 description-text">Sort by Freshness</p>
       <FormSelect :optionList="formSelectList[0]" />
     </div>
-  </div>
+  </SubSectionHeading>
 
   <!-- Table -->
   <Table :fieldList="fieldList">
@@ -14,17 +12,18 @@
   </Table>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
 import { ref } from "vue";
-import JobManageTableRow from "../../components/dashboard/JobManageTableRow.vue";
-import FormSelect from "../../components/form/FormSelect.vue";
-import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
-import Table from "../../components/dashboard/Table.vue";
 import { useEmployesStore } from "../../stores/employerStore";
+import JobManageTableRow from "../../components/local-components/dashboard/employer/JobManageTableRow.vue";
+import FormSelect from "../../components/form/FormSelect.vue";
+import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
+import Table from "../../components/local-components/dashboard/Table.vue";
 
-// State
 const employerStore = useEmployesStore();
 const ownJobList = employerStore.handleEmployerJobs(1);
+
 const fieldList = ref(["Job Title", "Applications", "Status", "Action"]);
 const formSelectList = ref([
   [

@@ -1,29 +1,44 @@
 <template>
   <!-- Title -->
-  <SubSecHeading
-    headingTitle="COMPANY PROFILE"
-    divClassName="mb-8 pb-3 border-b"
-  />
+  <SubSectionHeading headingName="COMPANY PROFILE" />
 
-  <form>
+  <form class="space-y-6">
     <div class="md:grid grid-cols-2 gap-5">
       <!-- company name -->
       <FormInput
-        :formInput="formInputList[0]"
+        labelName="Company Name (optional):"
+        id="companyName"
+        type="text"
+        required
         v-model="companyProfile.companyName"
       />
 
       <!-- email -->
-      <FormInput :formInput="formInputList[1]" v-model="companyProfile.email" />
+      <FormInput
+        labelName="Email:"
+        id="email"
+        type="email"
+        required
+        v-model="companyProfile.email"
+      />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- phone -->
-      <FormInput :formInput="formInputList[2]" v-model="companyProfile.phone" />
+      <FormInput
+        labelName="Phone:"
+        id="phone"
+        type="number"
+        required
+        v-model="companyProfile.phone"
+      />
 
       <!-- website -->
       <FormInput
-        :formInput="formInputList[3]"
+        labelName="Website:"
+        id="website"
+        type="text"
+        required
         v-model="companyProfile.website"
       />
     </div>
@@ -31,83 +46,100 @@
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Est. Since -->
       <FormInput
-        :formInput="formInputList[4]"
-        v-model="companyProfile.estSince"
+        labelName="Facebook:"
+        id="facebook"
+        type="text"
+        required
+        v-model="companyProfile.facebook"
       />
 
       <!-- Team Size -->
       <FormInput
-        :formInput="formInputList[5]"
-        v-model="companyProfile.teamSize"
+        labelName="Linkedin:"
+        id="linkedin"
+        type="text"
+        required
+        v-model="companyProfile.linkedin"
       />
     </div>
 
     <!-- about company -->
     <Textarea
+      labelName="About Country:"
+      id="aboutCompany"
+      type="text"
+      required
+      rows="4"
+      placeholder="Type your description"
       v-model="companyProfile.aboutCompany"
-      labelName="About Company"
-      :required="true"
-      name="aboutcomapny"
     />
 
     <!-- SOCIAL NETWORK -->
-    <SubSecHeading
-      headingTitle="SOCIAL NETWORK"
-      divClassName="mb-5 pb-3 border-b"
-    />
+    <SubSectionHeading headingName="SOCIAL NETWORK" />
 
     <div class="md:grid grid-cols-2 gap-5">
-      <!-- FACEBOOK -->
+      <!-- Est. Since -->
       <FormInput
-        :formInput="formInputList[6]"
-        v-model="companyProfile.facebook"
+        labelName="Est. Since:"
+        id="estSince"
+        type="number"
+        required
+        v-model="companyProfile.estSince"
       />
 
-      <!-- Linkdin -->
+      <!-- Team Size -->
       <FormInput
-        :formInput="formInputList[7]"
-        v-model="companyProfile.linkedin"
+        labelName="Team Size:"
+        id="teamSize"
+        type="number"
+        required
+        v-model="companyProfile.teamSize"
       />
     </div>
 
     <!-- CONTACT INFORMATION -->
-    <SubSecHeading
-      headingTitle="CONTACT INFORMATION"
-      divClassName="mb-5 pb-3 border-b"
-    />
+    <SubSectionHeading headingName="CONTACT INFORMATION" />
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- country -->
       <FormInput
-        :formInput="formInputList[8]"
+        labelName="Country:"
+        id="country"
+        type="text"
+        required
         v-model="companyProfile.country"
       />
 
       <!-- city -->
-      <FormInput :formInput="formInputList[9]" v-model="companyProfile.city" />
+      <FormInput
+        labelName="City:"
+        id="city"
+        type="text"
+        required
+        v-model="companyProfile.city"
+      />
     </div>
 
     <!-- Complete Address -->
     <FormInput
-      :formInput="formInputList[10]"
+      labelName="Complete Address:"
+      id="completeAddress"
+      type="text"
+      required
       v-model="companyProfile.completeAddress"
     />
 
-    <Button
-      :isButton="true"
-      :title="'Save'"
-      :className="'btn btn-primary px-16'"
-    />
+    <Button :title="'Save'" wrapperClasses="px-16" type="submit" />
   </form>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import { useEmployesStore } from "../../stores/employerStore";
-import FormInput from "../../components/form/FormInput.vue";
-import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
-import Textarea from "../../components/form/Textarea.vue";
-import Button from "../../components/buttons/Button.vue";
+import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
+import Button from "../../components/global-components/Button/Button.vue";
+import FormInput from "../../components/global-components/form/FormInput.vue";
+import Textarea from "../../components/global-components/form/Textarea.vue";
 
 // State
 const employerStore = useEmployesStore();

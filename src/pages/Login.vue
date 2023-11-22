@@ -7,40 +7,41 @@
         <p class="small-text">
           Don't have an account yet?
 
-          <ButtonV1
-            :href="'/registration'"
+          <Link
             title="Get started for free?"
-            variant="link"
-            linkSize="link-small"
-            wrapperClasses="underline "
+            :href="'/registration'"
+            wrapperClasses="underline"
           />
         </p>
 
         <div class="flex justify-center my-8 gap-4">
-          <ButtonV1
+          <Button
             title="Sign in with Google"
             target="_blank"
             variant="outline"
-            color="primary"
-            prefixIcon="fa-brands fa-google me-2"
             @click="signInGoogle"
-          />
+          >
+            <template #prefix>
+              <i class="fa-brands fa-google me-2"></i>
+            </template>
+          </Button>
 
-          <ButtonV1
+          <Button
             title="Sign in with Apple"
             variant="filled"
             color="primary"
-            prefixIcon="fa-brands fa-apple me-2"
             target="_blank"
             @click="signInApple"
-          />
+          >
+            <template #prefix>
+              <i class="fa-brands fa-apple me-2"></i>
+            </template>
+          </Button>
         </div>
 
         <div class="flex justify-between items-center">
           <hr class="border flex-grow" />
-          <p class="text-gray-500 font-light text-sm px-5 dark:text-gray-400">
-            or sign in with
-          </p>
+          <p class="small-text">or sign in with</p>
 
           <hr class="border flex-grow" />
         </div>
@@ -48,35 +49,39 @@
 
       <!-- Form -->
       <form class="space-y-6">
-        <FormSelectV1 labelName="Role" :optionList="roleSelect" />
+        <FormSelect
+          labelName="Role"
+          required
+          id="Role"
+          :optionList="roleSelect"
+        />
 
-        <FormInputV1
+        <FormInput
           labelName="Email:"
-          :required="true"
+          required
           id="email"
           type="email"
           placeholder="Type your Email"
         />
 
         <div class="relative">
-          <FormInputV1
+          <FormInput
             labelName="Password:"
             type="password"
             id="password"
             placeholder="Password (min. 6 characters)"
-            :required="true"
+            required
           />
 
-          <ButtonV1
+          <Link
+            title="Get started for free?"
             :href="'/forget-password'"
-            title="Forgot password?"
-            variant="link"
-            :linkSize="'link-small'"
-            wrapperClasses="underline text-gray-500 font-light text-sm absolute top-0 end-0"
+            size="small"
+            wrapperClasses="underline absolute top-0 end-0"
           />
         </div>
 
-        <ButtonV1 title="Sign In" type="submit" wrapperClasses="w-full" />
+        <Button title="Sign In" type="submit" wrapperClasses="w-full" />
       </form>
     </div>
   </section>
@@ -84,12 +89,10 @@
 
 <script setup>
 import { ref } from "vue";
-import Button from "../components/buttons/Button.vue";
-import FormInput from "../components/form/FormInput.vue";
-import FormSelect from "../components/form/FormSelect.vue";
-import FormSelectV1 from "../components/form/FormSelect-v1.vue";
-import FormInputV1 from "../components/form/FormInput-V1.vue";
-import ButtonV1 from "../components/buttons/Button-v1.vue";
+import FormSelect from "../components/global-components/form/FormSelect.vue";
+import FormInput from "../components/global-components/form/FormInput.vue";
+import Button from "../components/global-components/Button/Button.vue";
+import Link from "../components/global-components/Link.vue";
 
 // STATE
 const roleSelect = ref([

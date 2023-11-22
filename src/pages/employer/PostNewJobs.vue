@@ -1,132 +1,93 @@
 <template>
   <!-- Title -->
-  <SubSecHeading
-    headingTitle="POST A NEW JOB"
-    divClassName="mb-8 pb-3 border-b"
-  />
+  <SubSectionHeading headingName="POST A NEW JOB" />
 
-  <form>
-    <FormInput :formInput="formInputList[0]" />
+  <form class="space-y-6">
+    <FormInput labelName="Job Title:" id="jobTitle" type="text" required />
 
     <!-- Job Description -->
-    <Textarea labelName="Job Description" required name="jobdescription" />
+    <Textarea
+      labelName="Job Description:"
+      id="jobDescription"
+      type="text"
+      required
+      rows="4"
+      placeholder="Type your description"
+    />
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Email -->
-      <FormInput :formInput="formInputList[1]" />
+      <FormInput labelName="Email Address:" id="email" type="email" required />
 
-      <!-- Username -->
-      <FormInput :formInput="formInputList[2]" />
+      <!-- website -->
+      <FormInput labelName="Website:" id="website" type="text" required />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Job Type -->
-
-      <div class="mb-6">
-        <label
-          for="jobtype"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Job Type:</label
-        >
-        <FormSelect :optionList="formSelectList[0]" />
-      </div>
+      <FormSelect
+        labelName="Job Type:"
+        required
+        id="jobtype"
+        :optionList="formSelectList[0]"
+      />
 
       <!-- Job Roles -->
-      <div class="mb-6">
-        <label
-          for="jobroles"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Job Roles:</label
-        >
-        <FormSelect :optionList="formSelectList[1]" />
-      </div>
+      <FormSelect
+        labelName="Job Roles:"
+        id="jobrole"
+        required
+        :optionList="formSelectList[1]"
+      />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Offered Salary -->
-      <FormInput :formInput="formInputList[3]" />
+      <FormInput
+        labelName="Offered Salary:"
+        id="offeredSalary"
+        type="number"
+        required
+      />
 
       <!-- Remotely Only  -->
-      <div class="mb-6">
-        <label
-          for="joblocationtype"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Remotely Only:</label
-        >
-        <FormSelect :optionList="formSelectList[2]" />
-      </div>
+      <FormSelect
+        labelName="Remotely Only:"
+        id="remoteOnly"
+        required
+        :optionList="formSelectList[2]"
+      />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Company Name -->
-      <FormInput :formInput="formInputList[4]" />
+      <FormInput
+        labelName="Company Name:"
+        id="companyName"
+        type="text"
+        required
+      />
 
       <!-- Location  -->
-      <div class="mb-6">
-        <label for="location" class="formlabel">Location:</label>
-        <FormSelect :optionList="formSelectList[3]" />
-      </div>
+      <FormSelect
+        labelName="Location:"
+        id="location"
+        required
+        :optionList="formSelectList[3]"
+      />
     </div>
 
-    <Button
-      :isButton="true"
-      :title="'Post New Job'"
-      :className="'btn btn-primary px-10'"
-    />
+    <Button :title="'Post New Job'" wrapperClasses="px-10" type="submit" />
   </form>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import FormInput from "../../components/form/FormInput.vue";
-import FormSelect from "../../components/form/FormSelect.vue";
-import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
-import Textarea from "../../components/form/Textarea.vue";
-import Button from "../../components/buttons/Button.vue";
-
-// State
-const formInputList = ref([
-  {
-    title: "Job Title:",
-    name: "jobTitle",
-    value: "",
-    type: "text",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Email Address:",
-    name: "email",
-    value: "",
-    type: "email",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Website:",
-    name: "website",
-    value: "",
-    type: "text",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Offered Salary:",
-    name: "offeredSalary",
-    value: "",
-    type: "number",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Company Name:",
-    name: "companyName",
-    value: "",
-    type: "text",
-    placeholder: "",
-    required: true,
-  },
-]);
+import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
+import Button from "../../components/global-components/Button/Button.vue";
+import FormInput from "../../components/global-components/form/FormInput.vue";
+import Textarea from "../../components/global-components/form/Textarea.vue";
+import FormSelect from "../../components/global-components/form/FormSelect.vue";
 
 const formSelectList = ref([
   [
@@ -158,17 +119,5 @@ const formSelectList = ref([
     { title: "Canada", value: "canada" },
     { title: "Europe", value: "europe" },
   ],
-]);
-
-const formTextareaList = ref([
-  {
-    type: "text",
-    title: "Job Description:",
-    name: "jobDescription",
-    value: "",
-    placeholder: "",
-    required: true,
-    rows: 4,
-  },
 ]);
 </script>

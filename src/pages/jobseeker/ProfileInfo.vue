@@ -131,8 +131,8 @@
 <script setup>
 import { ref } from "vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
+import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
 import Button from "../../components/global-components/Button/Button.vue";
-import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 import FormInput from "../../components/global-components/form/FormInput.vue";
 import Textarea from "../../components/global-components/form/Textarea.vue";
 
