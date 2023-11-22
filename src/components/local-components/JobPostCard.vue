@@ -6,6 +6,7 @@
   >
     <div
       class="group/item md:flex justify-between border-b pb-5 mb-5 items-center lg:px-5 px-2 py-3 hover:bg-slate-100 cursor-pointer rounded-lg dark:border-b-slate-700 dark:hover:bg-gray-800"
+      :class="wrapperClasses"
     >
       <div class="flex items-center gap-4">
         <CircleBadge color="secondary" size="large">{{
@@ -97,6 +98,7 @@ defineProps({
     default: [],
     required: true,
   },
+  wrapperClasses: String,
 });
 
 const store = useJobsStore();

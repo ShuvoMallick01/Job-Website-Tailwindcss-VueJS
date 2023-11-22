@@ -1,23 +1,20 @@
 <template>
   <!-- Title -->
-  <SubSecHeading
-    headingTitle="Applicants Alerts"
-    divClassName="mb-8 pb-3 border-b"
-  />
+  <SubSectionHeading headingName="Applicants Alerts" />
 
   <!-- Table -->
-  <AlertTable :fieldList="fieldList">
+  <Table :fieldList="fieldList">
     <ResumeAlertTableRow v-for="job in filterJobsByEmployerId" :job="job" />
-  </AlertTable>
+  </Table>
 </template>
 
 <script setup>
 import { ref, provide } from "vue";
 import { useJobsStore } from "../../stores/jobStore";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
-import AlertTable from "../../components/dashboard/Table.vue";
-import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
-import ResumeAlertTableRow from "../../components/dashboard/ResumeAlertTableRow.vue";
+import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
+import ResumeAlertTableRow from "../../components/local-components/dashboard/employer/ResumeAlertTableRow.vue";
+import Table from "../../components/local-components/dashboard/Table.vue";
 
 // State
 const jobStore = useJobsStore();

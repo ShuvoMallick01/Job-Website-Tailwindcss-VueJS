@@ -2,7 +2,7 @@
   <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
     <!-- :v-for="data in alert" -->
     <td class="px-4 py-4">
-      <FormCheck />
+      <Checkbox />
     </td>
 
     <th
@@ -36,18 +36,19 @@
 
     <td class="px-6 py-4 flex gap-1">
       <Button
-        v-for="(action, index) in actions"
+        v-for="(item, index) in actions"
+        :key="index"
         isButton="true"
         className="btn-icon"
-        :beforeIcon="action"
+        :beforeIcon="item"
       />
     </td>
   </tr>
 </template>
 
 <script setup>
-import FormCheck from "../form/FormCheck.vue";
-import Button from "../buttons/Button.vue";
+import Checkbox from "../../../global-components/form/Checkbox.vue";
+import Button from "../../../buttons/Button.vue";
 import { ref } from "vue";
 
 // State
