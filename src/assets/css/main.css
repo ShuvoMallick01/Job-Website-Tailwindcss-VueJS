@@ -351,6 +351,20 @@
     @apply block text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
   } */
 
+  /* Form Input Size */
+  .form-input-size-lg {
+    @apply w-full p-3.5;
+  }
+  .form-input-size-md {
+    @apply w-full p-2.5;
+  }
+  .form-input-size-sm {
+    @apply w-full p-2;
+  }
+  .search-input-size-md {
+    @apply w-full py-2.5 px-10;
+  }
+
   /* FORM CHECKBOX */
   .checkbox-primary {
     /* background-size: 0 !important; */

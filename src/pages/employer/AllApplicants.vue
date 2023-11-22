@@ -1,32 +1,28 @@
 <template>
-  <div class="mb-5 border-b pb-4 flex justify-between items-center gap-4">
-    <SubSecHeading headingTitle="POST A NEW JOB" />
+  <SubSectionHeading headingName="POST A NEW JOB">
     <div class="flex gap-2">
       <FormSelect :optionList="formSelectList[0]" />
       <FormSelect :optionList="formSelectList[1]" />
     </div>
-  </div>
+  </SubSectionHeading>
 
   <div
     class="flex gap-2 flex-shrink-0 pt-3 pb-6 whitespace-nowrap items-center justify-between"
   >
-    <h4 class="heading-regular">{{ selectedJob.jobTitle }}</h4>
+    <h4>{{ selectedJob.jobTitle }}</h4>
 
     <div class="flex gap-2 description-sm-text flex-wrap justify-end">
-      <Button
-        isButton="true"
+      <Badge
+        color="gray"
         :title="'Total(s): ' + selectedJob.applicantsId.length"
-        className="btn-sm-text"
       />
-      <Button
-        isButton="true"
+      <Badge
+        color="gray"
         :title="'Approved: ' + selectedJob.approvedApplicantsId.length"
-        className="btn-sm-text"
       />
-      <Button
-        isButton="true"
+      <Badge
+        color="gray"
         :title="'Rejected: ' + selectedJob.rejectedApplicantsId.length"
-        className="btn-sm-text"
       />
     </div>
   </div>
@@ -56,11 +52,11 @@
 <script setup>
 import { ref } from "vue";
 import { useJobsStore } from "../../stores/jobStore";
-import ApplicantsCard from "../../components/dashboard/ApplicantsCard.vue";
-import FormSelect from "../../components/form/FormSelect.vue";
-import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
-import Button from "../../components/buttons/Button.vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
+import ApplicantsCard from "../../components/local-components/dashboard/employer/ApplicantsCard.vue";
+import FormSelect from "../../components/global-components/form/FormSelect.vue";
+import Badge from "../../components/global-components/Badge/Badge.vue";
+import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
 
 // State
 const jobStore = useJobsStore();

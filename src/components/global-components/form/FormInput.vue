@@ -25,7 +25,7 @@
           'form-input-size-md': size === 'medium',
           'form-input-size-sm': size === 'small',
 
-          'search-input-size-md': inputSize === 'medium-search',
+          'search-input-size-md': size === 'medium-search',
         }"
         :value="modelValue"
         @input="$emit('update:modelValue', $event.target.value)"
@@ -52,3 +52,10 @@ defineProps({
   inputSize: String,
 });
 </script>
+
+<!-- STYLE -->
+<style scoped>
+.search-input-size-md {
+  @apply w-full py-2.5 pe-2.5 ps-9;
+}
+</style>

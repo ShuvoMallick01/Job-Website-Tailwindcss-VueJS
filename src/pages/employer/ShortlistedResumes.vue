@@ -1,35 +1,39 @@
 <template>
-  <div class="mb-5 border-b pb-4 flex justify-between items-center gap-4">
-    <SubSecHeading headingTitle="Shortlisted Resumes" />
+  <SubSectionHeading headingName="Shortlisted Resumes">
     <div class="flex gap-2 flex-wrap xl:flex-nowrap justify-end">
-      <form>
-        <FormSearchbox />
-      </form>
+      <FormInput
+        placeholder="Search.."
+        size="medium-search"
+        inputClasses="relative"
+      >
+        <template #prefix
+          ><i
+            class="icon-search absolute left-0 h-full items-center flex p-3"
+          ></i
+        ></template>
+      </FormInput>
 
       <FormSelect :optionList="formSelectList[0]" />
     </div>
-  </div>
+  </SubSectionHeading>
 
   <div
     class="flex gap-2 flex-shrink-0 pt-3 pb-6 whitespace-nowrap items-center justify-between"
   >
-    <h4 class="heading-regular">{{ selectedJob.jobTitle }}</h4>
+    <h4>{{ selectedJob.jobTitle }}</h4>
 
     <div class="flex gap-2 description-sm-text flex-wrap justify-end">
-      <Button
-        isButton="true"
+      <Badge
+        color="gray"
         :title="'Total(s): ' + selectedJob.applicantsId.length"
-        className="btn-sm-text"
       />
-      <Button
-        isButton="true"
+      <Badge
+        color="gray"
         :title="'Approved: ' + selectedJob.approvedApplicantsId.length"
-        className="btn-sm-text"
       />
-      <Button
-        isButton="true"
+      <Badge
+        color="gray"
         :title="'Rejected: ' + selectedJob.rejectedApplicantsId.length"
-        className="btn-sm-text"
       />
     </div>
   </div>
@@ -58,13 +62,13 @@
 
 <script setup>
 import { ref } from "vue";
-import ApplicantsCard from "../../components/dashboard/ApplicantsCard.vue";
-import FormSelect from "../../components/form/FormSelect.vue";
-import FormSearchbox from "../../components/form/FormSearchbox.vue";
-import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
-import Button from "../../components/buttons/Button.vue";
 import { useJobsStore } from "../../stores/jobStore";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
+import FormInput from "../../components/global-components/form/FormInput.vue";
+import Badge from "../../components/global-components/Badge/Badge.vue";
+import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
+import ApplicantsCard from "../../components/local-components/dashboard/employer/ApplicantsCard.vue";
+import FormSelect from "../../components/global-components/form/FormSelect.vue";
 
 // State
 const jobStore = useJobsStore();
@@ -80,12 +84,6 @@ const formSelectList = ref([
     { title: "Last 6 Months", value: 6 },
     { title: "Last 9 Months", value: 9 },
     { title: "Last 12 Months", value: 12 },
-  ],
-  [
-    { title: "All Status", value: "" },
-    { title: "Total", value: "total" },
-    { title: "Approved", value: "approved" },
-    { title: "Rejected", value: "rejected" },
   ],
 ]);
 </script>
