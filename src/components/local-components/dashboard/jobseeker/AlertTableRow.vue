@@ -42,9 +42,9 @@
 
 <script setup>
 import { ref } from "vue";
-import IconButton from "../../global-components/Button/IconButton.vue";
-import Badge from "../../global-components/Badge/Badge.vue";
-import Checkbox from "../../global-components/form/Checkbox.vue";
+import IconButton from "../../../global-components/Button/IconButton.vue";
+import Badge from "../../../global-components/Badge/Badge.vue";
+import Checkbox from "../../../global-components/form/Checkbox.vue";
 
 defineProps(["item"]);
 

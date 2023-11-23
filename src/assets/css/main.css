@@ -53,34 +53,7 @@
     background-image: linear-gradient(315deg, #aee1f9 0%, #f6ebe6 74%);
   }
 
-  /* Typography Heading */
-  /* delete */
-  .sectionHeading,
-  .section-heading {
-    @apply text-3xl font-bold text-primary mb-2 uppercase dark:text-secondary;
-  }
-  /* delete */
-  .sectionSubHeading {
-    @apply font-semibold text-lg text-gray-600 dark:text-gray-200;
-  }
-  .formSubHeading {
-    @apply text-xl mb-5 font-semibold text-slate-800 dark:text-slate-300;
-  }
-  .heading {
-    @apply font-semibold text-2xl text-primary dark:text-gray-200;
-  }
-  .heading-regular {
-    @apply font-medium text-gray-700 dark:text-gray-400;
-  }
-  .heading-message {
-    @apply font-normal text-base text-gray-900 dark:text-gray-400;
-  }
-  /* delete */
-  .heading-paragraph {
-    @apply font-semibold text-lg text-gray-600 dark:text-gray-200;
-  }
-
-  /* Typography Description */
+  /* Typography  */
   .large-text {
     @apply text-lg text-gray-500 dark:text-gray-400;
   }
@@ -98,40 +71,11 @@
     @apply text-xs font-light text-gray-600 dark:text-gray-400;
   }
 
-  /* delete */
-  .description-text {
-    @apply text-sm text-slate-600 dark:text-gray-300;
-  }
-  /* delete */
-  .description-sm-text {
-    @apply text-gray-500 font-light text-xs dark:text-gray-400;
-  }
-  /* delete */
-  .paragraph-primary {
-    @apply text-sm text-gray-500 font-light  dark:text-gray-400;
-  }
-
-  /* Icon Effect */
-  .logoHover {
-    @apply hover:fill-slate-500/80 cursor-pointer transition300  hover:scale-x-90;
-  }
-
-  /* icons */
-  .singleTextCircle {
-    @apply bg-secondary whitespace-nowrap mt-1 w-6 h-6 md:w-8 md:h-8 text-slate-100 text-base md:text-xl rounded-full flex justify-center flex-shrink-0  items-center;
-  }
-
   /* Form */
-  .formLabel,
   .form-label {
     @apply text-sm font-medium text-gray-600 dark:text-white;
   }
-  /* delete */
-  .inputPrimary {
-    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-0 focus:ring-0 focus:border-slate-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-0;
-  }
 
-  .formCheckInput,
   .form-checkbox {
     @apply w-4 h-4 cursor-pointer bg-gray-100 border-gray-300 rounded focus:ring-0 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600;
   }
@@ -139,48 +83,11 @@
 
 /* === COMPONENT === */
 @layer components {
-  /* Buttons */
-  /* .btn {
-    @apply px-6 border py-2 rounded-full hover:transition-all hover:duration-300 whitespace-nowrap;
-  }
-
-  .btn-outline-primary {
-    @apply border-primary text-primary  hover:text-slate-100 hover:bg-primary cursor-pointer dark:text-slate-200 dark:border-slate-200 dark:hover:bg-slate-200 dark:hover:text-slate-700;
-  }
-
-  .btn-primary {
-    @apply bg-primary text-slate-200 hover:bg-slate-100  hover:border-primary hover:text-primary cursor-pointer dark:border-slate-200 dark:text-slate-700 dark:bg-slate-200 hover:dark:text-slate-200 hover:dark:bg-gray-800;
-  } */
-
-  /* .btn-text {
-    @apply text-primary font-medium hover:text-primaryDark cursor-pointer dark:text-secondary;
-  } */
-
-  .btn-icon {
-    @apply text-primary bg-secondaryLight hover:bg-secondary hover:text-white h-7 w-7 rounded-full flex justify-center items-center transition-all whitespace-nowrap flex-shrink-0;
-  }
-  .btn-icon-active {
-    @apply text-white bg-primary hover:bg-secondaryLight hover:text-primaryDark h-7 w-7 rounded-full flex justify-center items-center transition-all whitespace-nowrap flex-shrink-0;
-  }
-
-  /* .btn-sm {
-    @apply bg-secondary whitespace-nowrap  text-slate-200 text-sm py-2 px-3 rounded-full border transition300 hover:bg-slate-100 hover:border-secondaryDark hover:text-secondaryDark;
-  } */
-
-  .btn-apply {
-    @apply bg-secondary whitespace-nowrap text-slate-200 text-sm py-2 ps-3 pe-6 rounded-full border transition300 hover:bg-slate-100 hover:border-secondaryDark hover:text-secondaryDark  invisible group-hover/item:visible transition300 relative order-2 md:order-1;
-  }
-
-  .btn-sm-text {
-    @apply bg-gray-200 text-gray-700 px-4 py-1 rounded-full font-light text-xs whitespace-nowrap dark:bg-gray-500 dark:text-gray-300;
-  }
-
   /* Animation */
   .transition300,
   .transition-300 {
     @apply transition-all duration-300;
   }
-  /* / Animation */
 
   /* ==== BUTTON ==== */
   /* Button Variant */
@@ -260,11 +167,9 @@
   .shape-square {
     @apply rounded-none;
   }
-
   .shape-circle {
     @apply rounded-full flex justify-center items-center flex-shrink-0;
   }
-
   .shape-s-pill {
     @apply rounded-s-full;
   }

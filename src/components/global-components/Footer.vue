@@ -6,7 +6,7 @@
         <span class="flex items-center mb-4 sm:mb-0">
           <Image
             href="/"
-            src="../../src//assets/images/logo-skyber.svg"
+            src="../../src/assets/images/logo-skyber.svg"
             class="h-8 mr-3"
             alt="Skyber Logo"
           />
@@ -15,13 +15,8 @@
         <!-- Follow Us -->
         <div class="flex gap-3 justify-center mt-0 items-center">
           Follow us:
-          <IconButton
-            v-for="social in store.socialMediaList"
-            color="primary-light"
-          >
-            <template #prefix>
-              <i :class="social"></i>
-            </template>
+          <IconButton v-for="social in store.socialMediaList" color="secondary">
+            <i :class="social"></i>
           </IconButton>
         </div>
       </div>

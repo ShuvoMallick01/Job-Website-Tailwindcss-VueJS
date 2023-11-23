@@ -14,6 +14,6 @@ defineOptions({
 
 defineProps({
   title: String,
-  wrapperClasses: String,
+  wrapperClasses: { type: String, default: "extrasmall-text" },
 });
 </script>

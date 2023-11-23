@@ -12,7 +12,7 @@
 import { ref, provide } from "vue";
 import { useJobsStore } from "../../stores/jobStore";
 import Table from "../../components/local-components/dashboard/Table.vue";
-import AlertTableRow from "../../components//local-components/dashboard/AlertTableRow.vue";
+import AlertTableRow from "../../components/local-components/dashboard/jobseeker/AlertTableRow.vue";
 import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
 
 // State

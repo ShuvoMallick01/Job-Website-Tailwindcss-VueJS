@@ -12,12 +12,8 @@
       {{ job.jobTitle }} <br />
 
       <div class="flex gap-2 flex-wrap mt-2">
-        <Button isButton="true" :title="job.jobType" className="btn-sm-text" />
-        <Button
-          isButton="true"
-          :title="job.isRemote ? 'Remote' : 'Not Remote'"
-          className="btn-sm-text"
-        />
+        <Badge :title="job.jobType" color="gray" />
+        <Badge :title="job.isRemote ? 'Remote' : 'Not Remote'" color="gray" />
       </div>
     </th>
 
@@ -35,21 +31,23 @@
     <td class="px-6 py-4">{{ job.createdAt }}</td>
 
     <td class="px-6 py-4 flex gap-1">
-      <Button
-        v-for="(item, index) in actions"
-        :key="index"
-        isButton="true"
-        className="btn-icon"
-        :beforeIcon="item"
-      />
+      <IconButton name="icon" color="secondary-light">
+        <i class="icon-eye-on"></i
+      ></IconButton>
+      <IconButton name="icon" color="secondary-light">
+        <i class="icon-trash"></i
+      ></IconButton>
     </td>
   </tr>
 </template>
 
 <script setup>
-import Checkbox from "../../../global-components/form/Checkbox.vue";
-import Button from "../../../global-components/Button/Button.vue";
 import { ref } from "vue";
+
+import Button from "../../../global-components/Button/Button.vue";
+import IconButton from "../../../global-components/Button/IconButton.vue";
+import Badge from "../../../global-components/Badge/Badge.vue";
+import Checkbox from "../../../global-components/form/Checkbox.vue";
 
 // State
 const actions = ref(["icon-trash", "icon-eye-on"]);

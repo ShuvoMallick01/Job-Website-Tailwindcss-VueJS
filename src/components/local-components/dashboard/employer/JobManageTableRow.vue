@@ -1,7 +1,7 @@
 <template>
   <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
     <td class="px-4 py-4">
-      <FormCheck />
+      <Checkbox />
     </td>
     <th
       scope="row"
@@ -9,13 +9,9 @@
     >
       {{ item.jobTitle }} <br />
       <div class="flex gap-2 mt-2">
-        <Button isButton="true" :title="item.jobType" className="btn-sm-text" />
-        <Button isButton="true" :title="item.jobRole" className="btn-sm-text" />
-        <Button
-          isButton="true"
-          :title="item.isRemote ? 'Remote' : 'Not Remote'"
-          className="btn-sm-text"
-        />
+        <Badge :title="item.jobType" color="gray" />
+        <Badge :title="item.jobRole" color="gray" />
+        <Badge :title="item.isRemote ? 'Remote' : 'Not Remote'" color="gray" />
       </div>
     </th>
 
@@ -23,24 +19,25 @@
     <td class="px-6 py-4">{{ item.isActice ? "Active" : "Deactive" }}</td>
 
     <td class="px-6 py-4 flex gap-1">
-      <Button
-        v-for="(item, index) in actionIcons"
-        :key="index"
-        isButton="true"
-        className="btn-icon"
-        :beforeIcon="item"
-      />
+      <IconButton name="icon" color="secondary-light">
+        <i class="icon-eye-on"></i
+      ></IconButton>
+      <IconButton name="icon" color="secondary-light">
+        <i class="icon-edit"></i
+      ></IconButton>
+      <IconButton name="icon" color="secondary-light">
+        <i class="icon-trash"></i
+      ></IconButton>
     </td>
   </tr>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import FormCheck from "../../../global-components/form/Checkbox.vue";
 import Button from "../../../global-components/Button/Button.vue";
-
-// State
-const actionIcons = ref(["icon-eye-on", "icon-edit", "icon-trash"]);
+import IconButton from "../../../global-components/Button/IconButton.vue";
+import Badge from "../../../global-components/Badge/Badge.vue";
+import Checkbox from "../../../global-components/form/Checkbox.vue";
 
 // Props
 defineProps({

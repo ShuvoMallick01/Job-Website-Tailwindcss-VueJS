@@ -24,10 +24,7 @@
   </div>
 
   <!-- Title -->
-  <SubSecHeading
-    headingTitle="Uploaded Resume"
-    divClassName="mb-8 pb-3 border-b"
-  />
+  <SubSectionHeading headingName="Uploaded Resume" />
 
   <div class="flex justify-between">
     <p class="medium-text">
