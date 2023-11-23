@@ -68,7 +68,7 @@
 <script setup>
 import { ref, reactive } from "vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
-import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
 import FormInput from "../../components/global-components/form/FormInput.vue";
 import Textarea from "../../components/global-components/form/Textarea.vue";
 import FormSelect from "../../components/global-components/form/FormSelect.vue";

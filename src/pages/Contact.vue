@@ -6,7 +6,7 @@
     </div>
 
     <div class="mb-24 lg:px-32 lg:mx-32 2xl:px-52 2xl:mx-52">
-      <form>
+      <!-- <form>
         <FormInput :formInput="formInputList[0]" />
         <FormInput :formInput="formInputList[1]" />
 
@@ -35,17 +35,17 @@
           title="Send Message"
           className="btn btn-primary my-10"
         />
-      </form>
+      </form> -->
     </div>
   </section>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import FormInput from "../components/form/FormInput.vue";
-import FormCheck from "../components/form/FormCheck.vue";
-import Textarea from "../components/form/Textarea.vue";
-import Button from "../components/buttons/Button.vue";
+// import FormInput from "../components/form/FormInput.vue";
+// import FormCheck from "../components/form/FormCheck.vue";
+// import Textarea from "../components/form/Textarea.vue";
+// import Button from "../components/buttons/Button.vue";
 
 const formInputList = ref([
   {

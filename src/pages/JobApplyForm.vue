@@ -8,57 +8,57 @@
 
     <form>
       <div class="md:grid grid-cols-2 gap-5">
-        <FormInput :formInput="formInputList[0]" />
+        <!-- <FormInput :formInput="formInputList[0]" /> -->
 
         <!-- Profession -->
-        <FormInput :formInput="formInputList[1]" />
+        <!-- <FormInput :formInput="formInputList[1]" /> -->
       </div>
 
       <div class="md:grid grid-cols-2 gap-5">
         <!-- Language -->
-        <FormInput :formInput="formInputList[2]" />
+        <!-- <FormInput :formInput="formInputList[2]" /> -->
 
         <!-- Age -->
-        <FormInput :formInput="formInputList[3]" />
+        <!-- <FormInput :formInput="formInputList[3]" /> -->
       </div>
 
       <div class="md:grid grid-cols-2 gap-5">
         <!-- Current Salary ($) -->
-        <FormInput :formInput="formInputList[4]" />
+        <!-- <FormInput :formInput="formInputList[4]" /> -->
 
         <!-- Expected Salary -->
-        <FormInput :formInput="formInputList[5]" />
+        <!-- <FormInput :formInput="formInputList[5]" /> -->
       </div>
 
       <!-- Description -->
-      <Textarea
+      <!-- <Textarea
         :labelName="'Description'"
         :required="true"
         name="description"
-      />
+      /> -->
 
       <!-- Contact Information -->
-      <SubSecHeading :title="'Contact Information'" />
+      <!-- <SubSecHeading :title="'Contact Information'" /> -->
 
       <div class="md:grid grid-cols-2 gap-5">
         <!-- Phone -->
-        <FormInput :formInput="formInputList[6]" />
+        <!-- <FormInput :formInput="formInputList[6]" /> -->
 
         <!-- Email -->
-        <FormInput :formInput="formInputList[7]" />
+        <!-- <FormInput :formInput="formInputList[7]" /> -->
       </div>
 
       <div class="md:grid grid-cols-2 gap-5">
         <!-- Country -->
-        <FormInput :formInput="formInputList[8]" />
+        <!-- <FormInput :formInput="formInputList[8]" /> -->
 
         <!-- Full Address -->
-        <FormInput :formInput="formInputList[9]" />
+        <!-- <FormInput :formInput="formInputList[9]" /> -->
       </div>
 
       <!-- Resume Upload -->
       <div>
-        <SubSecHeading :title="'Resume Upload'" />
+        <!-- <SubSecHeading :title="'Resume Upload'" /> -->
 
         <!-- file Upload -->
         <div class="border text-center py-5 mb-10">
@@ -68,37 +68,37 @@
             .docx, .pdf)
           </p>
 
-          <BtnFileUpload :title="'Upload Resume'" />
+          <!-- <BtnFileUpload :title="'Upload Resume'" /> -->
         </div>
 
         <!-- Title -->
-        <SubSecHeading :title="'Uploaded Resume'" />
+        <!-- <SubSecHeading :title="'Uploaded Resume'" /> -->
 
         <div class="flex justify-between">
           <p class="description-text">
             <i class="icon-file me-2"></i>Shuvo Mallick Resume | Version 1.1
           </p>
-          <Button isButton="true" title="Download" className="btn-text" />
+          <!-- <Button isButton="true" title="Download" className="btn-text" /> -->
         </div>
       </div>
 
-      <Button
+      <!-- <Button
         isButton="true"
         type="submit"
         title="Submit Application"
         className="btn btn-primary my-10"
-      />
+      /> -->
     </form>
   </section>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import FormInput from "../components/form/FormInput.vue";
-import SubSecHeading from "../components/dashboard/SubSecHeading.vue";
-import BtnFileUpload from "../components/buttons/BtnFileUpload.vue";
-import Textarea from "../components/form/Textarea.vue";
-import Button from "../components/buttons/Button.vue";
+// import FormInput from "../components/form/FormInput.vue";
+// import SubSecHeading from "../components/dashboard/SubSecHeading.vue";
+// import BtnFileUpload from "../components/buttons/BtnFileUpload.vue";
+// import Textarea from "../components/form/Textarea.vue";
+// import Button from "../components/buttons/Button.vue";
 
 const formInputList = ref([
   {

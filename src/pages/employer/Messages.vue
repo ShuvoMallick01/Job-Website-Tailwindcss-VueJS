@@ -1,12 +1,11 @@
 <template>
-  <SubSecHeading headingTitle="Messages" divClassName="mb-8 pb-3 border-b" />
+  <!-- <SubSecHeading headingTitle="Messages" divClassName="mb-8 pb-3 border-b" /> -->
 
   <!-- Message -->
   <div class="grid grid-cols-3 gap-4 xl:gap-8">
     <!-- LEFT -->
-    <div class="hidden xl:block bg-slate-100 rounded-lg">
+    <!-- <div class="hidden xl:block bg-slate-100 rounded-lg">
       <form class="p-4">
-        <!-- Search -->
         <div class="relative">
           <div
             class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
@@ -38,17 +37,15 @@
       </form>
 
       <div class="bg-slate-100 shadow-md">
-        <!-- Message People -->
         <MessagePeopleCard />
         <MessagePeopleCard />
         <MessagePeopleCard />
         <MessagePeopleCard />
         <MessagePeopleCard />
       </div>
-    </div>
+    </div> -->
 
-    <!-- RIGHT -->
-    <div class="col-span-3 xl:col-span-2 bg-slate-50 shadow-md rounded-lg">
+    <!-- <div class="col-span-3 xl:col-span-2 bg-slate-50 shadow-md rounded-lg">
       <div
         class="flex items-center justify-between py-4 border-b cursor-pointer hover:bg-slate-200 px-4 xl:px-7"
       >
@@ -71,7 +68,6 @@
         <p class="description-sm-text">4hr</p>
       </div>
 
-      <!-- Messages -->
       <div>
         <Message />
         <Message />
@@ -86,12 +82,12 @@
         />
         <button type="submit" class="btn btn-primary">Send Message</button>
       </form>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script setup>
-import MessagePeopleCard from "../../components/dashboard/MessagePeopleCard.vue";
-import Message from "../../components/dashboard/Message.vue";
-import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
+// import MessagePeopleCard from "../../components/dashboard/MessagePeopleCard.vue";
+// import Message from "../../components/dashboard/Message.vue";
+// import SubSecHeading from "../../components/dashboard/SubSecHeading.vue";
 </script>

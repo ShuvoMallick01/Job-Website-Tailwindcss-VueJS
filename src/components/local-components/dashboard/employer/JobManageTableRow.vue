@@ -37,7 +37,7 @@
 <script setup>
 import { ref } from "vue";
 import FormCheck from "../../../global-components/form/Checkbox.vue";
-import Button from "../../../buttons/Button.vue";
+import Button from "../../../global-components/Button/Button.vue";
 
 // State
 const actionIcons = ref(["icon-eye-on", "icon-edit", "icon-trash"]);

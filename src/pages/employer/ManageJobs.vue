@@ -17,7 +17,7 @@
 import { ref } from "vue";
 import { useEmployesStore } from "../../stores/employerStore";
 import JobManageTableRow from "../../components/local-components/dashboard/employer/JobManageTableRow.vue";
-import FormSelect from "../../components/form/FormSelect.vue";
+import FormSelect from "../../components/global-components/form/FormSelect.vue";
 import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
 import Table from "../../components/local-components/dashboard/Table.vue";
 

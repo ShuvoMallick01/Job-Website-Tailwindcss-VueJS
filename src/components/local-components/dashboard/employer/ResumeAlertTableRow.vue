@@ -48,7 +48,7 @@
 
 <script setup>
 import Checkbox from "../../../global-components/form/Checkbox.vue";
-import Button from "../../../buttons/Button.vue";
+import Button from "../../../global-components/Button/Button.vue";
 import { ref } from "vue";
 
 // State
