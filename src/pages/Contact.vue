@@ -2,24 +2,39 @@
   <!-- FILTER & JOB CARD -->
   <section class="myContainer mb-16 mt-20">
     <div class="py-8 text-center">
-      <h1 class="sectionHeading">CONTACT</h1>
+      <h1>CONTACT</h1>
     </div>
 
     <div class="mb-24 lg:px-32 lg:mx-32 2xl:px-52 2xl:mx-52">
-      <!-- <form>
-        <FormInput :formInput="formInputList[0]" />
-        <FormInput :formInput="formInputList[1]" />
+      <form class="space-y-6">
+        <FormInput
+          labelName="Your Name:"
+          id="name"
+          type="text"
+          required
+          placeholder="Type your Full Name"
+        />
 
-        <Textarea :labelName="'Your Message'" :required="true" name="message" />
+        <FormInput
+          labelName="Your Email:"
+          id="email"
+          type="email"
+          required
+          placeholder="Type your Email"
+        />
 
-        <div class="flex items-start mt-6">
-          <div class="flex items-center h-5">
-            <FormCheck />
-          </div>
+        <!-- Description -->
+        <Textarea
+          labelName="Your Message:"
+          id="message"
+          type="text"
+          required
+          rows="4"
+          placeholder="Type your description"
+        />
 
-          <label
-            for="terms"
-            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        <Checkbox>
+          <label for="terms" class="ml-2 small-text"
             >I agree with the
             <a
               href="#"
@@ -27,40 +42,17 @@
               >terms and conditions</a
             ></label
           >
-        </div>
+        </Checkbox>
 
-        <Button
-          isButton="true"
-          type="submit"
-          title="Send Message"
-          className="btn btn-primary my-10"
-        />
-      </form> -->
+        <Button title="Send Message" type="submit" wrapperClasses="px-10" />
+      </form>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref } from "vue";
-// import FormInput from "../components/form/FormInput.vue";
-// import FormCheck from "../components/form/FormCheck.vue";
-// import Textarea from "../components/form/Textarea.vue";
-// import Button from "../components/buttons/Button.vue";
-
-const formInputList = ref([
-  {
-    title: "Your Name:",
-    name: "name",
-    type: "text",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Your Email:",
-    name: "email",
-    type: "email",
-    placeholder: "",
-    required: true,
-  },
-]);
+import Button from "../components/global-components/Button/Button.vue";
+import FormInput from "../components/global-components/form/FormInput.vue";
+import Textarea from "../components/global-components/form/Textarea.vue";
+import Checkbox from "../components/global-components/form/Checkbox.vue";
 </script>
