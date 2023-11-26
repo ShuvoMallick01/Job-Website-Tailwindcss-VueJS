@@ -53,10 +53,10 @@
 import { ref } from "vue";
 import { useJobsStore } from "../../stores/jobStore";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
-import ApplicantsCard from "../../components/local-components/dashboard/employer/ApplicantsCard.vue";
-import FormSelect from "../../components/global-components/form/FormSelect.vue";
-import Badge from "../../components/global-components/Badge/Badge.vue";
-import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
+import ApplicantsCard from "../../components/dashboard/employer/ApplicantsCard.vue";
+import FormSelect from "../../components/form/FormSelect.vue";
+import Badge from "../../components/Badge/Badge.vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 
 // State
 const jobStore = useJobsStore();

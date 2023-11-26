@@ -10,14 +10,13 @@
   </LayoutDashboard>
 </template>
 
-<!-- Functinality -->
+<!-- SCRIPT -->
 <script setup>
 import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
-import LayoutDashboard from "../../components/layout/LayoutDashboard.vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
+import LayoutDashboard from "../../components/layout/LayoutDashboard.vue";
 
-// State
 const store = useJobseekersStore();
 const route = useRoute();
 const userNavList = ref([

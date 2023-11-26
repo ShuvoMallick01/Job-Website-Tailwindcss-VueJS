@@ -68,12 +68,12 @@
 <script setup>
 import { ref, reactive } from "vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
-import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
-import FormInput from "../../components/global-components/form/FormInput.vue";
-import Textarea from "../../components/global-components/form/Textarea.vue";
-import FormSelect from "../../components/global-components/form/FormSelect.vue";
-import Button from "../../components/global-components/Button/Button.vue";
-import ComboInfoCard from "../../components/local-components/dashboard/jobseeker/ComboInfoCard.vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import FormInput from "../../components/form/FormInput.vue";
+import Textarea from "../../components/form/Textarea.vue";
+import FormSelect from "../../components/form/FormSelect.vue";
+import Button from "../../components/Button/Button.vue";
+import ComboInfoCard from "../../components/dashboard/jobseeker/ComboInfoCard.vue";
 
 // State
 const store = useJobseekersStore();

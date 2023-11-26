@@ -134,6 +134,20 @@
     }
   }
 
+  .Translucent {
+    @apply text-white bg-black/70 text-center focus:outline-none outline-none;
+
+    &.primary {
+      @apply bg-primaryLight text-primary border-none hover:border-none hover:bg-primary hover:text-white;
+    }
+    &.secondary {
+      @apply bg-secondaryLight text-secondaryDark border-none hover:border-none hover:bg-secondary hover:text-white;
+    }
+    &.disabled {
+      @apply text-gray-400  border-gray-400;
+    }
+  }
+
   .text-only {
     @apply text-gray-700 text-center hover:text-gray-900;
 

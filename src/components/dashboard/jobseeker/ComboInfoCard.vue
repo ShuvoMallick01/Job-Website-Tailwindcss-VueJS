@@ -37,9 +37,10 @@
   </div>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
-import IconButton from "../../../global-components/Button/IconButton.vue";
-import CircleBadge from "../../../global-components/Badge/CircleBadge.vue";
+import IconButton from "../../Button/IconButton.vue";
+import CircleBadge from "../../Badge/CircleBadge.vue";
 
 defineProps({
   infoList: {

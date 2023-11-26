@@ -81,13 +81,14 @@
   </form>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
 import { ref } from "vue";
-import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
-import Button from "../../components/global-components/Button/Button.vue";
-import FormInput from "../../components/global-components/form/FormInput.vue";
-import Textarea from "../../components/global-components/form/Textarea.vue";
-import FormSelect from "../../components/global-components/form/FormSelect.vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import Button from "../../components/Button/Button.vue";
+import FormInput from "../../components/form/FormInput.vue";
+import Textarea from "../../components/form/Textarea.vue";
+import FormSelect from "../../components/form/FormSelect.vue";
 
 const formSelectList = ref([
   [

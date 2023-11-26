@@ -50,9 +50,10 @@
   </section>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
-import Button from "../components/global-components/Button/Button.vue";
-import FormInput from "../components/global-components/form/FormInput.vue";
-import Textarea from "../components/global-components/form/Textarea.vue";
-import Checkbox from "../components/global-components/form/Checkbox.vue";
+import Button from "../components/Button/Button.vue";
+import FormInput from "../components/form/FormInput.vue";
+import Textarea from "../components/form/Textarea.vue";
+import Checkbox from "../components/form/Checkbox.vue";
 </script>

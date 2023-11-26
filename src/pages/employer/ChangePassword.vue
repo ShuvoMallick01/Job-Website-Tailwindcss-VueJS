@@ -33,7 +33,7 @@
 <!-- SCRIPT -->
 <script setup>
 import { ref } from "vue";
-import FormInput from "../../components/global-components/form/FormInput.vue";
-import Button from "../../components/global-components/Button/Button.vue";
-import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
+import FormInput from "../../components/form/FormInput.vue";
+import Button from "../../components/Button/Button.vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 </script>

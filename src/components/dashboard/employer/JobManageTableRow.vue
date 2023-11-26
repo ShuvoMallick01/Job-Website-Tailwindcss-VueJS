@@ -32,12 +32,12 @@
   </tr>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
 import { ref } from "vue";
-import Button from "../../../global-components/Button/Button.vue";
-import IconButton from "../../../global-components/Button/IconButton.vue";
-import Badge from "../../../global-components/Badge/Badge.vue";
-import Checkbox from "../../../global-components/form/Checkbox.vue";
+import IconButton from "../../Button/IconButton.vue";
+import Badge from "../../Badge/Badge.vue";
+import Checkbox from "../../form/Checkbox.vue";
 
 // Props
 defineProps({

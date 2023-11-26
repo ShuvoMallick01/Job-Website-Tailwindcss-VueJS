@@ -16,14 +16,13 @@
 <script setup>
 import { ref } from "vue";
 import { useEmployesStore } from "../../stores/employerStore";
-import JobManageTableRow from "../../components/local-components/dashboard/employer/JobManageTableRow.vue";
-import FormSelect from "../../components/global-components/form/FormSelect.vue";
-import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
-import Table from "../../components/local-components/dashboard/Table.vue";
+import JobManageTableRow from "../../components/dashboard/employer/JobManageTableRow.vue";
+import FormSelect from "../../components/form/FormSelect.vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import Table from "../../components/dashboard/Table.vue";
 
 const employerStore = useEmployesStore();
 const ownJobList = employerStore.handleEmployerJobs(1);
-
 const fieldList = ref(["Job Title", "Applications", "Status", "Action"]);
 const formSelectList = ref([
   [

@@ -86,11 +86,11 @@
 <!-- SCRIPT -->
 <script setup>
 import { onMounted, ref } from "vue";
-import { useJobsStore } from "../../stores/jobStore";
-import Button from "../global-components/Button/Button.vue";
-import Badge from "../global-components/Badge/Badge.vue";
-import CircleBadge from "../global-components/Badge/CircleBadge.vue";
-import IconButton from "../global-components/Button/IconButton.vue";
+import { useJobsStore } from "../stores/jobStore";
+import Button from "./Button/Button.vue";
+import Badge from "./Badge/Badge.vue";
+import CircleBadge from "./Badge/CircleBadge.vue";
+import IconButton from "./Button/IconButton.vue";
 
 defineProps({
   jobList: {

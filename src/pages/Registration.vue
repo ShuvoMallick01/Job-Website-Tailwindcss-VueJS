@@ -86,12 +86,13 @@
   </section>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
 import { ref } from "vue";
-import FormSelect from "../components/global-components/form/FormSelect.vue";
-import FormInput from "../components/global-components/form/FormInput.vue";
-import Button from "../components/global-components/Button/Button.vue";
-import Link from "../components/global-components/Link.vue";
+import FormSelect from "../components/form/FormSelect.vue";
+import FormInput from "../components/form/FormInput.vue";
+import Button from "../components/Button/Button.vue";
+import Link from "../components/Link.vue";
 
 // STATE
 const roleSelect = ref([

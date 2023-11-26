@@ -9,8 +9,8 @@
 <script setup>
 import { ref } from "vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
-import JobPostCard from "../../components/local-components/JobPostCard.vue";
-import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
+import JobPostCard from "../../components/JobPostCard.vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 
 // State
 const jobStore = useJobseekersStore();

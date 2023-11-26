@@ -131,10 +131,10 @@
 <script setup>
 import { ref } from "vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
-import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
-import Button from "../../components/global-components/Button/Button.vue";
-import FormInput from "../../components/global-components/form/FormInput.vue";
-import Textarea from "../../components/global-components/form/Textarea.vue";
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import Button from "../../components/Button/Button.vue";
+import FormInput from "../../components/form/FormInput.vue";
+import Textarea from "../../components/form/Textarea.vue";
 
 // STATE
 const store = useJobseekersStore();

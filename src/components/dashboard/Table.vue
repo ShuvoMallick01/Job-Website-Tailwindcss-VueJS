@@ -29,7 +29,7 @@
 
 <!-- SCRIPT  -->
 <script setup>
-import Checkbox from "../../global-components/form/Checkbox.vue";
+import Checkbox from "../form/Checkbox.vue";
 
 defineProps({
   fieldList: { type: Array },

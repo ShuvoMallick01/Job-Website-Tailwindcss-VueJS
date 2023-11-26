@@ -94,6 +94,7 @@
   </nav>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
@@ -105,9 +106,9 @@ import {
   onClickOutside,
 } from "@vueuse/core";
 
-import Image from "../global-components/Image.vue";
-import Button from "../global-components/Button/Button.vue";
-import IconButton from "../global-components/Button/IconButton.vue";
+import Image from "./Image.vue";
+import Button from "./Button/Button.vue";
+import IconButton from "./Button/IconButton.vue";
 
 // STATE
 const route = useRoute();

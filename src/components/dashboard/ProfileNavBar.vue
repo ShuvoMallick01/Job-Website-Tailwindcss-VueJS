@@ -55,7 +55,7 @@
 
 <!-- SCRIPT -->
 <script setup>
-import Image from "../../global-components/Image.vue";
+import Image from "../Image.vue";
 
 defineProps({
   profileInfo: {

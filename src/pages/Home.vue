@@ -170,11 +170,10 @@
 
 <!-- FUNCTIONALITY -->
 <script setup>
-import { ref, computed } from "vue";
 import { initFlowbite } from "flowbite";
 import { useJobsStore } from "../stores/jobStore";
-import JobPostCard from "../components/local-components/JobPostCard.vue";
-import Sidebar from "../components/local-components/Sidebar.vue";
+import JobPostCard from "../components/JobPostCard.vue";
+import Sidebar from "../components/Sidebar.vue";
 
 const jobStore = useJobsStore();
 </script>

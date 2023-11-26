@@ -101,12 +101,11 @@
 
 <!-- FUNCTIONALITY -->
 <script setup>
-import CheckToggle from "../global-components/form/CheckToggle.vue";
-import Checkbox from "../global-components/form/Checkbox.vue";
-import FormSelect from "../global-components/form/FormSelect.vue";
-
 import { reactive, ref } from "vue";
-import { useJobsStore } from "../../stores/jobStore";
+import { useJobsStore } from "../stores/jobStore";
+import CheckToggle from "../components/form/CheckToggle.vue";
+import Checkbox from "../components/form/Checkbox.vue";
+import FormSelect from "../components/form/FormSelect.vue";
 
 // STATE
 const store = useJobsStore();

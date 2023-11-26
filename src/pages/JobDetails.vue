@@ -150,13 +150,13 @@
 import { onMounted, ref } from "vue";
 import { useJobsStore } from "../stores/jobStore";
 import { useRoute } from "vue-router";
-import JobPostCard from "../components/local-components/JobPostCard.vue";
-import IconText from "../components/global-components/IconText.vue";
-import CircleBadge from "../components/global-components/Badge/CircleBadge.vue";
-import Button from "../components/global-components/Button/Button.vue";
-import Badge from "../components/global-components/Badge/Badge.vue";
-import IconButton from "../components/global-components/Button/IconButton.vue";
-import Link from "../components/global-components/Link.vue";
+import JobPostCard from "../components/JobPostCard.vue";
+import IconText from "../components/IconText.vue";
+import CircleBadge from "../components/Badge/CircleBadge.vue";
+import Button from "../components/Button/Button.vue";
+import Badge from "../components/Badge/Badge.vue";
+import IconButton from "../components/Button/IconButton.vue";
+import Link from "../components/Link.vue";
 
 // STATE
 const route = useRoute();

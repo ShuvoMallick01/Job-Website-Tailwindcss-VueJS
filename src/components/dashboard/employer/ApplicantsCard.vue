@@ -49,12 +49,11 @@
 
 <!-- SCRIPT -->
 <script setup>
-import IconButton from "../../../global-components/Button/IconButton.vue";
-import Image from "../../../global-components/Image.vue";
-import Badge from "../../../global-components/Badge/Badge.vue";
-import IconText from "../../../global-components/IconText.vue";
-
 import { ref } from "vue";
+import IconButton from "../../Button/IconButton.vue";
+import Image from "../../Image.vue";
+import Badge from "../../Badge/Badge.vue";
+import IconText from "../../IconText.vue";
 
 // State
 const actions = ref(["icon-eye-on", "icon-check", "icon-cross"]);

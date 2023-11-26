@@ -12,10 +12,9 @@
 import { ref, provide } from "vue";
 import { useJobsStore } from "../../stores/jobStore";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
-import SubSectionHeading from "../../components/local-components/dashboard/SubSectionHeading.vue";
-import ResumeAlertTableRow from "../../components/local-components/dashboard/employer/ResumeAlertTableRow.vue";
-import Table from "../../components/local-components/dashboard/Table.vue";
-
+import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import ResumeAlertTableRow from "../../components/dashboard/employer/ResumeAlertTableRow.vue";
+import Table from "../../components/dashboard/Table.vue";
 // State
 const jobStore = useJobsStore();
 const jobSeekerStore = useJobseekersStore();

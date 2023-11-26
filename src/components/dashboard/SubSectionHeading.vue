@@ -9,6 +9,7 @@
   </div>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
 defineOptions({
   inheritAttrs: false,
