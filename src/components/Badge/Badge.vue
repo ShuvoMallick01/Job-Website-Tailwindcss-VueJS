@@ -4,12 +4,11 @@
     :class="{
       filled: variant === 'filled',
       outline: variant === 'outline',
+      translucent: variant === 'translucent',
       'text-only': variant === 'text',
 
       primary: color === 'primary',
-      'primary-light': color === 'primary-light',
       secondary: color === 'secondary',
-      'secondary-light': color === 'secondary-light',
       gray: color === 'gray',
       disabled: color === 'disabled',
 

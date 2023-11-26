@@ -68,6 +68,7 @@
 
         <div class="group/heart md:order-3">
           <IconButton
+            variant="translucent"
             color="secondary"
             @click.prevent="store.handleJobFavorite(item.id)"
           >

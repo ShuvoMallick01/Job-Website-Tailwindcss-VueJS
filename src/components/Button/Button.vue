@@ -8,12 +8,11 @@
     :class="{
       filled: variant === 'filled',
       outline: variant === 'outline',
+      translucent: variant === 'translucent',
       'text-only': variant === 'text',
 
       primary: color === 'primary',
       secondary: color === 'secondary',
-      'primary-light': color === 'primary-light',
-      'secondary-light': color === 'secondary-light',
       disabled: color === 'disabled',
 
       'shape-pill': shape === 'pill',

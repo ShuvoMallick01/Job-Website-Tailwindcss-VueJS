@@ -14,7 +14,8 @@
         </div>
 
         <IconButton
-          color="secondary-light"
+          variant="translucent"
+          color="secondary"
           target="_blank"
           @click="editEducation"
         >
@@ -22,7 +23,8 @@
         </IconButton>
 
         <IconButton
-          color="secondary-light"
+          variant="translucent"
+          color="secondary"
           target="_blank"
           @click="editEducation"
         >

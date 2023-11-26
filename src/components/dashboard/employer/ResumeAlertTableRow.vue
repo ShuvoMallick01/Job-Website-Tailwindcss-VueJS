@@ -31,10 +31,10 @@
     <td class="px-6 py-4">{{ job.createdAt }}</td>
 
     <td class="px-6 py-4 flex gap-1">
-      <IconButton name="icon" color="secondary-light">
+      <IconButton variant="translucent" name="icon" color="secondary">
         <i class="icon-eye-on"></i
       ></IconButton>
-      <IconButton name="icon" color="secondary-light">
+      <IconButton variant="translucent" name="icon" color="secondary">
         <i class="icon-trash"></i
       ></IconButton>
     </td>

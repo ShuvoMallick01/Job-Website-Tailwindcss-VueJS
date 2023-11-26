@@ -29,11 +29,11 @@
     <td class="px-6 py-4">{{ item.createdAt }}</td>
 
     <td class="px-6 py-4 flex gap-1 items-center h-full my-3">
-      <IconButton color="secondary-light">
+      <IconButton variant="translucent" color="secondary">
         <i class="icon-trash"></i
       ></IconButton>
 
-      <IconButton color="secondary-light">
+      <IconButton variant="translucent" color="secondary">
         <i class="icon-eye-on"></i
       ></IconButton>
     </td>

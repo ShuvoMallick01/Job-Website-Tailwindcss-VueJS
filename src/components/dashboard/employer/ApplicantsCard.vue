@@ -40,7 +40,11 @@
     </div>
 
     <div class="flex gap-2">
-      <IconButton v-for="icon in actions" color="secondary-light">
+      <IconButton
+        v-for="icon in actions"
+        variant="translucent"
+        color="secondary"
+      >
         <i :class="icon"></i>
       </IconButton>
     </div>

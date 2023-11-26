@@ -49,6 +49,7 @@
   </div>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
 import { ref } from "vue";
 import { useJobsStore } from "../../stores/jobStore";
@@ -58,14 +59,11 @@ import FormSelect from "../../components/form/FormSelect.vue";
 import Badge from "../../components/Badge/Badge.vue";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 
-// State
 const jobStore = useJobsStore();
 const jobseekerStore = useJobseekersStore();
 const selectedJob = jobStore.jobList[0];
 const filterApplicantsByJob = jobseekerStore.jobseekersList[0];
 const filterResumeByJobseId = jobseekerStore.resumeList[0];
-
-console.log(filterApplicantsByJob);
 
 const formSelectList = ref([
   [

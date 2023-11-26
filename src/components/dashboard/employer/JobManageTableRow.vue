@@ -19,13 +19,13 @@
     <td class="px-6 py-4">{{ item.isActice ? "Active" : "Deactive" }}</td>
 
     <td class="px-6 py-4 flex gap-1">
-      <IconButton name="icon" color="secondary-light">
+      <IconButton variant="translucent" name="icon" color="secondary">
         <i class="icon-eye-on"></i
       ></IconButton>
-      <IconButton name="icon" color="secondary-light">
+      <IconButton variant="translucent" name="icon" color="secondary">
         <i class="icon-edit"></i
       ></IconButton>
-      <IconButton name="icon" color="secondary-light">
+      <IconButton variant="translucent" name="icon" color="secondary">
         <i class="icon-trash"></i
       ></IconButton>
     </td>
