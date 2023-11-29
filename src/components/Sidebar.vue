@@ -1,9 +1,7 @@
 <template>
-  <div
-    class="h-full px-8 py-6 overflow-y-auto 0 bg-white border rounded-lg dark:border-slate-700 dark:bg-gray-900"
-  >
+  <div :class="wrapperClass">
     <!-- Job Type -->
-    <div class="">
+    <div>
       <div class="space-y-2 border-b mb-5 pb-5">
         <h3 class="mb-3">Job Type</h3>
 
@@ -106,6 +104,8 @@ import { useJobsStore } from "../stores/jobStore";
 import CheckToggle from "../components/form/CheckToggle.vue";
 import Checkbox from "../components/form/Checkbox.vue";
 import FormSelect from "../components/form/FormSelect.vue";
+
+defineProps(["wrapperClass"]);
 
 // STATE
 const store = useJobsStore();
