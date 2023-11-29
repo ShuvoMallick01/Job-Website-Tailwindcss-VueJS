@@ -3,9 +3,7 @@
     class="bg-[#F6EBE6] dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600"
     ref="closeNavbar"
   >
-    <div
-      class="myContainer mx-auto flex flex-wrap items-center justify-between p-4"
-    >
+    <div class="myContainer mx-auto flex items-center justify-between p-4">
       <Image
         v-if="isDark"
         src="../../src/assets/images/logo-skyber-white.svg"
@@ -13,16 +11,17 @@
         alt="Skyber Logo"
         href="/"
       />
+
       <Image
         v-else
         src="../../src/assets/images/logo-skyber.svg"
-        class="h-8 mr-3"
+        class="h-8 mr-3 shrink-0"
         alt="Skyber Logo"
         href="/"
       />
 
       <div class="flex md:order-2 md:gap-2 gap-1 items-center">
-        <IconButton @click="toggleDark()" wrapperClasses="mx-5" color="primary">
+        <IconButton @click="toggleDark()" wrapperClasses="mx-2" color="primary">
           <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
           <i v-if="isDark" class="fa-regular fa-sun"></i>
           <i v-else class="fa-solid fa-moon"></i>
@@ -71,16 +70,16 @@
       <div
         ref="target"
         :class="navHidden ? 'hidden' : ''"
-        class="items-center justify-between w-full md:flex md:w-auto md:order-1"
+        class="items-center justify-between w-full md:flex md:w-auto md:order-1 mx-3"
         id="navbar-sticky"
       >
         <ul
-          class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-4 lg-space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
         >
           <li v-for="menuItem in menu" :key="menuItem">
             <router-link
               :to="menuItem.path"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondaryDark md:p-0 md:dark:hover:text-secondary dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="block py-2 pl-3 whitespace-nowrap pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondaryDark md:p-0 md:dark:hover:text-secondary dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               :class="
                 activeNav === menuItem.path ? 'text text-secondaryDark' : ''
               "
