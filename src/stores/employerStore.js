@@ -5,12 +5,13 @@ import { useJobsStore } from "./jobStore";
 export const useEmployesStore = defineStore("employes", () => {
   // State
   const jobStore = useJobsStore();
-  const companyProfile = ref([
+  const companyProfileList = ref([
     {
       id: 1,
       employerId: 1,
       companyName: "Bit Skyber",
       email: "bitskyber@gmail.com",
+      password: "employer",
       phone: 880123456789,
       website: "www.bitskyber.com",
       estSince: 2010,
@@ -28,6 +29,7 @@ export const useEmployesStore = defineStore("employes", () => {
       employerId: 1,
       companyName: "Bit Skyber",
       email: "bitskyber@gmail.com",
+      password: "employer",
       phone: "+880123456789",
       website: "www.bitskyber.com",
       estSince: 2010,
@@ -53,8 +55,7 @@ export const useEmployesStore = defineStore("employes", () => {
         return;
       }
       return employerJobs;
-    }
-    {
+    } else {
       console.log("Not Found any employerId");
     }
 
@@ -69,5 +70,5 @@ export const useEmployesStore = defineStore("employes", () => {
     // }
   };
 
-  return { companyProfile, handleEmployerJobs };
+  return { companyProfileList, handleEmployerJobs };
 });

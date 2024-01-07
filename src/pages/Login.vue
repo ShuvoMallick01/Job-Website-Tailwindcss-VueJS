@@ -48,8 +48,9 @@
       </div>
 
       <!-- Form -->
-      <form class="space-y-6">
+      <form @submit.prevent="handleSubmit()" class="space-y-6">
         <FormSelect
+          v-model="role"
           labelName="Role"
           required
           id="Role"
@@ -57,6 +58,7 @@
         />
 
         <FormInput
+          v-model="email"
           labelName="Email:"
           required
           id="email"
@@ -66,6 +68,7 @@
 
         <div class="relative">
           <FormInput
+            v-model="password"
             labelName="Password:"
             type="password"
             id="password"
@@ -90,11 +93,26 @@
 <!-- SCRIPT -->
 <script setup>
 import { ref } from "vue";
+import { useJobseekersStore } from "../stores/jobseekerStore";
+import { useEmployesStore } from "../stores/employerStore";
+import { useAuthsStore } from "../stores/authStore";
+import { useRouter } from "vue-router";
 import FormSelect from "../components/form/FormSelect.vue";
 import FormInput from "../components/form/FormInput.vue";
 import Button from "../components/Button/Button.vue";
 import Link from "../components/Link.vue";
+import { useToast } from "vue-toastification";
 
+const jobseekerStore = useJobseekersStore();
+const employeeStore = useEmployesStore();
+const authStore = useAuthsStore();
+const router = useRouter();
+const toast = useToast();
+
+// STATE
+const role = ref("");
+const email = ref("");
+const password = ref("");
 const roleSelect = ref([
   { title: "Select your Role", value: "" },
   { title: "Job Seeker", value: "jobseeeker" },
@@ -102,6 +120,50 @@ const roleSelect = ref([
 ]);
 
 // METHODS
+const handleSubmit = async () => {
+  const data = {
+    role: role.value,
+    email: email.value,
+    password: password.value,
+  };
+  console.log(data);
+
+  try {
+    if (role.value === "jobseeeker") {
+      const findUser = jobseekerStore.jobseekersList.find(
+        (item) => item.email === data.email
+      );
+
+      if (findUser) {
+        await authStore.userLogin(data);
+        toast.success("Successfully Login!");
+        router.replace("/");
+      } else {
+        // window.alert("User Not Found");
+        toast.alert("User Not Found");
+      }
+    } else if (role.value === "employer") {
+      const findUser = employeeStore.companyProfileList.find(
+        (item) => item.email === data.email
+      );
+
+      if (findUser) {
+        await authStore.userLogin(data);
+        toast.success("Successfully Login!");
+        router.replace("/");
+      } else {
+        toast.alert("User Not Found");
+      }
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  role.value = "";
+  email.value = "";
+  password.value = "";
+};
+
 const signInGoogle = () => {
   window.open("https://accounts.google.com/", "_blank");
 };

@@ -48,8 +48,9 @@
       </div>
 
       <!-- Form -->
-      <form class="space-y-6">
+      <form @submit.prevent="handleSubmit()" class="space-y-6">
         <FormSelect
+          v-model="formData.role"
           labelName="Role"
           id="Role"
           :optionList="roleSelect"
@@ -57,6 +58,7 @@
         />
 
         <FormInput
+          v-model="formData.name"
           labelName="Name:"
           required
           id="name"
@@ -65,6 +67,7 @@
         />
 
         <FormInput
+          v-model="formData.email"
           labelName="Email:"
           required
           id="email"
@@ -73,10 +76,20 @@
         />
 
         <FormInput
+          v-model="formData.password"
           labelName="Password:"
           type="password"
           id="password"
           placeholder="Password (min. 6 characters)"
+          required
+        />
+
+        <FormInput
+          v-model="formData.confirmPassword"
+          labelName="Confirm Password:"
+          type="password"
+          id="confirmPassword"
+          placeholder="Confirm Password (min. 6 characters)"
           required
         />
 
@@ -88,13 +101,31 @@
 
 <!-- SCRIPT -->
 <script setup>
-import { ref } from "vue";
+import { ref, computed, reactive } from "vue";
+import { useAuthsStore } from "../stores/authStore";
+import { useRoute, useRouter } from "vue-router";
 import FormSelect from "../components/form/FormSelect.vue";
 import FormInput from "../components/form/FormInput.vue";
 import Button from "../components/Button/Button.vue";
 import Link from "../components/Link.vue";
 
+const store = useAuthsStore();
+const { userRegistration } = store;
+const router = useRouter();
+
 // STATE
+const formData = reactive({
+  role: "",
+  name: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+});
+// const role = ref("");
+// const name = ref("");
+// const email = ref("");
+// const password = ref("");
+// const confirmPassword = ref("");
 const roleSelect = ref([
   { title: "Select your Role", value: "" },
   { title: "Job Seeker", value: "jobseeeker" },
@@ -102,6 +133,52 @@ const roleSelect = ref([
 ]);
 
 // METHODS
+const handleSubmit = async () => {
+  if (formData.password !== formData.confirmPassword) {
+    alert("Not Match the Password");
+    return;
+  }
+  // console.log(formData);
+  try {
+    if (formData.role === "jobseeeker") {
+      await store.jobseekerRegistration(formData);
+    } else if (role.value === "employer") {
+      await store.employerRegistration(formData);
+    }
+    // window.alert("Registration Successfully Completed");
+    router.replace("/login");
+  } catch (e) {
+    console.log("Someting is Wrong..");
+  }
+};
+
+// const handleSubmit = async () => {
+//   if (password.value !== confirmPassword.value) {
+//     alert("Not Match the Password");
+//     return;
+//   }
+
+//   try {
+//     if (role.value === "jobseeeker") {
+//       await store.jobseekerRegistration({
+//         name: name.value,
+//         email: email.value,
+//         password: password.value,
+//       });
+//     } else if (role.value === "employer") {
+//       await store.employerRegistration({
+//         name: name.value,
+//         email: email.value,
+//         password: password.value,
+//       });
+//     }
+//     // window.alert("Registration Successfully Completed");
+//     router.replace("/login");
+//   } catch (e) {
+//     console.log("Someting is Wrong..");
+//   }
+// };
+
 const signInGoogle = () => {
   window.open("https://accounts.google.com/", "_blank");
 };

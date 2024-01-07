@@ -143,7 +143,7 @@ import Textarea from "../../components/form/Textarea.vue";
 
 // State
 const employerStore = useEmployesStore();
-const companyProfile = employerStore.companyProfile[0];
+const companyProfile = employerStore.companyProfileList[0];
 
 const formInputList = ref([
   {

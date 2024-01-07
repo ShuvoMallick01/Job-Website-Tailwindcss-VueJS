@@ -7,7 +7,7 @@
       <Image
         v-if="isDark"
         src="../../src/assets/images/logo-skyber-white.svg"
-        class="h-8 mr-3"
+        class="h-8 mr-3 shrink-1"
         alt="Skyber Logo"
         href="/"
       />
@@ -15,7 +15,7 @@
       <Image
         v-else
         src="../../src/assets/images/logo-skyber.svg"
-        class="h-8 mr-3 shrink-0"
+        class="h-8 mr-3 shrink-1"
         alt="Skyber Logo"
         href="/"
       />
@@ -70,13 +70,13 @@
       <div
         ref="target"
         :class="navHidden ? 'hidden' : ''"
-        class="items-center justify-between w-full md:flex md:w-auto md:order-1 mx-3"
+        class="items-center justify-between w-full absolute md:relative top-14 md:top-0 md:flex md:w-auto md:order-1 mx-3"
         id="navbar-sticky"
       >
         <ul
-          class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-4 lg-space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row sm:space-x-2 md:space-x-4 lg:space-x-6 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
         >
-          <li v-for="menuItem in menu" :key="menuItem">
+          <li v-for="menuItem in menu" :key="menuItem" class="">
             <router-link
               :to="menuItem.path"
               class="block py-2 pl-3 whitespace-nowrap pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondaryDark md:p-0 md:dark:hover:text-secondary dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
@@ -117,16 +117,15 @@ const menu = ref([
     path: "/",
     private: false,
   },
-
   {
     title: "Job Seekers",
     path: "/jobseeker-profile",
-    private: false,
+    private: true,
   },
   {
     title: "Employers",
     path: "/employer-profile",
-    private: false,
+    private: true,
   },
   {
     title: "Contact",

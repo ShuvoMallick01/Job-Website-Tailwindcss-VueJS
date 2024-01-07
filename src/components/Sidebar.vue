@@ -56,7 +56,7 @@
       <div class="form-check">
         <!-- <FormCheck title="Off" v-model="store.filterJobList.remoteOnly" /> -->
         <CheckToggle
-          :title="remoteStatus ? 'Yes' : 'No'"
+          :title="store.filterJobList.isRemote ? 'Yes' : 'No'"
           v-model="store.filterJobList.isRemote"
         />
       </div>
@@ -99,7 +99,7 @@
 
 <!-- FUNCTIONALITY -->
 <script setup>
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import { useJobsStore } from "../stores/jobStore";
 import CheckToggle from "../components/form/CheckToggle.vue";
 import Checkbox from "../components/form/Checkbox.vue";
@@ -109,7 +109,6 @@ defineProps(["wrapperClass"]);
 
 // STATE
 const store = useJobsStore();
-const remoteStatus = ref(false);
 
 const jobTypeCheckList = ref([
   { id: 1, title: "Full-time", value: "full-time" },
