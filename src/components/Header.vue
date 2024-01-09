@@ -27,7 +27,7 @@
           <i v-else class="fa-solid fa-moon"></i>
         </IconButton>
 
-        <div class="flex gap-2">
+        <div v-if="!authsStore.isAuthenticated" class="flex gap-2">
           <Button
             title="Sign In"
             variant="outline"
@@ -40,6 +40,15 @@
             variant="filled"
             size="medium"
             href="/registration"
+          />
+        </div>
+
+        <div v-else class="flex gap-2">
+          <Button
+            @click="logout()"
+            title="Logout"
+            variant="filled"
+            size="medium"
           />
         </div>
 
@@ -76,7 +85,7 @@
         <ul
           class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row sm:space-x-2 md:space-x-4 lg:space-x-6 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
         >
-          <li v-for="menuItem in menu" :key="menuItem" class="">
+          <li v-for="menuItem in filterMenu" :key="menuItem" class="">
             <router-link
               :to="menuItem.path"
               class="block py-2 pl-3 whitespace-nowrap pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondaryDark md:p-0 md:dark:hover:text-secondary dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
@@ -95,7 +104,7 @@
 
 <!-- SCRIPT -->
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, reactive } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { initCollapses, initFlowbite } from "flowbite";
 import {
@@ -104,11 +113,13 @@ import {
   useElementHover,
   onClickOutside,
 } from "@vueuse/core";
-
 import Image from "./Image.vue";
 import Button from "./Button/Button.vue";
 import IconButton from "./Button/IconButton.vue";
+import { useAuthsStore } from "../stores/authStore";
 
+const authsStore = useAuthsStore();
+// console.log(authsStore.isAuthenticated);
 // STATE
 const route = useRoute();
 const menu = ref([
@@ -128,6 +139,11 @@ const menu = ref([
     private: true,
   },
   {
+    title: "About",
+    path: "/contact",
+    private: false,
+  },
+  {
     title: "Contact",
     path: "/contact",
     private: false,
@@ -143,6 +159,18 @@ const target = ref(null);
 const activeNav = computed(() => {
   return route.path;
 });
+
+const filterMenu = computed(() => {
+  if (authsStore.isAuthenticated) {
+    return menu.value;
+  } else {
+    return menu.value.filter((item) => !item.private);
+  }
+});
+
+const logout = () => {
+  return authsStore.handleLogout();
+};
 
 onClickOutside(target, (event) => {
   navHidden.value = true;

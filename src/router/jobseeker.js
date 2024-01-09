@@ -13,6 +13,7 @@ export const jobseekerRoutes = [
     path: "/jobseeker-profile",
     component: JobseekerProfile,
     name: "JobseekerProfile",
+    meta: { requireAuth: true },
     children: [
       {
         path: "profile",

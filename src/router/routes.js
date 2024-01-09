@@ -8,9 +8,9 @@ import Registration from "../pages/Registration.vue";
 import JobApplyForm from "../pages/JobApplyForm.vue";
 import NotFound from "../pages/NotFound.vue";
 import Contact from "../pages/Contact.vue";
-
 import { jobseekerRoutes } from "./jobseeker";
 import { employerRoutes } from "./employer";
+import { useAuthsStore } from "../stores/AuthStore";
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -41,15 +41,24 @@ export const router = createRouter({
       path: "/login",
       component: Login,
       name: "login",
+      meta: { guest: true },
     },
     {
       path: "/registration",
       component: Registration,
       name: "registration",
+      meta: { guest: true },
     },
     ...jobseekerRoutes,
     ...employerRoutes,
 
     { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFound },
   ],
+});
+
+router.beforeEach((to, from) => {
+  const { isAuthenticated } = useAuthsStore();
+
+  if (to.meta.requireAuth && !isAuthenticated) return "/login";
+  else if (to.meta.guest && isAuthenticated) return "/";
 });

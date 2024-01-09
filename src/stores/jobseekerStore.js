@@ -8,6 +8,7 @@ export const useJobseekersStore = defineStore("jobseekers", () => {
   const jobseekersList = ref([
     {
       id: 1,
+      jobseekerId: 1,
       role: "jobseeker",
       name: "Shuvo Mallick",
       image: "../../src/assets/images/user-profile-pic-1.jpg",
@@ -27,6 +28,7 @@ export const useJobseekersStore = defineStore("jobseekers", () => {
     },
     {
       id: 2,
+      jobseekerId: 2,
       role: "jobseeker",
       name: "Nabed Khan",
       image: "../../src/assets/images/user-profile-pic-2.jpg",
@@ -46,6 +48,7 @@ export const useJobseekersStore = defineStore("jobseekers", () => {
     },
     {
       id: 3,
+      jobseekerId: 3,
       role: "jobseeker",
       name: "Nabed Khan",
       image: "../../src/assets/images/user-profile-pic-2.jpg",

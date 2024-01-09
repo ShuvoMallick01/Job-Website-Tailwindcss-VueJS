@@ -26,7 +26,7 @@ export const useEmployesStore = defineStore("employes", () => {
     },
     {
       id: 2,
-      employerId: 1,
+      employerId: 2,
       companyName: "Bit Skyber",
       email: "bitskyber@gmail.com",
       password: "employer",

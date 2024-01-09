@@ -121,11 +121,7 @@ const formData = reactive({
   password: "",
   confirmPassword: "",
 });
-// const role = ref("");
-// const name = ref("");
-// const email = ref("");
-// const password = ref("");
-// const confirmPassword = ref("");
+
 const roleSelect = ref([
   { title: "Select your Role", value: "" },
   { title: "Job Seeker", value: "jobseeeker" },
@@ -133,17 +129,20 @@ const roleSelect = ref([
 ]);
 
 // METHODS
-const handleSubmit = async () => {
+const handleSubmit = () => {
   if (formData.password !== formData.confirmPassword) {
     alert("Not Match the Password");
     return;
   }
   // console.log(formData);
+  const userData = { ...formData };
+  delete userData.confirmPassword;
+
   try {
     if (formData.role === "jobseeeker") {
-      await store.jobseekerRegistration(formData);
+      store.jobseekerRegistration(userData);
     } else if (role.value === "employer") {
-      await store.employerRegistration(formData);
+      store.employerRegistration(userData);
     }
     // window.alert("Registration Successfully Completed");
     router.replace("/login");
@@ -151,33 +150,6 @@ const handleSubmit = async () => {
     console.log("Someting is Wrong..");
   }
 };
-
-// const handleSubmit = async () => {
-//   if (password.value !== confirmPassword.value) {
-//     alert("Not Match the Password");
-//     return;
-//   }
-
-//   try {
-//     if (role.value === "jobseeeker") {
-//       await store.jobseekerRegistration({
-//         name: name.value,
-//         email: email.value,
-//         password: password.value,
-//       });
-//     } else if (role.value === "employer") {
-//       await store.employerRegistration({
-//         name: name.value,
-//         email: email.value,
-//         password: password.value,
-//       });
-//     }
-//     // window.alert("Registration Successfully Completed");
-//     router.replace("/login");
-//   } catch (e) {
-//     console.log("Someting is Wrong..");
-//   }
-// };
 
 const signInGoogle = () => {
   window.open("https://accounts.google.com/", "_blank");

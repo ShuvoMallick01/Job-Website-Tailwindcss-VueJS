@@ -50,7 +50,7 @@
       <!-- Form -->
       <form @submit.prevent="handleSubmit()" class="space-y-6">
         <FormSelect
-          v-model="role"
+          v-model="formData.role"
           labelName="Role"
           required
           id="Role"
@@ -58,7 +58,7 @@
         />
 
         <FormInput
-          v-model="email"
+          v-model="formData.email"
           labelName="Email:"
           required
           id="email"
@@ -68,7 +68,7 @@
 
         <div class="relative">
           <FormInput
-            v-model="password"
+            v-model="formData.password"
             labelName="Password:"
             type="password"
             id="password"
@@ -110,9 +110,11 @@ const router = useRouter();
 const toast = useToast();
 
 // STATE
-const role = ref("");
-const email = ref("");
-const password = ref("");
+const formData = ref({
+  role: "",
+  email: "",
+  password: "",
+});
 const roleSelect = ref([
   { title: "Select your Role", value: "" },
   { title: "Job Seeker", value: "jobseeeker" },
@@ -121,48 +123,56 @@ const roleSelect = ref([
 
 // METHODS
 const handleSubmit = async () => {
-  const data = {
-    role: role.value,
-    email: email.value,
-    password: password.value,
-  };
-  console.log(data);
-
   try {
-    if (role.value === "jobseeeker") {
-      const findUser = jobseekerStore.jobseekersList.find(
-        (item) => item.email === data.email
-      );
-
-      if (findUser) {
-        await authStore.userLogin(data);
-        toast.success("Successfully Login!");
-        router.replace("/");
-      } else {
-        // window.alert("User Not Found");
-        toast.alert("User Not Found");
-      }
-    } else if (role.value === "employer") {
-      const findUser = employeeStore.companyProfileList.find(
-        (item) => item.email === data.email
-      );
-
-      if (findUser) {
-        await authStore.userLogin(data);
-        toast.success("Successfully Login!");
-        router.replace("/");
-      } else {
-        toast.alert("User Not Found");
-      }
-    }
+    await authStore.userLogin(formData.value);
+    toast.success("Successfully Login!");
+    router.replace("/");
   } catch (error) {
-    console.log(error);
+    toast.error("User Not Found");
+    // console.log("User Not Found");
   }
 
-  role.value = "";
-  email.value = "";
-  password.value = "";
+  formData.value.role = "";
+  formData.value.email = "";
+  formData.value.password = "";
 };
+
+// const handleSubmit = async () => {
+//   try {
+//     if (role.value === "jobseeeker") {
+//       const findUser = jobseekerStore.jobseekersList.find(
+//         (item) => item.email === formData.value.email
+//       );
+
+//       if (findUser) {
+//         await authStore.userLogin(formData);
+//         toast.success("Successfully Login!");
+//         router.replace("/");
+//       } else {
+//         // window.alert("User Not Found");
+//         toast.alert("User Not Found");
+//       }
+//     } else if (role.value === "employer") {
+//       const findUser = employeeStore.companyProfileList.find(
+//         (item) => item.email === formData.value.email
+//       );
+
+//       if (findUser) {
+//         await authStore.userLogin(formData);
+//         toast.success("Successfully Login!");
+//         router.replace("/");
+//       } else {
+//         toast.alert("User Not Found");
+//       }
+//     }
+//   } catch (error) {
+//     console.log("Someting is Wrong..");
+//   }
+
+//   formData.value.role = "";
+//   formData.value.email = "";
+//   formData.value.password = "";
+// };
 
 const signInGoogle = () => {
   window.open("https://accounts.google.com/", "_blank");

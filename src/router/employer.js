@@ -14,6 +14,7 @@ export const employerRoutes = [
     path: "/employer-profile",
     component: EmployerProfile,
     name: "employerProfile",
+    meta: { requireAuth: true },
     children: [
       {
         path: "profile",
