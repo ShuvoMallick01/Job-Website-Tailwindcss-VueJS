@@ -80,11 +80,9 @@ const userNavList = ref([
 
 // Computed Function
 const getLoginUserData = computed(() => {
-  const userState = authStore.userState.user;
-  const findUserInfo = jobseekerStore.jobseekersList.find(
-    (item) => item.jobseekerId === userState.id
+  return jobseekerStore.jobseekersList.find(
+    (item) => item.jobseekerId === authStore.userState.user.id
   );
-  return findUserInfo;
 });
 
 // console.log(getLoginUserData.value);

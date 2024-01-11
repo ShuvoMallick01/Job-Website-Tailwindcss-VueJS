@@ -13,21 +13,11 @@
           </p>
         </div>
 
-        <IconButton
-          variant="translucent"
-          color="secondary"
-          target="_blank"
-          @click="editEducation"
-        >
+        <IconButton variant="translucent" color="secondary" target="_blank">
           <i class="icon-edit"></i>
         </IconButton>
 
-        <IconButton
-          variant="translucent"
-          color="secondary"
-          target="_blank"
-          @click="editEducation"
-        >
+        <IconButton variant="translucent" color="secondary" target="_blank">
           <i class="icon-trash"></i>
         </IconButton>
       </div>

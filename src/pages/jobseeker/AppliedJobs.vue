@@ -3,7 +3,7 @@
   <SubSectionHeading headingName="Apllied JOBS" />
 
   <!-- Card -->
-  <JobPostCard :jobList="filterAppliedJobs" />
+  <JobPostCard :jobList="jobStore.handleFilterAppliedJobsByUser" />
 </template>
 
 <script setup>
@@ -14,5 +14,5 @@ import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue"
 
 // State
 const jobStore = useJobseekersStore();
-const filterAppliedJobs = jobStore.handleFilterAppliedJobs(1);
+// const filterAppliedJobs = jobStore.handleFilterAppliedJobs(1);
 </script>
