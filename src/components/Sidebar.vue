@@ -105,6 +105,7 @@ import CheckToggle from "../components/form/CheckToggle.vue";
 import Checkbox from "../components/form/Checkbox.vue";
 import FormSelect from "../components/form/FormSelect.vue";
 
+// PROPS
 defineProps(["wrapperClass"]);
 
 // STATE

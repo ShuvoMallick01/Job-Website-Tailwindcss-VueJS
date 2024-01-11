@@ -54,8 +54,8 @@
           title="Apply Now"
           color="secondary"
           name="jobApplyButton"
-          wrapperClasses="group/apply relative pe-8 invisible group-hover/item:visible transition300 relative order-2 md:order-1"
-          @click.prevent="store.handleJobApplyByUser(item.id)"
+          wrapperClasses="group/apply relative pe-8  group-hover/item:visible transition300 relative "
+          @click.prevent="jobsStore.handleJobApplyByUser(job.id)"
         >
           <template #suffix>
             <span
@@ -67,7 +67,7 @@
         </Button>
 
         <Badge
-          v-else
+          v-else-if="job.jobApplyStatus"
           title="Applied"
           variant="text"
           size="text-medium"
@@ -88,7 +88,7 @@
 
 <!-- SCRIPT -->
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, reactive } from "vue";
 import { useJobsStore } from "../../stores/jobStore";
 import { useRoute } from "vue-router";
 import IconText from "../../components/IconText.vue";
@@ -98,15 +98,15 @@ import Badge from "../../components/Badge/Badge.vue";
 
 // STATE
 const route = useRoute();
-const store = useJobsStore();
+const jobsStore = useJobsStore();
 const id = route.params.id;
 let job = ref({});
 
 // METHODS
 onMounted(() => {
-  let newJob = store.jobList[+id - 1];
-  job.value = newJob;
-  console.log(job.value);
+  job.value = jobsStore.jobList[+id - 1];
+  // job = newJob;
+  // console.log(job.value);
 });
 
 const visitWebsite = () => {

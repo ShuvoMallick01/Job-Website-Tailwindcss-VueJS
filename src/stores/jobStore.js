@@ -170,6 +170,7 @@ export const useJobsStore = defineStore("jobs", () => {
 
   // Apply Jobs
   const handleJobApplyByUser = (jobId) => {
+    console.log(jobId);
     jobList.value = jobList.value.map((job) =>
       job.id === jobId
         ? {
@@ -178,6 +179,9 @@ export const useJobsStore = defineStore("jobs", () => {
           }
         : job
     );
+    console.log(jobList.value[jobId].jobApplyStatus);
+    console.log(jobList.value[jobId]);
+    // return jobList;
 
     // console.log(jobList.value[jobId - 1].jobApplyStatus);
   };

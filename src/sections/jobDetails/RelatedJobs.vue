@@ -28,6 +28,6 @@ let job = ref({});
 onMounted(() => {
   let newJob = store.jobList[+id - 1];
   job.value = newJob;
-  console.log(job.value);
+  // console.log(job.value);
 });
 </script>

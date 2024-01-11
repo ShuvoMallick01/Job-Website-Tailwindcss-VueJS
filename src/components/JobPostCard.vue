@@ -51,7 +51,7 @@
         </Button>
 
         <Badge
-          v-else
+          v-else-if="item.jobApplyStatus"
           title="Applied"
           variant="text"
           size="text-medium"
