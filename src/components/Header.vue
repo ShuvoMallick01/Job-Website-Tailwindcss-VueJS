@@ -175,8 +175,13 @@ const filterMenu = computed(() => {
     authsStore.userState.user.role === "jobseeker"
   ) {
     return menu.value.filter((item) => item.jobseeker);
-  } else {
+  } else if (
+    authsStore.isAuthenticated &&
+    authsStore.userState.user.role === "employer"
+  ) {
     return menu.value.filter((item) => item.employer);
+  } else {
+    return menu.value.filter((item) => !item.private);
   }
 });
 
