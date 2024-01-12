@@ -2,7 +2,7 @@
   <LayoutDashboard
     :pageTitle="'EMPLOYER PROFILE'"
     :navList="userNavList"
-    :userInfo="adminInfo"
+    :userInfo="getUserData"
     :activeNav="activeNav"
   >
     <!-- RIGHT -->
@@ -15,8 +15,12 @@
 import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 import LayoutDashboard from "../../components/layout/LayoutDashboard.vue";
+import { useAuthsStore } from "../../stores/authStore";
+import { useEmployesStore } from "../../stores/employerStore";
 
 // State
+const employesStore = useEmployesStore();
+const authStore = useAuthsStore();
 const route = useRoute();
 const userNavList = ref([
   {
@@ -68,25 +72,17 @@ const userNavList = ref([
     id: 8,
   },
   {
-    title: "Logout",
-    icon: "icon-logout ",
-    path: "",
-    id: 9,
-  },
-  {
     title: "Delete Profile",
     icon: "icon-trash ",
     path: "",
-    id: 10,
+    id: 9,
   },
 ]);
 
-const adminInfo = ref({
-  id: 1,
-  name: "Nabed Khan",
-  designation: "Administrator",
-  role: "user",
-  image: "../src/assets/images/user-profile-pic-2.jpg",
+const getUserData = computed(() => {
+  return employesStore.companyProfileList.find(
+    (item) => item.employerId === authStore.userState.user.id
+  );
 });
 
 // Computed Function

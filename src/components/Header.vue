@@ -118,35 +118,44 @@ import Button from "./Button/Button.vue";
 import IconButton from "./Button/IconButton.vue";
 import { useAuthsStore } from "../stores/authStore";
 
-const authsStore = useAuthsStore();
-// console.log(authsStore.isAuthenticated);
 // STATE
+const authsStore = useAuthsStore();
 const route = useRoute();
 const menu = ref([
   {
     title: "Home",
     path: "/",
     private: false,
+    jobseeker: true,
+    employer: true,
   },
   {
     title: "Job Seekers",
     path: "/jobseeker-profile",
     private: true,
+    jobseeker: true,
+    employer: false,
   },
   {
     title: "Employers",
     path: "/employer-profile",
     private: true,
+    jobseeker: false,
+    employer: true,
   },
   {
     title: "About",
     path: "/contact",
     private: false,
+    jobseeker: false,
+    employer: false,
   },
   {
     title: "Contact",
     path: "/contact",
     private: false,
+    jobseeker: true,
+    employer: true,
   },
 ]);
 const isDark = useDark();
@@ -161,10 +170,13 @@ const activeNav = computed(() => {
 });
 
 const filterMenu = computed(() => {
-  if (authsStore.isAuthenticated) {
-    return menu.value;
+  if (
+    authsStore.isAuthenticated &&
+    authsStore.userState.user.role === "jobseeker"
+  ) {
+    return menu.value.filter((item) => item.jobseeker);
   } else {
-    return menu.value.filter((item) => !item.private);
+    return menu.value.filter((item) => item.employer);
   }
 });
 
