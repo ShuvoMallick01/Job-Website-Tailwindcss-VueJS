@@ -36,6 +36,15 @@
               ? 'bg-slate-200/70 border-s-2 !border-s-primary dark:border-s-slate-400 dark:bg-gray-800'
               : ''
           "
+          @click="
+            () => {
+              if (nav.title == 'Delete Profile') {
+                return authStore.handleDeleteProfilebyUser();
+              } else {
+                console.log('Not Match');
+              }
+            }
+          "
         >
           <span v-if="nav.path">
             <router-link :to="nav.path" class="px-2 py-3 pe-80">
@@ -48,6 +57,7 @@
             <i class="me-2 self-baseline" :class="nav.icon"></i>{{ nav.title }}
           </a>
         </li>
+        <!-- v-if="@click="$emit('deleteProfile')" -->
       </ul>
     </div>
   </div>
@@ -55,7 +65,11 @@
 
 <!-- SCRIPT -->
 <script setup>
+import { useAuthsStore } from "../../stores/authStore";
 import Image from "../Image.vue";
+
+defineEmits(["deleteProfile"]);
+const authStore = useAuthsStore();
 
 defineProps({
   profileInfo: {

@@ -65,16 +65,10 @@ const userNavList = ref([
     id: 6,
   },
   {
-    title: "Logout",
-    icon: "icon-logout ",
-    path: "",
-    id: 7,
-  },
-  {
     title: "Delete Profile",
     icon: "icon-trash ",
     path: "",
-    id: 8,
+    id: 7,
   },
 ]);
 
@@ -84,8 +78,6 @@ const getLoginUserData = computed(() => {
     (item) => item.jobseekerId === authStore.userState.user.id
   );
 });
-
-// console.log(getLoginUserData.value);
 
 const activeNav = computed(() => {
   return route.path;

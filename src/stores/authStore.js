@@ -147,6 +147,46 @@ export const useAuthsStore = defineStore("auths", () => {
     router.push("/login");
   };
 
+  const handlePasswordChange = (data) => {
+    console.log(data);
+    if (userState.user.role === "jobseeker") {
+      const userData = jobseekerLoginData.value.find(
+        (item) => item.id === userState.user.id
+      );
+      console.log(userData);
+
+      if (userData.password === data.oldPassword) {
+        jobseekerLoginData.value = jobseekerLoginData.value.map((item) =>
+          item.id === userState.user.id
+            ? { ...item, password: data.newPassword }
+            : item
+        );
+        console.log("Password Update Successfully");
+
+        // console.log(jobseekerLoginData.value);
+      } else {
+        window.alert("Not Match Password");
+      }
+    }
+  };
+
+  const handleDeleteProfilebyUser = () => {
+    // console.log("Handle Delete Profile");
+    if (userState.user.role === "jobseeker") {
+      // console.log("Match");
+      jobseekerLoginData.value = jobseekerLoginData.value.filter(
+        (item) => item.id !== userState.user.id
+      );
+      handleLogout();
+    } else if (userState.user.role === "employer") {
+      // console.log("Match");
+      employerLoginData.value = employerLoginData.value.filter(
+        (item) => item.id !== userState.user.id
+      );
+      handleLogout();
+    }
+  };
+
   // RETURN
   return {
     userState,
@@ -157,5 +197,7 @@ export const useAuthsStore = defineStore("auths", () => {
     userLogin,
     isAuthenticated,
     handleLogout,
+    handlePasswordChange,
+    handleDeleteProfilebyUser,
   };
 });
