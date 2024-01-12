@@ -10,7 +10,7 @@
         type="text"
         required
         placeholder="Type your Full Name"
-        v-model="user.name"
+        v-model="getJobseekerData.name"
       />
 
       <FormInput
@@ -19,7 +19,7 @@
         type="text"
         required
         placeholder="Type your Profession"
-        v-model="user.profession"
+        v-model="getJobseekerData.profession"
       />
     </div>
 
@@ -31,7 +31,7 @@
         type="text"
         required
         placeholder="Type your Language"
-        v-model="user.language"
+        v-model="getJobseekerData.language"
       />
 
       <!-- Age -->
@@ -41,7 +41,7 @@
         type="number"
         required
         placeholder="Type your Age"
-        v-model="user.age"
+        v-model="getJobseekerData.age"
       />
     </div>
 
@@ -53,7 +53,7 @@
         type="number"
         required
         placeholder="Type your current salary"
-        v-model="user.currentSalary"
+        v-model="getJobseekerData.currentSalary"
       />
 
       <!-- Expected Salary -->
@@ -63,7 +63,7 @@
         type="number"
         :required="true"
         placeholder="Type your current salary"
-        v-model="user.expectedSalary"
+        v-model="getJobseekerData.expectedSalary"
       />
     </div>
 
@@ -75,7 +75,7 @@
       required
       rows="4"
       placeholder="Type your description"
-      v-model="user.description"
+      v-model="getJobseekerData.description"
     />
 
     <!-- Title -->
@@ -89,7 +89,7 @@
         type="number"
         :required="true"
         placeholder="Type your phone"
-        v-model="user.phone"
+        v-model="getJobseekerData.phone"
       />
       <!-- Email -->
       <FormInput
@@ -98,7 +98,7 @@
         type="email"
         :required="true"
         placeholder="Type your email"
-        v-model="user.phone"
+        v-model="getJobseekerData.phone"
       />
     </div>
 
@@ -110,7 +110,7 @@
         type="country"
         :required="true"
         placeholder="Type your country"
-        v-model="user.country"
+        v-model="getJobseekerData.country"
       />
 
       <!-- Full Address -->
@@ -120,7 +120,7 @@
         type="fulladdress"
         :required="true"
         placeholder="Type your Full Address"
-        v-model="user.fullAddress"
+        v-model="getJobseekerData.fullAddress"
       />
     </div>
 
@@ -129,14 +129,21 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
+import { useAuthsStore } from "../../stores/authStore";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 import Button from "../../components/Button/Button.vue";
 import FormInput from "../../components/form/FormInput.vue";
 import Textarea from "../../components/form/Textarea.vue";
 
 // STATE
-const store = useJobseekersStore();
-const user = store.jobseekersList[0];
+const jobseekersStore = useJobseekersStore();
+const authsStore = useAuthsStore();
+
+const getJobseekerData = computed(() => {
+  return jobseekersStore.jobseekersList.find(
+    (item) => item.jobseekerId === authsStore.userState.user.id
+  );
+});
 </script>

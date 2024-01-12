@@ -85,6 +85,8 @@ const getUserData = computed(() => {
   );
 });
 
+// console.log(getUserData.value);
+
 // Computed Function
 const activeNav = computed(() => {
   return route.path;

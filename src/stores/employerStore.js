@@ -9,8 +9,11 @@ export const useEmployesStore = defineStore("employes", () => {
     {
       id: 1,
       employerId: 1,
+      name: "Bit Skyber",
+      profession: "Company",
       companyName: "Bit Skyber",
       phone: 880123456789,
+      image: "../../src/assets/images/user-profile-pic-1.jpg",
       website: "www.bitskyber.com",
       estSince: 2010,
       teamSize: 20,
@@ -25,7 +28,10 @@ export const useEmployesStore = defineStore("employes", () => {
     {
       id: 2,
       employerId: 2,
+      name: "Bit Skyber",
+      profession: "Company",
       companyName: "Bit Skyber",
+      image: "../../src/assets/images/user-profile-pic-1.jpg",
       phone: "+880123456789",
       website: "www.bitskyber.com",
       estSince: 2010,
