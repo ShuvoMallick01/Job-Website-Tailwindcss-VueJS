@@ -4,7 +4,11 @@
 
   <!-- Table -->
   <Table :fieldList="fieldList">
-    <AlertTableRow v-for="item in jobList" :item="item" />
+    <AlertTableRow
+      v-for="item in jobseekerStore.handleAlertJobsByUser"
+      :item="item"
+      @deleteAlert="handleAlertDelete"
+    />
   </Table>
 </template>
 
@@ -12,11 +16,18 @@
 <script setup>
 import { ref, provide } from "vue";
 import { useJobsStore } from "../../stores/jobStore";
+import { useJobseekersStore } from "../../stores/jobseekerStore";
 import Table from "../../components/dashboard/Table.vue";
 import AlertTableRow from "../../components/dashboard/jobseeker/AlertTableRow.vue";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 
+// State
 const jobStore = useJobsStore();
+const jobseekerStore = useJobseekersStore();
 const jobList = jobStore.jobList;
 const fieldList = ref(["Job Title", "Criteria", "Created", "Action"]);
+
+const handleAlertDelete = (userId) => {
+  return jobseekerStore.handleAlertJobsDeleteByUser(userId);
+};
 </script>

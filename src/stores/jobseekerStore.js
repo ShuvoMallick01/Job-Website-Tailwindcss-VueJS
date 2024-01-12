@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { computed, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import { useJobsStore } from "./jobStore";
 import { useAuthsStore } from "./authStore";
 
@@ -181,10 +181,28 @@ export const useJobseekersStore = defineStore("jobseekers", () => {
     );
   });
 
+  // Alerts Jobs by User
+  let handleAlertJobsByUser = computed(() => {
+    return jobStore.jobList.filter((item) =>
+      item.applicantsId.includes(JSON.parse(localStorage.getItem("user")).id)
+    );
+  });
+
+  // Delete Job Alert
+  const handleAlertJobsDeleteByUser = (jobId) => {
+    // console.log(jobId);
+    // console.log(jobStore.jobList);
+    return (jobStore.jobList = jobStore.jobList.filter(
+      (item) => item.id !== jobId
+    ));
+  };
+
   return {
     jobseekersList,
     resumeList,
     handleFilterAppliedJobsByUser,
     handleFilterSavedJobsByUser,
+    handleAlertJobsByUser,
+    handleAlertJobsDeleteByUser,
   };
 });

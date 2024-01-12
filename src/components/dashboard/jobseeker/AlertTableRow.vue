@@ -29,11 +29,19 @@
     <td class="px-6 py-4">{{ item.createdAt }}</td>
 
     <td class="px-6 py-4 flex gap-1 items-center h-full my-3">
-      <IconButton variant="translucent" color="secondary">
+      <IconButton
+        variant="translucent"
+        color="secondary"
+        @click="$emit('deleteAlert', item.id)"
+      >
         <i class="icon-trash"></i
       ></IconButton>
 
-      <IconButton variant="translucent" color="secondary">
+      <IconButton
+        variant="translucent"
+        color="secondary"
+        :href="'/job-details/' + item.id"
+      >
         <i class="icon-eye-on"></i
       ></IconButton>
     </td>
@@ -48,5 +56,6 @@ import Badge from "../../Badge/Badge.vue";
 import Checkbox from "../../form/Checkbox.vue";
 
 defineProps(["item"]);
+defineEmits(["deleteAlert"]);
 const actions = ref(["icon-trash", "icon-eye-on"]);
 </script>
