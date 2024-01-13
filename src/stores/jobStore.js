@@ -170,20 +170,37 @@ export const useJobsStore = defineStore("jobs", () => {
 
   // Apply Jobs
   const handleJobApplyByUser = (jobId) => {
-    console.log(jobId);
-    jobList.value = jobList.value.map((job) =>
-      job.id === jobId
-        ? {
-            ...job,
-            jobApplyStatus: !job.jobApplyStatus,
-          }
-        : job
-    );
-    console.log(jobList.value[jobId].jobApplyStatus);
-    console.log(jobList.value[jobId]);
+    // console.log(jobId);
+    // jobList.value = jobList.value.map((job) =>
+    //   job.id === jobId
+    //     ? {
+    //         ...job,
+    //         jobApplyStatus: !job.jobApplyStatus,
+    //       }
+    //     : job
+    // );
+    // console.log(jobList.value[jobId].jobApplyStatus);
+    // console.log(jobList.value[jobId]);
     // return jobList;
 
     // console.log(jobList.value[jobId - 1].jobApplyStatus);
+
+    // const getJobData = jobList.value.find((job) =>
+    //   job.id === jobId
+    //     ? {
+    //         ...job,
+    //         jobApplyStatus: !job.jobApplyStatus,
+    //       }
+    //     : job
+    // );
+
+    const findJob = jobList.value.find((item) => item.id === jobId);
+    findJob.jobApplyStatus = !findJob.jobApplyStatus;
+    // console.log(findJob);
+
+    // console.log(getJobData);
+    // console.log(jobList.value);
+    // jobList.value = getJobData;
   };
 
   // Filter Jobs
