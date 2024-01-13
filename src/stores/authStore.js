@@ -141,12 +141,6 @@ export const useAuthsStore = defineStore("auths", () => {
     return userState.user ? true : false;
   });
 
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    userState.user = null;
-    router.push("/login");
-  };
-
   const handlePasswordChange = (data) => {
     console.log(data);
     if (userState.user.role === "jobseeker") {
@@ -173,18 +167,24 @@ export const useAuthsStore = defineStore("auths", () => {
   const handleDeleteProfilebyUser = () => {
     // console.log("Handle Delete Profile");
     if (userState.user.role === "jobseeker") {
-      // console.log("Match");
+      console.log("JobSeeker Deleted her Profile");
       jobseekerLoginData.value = jobseekerLoginData.value.filter(
         (item) => item.id !== userState.user.id
       );
       handleLogout();
     } else if (userState.user.role === "employer") {
-      // console.log("Match");
+      console.log("Employer Deleted her Profile");
       employerLoginData.value = employerLoginData.value.filter(
         (item) => item.id !== userState.user.id
       );
       handleLogout();
     }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    userState.user = "";
+    router.push("/login");
   };
 
   // RETURN

@@ -39,9 +39,7 @@
           @click="
             () => {
               if (nav.title == 'Delete Profile') {
-                return authStore.handleDeleteProfilebyUser();
-              } else {
-                console.log('Not Match');
+                authStore.handleDeleteProfilebyUser();
               }
             }
           "
@@ -57,7 +55,6 @@
             <i class="me-2 self-baseline" :class="nav.icon"></i>{{ nav.title }}
           </a>
         </li>
-        <!-- v-if="@click="$emit('deleteProfile')" -->
       </ul>
     </div>
   </div>
