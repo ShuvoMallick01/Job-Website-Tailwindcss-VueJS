@@ -37,7 +37,7 @@ export const useJobsStore = defineStore("jobs", () => {
     },
     {
       id: 2,
-      companyName: "Bit Skyber ltd.",
+      companyName: "Meta Corporation",
       jobTitle: "Web Developer",
       description:
         "The Role and Category Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores iusto, perferendis quae perspiciatis blanditiis cum quaerat facilis magni est. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias odio nihil quidem consequatur quos sunt! Ullam rem quaerat vel, ut quidem culpa eos qui voluptatum. Aliquam veniam animi tenetur? Ducimus.",
@@ -77,7 +77,7 @@ export const useJobsStore = defineStore("jobs", () => {
       approvedApplicantsId: [1],
       rejectedApplicantsId: [1, 2],
       isActice: true,
-      employerId: 1,
+      employerId: 2,
     },
     {
       id: 4,
@@ -99,7 +99,7 @@ export const useJobsStore = defineStore("jobs", () => {
       approvedApplicantsId: [1, 2],
       rejectedApplicantsId: [3],
       isActice: true,
-      employerId: 1,
+      employerId: 3,
     },
     {
       id: 5,
@@ -121,11 +121,11 @@ export const useJobsStore = defineStore("jobs", () => {
       approvedApplicantsId: [3],
       rejectedApplicantsId: [1, 5, 6],
       isActice: true,
-      employerId: 2,
+      employerId: 4,
     },
     {
       id: 6,
-      companyName: "State Bank of India",
+      companyName: "Meta Corporation",
       jobTitle: "Senior Software Engineer",
       description:
         "The Role and Category Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores iusto, perferendis quae perspiciatis blanditiis cum quaerat facilis magni est. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias odio nihil quidem consequatur quos sunt! Ullam rem quaerat vel, ut quidem culpa eos qui voluptatum. Aliquam veniam animi tenetur? Ducimus.",
@@ -143,7 +143,7 @@ export const useJobsStore = defineStore("jobs", () => {
       approvedApplicantsId: [3],
       rejectedApplicantsId: [1, 5, 6],
       isActice: true,
-      employerId: 2,
+      employerId: 1,
     },
   ]);
 

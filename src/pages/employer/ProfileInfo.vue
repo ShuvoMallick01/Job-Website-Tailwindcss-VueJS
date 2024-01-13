@@ -145,87 +145,6 @@ import { useAuthsStore } from "../../stores/authStore";
 // State
 const employerStore = useEmployesStore();
 const authsStore = useAuthsStore();
-const companyProfile = employerStore.companyProfileList[0];
-
-const formInputList = ref([
-  {
-    title: "Company Name (optional):",
-    name: "companyName",
-    type: "text",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Email:",
-    name: "email",
-    type: "email",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Phone:",
-    name: "phone",
-    type: "number",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Website:",
-    name: "website",
-    type: "text",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Est. Since:",
-    name: "estSince",
-    type: "number",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Team Size:",
-    name: "teamSize",
-    type: "number",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Facebook:",
-    name: "facebook",
-    type: "text",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Likedin:",
-    name: "likedin",
-    type: "text",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Country:",
-    name: "country",
-    type: "text",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "City:",
-    name: "city",
-    type: "text",
-    placeholder: "",
-    required: true,
-  },
-  {
-    title: "Complete Address:",
-    name: "completeAddress",
-    type: "text",
-    placeholder: "",
-    required: true,
-  },
-]);
 
 const getEmployerData = computed(() => {
   return employerStore.companyProfileList.find(
@@ -233,5 +152,5 @@ const getEmployerData = computed(() => {
   );
 });
 
-console.log(getEmployerData.value);
+// console.log(getEmployerData.value);
 </script>

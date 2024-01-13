@@ -2,11 +2,18 @@
   <!-- Title -->
   <SubSectionHeading headingName="POST A NEW JOB" />
 
-  <form class="space-y-6">
-    <FormInput labelName="Job Title:" id="jobTitle" type="text" required />
+  <form @submit.prevent="handleFormSubmit()" class="space-y-6">
+    <FormInput
+      v-model="formData.jobTitle"
+      labelName="Job Title:"
+      id="jobTitle"
+      type="text"
+      required
+    />
 
     <!-- Job Description -->
     <Textarea
+      v-model="formData.description"
       labelName="Job Description:"
       id="jobDescription"
       type="text"
@@ -17,15 +24,28 @@
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Email -->
-      <FormInput labelName="Email Address:" id="email" type="email" required />
+      <FormInput
+        v-model="formData.email"
+        labelName="Email Address:"
+        id="email"
+        type="email"
+        required
+      />
 
       <!-- website -->
-      <FormInput labelName="Website:" id="website" type="text" required />
+      <FormInput
+        v-model="formData.website"
+        labelName="Website:"
+        id="website"
+        type="text"
+        required
+      />
     </div>
 
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Job Type -->
       <FormSelect
+        v-model="formData.jobType"
         labelName="Job Type:"
         required
         id="jobtype"
@@ -34,6 +54,7 @@
 
       <!-- Job Roles -->
       <FormSelect
+        v-model="formData.jobRole"
         labelName="Job Roles:"
         id="jobrole"
         required
@@ -44,6 +65,7 @@
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Offered Salary -->
       <FormInput
+        v-model="formData.salary"
         labelName="Offered Salary:"
         id="offeredSalary"
         type="number"
@@ -52,6 +74,7 @@
 
       <!-- Remotely Only  -->
       <FormSelect
+        v-model="formData.isRemote"
         labelName="Remotely Only:"
         id="remoteOnly"
         required
@@ -62,6 +85,7 @@
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Company Name -->
       <FormInput
+        v-model="formData.companyName"
         labelName="Company Name:"
         id="companyName"
         type="text"
@@ -70,6 +94,7 @@
 
       <!-- Location  -->
       <FormSelect
+        v-model="formData.location"
         labelName="Location:"
         id="location"
         required
@@ -89,7 +114,32 @@ import Button from "../../components/Button/Button.vue";
 import FormInput from "../../components/form/FormInput.vue";
 import Textarea from "../../components/form/Textarea.vue";
 import FormSelect from "../../components/form/FormSelect.vue";
+import { useAuthsStore } from "../../stores/authStore";
+import { useJobsStore } from "../../stores/jobStore";
 
+// State
+const authsStore = useAuthsStore();
+const jobsStore = useJobsStore();
+const formData = ref({
+  companyName: "",
+  description: "",
+  jobTitle: "",
+  jobType: "",
+  jobRole: "",
+  location: "",
+  isRemote: "",
+  createdAt: "",
+  salary: "",
+  email: "",
+  website: "",
+  jobApplyStatus: false,
+  isFavorite: false,
+  applicantsId: [],
+  approvedApplicantsId: [],
+  rejectedApplicantsId: [],
+  isActice: true,
+  employerId: authsStore.userState.user.id,
+});
 const formSelectList = ref([
   [
     { title: "Select Job Type", value: "" },
@@ -121,4 +171,9 @@ const formSelectList = ref([
     { title: "Europe", value: "europe" },
   ],
 ]);
+
+// Methods
+const handleFormSubmit = () => {
+  console.log(formData.value);
+};
 </script>

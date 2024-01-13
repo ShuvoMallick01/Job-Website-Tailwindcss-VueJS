@@ -1,16 +1,18 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { useJobsStore } from "./jobStore";
+import { useAuthsStore } from "./authStore";
 
 export const useEmployesStore = defineStore("employes", () => {
   // State
   const jobStore = useJobsStore();
+  const authsStore = useAuthsStore();
   const companyProfileList = ref([
     {
       id: 1,
       employerId: 1,
-      name: "Bit Skyber",
-      profession: "Company",
+      name: "Employer",
+      profession: "Employeer",
       companyName: "Bit Skyber",
       phone: 880123456789,
       image: "../../src/assets/images/user-profile-pic-1.jpg",
@@ -28,8 +30,8 @@ export const useEmployesStore = defineStore("employes", () => {
     {
       id: 2,
       employerId: 2,
-      name: "Bit Skyber",
-      profession: "Company",
+      name: "Employer",
+      profession: "Employeer",
       companyName: "Bit Skyber",
       image: "../../src/assets/images/user-profile-pic-1.jpg",
       phone: "+880123456789",
@@ -47,12 +49,12 @@ export const useEmployesStore = defineStore("employes", () => {
   ]);
 
   // METHODS
-  const handleEmployerJobs = (employerId) => {
-    if (employerId) {
+  const handleEmployerJobs = () => {
+    if (authsStore.isAuthenticated) {
       const employerJobs = jobStore.jobList.filter(
-        (job) => job.employerId === employerId
+        (job) => job.employerId === authsStore.userState.user.id
       );
-      if (!employerJobs.length) {
+      if (employerJobs.length === 0) {
         console.log("Data Not Found");
         return;
       }

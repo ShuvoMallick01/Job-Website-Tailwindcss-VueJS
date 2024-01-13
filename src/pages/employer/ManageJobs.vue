@@ -22,7 +22,7 @@ import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue"
 import Table from "../../components/dashboard/Table.vue";
 
 const employerStore = useEmployesStore();
-const ownJobList = employerStore.handleEmployerJobs(1);
+const ownJobList = employerStore.handleEmployerJobs();
 const fieldList = ref(["Job Title", "Applications", "Status", "Action"]);
 const formSelectList = ref([
   [
