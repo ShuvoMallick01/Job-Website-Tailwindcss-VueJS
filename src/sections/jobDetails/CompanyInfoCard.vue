@@ -55,7 +55,7 @@
           color="secondary"
           name="jobApplyButton"
           wrapperClasses="group/apply relative pe-8  group-hover/item:visible transition300 relative "
-          @click.prevent="jobsStore.handleJobApplyByUser(job.id)"
+          :href="'/job-apply-form/' + job.id"
         >
           <template #suffix>
             <span
