@@ -57,8 +57,12 @@ export const router = createRouter({
 });
 
 router.beforeEach((to, from) => {
-  const { isAuthenticated } = useAuthsStore();
+  const { isAuthenticated, userState } = useAuthsStore();
 
   if (to.meta.requireAuth && !isAuthenticated) return "/login";
+  else if (to.meta.guest && isAuthenticated && to.meta.isEmployer)
+    return "/employer-profile";
+  else if (to.meta.guest && isAuthenticated && to.meta.isJobseeker)
+    return "/jobseeker-profile";
   else if (to.meta.guest && isAuthenticated) return "/";
 });
