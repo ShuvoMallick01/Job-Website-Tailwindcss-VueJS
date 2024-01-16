@@ -6,7 +6,7 @@
       <p class="large-text">Job Title: Vue JS Developer</p>
     </div>
 
-    <form class="space-y-6 pb-20">
+    <form class="space-y-6 pb-20" @submit.prevent="formHandle()">
       <SubSectionHeading headingName="Applicant Information:" />
 
       <div class="md:grid grid-cols-2 gap-5">
@@ -16,6 +16,7 @@
           type="text"
           required
           placeholder="Type your Full Name"
+          v-model="userData.name"
         />
 
         <!-- Profession -->
@@ -25,6 +26,7 @@
           type="text"
           required
           placeholder="Type your Professional"
+          v-model="userData.profession"
         />
       </div>
 
@@ -36,6 +38,7 @@
           type="text"
           required
           placeholder="Type your Language"
+          v-model="userData.language"
         />
 
         <!-- Age -->
@@ -45,6 +48,7 @@
           type="number"
           required
           placeholder="Type your Age"
+          v-model="userData.age"
         />
       </div>
 
@@ -55,6 +59,7 @@
           id="currentsalary"
           type="number"
           required
+          v-model="userData.currentSalary"
         />
 
         <!-- Expected Salary -->
@@ -63,6 +68,7 @@
           id="expectedsalary"
           type="number"
           required
+          v-model="userData.expectedSalary"
         />
       </div>
 
@@ -74,6 +80,7 @@
         required
         rows="4"
         placeholder="Type your description"
+        v-model="userData.description"
       />
 
       <!-- Contact Information -->
@@ -86,6 +93,7 @@
           id="phoneNumber"
           type="number"
           required
+          v-model="userData.phone"
         />
 
         <!-- Email -->
@@ -94,7 +102,13 @@
 
       <div class="md:grid grid-cols-2 gap-5">
         <!-- Country -->
-        <FormInput labelName="Country:" id="country" type="text" required />
+        <FormInput
+          labelName="Country:"
+          id="country"
+          type="text"
+          required
+          v-model="userData.country"
+        />
 
         <!-- Full Address -->
         <FormInput
@@ -102,6 +116,7 @@
           id="fullAddress"
           type="text"
           required
+          v-model="userData.fullAddress"
         />
       </div>
 
@@ -143,7 +158,13 @@
         </div>
       </div>
 
-      <Button title="Submit Application" wrapperClasses="px-10"></Button>
+      <hr class="h-4" />
+
+      <Button
+        title="Submit Application"
+        color="secondary"
+        wrapperClasses="px-16   mx-auto  flex"
+      ></Button>
     </form>
   </section>
 </template>
@@ -154,4 +175,35 @@ import Button from "../components/Button/Button.vue";
 import FormInput from "../components/form/FormInput.vue";
 import Textarea from "../components/form/Textarea.vue";
 import SubSectionHeading from "../components/dashboard/SubSectionHeading.vue";
+import { computed, onMounted, ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { useEmployesStore } from "../stores/employerStore";
+import { useJobseekersStore } from "../stores/jobseekerStore";
+import { useAuthsStore } from "../stores/authStore";
+import { useJobsStore } from "../stores/jobStore";
+
+// State
+const route = useRoute();
+const router = useRouter();
+const { jobseekersList } = useJobseekersStore();
+const { userState } = useAuthsStore();
+const { handleJobApplyByUser } = useJobsStore();
+let jobId = ref();
+
+// Methods
+const formHandle = () => {
+  console.log(userData.value);
+  handleJobApplyByUser(jobId.value);
+  router.replace("/");
+};
+
+const userData = computed(() => {
+  return jobseekersList.find((item) => item.jobseekerId === userState.user.id);
+});
+
+onMounted(() => {
+  let id = +route.params.id;
+  console.log(id);
+  jobId.value = id;
+});
 </script>

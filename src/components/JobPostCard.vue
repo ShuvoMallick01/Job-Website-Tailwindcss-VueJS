@@ -35,6 +35,23 @@
       <div class="flex items-center gap-2 xl:gap-4 ms-14 md:ms-0 md:mt-0 mt-4">
         <Button
           v-if="!item.jobApplyStatus"
+          :href="'/job-apply-form/' + item.id"
+          title="Apply Now"
+          color="secondary"
+          name="jobApplyButton"
+          wrapperClasses="group/apply relative pe-8 invisible group-hover/item:visible transition300 relative order-2 md:order-1"
+        >
+          <template #suffix>
+            <span
+              class="group-hover/apply:translate-x-1 absolute right-0 ps-4 mx-3 transition300"
+            >
+              <i class="icon-arrow-single-right align-middle"></i>
+            </span>
+          </template>
+        </Button>
+
+        <!-- <Button
+          v-if="!item.jobApplyStatus"
           title="Apply Now"
           color="secondary"
           name="jobApplyButton"
@@ -48,7 +65,7 @@
               <i class="icon-arrow-single-right align-middle"></i>
             </span>
           </template>
-        </Button>
+        </Button> -->
 
         <Badge
           v-else-if="item.jobApplyStatus"
@@ -92,7 +109,9 @@ import Button from "./Button/Button.vue";
 import Badge from "./Badge/Badge.vue";
 import CircleBadge from "./Badge/CircleBadge.vue";
 import IconButton from "./Button/IconButton.vue";
+import { useAuthsStore } from "../stores/authStore";
 
+// State
 defineProps({
   jobList: {
     type: Array,
@@ -101,6 +120,8 @@ defineProps({
   },
   wrapperClasses: String,
 });
+
+const { userState } = useAuthsStore();
 
 const store = useJobsStore();
 </script>

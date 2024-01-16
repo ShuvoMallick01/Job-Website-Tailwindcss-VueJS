@@ -33,7 +33,7 @@ export const router = createRouter({
       name: "contact",
     },
     {
-      path: "/job-apply-form",
+      path: "/job-apply-form/:id",
       component: JobApplyForm,
       name: "jobApplyForm",
     },
