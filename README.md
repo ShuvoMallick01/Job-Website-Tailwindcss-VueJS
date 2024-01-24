@@ -1,6 +1,6 @@
-# Job Website Using Vuejs - Version 1.0
+# Job Website Using Vuejs Using AXIOS Mock Server - Version 2.0
 
-Live: https://job-website-vuejs.netlify.app/
+Live: https://job-website-vuejs-server-v2-0.netlify.app/
 
 ## Project Overview
 

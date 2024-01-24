@@ -5,4 +5,13 @@
 </template>
 
 <!-- FUNCTIONALITY -->
-<script setup></script>
+<script setup>
+import axios from "axios";
+import { onMounted } from "vue";
+
+onMounted(() => {
+  axios.get("/job-list").then(({ data }) => {
+    console.log(data.data);
+  });
+});
+</script>

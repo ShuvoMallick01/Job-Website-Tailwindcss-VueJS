@@ -5,6 +5,7 @@ import { router } from "./router/routes";
 import { createPinia } from "pinia";
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
+import "../server";
 
 // Pages
 import Home from "./pages/Home.vue";
