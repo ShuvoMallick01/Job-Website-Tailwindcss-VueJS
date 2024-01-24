@@ -1,4 +1,4 @@
-# Job Website Using Vuejs
+# Job Website Using Vuejs - Version 1.0
 
 Live: https://job-website-vuejs.netlify.app/
 

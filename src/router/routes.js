@@ -10,7 +10,7 @@ import NotFound from "../pages/NotFound.vue";
 import Contact from "../pages/Contact.vue";
 import { jobseekerRoutes } from "./jobseeker";
 import { employerRoutes } from "./employer";
-import { useAuthsStore } from "../stores/AuthStore";
+import { useAuthsStore } from "../../src/stores/authStore";
 
 export const router = createRouter({
   history: createWebHistory(),
