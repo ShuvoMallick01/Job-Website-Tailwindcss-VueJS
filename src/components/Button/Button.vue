@@ -24,7 +24,7 @@
       'btn-sm': size === 'small',
       'btn-xs': size === 'xsmall',
 
-      'shadow-medium': shadow === 'medium',
+      'shadow-medium': shadow === 'medium ',
       'shadow-large': shadow === 'large',
       'shadow-small': shadow === 'small',
 
