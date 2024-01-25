@@ -10,7 +10,7 @@
         id="companyName"
         type="text"
         required
-        v-model="getEmployerData.companyName"
+        v-model="employerStore.companyProfile.companyName"
       />
 
       <!-- email -->
@@ -19,7 +19,7 @@
         id="email"
         type="email"
         required
-        v-model="getEmployerData.email"
+        v-model="employerStore.companyProfile.companyEmail"
       />
     </div>
 
@@ -30,7 +30,7 @@
         id="phone"
         type="number"
         required
-        v-model="getEmployerData.phone"
+        v-model="employerStore.companyProfile.phone"
       />
 
       <!-- website -->
@@ -39,7 +39,7 @@
         id="website"
         type="text"
         required
-        v-model="getEmployerData.website"
+        v-model="employerStore.companyProfile.website"
       />
     </div>
 
@@ -50,7 +50,7 @@
         id="facebook"
         type="text"
         required
-        v-model="getEmployerData.facebook"
+        v-model="employerStore.companyProfile.facebook"
       />
 
       <!-- Team Size -->
@@ -59,7 +59,7 @@
         id="linkedin"
         type="text"
         required
-        v-model="getEmployerData.linkedin"
+        v-model="employerStore.companyProfile.linkedin"
       />
     </div>
 
@@ -71,7 +71,7 @@
       required
       rows="4"
       placeholder="Type your description"
-      v-model="getEmployerData.aboutCompany"
+      v-model="employerStore.companyProfile.aboutCompany"
     />
 
     <!-- SOCIAL NETWORK -->
@@ -84,7 +84,7 @@
         id="estSince"
         type="number"
         required
-        v-model="getEmployerData.estSince"
+        v-model="employerStore.companyProfile.estSince"
       />
 
       <!-- Team Size -->
@@ -93,7 +93,7 @@
         id="teamSize"
         type="number"
         required
-        v-model="getEmployerData.teamSize"
+        v-model="employerStore.companyProfile.teamSize"
       />
     </div>
 
@@ -107,7 +107,7 @@
         id="country"
         type="text"
         required
-        v-model="getEmployerData.country"
+        v-model="employerStore.companyProfile.country"
       />
 
       <!-- city -->
@@ -116,7 +116,7 @@
         id="city"
         type="text"
         required
-        v-model="getEmployerData.city"
+        v-model="employerStore.companyProfile.city"
       />
     </div>
 
@@ -126,7 +126,7 @@
       id="completeAddress"
       type="text"
       required
-      v-model="getEmployerData.completeAddress"
+      v-model="employerStore.companyProfile.completeAddress"
     />
 
     <Button :title="'Save'" wrapperClasses="px-16" type="submit" />
@@ -134,23 +134,20 @@
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, onMounted } from "vue";
 import { useEmployesStore } from "../../stores/employerStore";
+import { useAuthsStore } from "../../stores/authStore";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 import Button from "../../components/Button/Button.vue";
 import FormInput from "../../components/form/FormInput.vue";
 import Textarea from "../../components/form/Textarea.vue";
-import { useAuthsStore } from "../../stores/authStore";
 
 // State
+const { userState } = useAuthsStore();
 const employerStore = useEmployesStore();
-const authsStore = useAuthsStore();
+const condition = ref(false);
 
-const getEmployerData = computed(() => {
-  return employerStore.companyProfileList.find(
-    (item) => item.employerId === authsStore.userState.user.id
-  );
+onMounted(() => {
+  employerStore.getComapnyProfile(userState.user.id);
 });
-
-// console.log(getEmployerData.value);
 </script>
