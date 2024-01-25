@@ -2,7 +2,17 @@
   <!-- Title -->
   <SubSectionHeading headingName="COMPANY PROFILE" />
 
-  <form class="space-y-6">
+  <div v-if="loading">
+    <p>Loading...</p>
+  </div>
+
+  <form
+    v-else
+    @submit.prevent="
+      employerStore.updteCompanyProfile(companyProfile, companyProfile.id)
+    "
+    class="space-y-6"
+  >
     <div class="md:grid grid-cols-2 gap-5">
       <!-- company name -->
       <FormInput
@@ -10,7 +20,7 @@
         id="companyName"
         type="text"
         required
-        v-model="employerStore.companyProfile.companyName"
+        v-model="companyProfile.companyName"
       />
 
       <!-- email -->
@@ -19,7 +29,7 @@
         id="email"
         type="email"
         required
-        v-model="employerStore.companyProfile.companyEmail"
+        v-model="companyProfile.companyEmail"
       />
     </div>
 
@@ -30,7 +40,7 @@
         id="phone"
         type="number"
         required
-        v-model="employerStore.companyProfile.phone"
+        v-model="companyProfile.phone"
       />
 
       <!-- website -->
@@ -39,7 +49,7 @@
         id="website"
         type="text"
         required
-        v-model="employerStore.companyProfile.website"
+        v-model="companyProfile.website"
       />
     </div>
 
@@ -50,7 +60,7 @@
         id="facebook"
         type="text"
         required
-        v-model="employerStore.companyProfile.facebook"
+        v-model="companyProfile.facebook"
       />
 
       <!-- Team Size -->
@@ -59,7 +69,7 @@
         id="linkedin"
         type="text"
         required
-        v-model="employerStore.companyProfile.linkedin"
+        v-model="companyProfile.linkedin"
       />
     </div>
 
@@ -71,7 +81,7 @@
       required
       rows="4"
       placeholder="Type your description"
-      v-model="employerStore.companyProfile.aboutCompany"
+      v-model="companyProfile.aboutCompany"
     />
 
     <!-- SOCIAL NETWORK -->
@@ -84,7 +94,7 @@
         id="estSince"
         type="number"
         required
-        v-model="employerStore.companyProfile.estSince"
+        v-model="companyProfile.estSince"
       />
 
       <!-- Team Size -->
@@ -93,7 +103,7 @@
         id="teamSize"
         type="number"
         required
-        v-model="employerStore.companyProfile.teamSize"
+        v-model="companyProfile.teamSize"
       />
     </div>
 
@@ -107,7 +117,7 @@
         id="country"
         type="text"
         required
-        v-model="employerStore.companyProfile.country"
+        v-model="companyProfile.country"
       />
 
       <!-- city -->
@@ -116,7 +126,7 @@
         id="city"
         type="text"
         required
-        v-model="employerStore.companyProfile.city"
+        v-model="companyProfile.city"
       />
     </div>
 
@@ -126,27 +136,30 @@
       id="completeAddress"
       type="text"
       required
-      v-model="employerStore.companyProfile.completeAddress"
+      v-model="companyProfile.completeAddress"
     />
 
-    <Button :title="'Save'" wrapperClasses="px-16" type="submit" />
+    <Button title="Update" wrapperClasses="px-16" type="submit" />
   </form>
 </template>
 
+<!-- SETUP -->
 <script setup>
 import { computed, ref, onMounted } from "vue";
 import { useEmployesStore } from "../../stores/employerStore";
 import { useAuthsStore } from "../../stores/authStore";
+import { storeToRefs } from "pinia";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 import Button from "../../components/Button/Button.vue";
 import FormInput from "../../components/form/FormInput.vue";
 import Textarea from "../../components/form/Textarea.vue";
 
-// State
+// STATE
 const { userState } = useAuthsStore();
 const employerStore = useEmployesStore();
-const condition = ref(false);
+const { companyProfile, loading } = storeToRefs(employerStore);
 
+// METHODS
 onMounted(() => {
   employerStore.getComapnyProfile(userState.user.id);
 });

@@ -60,3 +60,8 @@ mock.onGet("/company-profile").reply((config) => {
 
   return [200, { success: true, data: findCompany }];
 });
+
+mock.onPost("/company-profile").reply((config) => {
+  const updatedData = JSON.parse(config.data);
+  return [201, { success: true, data: updatedData }];
+});

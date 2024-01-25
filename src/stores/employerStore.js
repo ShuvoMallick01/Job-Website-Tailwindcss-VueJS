@@ -102,10 +102,26 @@ export const useEmployesStore = defineStore("employes", () => {
       const { data } = await axios.get("/company-profile", {
         params: { id: id },
       });
-      // console.log(data.data);
+
       companyProfile.value = data.data;
     } catch (error) {
       console.log(error.response.data);
+    } finally {
+      loading.value = false;
+    }
+  };
+
+  const updteCompanyProfile = async (payload, id) => {
+    try {
+      loading.value = true;
+      const { data } = await axios.post("/company-profile", payload, {
+        params: { id: id },
+      });
+
+      console.log(data.data);
+      companyProfile.value = data.data;
+    } catch (error) {
+      console.log(error);
     } finally {
       loading.value = false;
     }
@@ -117,5 +133,7 @@ export const useEmployesStore = defineStore("employes", () => {
     getCompanyProfiles,
     getComapnyProfile,
     companyProfile,
+    loading,
+    updteCompanyProfile,
   };
 });
