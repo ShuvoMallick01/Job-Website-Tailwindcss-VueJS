@@ -5,56 +5,12 @@ import { useAuthsStore } from "./authStore";
 import axios from "axios";
 
 export const useEmployesStore = defineStore("employes", () => {
-  // State
+  // STATE
   const jobStore = useJobsStore();
   const authsStore = useAuthsStore();
-  const loading = ref(false);
-  // const companyProfileList = ref([
-  //   {
-  //     id: 1,
-  //     employerId: 1,
-  //     name: "Employer",
-  //     profession: "Employeer",
-  //     companyName: "Bit Skyber",
-  //     comapnyEmail: "comapny@gmail.com",
-  //     phone: 880123456789,
-  //     image: "../../src/assets/images/user-profile-pic-1.jpg",
-  //     website: "www.bitskyber.com",
-  //     estSince: 2010,
-  //     teamSize: 20,
-  //     aboutCompany:
-  //       "LorenThe Role and Category Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores iusto, perferendis quae perspiciatis blanditiis cum quaerat facilis magni est. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias odio nihil quidem consequatur quos sunt! Ullam rem quaerat vel, ut quidem culpa eos qui voluptatum. Aliquam veniam animi tenetur? Ducimus.",
-  //     facebook: "www.facebook.com/bitskyber",
-  //     linkedin: "www.linkedin.com/bitskyber",
-  //     country: "Bangladesh",
-  //     city: "Chittagong",
-  //     completeAddress: "120/55, Oxyzen, SitalJarna",
-  //   },
-  //   {
-  //     id: 2,
-  //     employerId: 2,
-  //     name: "Employer",
-  //     comapnyEmail: "comapny@gmail.com",
-  //     profession: "Employeer",
-  //     companyName: "Bit Skyber",
-  //     image: "../../src/assets/images/user-profile-pic-1.jpg",
-  //     phone: "+880123456789",
-  //     website: "www.bitskyber.com",
-  //     estSince: 2010,
-  //     teamSize: 20,
-  //     aboutCompany:
-  //       "LorenThe Role and Category Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, quis atque. Adipisci eum quidem eveniet sint facere, minus earum, maiores iusto, perferendis quae perspiciatis blanditiis cum quaerat facilis magni est. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias odio nihil quidem consequatur quos sunt! Ullam rem quaerat vel, ut quidem culpa eos qui voluptatum. Aliquam veniam animi tenetur? Ducimus.",
-  //     facebook: "www.facebook.com/bitskyber",
-  //     linkedin: "www.linkedin.com/bitskyber",
-  //     country: "Bangladesh",
-  //     city: "Chittagong",
-  //     completeAddress: "120/55, Oxyzen, SitalJarna",
-  //   },
-  // ]);
-
-  // METHODS
   const companyProfileList = ref([]);
   const companyProfile = ref({});
+  let loading = ref(false);
 
   // METHODS
   const handleEmployerJobs = () => {
@@ -96,7 +52,6 @@ export const useEmployesStore = defineStore("employes", () => {
   };
 
   const getComapnyProfile = async (id) => {
-    // console.log(id);
     try {
       loading.value = true;
       const { data } = await axios.get("/company-profile", {

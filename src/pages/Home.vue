@@ -9,10 +9,10 @@
   <MainContent />
 
   <!-- BUTTON PRACTICE -->
-  <div class="myContainer flex gap-4">
+  <!-- <div class="myContainer flex gap-4">
     <ButtonV1
       title="Filled"
-      :variant="'filled'"
+      :variant="'filled'" 
       color="primary"
       shape="pill"
     ></ButtonV1>
@@ -56,7 +56,7 @@
       shape="pill"
       class=""
     ></ButtonV1>
-  </div>
+  </div> -->
 </template>
 
 <!-- SCRIPT -->

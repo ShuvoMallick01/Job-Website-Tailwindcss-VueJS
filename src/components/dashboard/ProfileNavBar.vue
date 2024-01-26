@@ -9,7 +9,7 @@
       >
         <Image
           href="/jobseeker-profile"
-          :src="profileInfo.image"
+          src="../../src/assets/images/user-profile-pic-1.jpg"
           alt="Profile Picture"
         />
       </div>
@@ -19,7 +19,7 @@
       </h3>
       <p class="small-text">
         {{
-          profileInfo.profession ? profileInfo.profession : "Profession Name"
+          profileInfo.role ? profileInfo.role.toUpperCase() : "Profession Name"
         }}
       </p>
     </div>

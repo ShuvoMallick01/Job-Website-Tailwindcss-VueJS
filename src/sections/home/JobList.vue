@@ -9,9 +9,16 @@
 
 <!-- SCRIPT -->
 <script setup>
+import { onMounted } from "vue";
 import { initFlowbite } from "flowbite";
 import { useJobsStore } from "../../stores/jobStore";
 import JobPostCard from "../../components/JobPostCard.vue";
 
+// State
 const jobStore = useJobsStore();
+
+// Methods
+onMounted(() => {
+  jobStore.getJobList();
+});
 </script>
