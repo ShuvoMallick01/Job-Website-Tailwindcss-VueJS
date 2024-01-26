@@ -15,9 +15,7 @@ export const useAuthsStore = defineStore("auths", () => {
       ? JSON.parse(localStorage.getItem("user"))
       : null,
   });
-
   const jobseekerLoginData = ref([]);
-
   const employerLoginData = ref([]);
 
   // METHODS

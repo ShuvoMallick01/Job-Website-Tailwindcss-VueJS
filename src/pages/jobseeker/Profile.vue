@@ -2,7 +2,7 @@
   <LayoutDashboard
     :pageTitle="'JOB SEEKER PROFILE'"
     :navList="userNavList"
-    :userInfo="getLoginUserData"
+    :userInfo="userState.user"
     :activeNav="activeNav"
   >
     <!-- RIGHT -->
@@ -19,7 +19,7 @@ import { useAuthsStore } from "../../stores/authStore";
 import LayoutDashboard from "../../components/layout/LayoutDashboard.vue";
 
 const jobseekerStore = useJobseekersStore();
-const authStore = useAuthsStore();
+const { userState } = useAuthsStore();
 const route = useRoute();
 const userNavList = ref([
   {
@@ -71,13 +71,6 @@ const userNavList = ref([
     id: 7,
   },
 ]);
-
-// Computed Function
-const getLoginUserData = computed(() => {
-  return jobseekerStore.jobseekersList.find(
-    (item) => item.jobseekerId === authStore.userState.user.id
-  );
-});
 
 const activeNav = computed(() => {
   return route.path;

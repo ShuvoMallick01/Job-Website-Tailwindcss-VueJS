@@ -2,70 +2,16 @@ import { defineStore } from "pinia";
 import { computed, reactive, ref } from "vue";
 import { useJobsStore } from "./jobStore";
 import { useAuthsStore } from "./authStore";
+import { useEmployesStore } from "./employerStore";
+import axios from "axios";
 
 export const useJobseekersStore = defineStore("jobseekers", () => {
   // STATE
   const jobStore = useJobsStore();
   const authStore = useAuthsStore();
-  const jobseekersList = ref([
-    {
-      id: 1,
-      jobseekerId: 1,
-      role: "jobseeker",
-      name: "Shuvo Mallick",
-      image: "../../src/assets/images/user-profile-pic-1.jpg",
-      profession: "Web Developer",
-      language: ["Bengali", "English"],
-      age: 27,
-      currentSalary: 2000,
-      expectedSalary: 3000,
-      description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
-      phone: "0123456789",
-      country: "Bangladesh",
-      fullAddress: "Rangunia, Chittagong",
-      favoriteJobId: [1, 3, 4],
-      appliedJobId: [2, 5],
-    },
-    {
-      id: 2,
-      jobseekerId: 2,
-      role: "jobseeker",
-      name: "Nabed Khan",
-      image: "../../src/assets/images/user-profile-pic-2.jpg",
-      email: "shuvo@gmail.com",
-      password: "jobseeker",
-      profession: "Web Developer",
-      language: ["Bengali", "English"],
-      age: 27,
-      currentSalary: 2000,
-      expectedSalary: 3000,
-      description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
-      phone: "0123456789",
-      country: "Bangladesh",
-      fullAddress: "Rangunia, Chittagong",
-      favoriteJobId: [1, 3, 4],
-      appliedJobId: [2, 5],
-    },
-    {
-      id: 3,
-      jobseekerId: 3,
-      role: "jobseeker",
-      name: "Nabed Khan",
-      image: "../../src/assets/images/user-profile-pic-2.jpg",
-      profession: "Web Developer",
-      language: ["Bengali", "English"],
-      age: 27,
-      currentSalary: 2000,
-      expectedSalary: 3000,
-      description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
-      phone: "0123456789",
-      country: "Bangladesh",
-      fullAddress: "Rangunia, Chittagong",
-      favoriteJobId: [1, 3, 4],
-      appliedJobId: [2, 5],
-    },
-  ]);
-
+  const employerStore = useEmployesStore;
+  const jobseekersList = ref([]);
+  const jobseeekerData = ref({});
   const resumeList = ref([
     {
       jobseekerId: 1,
@@ -151,17 +97,51 @@ export const useJobseekersStore = defineStore("jobseekers", () => {
   ]);
 
   // METHODS
-  // const handleFilterSavedJobs = (userId) => {
-  //   if (jobseekersList.value[0].id === userId) {
-  //     const savedJobList = jobStore.jobList.filter(
-  //       (job) => job.isFavorite == true
-  //     );
-  //     // console.log(savedJobList);
-  //     return savedJobList;
-  //   } else {
-  //     console.log("Not Found any Data");
-  //   }
-  // };
+  // Get Jobseekers
+  const getJobseekerList = async () => {
+    try {
+      employerStore.loading = true;
+      const { data } = await axios.get("/jobseekers-list");
+      // console.log(data.data);
+      jobseekersList.value = data.data;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      employerStore.loading = false;
+    }
+  };
+
+  // Get Jobseeker
+  const getJobseeker = async (id) => {
+    try {
+      employerStore.loading = true;
+      const { data } = await axios.get("/jobseeker", {
+        params: { id: id },
+      });
+      // console.log(data.data);
+      jobseeekerData.value = data.data;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      employerStore.loading = false;
+    }
+  };
+
+  // Update Jobseeker Profile
+  const updateJobseekerProfile = async (payload, id) => {
+    try {
+      employerStore.loading = true;
+      const { data } = await axios.post("/jobseeker-profile", payload, {
+        params: { id: id },
+      });
+      console.log(data.data);
+      jobseeekerData.value = data.data;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      employerStore.loading = false;
+    }
+  };
 
   // Filter Saved Jobs by User
   const handleFilterSavedJobsByUser = computed(() => {
@@ -204,5 +184,9 @@ export const useJobseekersStore = defineStore("jobseekers", () => {
     handleFilterSavedJobsByUser,
     handleAlertJobsByUser,
     handleAlertJobsDeleteByUser,
+    getJobseekerList,
+    getJobseeker,
+    jobseeekerData,
+    updateJobseekerProfile,
   };
 });

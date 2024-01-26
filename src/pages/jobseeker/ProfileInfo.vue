@@ -2,7 +2,12 @@
   <!-- Title -->
   <SubSectionHeading headingName="Basic Information" />
 
-  <form class="space-y-5">
+  <form
+    @submit.prevent="
+      jobseekersStore.updateJobseekerProfile(jobseeekerData, jobseeekerData.id)
+    "
+    class="space-y-5"
+  >
     <div class="md:grid grid-cols-2 gap-5">
       <FormInput
         labelName="Your Name:"
@@ -10,7 +15,7 @@
         type="text"
         required
         placeholder="Type your Full Name"
-        v-model="getJobseekerData.name"
+        v-model="jobseeekerData.name"
       />
 
       <FormInput
@@ -19,7 +24,7 @@
         type="text"
         required
         placeholder="Type your Profession"
-        v-model="getJobseekerData.profession"
+        v-model="jobseeekerData.profession"
       />
     </div>
 
@@ -31,7 +36,7 @@
         type="text"
         required
         placeholder="Type your Language"
-        v-model="getJobseekerData.language"
+        v-model="jobseeekerData.language"
       />
 
       <!-- Age -->
@@ -41,7 +46,7 @@
         type="number"
         required
         placeholder="Type your Age"
-        v-model="getJobseekerData.age"
+        v-model="jobseeekerData.age"
       />
     </div>
 
@@ -53,7 +58,7 @@
         type="number"
         required
         placeholder="Type your current salary"
-        v-model="getJobseekerData.currentSalary"
+        v-model="jobseeekerData.currentSalary"
       />
 
       <!-- Expected Salary -->
@@ -63,7 +68,7 @@
         type="number"
         :required="true"
         placeholder="Type your current salary"
-        v-model="getJobseekerData.expectedSalary"
+        v-model="jobseeekerData.expectedSalary"
       />
     </div>
 
@@ -75,7 +80,7 @@
       required
       rows="4"
       placeholder="Type your description"
-      v-model="getJobseekerData.description"
+      v-model="jobseeekerData.description"
     />
 
     <!-- Title -->
@@ -89,7 +94,7 @@
         type="number"
         :required="true"
         placeholder="Type your phone"
-        v-model="getJobseekerData.phone"
+        v-model="jobseeekerData.phone"
       />
       <!-- Email -->
       <FormInput
@@ -98,7 +103,7 @@
         type="email"
         :required="true"
         placeholder="Type your email"
-        v-model="getJobseekerData.phone"
+        v-model="jobseeekerData.email"
       />
     </div>
 
@@ -110,7 +115,7 @@
         type="country"
         :required="true"
         placeholder="Type your country"
-        v-model="getJobseekerData.country"
+        v-model="jobseeekerData.country"
       />
 
       <!-- Full Address -->
@@ -120,30 +125,32 @@
         type="fulladdress"
         :required="true"
         placeholder="Type your Full Address"
-        v-model="getJobseekerData.fullAddress"
+        v-model="jobseeekerData.fullAddress"
       />
     </div>
 
-    <Button title="Submit" type="submit" wrapperClasses="px-10" />
+    <Button title="Update" type="submit" wrapperClasses="px-12" />
   </form>
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, onMounted } from "vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
 import { useAuthsStore } from "../../stores/authStore";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 import Button from "../../components/Button/Button.vue";
 import FormInput from "../../components/form/FormInput.vue";
 import Textarea from "../../components/form/Textarea.vue";
+import { storeToRefs } from "pinia";
 
 // STATE
+const condi = ref(false);
 const jobseekersStore = useJobseekersStore();
-const authsStore = useAuthsStore();
+const { userState } = useAuthsStore();
+const { jobseeekerData } = storeToRefs(useJobseekersStore());
 
-const getJobseekerData = computed(() => {
-  return jobseekersStore.jobseekersList.find(
-    (item) => item.jobseekerId === authsStore.userState.user.id
-  );
+onMounted(() => {
+  jobseekersStore.getJobseekerList();
+  jobseekersStore.getJobseeker(userState.user.id);
 });
 </script>

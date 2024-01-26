@@ -47,7 +47,6 @@ export const useEmployesStore = defineStore("employes", () => {
       const { data } = await axios.get("/company-profile", {
         params: { id: id },
       });
-
       companyProfile.value = data.data;
     } catch (error) {
       console.log(error.response.data);

@@ -80,6 +80,26 @@ mock.onGet("/jobseekers-list").reply(() => {
   return [200, { success: true, data: jobseekersList }];
 });
 
+mock.onGet("/jobseeker").reply((config) => {
+  const jobseekerId = config.params.id;
+
+  const findJobseeker = jobseekersList.find(
+    (seeker) => seeker.jobseekerId === jobseekerId
+  );
+
+  if (!jobseekerId) {
+    throw new Error("Jobseeker ID Donesn't Exit");
+  }
+  return [200, { success: true, data: findJobseeker }];
+});
+
+// Update Jobseeker
+mock.onPost("/jobseeker-profile").reply((config) => {
+  const updatedData = JSON.parse(config.data);
+  return [201, { success: true, data: updatedData }];
+});
+
+// LOGIN DATA
 mock.onGet("/jobseeker-login-data").reply(() => {
   return [200, { success: true, data: jobseekerLoginData }];
 });
