@@ -12,7 +12,7 @@
 
 <!-- Functinality -->
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import LayoutDashboard from "../../components/layout/LayoutDashboard.vue";
 import { useAuthsStore } from "../../stores/authStore";

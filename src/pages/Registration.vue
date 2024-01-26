@@ -141,7 +141,7 @@ const handleSubmit = () => {
   try {
     if (formData.role === "jobseeeker") {
       store.jobseekerRegistration(userData);
-    } else if (role.value === "employer") {
+    } else if (formData.role === "employer") {
       store.employerRegistration(userData);
     }
     // window.alert("Registration Successfully Completed");

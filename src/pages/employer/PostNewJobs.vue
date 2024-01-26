@@ -118,28 +118,29 @@ import { useAuthsStore } from "../../stores/authStore";
 import { useJobsStore } from "../../stores/jobStore";
 
 // State
-const authsStore = useAuthsStore();
+const { userState } = useAuthsStore();
 const jobsStore = useJobsStore();
 const formData = ref({
   companyName: "",
-  description: "",
   jobTitle: "",
+  description: "",
   jobType: "",
   jobRole: "",
   location: "",
   isRemote: "",
-  createdAt: "",
+  createdAt: "1hr ago",
   salary: "",
-  email: "",
-  website: "",
   jobApplyStatus: false,
   isFavorite: false,
+  email: "",
+  website: "",
   applicantsId: [],
   approvedApplicantsId: [],
   rejectedApplicantsId: [],
   isActice: true,
-  employerId: authsStore.userState.user.id,
+  employerId: userState.user.id,
 });
+
 const formSelectList = ref([
   [
     { title: "Select Job Type", value: "" },
@@ -174,6 +175,6 @@ const formSelectList = ref([
 
 // Methods
 const handleFormSubmit = () => {
-  console.log(formData.value);
+  jobsStore.addNewJob(formData.value, userState.user.id);
 };
 </script>

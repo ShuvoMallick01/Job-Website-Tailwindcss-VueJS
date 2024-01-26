@@ -26,16 +26,6 @@ export const useEmployesStore = defineStore("employes", () => {
     } else {
       console.log("Not Found any employerId");
     }
-
-    // if (jobStore.jobList.employerId === employerId) {
-    //   const appliedJobList = jobStore.jobList.filter(
-    //     (job) => job.jobApplyStatus === true
-    //   );
-    //   console.log(appliedJobList);
-    //   return appliedJobList;
-    // } else {
-    //   console.log("Not Found any Data");
-    // }
   };
 
   const getCompanyProfiles = async () => {

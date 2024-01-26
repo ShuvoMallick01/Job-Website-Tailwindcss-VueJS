@@ -2,10 +2,13 @@ import { defineStore } from "pinia";
 import { computed, reactive, ref } from "vue";
 import { useJobseekersStore } from "./jobseekerStore";
 import { useRouter } from "vue-router";
+import axios from "axios";
+import { useEmployesStore } from "./employerStore";
 
 export const useAuthsStore = defineStore("auths", () => {
   // STATE
   const jobseekerStore = useJobseekersStore();
+  const employerStore = useEmployesStore();
   const router = useRouter();
   let userState = reactive({
     user: localStorage.getItem("user")
@@ -13,89 +16,74 @@ export const useAuthsStore = defineStore("auths", () => {
       : null,
   });
 
-  const jobseekerLoginData = ref([
-    {
-      id: 1,
-      role: "jobseeker",
-      name: "Shuvo Mallick",
-      email: "jobseeker@gmail.com",
-      password: "jobseeker",
-    },
-    {
-      id: 2,
-      role: "jobseeker",
-      name: "Bit Skyber",
-      email: "shuvo01@gmail.com",
-      password: "bitskyber",
-    },
-  ]);
+  const jobseekerLoginData = ref([]);
 
-  const employerLoginData = ref([
-    {
-      id: 1,
-      role: "employer",
-      name: "Employer 01",
-      email: "employer01@gmail.com",
-      password: "employer01",
-    },
-    {
-      id: 2,
-      role: "employer",
-      name: "Employer 02",
-      email: "employer02@gmail.com",
-      password: "employer02",
-    },
-  ]);
+  const employerLoginData = ref([]);
 
   // METHODS
+  // Get Employer Login Data
+  const getEmployerLoginData = async () => {
+    try {
+      employerStore.loading = true;
+      const { data } = await axios.get("/employer-login-data");
+      // console.log(data.data);
+      employerLoginData.value = data.data;
+    } catch (error) {
+      console.log(error.response);
+    } finally {
+      employerStore.loading = false;
+    }
+  };
+
+  // Get JobSeeker Login Data
+  const getJobseekerLoginData = async () => {
+    try {
+      employerStore.loading = true;
+      const { data } = await axios.get("/jobseeker-login-data");
+      // console.log(data.data);
+      jobseekerLoginData.value = data.data;
+    } catch (error) {
+      console.log(error.response);
+    } finally {
+      employerStore.loading = false;
+    }
+  };
+
+  // Job Seeker Registration
   const jobseekerRegistration = async (payload) => {
     const isUserExist = jobseekerLoginData.value.some(
       (item) => item.email === payload.email
     );
 
     if (!isUserExist) {
-      const newUser = {
-        id: jobseekerLoginData.value.length + 1,
-        ...payload,
-      };
-      console.log(newUser);
-      userState.user = newUser;
-
-      jobseekerLoginData.value.push(newUser);
-      localStorage.setItem("user", JSON.stringify(newUser));
-    } else {
-      window.alert("User is already exist");
+      try {
+        employerStore.loading = true;
+        const { data } = await axios.post("/jobseeker-logindata", payload);
+        console.log(data.data);
+      } catch (error) {
+        console.log(error.response);
+      } finally {
+        employerStore.loading = false;
+      }
     }
-
-    // const response = await fetch("/registration", {
-    //   method: "POST",
-    //   body: JSON.stringify(payload),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // });
-
-    // const result = await response.json();
-    // const data = { ...payload };
-    // return response.json();
   };
 
-  const employerRegistration = async (data) => {
+  // Employer Registration
+  const employerRegistration = async (payload) => {
     const isUserExist = employerLoginData.value.some(
       (item) => item.email === payload.email
     );
 
     if (!isUserExist) {
-      const newUser = {
-        id: employerLoginData.value.length + 1,
-        ...payload,
-      };
-      userState.user = newUser;
-      // console.log(newUser);
-      employerLoginData.value.push(newUser);
-      localStorage.setItem("user", JSON.stringify(newUser));
-    } else {
-      window.alert("User is already exist");
+      try {
+        employerStore.loading = true;
+        const { data } = await axios.post("/employer-logindata", payload);
+        console.log(data.data);
+      } catch (error) {
+        console.log(error.response);
+      } finally {
+        employerStore.loading = false;
+      }
     }
   };
 
@@ -199,5 +187,7 @@ export const useAuthsStore = defineStore("auths", () => {
     handleLogout,
     handlePasswordChange,
     handleDeleteProfilebyUser,
+    getEmployerLoginData,
+    getJobseekerLoginData,
   };
 });

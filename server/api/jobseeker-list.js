@@ -59,6 +59,37 @@ const jobseekersList = [
   },
 ];
 
+const jobseekerLoginData = [
+  {
+    id: 1,
+    role: "jobseeker",
+    name: "Shuvo Mallick",
+    email: "jobseeker@gmail.com",
+    password: "jobseeker",
+  },
+  {
+    id: 2,
+    role: "jobseeker",
+    name: "Bit Skyber",
+    email: "shuvo01@gmail.com",
+    password: "bitskyber",
+  },
+];
+
 mock.onGet("/jobseekers-list").reply(() => {
   return [200, { success: true, data: jobseekersList }];
+});
+
+mock.onGet("/jobseeker-login-data").reply(() => {
+  return [200, { success: true, data: jobseekerLoginData }];
+});
+
+mock.onPost("/jobseeker-logindata").reply((config) => {
+  const newJobseeker = {
+    ...JSON.parse(config.data),
+    id: jobseekerLoginData.length + 1,
+  };
+
+  jobseekerLoginData.push(newJobseeker);
+  return [201, { success: true, data: newJobseeker }];
 });

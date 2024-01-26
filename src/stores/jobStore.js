@@ -23,6 +23,7 @@ export const useJobsStore = defineStore("jobs", () => {
   ]);
 
   // === METHODS ===
+  // Get All Jobs
   const getJobList = async () => {
     try {
       employerStore.loading = true;
@@ -99,6 +100,21 @@ export const useJobsStore = defineStore("jobs", () => {
     return filterJobsByJobseeker;
   });
 
+  // Add New Jobs
+  const addNewJob = async (payload, id) => {
+    try {
+      employerStore.loading = true;
+      const { data } = await axios.post("/job-list", payload, {
+        params: { id: id },
+      });
+      console.log(data.data);
+    } catch (error) {
+      console.log(error.response);
+    } finally {
+      employerStore.loading = false;
+    }
+  };
+
   // RETURN
   return {
     filterJobList,
@@ -108,5 +124,6 @@ export const useJobsStore = defineStore("jobs", () => {
     handleJobApplyByUser,
     filterJobsByJobseeker,
     getJobList,
+    addNewJob,
   };
 });

@@ -138,3 +138,9 @@ const jobList = [
 mock.onGet("/job-list").reply(() => {
   return [200, { success: true, data: jobList }];
 });
+
+mock.onPost("/job-list").reply((config) => {
+  const newJob = { ...JSON.parse(config.data), id: jobList.length + 1 };
+  jobList.push(newJob);
+  return [201, { success: true, data: newJob }];
+});

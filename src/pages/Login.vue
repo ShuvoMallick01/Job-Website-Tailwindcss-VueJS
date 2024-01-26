@@ -92,7 +92,7 @@
 
 <!-- SCRIPT -->
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useJobseekersStore } from "../stores/jobseekerStore";
 import { useEmployesStore } from "../stores/employerStore";
 import { useAuthsStore } from "../stores/authStore";
@@ -137,42 +137,10 @@ const handleSubmit = async () => {
   formData.value.password = "";
 };
 
-// const handleSubmit = async () => {
-//   try {
-//     if (role.value === "jobseeeker") {
-//       const findUser = jobseekerStore.jobseekersList.find(
-//         (item) => item.email === formData.value.email
-//       );
-
-//       if (findUser) {
-//         await authStore.userLogin(formData);
-//         toast.success("Successfully Login!");
-//         router.replace("/");
-//       } else {
-//         // window.alert("User Not Found");
-//         toast.alert("User Not Found");
-//       }
-//     } else if (role.value === "employer") {
-//       const findUser = employeeStore.companyProfileList.find(
-//         (item) => item.email === formData.value.email
-//       );
-
-//       if (findUser) {
-//         await authStore.userLogin(formData);
-//         toast.success("Successfully Login!");
-//         router.replace("/");
-//       } else {
-//         toast.alert("User Not Found");
-//       }
-//     }
-//   } catch (error) {
-//     console.log("Someting is Wrong..");
-//   }
-
-//   formData.value.role = "";
-//   formData.value.email = "";
-//   formData.value.password = "";
-// };
+onMounted(() => {
+  authStore.getEmployerLoginData();
+  authStore.getJobseekerLoginData();
+});
 
 const signInGoogle = () => {
   window.open("https://accounts.google.com/", "_blank");

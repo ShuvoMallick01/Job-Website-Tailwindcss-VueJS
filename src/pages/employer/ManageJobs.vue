@@ -8,20 +8,22 @@
 
   <!-- Table -->
   <Table :fieldList="fieldList">
-    <JobManageTableRow v-for="job in ownJobList" :item="job" />
+    <span><JobManageTableRow v-for="job in ownJobList" :item="job" /></span>
   </Table>
 </template>
 
 <!-- SCRIPT -->
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useEmployesStore } from "../../stores/employerStore";
+import { useJobsStore } from "../../stores/jobStore";
 import JobManageTableRow from "../../components/dashboard/employer/JobManageTableRow.vue";
 import FormSelect from "../../components/form/FormSelect.vue";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 import Table from "../../components/dashboard/Table.vue";
 
 const employerStore = useEmployesStore();
+const jobStore = useJobsStore();
 const ownJobList = employerStore.handleEmployerJobs();
 const fieldList = ref(["Job Title", "Applications", "Status", "Action"]);
 const formSelectList = ref([
@@ -33,4 +35,9 @@ const formSelectList = ref([
     { title: "Last 12 Months", value: 12 },
   ],
 ]);
+
+// Methods
+onMounted(() => {
+  jobStore.getJobList();
+});
 </script>
