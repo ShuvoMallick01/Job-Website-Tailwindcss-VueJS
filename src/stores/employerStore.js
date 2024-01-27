@@ -32,7 +32,7 @@ export const useEmployesStore = defineStore("employes", () => {
     try {
       loading.value = true;
       const { data } = await axios.get("/company-profiles");
-      console.log(data);
+      // console.log(data);
       companyProfileList.value = data.data;
     } catch (error) {
       console.log(error.response.data);

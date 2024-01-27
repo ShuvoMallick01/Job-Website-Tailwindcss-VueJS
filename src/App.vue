@@ -6,16 +6,21 @@
 
 <!-- FUNCTIONALITY -->
 <script setup>
-// import axios from "axios";
-// import { onMounted } from "vue";
+import axios from "axios";
+import { onMounted } from "vue";
+import { useJobseekersStore } from "./stores/jobseekerStore";
+import { useJobsStore } from "./stores/jobStore";
+import { useEmployesStore } from "./stores/employerStore";
 
-// onMounted(() => {
-//   // axios.get("/job-list").then(({ data }) => {
-//   //   console.log(data.data);
-//   // });
+// State
+const jobseekerStore = useJobseekersStore();
+const jobStore = useJobsStore();
+const employerStore = useEmployesStore();
 
-//   axios.get("/company-profiles").then(({ data }) => {
-//     console.log(data.data);
-//   });
-// });
+onMounted(() => {
+  jobseekerStore.getJobseekerList();
+  jobseekerStore.getResumeList();
+  jobStore.getJobList();
+  employerStore.getCompanyProfiles();
+});
 </script>

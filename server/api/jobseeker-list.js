@@ -59,7 +59,7 @@ const jobseekersList = [
   },
 ];
 
-const jobseekerLoginData = [
+let jobseekerLoginData = [
   {
     id: 1,
     role: "jobseeker",
@@ -112,4 +112,34 @@ mock.onPost("/jobseeker-logindata").reply((config) => {
 
   jobseekerLoginData.push(newJobseeker);
   return [201, { success: true, data: newJobseeker }];
+});
+
+// Password Change
+mock.onPost("/jobseeker-password").reply((config) => {
+  const jobseekerId = config.params.id;
+  const loginData = jobseekerLoginData.find((data) => data.id === jobseekerId);
+  const payload = JSON.parse(config.data);
+  console.log(payload);
+
+  if (loginData.password === payload.oldPassword) {
+    jobseekerLoginData = jobseekerLoginData.map((item) =>
+      item.id === jobseekerId
+        ? { ...item, password: payload.newPassword }
+        : item
+    );
+    console.log("Password Update Successfully");
+  } else {
+    throw new Error("Not Match Password");
+  }
+
+  return [201, { success: true, data: jobseekerLoginData }];
+});
+
+// Delete Profile
+mock.onPost("/jobseeker-delete").reply((config) => {
+  const jobseekerData = JSON.parse(config.data);
+  jobseekerLoginData = jobseekerLoginData.filter(
+    (item) => item.id !== jobseekerData.id
+  );
+  return [201, { success: true, data: jobseekerLoginData }];
 });

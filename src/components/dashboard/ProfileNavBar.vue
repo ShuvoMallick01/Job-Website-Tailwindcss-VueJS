@@ -65,7 +65,7 @@
 import { useAuthsStore } from "../../stores/authStore";
 import Image from "../Image.vue";
 
-defineEmits(["deleteProfile"]);
+// State
 const authStore = useAuthsStore();
 
 defineProps({

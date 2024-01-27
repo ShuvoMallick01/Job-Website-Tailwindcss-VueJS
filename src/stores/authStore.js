@@ -123,47 +123,77 @@ export const useAuthsStore = defineStore("auths", () => {
     return promise;
   };
 
+  // Check Authenitcation
   const isAuthenticated = computed(() => {
     return userState.user ? true : false;
   });
 
-  const handlePasswordChange = (data) => {
-    console.log(data);
+  // User Password Update
+  const handlePasswordChange = async (payload) => {
+    // console.log(payload);
     if (userState.user.role === "jobseeker") {
-      const userData = jobseekerLoginData.value.find(
-        (item) => item.id === userState.user.id
-      );
-      console.log(userData);
-
-      if (userData.password === data.oldPassword) {
-        jobseekerLoginData.value = jobseekerLoginData.value.map((item) =>
-          item.id === userState.user.id
-            ? { ...item, password: data.newPassword }
-            : item
-        );
-        console.log("Password Update Successfully");
-
-        // console.log(jobseekerLoginData.value);
-      } else {
-        window.alert("Not Match Password");
+      try {
+        employerStore.loading = true;
+        const { data } = await axios.post("/jobseeker-password", payload, {
+          params: { id: userState.user.id },
+        });
+        console.log(data.data);
+        jobseekerLoginData.value = data.data;
+      } catch (error) {
+        console.log(error);
+      } finally {
+        employerStore.loading = false;
+      }
+    } else if (userState.user.role === "employer") {
+      try {
+        employerStore.loading = true;
+        const { data } = await axios.post("/employer-password", payload, {
+          params: { id: userState.user.id },
+        });
+        console.log(data.data);
+        employerLoginData.value = data.data;
+      } catch (error) {
+        console.log(error);
+      } finally {
+        employerStore.loading = false;
       }
     }
   };
 
-  const handleDeleteProfilebyUser = () => {
+  // Delete Profile
+  const handleDeleteProfilebyUser = async () => {
     // console.log("Handle Delete Profile");
+    window.alert("Are you sure to delete your profile?");
     if (userState.user.role === "jobseeker") {
-      console.log("JobSeeker Deleted her Profile");
-      jobseekerLoginData.value = jobseekerLoginData.value.filter(
-        (item) => item.id !== userState.user.id
-      );
-      handleLogout();
+      try {
+        employerStore.loading = true;
+        const { data } = await axios.post("/jobseeker-delete", {
+          params: { id: userState.user.id },
+        });
+        console.log(userState.user.id);
+        jobseekerLoginData.value = data.data;
+        console.log("JobSeeker Deleted her Profile");
+        handleLogout();
+      } catch (error) {
+        console.log(error);
+      } finally {
+        employerStore.loading = false;
+      }
     } else if (userState.user.role === "employer") {
-      console.log("Employer Deleted her Profile");
-      employerLoginData.value = employerLoginData.value.filter(
-        (item) => item.id !== userState.user.id
-      );
-      handleLogout();
+      try {
+        employerStore.loading = true;
+        const { data } = await axios.post("/employer-delete", {
+          params: { id: userState.user.id },
+        });
+        console.log(userState.user.id);
+        employerLoginData.value = data.data;
+        console.log("Employeer Deleted her Profile");
+        handleLogout();
+      } catch (error) {
+        console.log(error);
+      } finally {
+        employerStore.loading = false;
+      }
     }
   };
 
