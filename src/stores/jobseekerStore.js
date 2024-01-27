@@ -12,89 +12,8 @@ export const useJobseekersStore = defineStore("jobseekers", () => {
   const employerStore = useEmployesStore;
   const jobseekersList = ref([]);
   const jobseeekerData = ref({});
-  const resumeList = ref([
-    {
-      jobseekerId: 1,
-      cvVersion: "CV Version 1.0",
-      description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-      education: [
-        {
-          id: 1,
-          title: "Bachelor of Science in CSE",
-          institute: "University of Science & Technology",
-          description: "Lorem ipsum dolor, sit amet consectetur",
-          duration: "2017-2021",
-        },
-        {
-          id: 2,
-          title: "Computer Technology",
-          institute: "Islami Bank Institute of Technology",
-          description: "Lorem ipsum dolor, sit amet consectetur",
-          duration: "2012-2017",
-        },
-      ],
-
-      workExperience: [
-        {
-          id: 1,
-          title: "Product Designer",
-          institute: "Spotify Inc",
-          description: "Lorem ipsum dolor, sit amet consectetur",
-          duration: "2017-2021",
-        },
-        {
-          id: 2,
-          title: "Vue.js Developer",
-          institute: "Bit Skyber",
-          description: "Lorem ipsum dolor, sit amet consectetur",
-          duration: "2021-2023",
-        },
-      ],
-
-      skills: ["vuejs", "javascript", "reactjs"],
-    },
-
-    {
-      jobseekerId: 2,
-      cvVersion: "CV Version 1.0",
-      description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-      education: [
-        {
-          id: 1,
-          title: "Bachelor of Science in CSE",
-          institute: "University of Science & Technology",
-          description: "Lorem ipsum dolor, sit amet consectetur",
-          duration: "2017-2021",
-        },
-        {
-          id: 2,
-          title: "Computer Technology",
-          institute: "Islami Bank Institute of Technology",
-          description: "Lorem ipsum dolor, sit amet consectetur",
-          duration: "2012-2017",
-        },
-      ],
-
-      workExperience: [
-        {
-          id: 1,
-          title: "Product Designer",
-          institute: "Spotify Inc",
-          description: "Lorem ipsum dolor, sit amet consectetur",
-          duration: "2017-2021",
-        },
-        {
-          id: 2,
-          title: "Vue.js Developer",
-          institute: "Bit Skyber",
-          description: "Lorem ipsum dolor, sit amet consectetur",
-          duration: "2021-2023",
-        },
-      ],
-
-      skills: ["vuejs", "javascript", "reactjs"],
-    },
-  ]);
+  const resumeList = ref([]);
+  const resume = ref([]);
 
   // METHODS
   // Get Jobseekers
@@ -136,6 +55,51 @@ export const useJobseekersStore = defineStore("jobseekers", () => {
       });
       console.log(data.data);
       jobseeekerData.value = data.data;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      employerStore.loading = false;
+    }
+  };
+
+  // Get Resume List
+  const getResumeList = async () => {
+    try {
+      employerStore.loading = true;
+      const { data } = await axios.get("/jobseekers-resume");
+      // console.log(data.data);
+      resumeList.value = data.data;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      employerStore.loading = false;
+    }
+  };
+
+  // Get Resume
+  const getResume = async (id) => {
+    try {
+      employerStore.loading = true;
+      const { data } = await axios.get("/jobseeker-resume", {
+        params: { id: id },
+      });
+      // console.log(data.data);
+      resume.value = data.data;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      employerStore.loading = false;
+    }
+  };
+
+  // Update Resume
+  const updateResume = async (payload, id) => {
+    try {
+      employerStore.loading = true;
+      const { data } = await axios.post("/jobseeker-resume", payload, {
+        params: { id: id },
+      });
+      console.log(data.data);
     } catch (error) {
       console.log(error);
     } finally {
@@ -188,5 +152,9 @@ export const useJobseekersStore = defineStore("jobseekers", () => {
     getJobseeker,
     jobseeekerData,
     updateJobseekerProfile,
+    getResumeList,
+    getResume,
+    resume,
+    updateResume,
   };
 });
