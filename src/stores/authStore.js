@@ -4,12 +4,14 @@ import { useJobseekersStore } from "./jobseekerStore";
 import { useRouter } from "vue-router";
 import axios from "axios";
 import { useEmployesStore } from "./employerStore";
+import { useToast } from "vue-toastification";
 
 export const useAuthsStore = defineStore("auths", () => {
   // STATE
   const jobseekerStore = useJobseekersStore();
   const employerStore = useEmployesStore();
   const router = useRouter();
+  const toast = useToast();
   let userState = reactive({
     user: localStorage.getItem("user")
       ? JSON.parse(localStorage.getItem("user"))
@@ -139,6 +141,7 @@ export const useAuthsStore = defineStore("auths", () => {
         });
         console.log(data.data);
         jobseekerLoginData.value = data.data;
+        toast.success("Successfully Password Changed!");
       } catch (error) {
         console.log(error);
       } finally {
@@ -152,6 +155,7 @@ export const useAuthsStore = defineStore("auths", () => {
         });
         console.log(data.data);
         employerLoginData.value = data.data;
+        toast.success("Successfully Password Changed!");
       } catch (error) {
         console.log(error);
       } finally {
@@ -163,7 +167,7 @@ export const useAuthsStore = defineStore("auths", () => {
   // Delete Profile
   const handleDeleteProfilebyUser = async () => {
     // console.log("Handle Delete Profile");
-    window.alert("Are you sure to delete your profile?");
+    toast.alert("Are you sure to delete your profile?");
     if (userState.user.role === "jobseeker") {
       try {
         employerStore.loading = true;
