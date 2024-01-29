@@ -43,10 +43,12 @@ const companyProfileList = [
   },
 ];
 
+// Get Company Profiles
 mock.onGet("/company-profiles").reply((config) => {
   return [200, { success: true, data: companyProfileList }];
 });
 
+// Get Company Profile
 mock.onGet("/company-profile").reply((config) => {
   const companyId = config.params.id;
 
@@ -61,69 +63,8 @@ mock.onGet("/company-profile").reply((config) => {
   return [200, { success: true, data: findCompany }];
 });
 
+// Company Profile Update
 mock.onPost("/company-profile").reply((config) => {
-  const updatedData = SON.parse(config.data);
+  const updatedData = JSON.parse(config.data);
   return [201, { success: true, data: updatedData }];
-});
-
-let employerLoginData = [
-  {
-    id: 1,
-    role: "employer",
-    name: "Employer 01",
-    email: "employer01@gmail.com",
-    password: "employer01",
-  },
-  {
-    id: 2,
-    role: "employer",
-    name: "Employer 02",
-    email: "employer02@gmail.com",
-    password: "employer02",
-  },
-];
-
-// Employer Login
-mock.onGet("/employer-login-data").reply(() => {
-  return [200, { success: true, data: employerLoginData }];
-});
-
-mock.onPost("/employer-logindata").reply((config) => {
-  const newEmployer = {
-    ...JSON.parse(config.data),
-    id: employerLoginData.length + 1,
-  };
-
-  employerLoginData.push(newEmployer);
-  return [201, { success: true, data: newEmployer }];
-});
-
-// Employer Password Update
-mock.onPost("/employer-password").reply((config) => {
-  const employerId = config.params.id;
-  console.log(employerId);
-  const loginData = employerLoginData.find((data) => data.id === employerId);
-  const payload = JSON.parse(config.data);
-  console.log(loginData.password, payload.oldPassword);
-
-  if (loginData.password === payload.oldPassword) {
-    console.log("enter");
-    employerLoginData = employerLoginData.map((item) =>
-      item.id === employerId ? { ...item, password: payload.newPassword } : item
-    );
-    console.log("Password Update Successfully");
-  } else {
-    throw new Error("Not Match Password");
-  }
-
-  return [201, { success: true, data: employerLoginData }];
-});
-
-// Delete Profile
-mock.onPost("/employer-delete").reply((config) => {
-  const employer = JSON.parse(config.data);
-  employerLoginData = employerLoginData.filter(
-    (item) => item.id !== employer.id
-  );
-  return [201, { success: true, data: employerLoginData }];
 });

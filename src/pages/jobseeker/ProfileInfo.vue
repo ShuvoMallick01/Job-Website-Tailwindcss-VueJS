@@ -1,12 +1,9 @@
 <template>
   <!-- Title -->
   <SubSectionHeading headingName="Basic Information" />
-
   <form
-    @submit.prevent="
-      jobseekersStore.updateJobseekerProfile(jobseeekerData, jobseeekerData.id)
-    "
-    class="space-y-5"
+    @submit.prevent="updateUserBasicInfo(userData, userData.id)"
+    class="space-y-5 mb-12"
   >
     <div class="md:grid grid-cols-2 gap-5">
       <FormInput
@@ -15,7 +12,7 @@
         type="text"
         required
         placeholder="Type your Full Name"
-        v-model="jobseeekerData.name"
+        v-model="userData.name"
       />
 
       <FormInput
@@ -24,10 +21,31 @@
         type="text"
         required
         placeholder="Type your Profession"
-        v-model="jobseeekerData.profession"
+        v-model="userData.profession"
       />
     </div>
 
+    <!-- Email -->
+    <FormInput
+      labelName="Email:"
+      id="email"
+      type="email"
+      :required="true"
+      placeholder="Type your email"
+      v-model="userData.email"
+    />
+
+    <Button title="Update" type="submit" wrapperClasses="px-12" />
+  </form>
+
+  <!-- Second Form -->
+  <form
+    v-if="jobseeekerData"
+    @submit.prevent="updateJobseekerProfile(jobseeekerData, jobseeekerData.id)"
+    class="space-y-5"
+  >
+    <!-- Title -->
+    <SubSectionHeading headingName="ADDITIONAL INFORMATION" />
     <div class="md:grid grid-cols-2 gap-5">
       <!-- Language -->
       <FormInput
@@ -96,18 +114,7 @@
         placeholder="Type your phone"
         v-model="jobseeekerData.phone"
       />
-      <!-- Email -->
-      <FormInput
-        labelName="Email:"
-        id="email"
-        type="email"
-        :required="true"
-        placeholder="Type your email"
-        v-model="jobseeekerData.email"
-      />
-    </div>
 
-    <div class="md:grid grid-cols-2 gap-5">
       <!-- Country -->
       <FormInput
         labelName="Country:"
@@ -117,22 +124,120 @@
         placeholder="Type your country"
         v-model="jobseeekerData.country"
       />
+    </div>
 
-      <!-- Full Address -->
+    <!-- Full Address -->
+    <FormInput
+      labelName="Full Adddress:"
+      id="fulladdress"
+      type="fulladdress"
+      :required="true"
+      placeholder="Type your Full Address"
+      v-model="jobseeekerData.fullAddress"
+    />
+
+    <Button title="Update" type="submit" wrapperClasses="px-12" />
+  </form>
+
+  <!-- Else -->
+  <form v-else @submit.prevent="handleForm()" class="space-y-5">
+    <!-- Title -->
+    <SubSectionHeading headingName="ADDITIONAL INFORMATION" />
+    <div class="md:grid grid-cols-2 gap-5">
+      <!-- Language -->
       <FormInput
-        labelName="Full Adddress:"
-        id="fulladdress"
-        type="fulladdress"
-        :required="true"
-        placeholder="Type your Full Address"
-        v-model="jobseeekerData.fullAddress"
+        labelName="Language:"
+        id="language"
+        type="text"
+        required
+        placeholder="Type your Language"
+        v-model="formData.language"
+      />
+
+      <!-- Age -->
+      <FormInput
+        labelName="Age:"
+        id="age"
+        type="number"
+        required
+        placeholder="Type your Age"
+        v-model="formData.age"
       />
     </div>
+
+    <div class="md:grid grid-cols-2 gap-5">
+      <!-- Current Salary ($) -->
+      <FormInput
+        labelName="Current Salary ($):"
+        id="currentsalary"
+        type="number"
+        required
+        placeholder="Type your current salary"
+        v-model="formData.currentSalary"
+      />
+
+      <!-- Expected Salary -->
+      <FormInput
+        labelName="Expected Salary ($):"
+        id="expectedsalary"
+        type="number"
+        :required="true"
+        placeholder="Type your current salary"
+        v-model="formData.expectedSalary"
+      />
+    </div>
+
+    <!-- Description -->
+    <Textarea
+      labelName="Description:"
+      id="description"
+      type="text"
+      required
+      rows="4"
+      placeholder="Type your description"
+      v-model="formData.description"
+    />
+
+    <!-- Title -->
+    <SubSectionHeading headingName="Contact Information" />
+
+    <div class="md:grid grid-cols-2 gap-5">
+      <!-- Phone -->
+      <FormInput
+        labelName="Phone:"
+        id="phone"
+        type="number"
+        :required="true"
+        placeholder="Type your phone"
+        v-model="formData.phone"
+      />
+
+      <!-- Country -->
+      <FormInput
+        labelName="Country:"
+        id="country"
+        type="country"
+        :required="true"
+        placeholder="Type your country"
+        v-model="formData.country"
+      />
+    </div>
+
+    <!-- Full Address -->
+    <FormInput
+      labelName="Full Adddress:"
+      id="fulladdress"
+      type="fulladdress"
+      :required="true"
+      placeholder="Type your Full Address"
+      v-model="formData.fullAddress"
+    />
 
     <Button title="Update" type="submit" wrapperClasses="px-12" />
   </form>
 </template>
 
+<!-- SCRIPT -->
 <script setup>
 import { computed, ref, onMounted } from "vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
@@ -144,13 +249,31 @@ import Textarea from "../../components/form/Textarea.vue";
 import { storeToRefs } from "pinia";
 
 // STATE
-const condi = ref(false);
-const jobseekersStore = useJobseekersStore();
-const { userState } = useAuthsStore();
+const { userData } = storeToRefs(useAuthsStore());
+const { userState, getUser, updateUserBasicInfo } = useAuthsStore();
+const { getJobseeker, updateJobseekerProfile } = useJobseekersStore();
 const { jobseeekerData } = storeToRefs(useJobseekersStore());
 
+const formData = ref({
+  language: [],
+  age: null,
+  currentSalary: null,
+  expectedSalary: null,
+  description: "",
+  phone: "",
+  country: "",
+  fullAddress: "",
+  favoriteJobId: [],
+  appliedJobId: [],
+});
+
+// For New Registered User
+const handleForm = () => {
+  console.log(formData);
+};
+
 onMounted(() => {
-  jobseekersStore.getJobseekerList();
-  jobseekersStore.getJobseeker(userState.user.id);
+  getUser(userState.user.id);
+  getJobseeker(userState.user.id);
 });
 </script>

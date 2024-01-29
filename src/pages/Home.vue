@@ -65,4 +65,5 @@ import Banner from "../sections/home/Banner.vue";
 import Client from "../sections/home/Client.vue";
 import MainContent from "../sections/home/MainContent.vue";
 import ButtonV1 from "../components/Button/ButtonV1.vue";
+import Button from "../components/Button/Button.vue";
 </script>

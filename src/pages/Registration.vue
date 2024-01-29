@@ -108,9 +108,10 @@ import FormSelect from "../components/form/FormSelect.vue";
 import FormInput from "../components/form/FormInput.vue";
 import Button from "../components/Button/Button.vue";
 import Link from "../components/Link.vue";
+import { storeToRefs } from "pinia";
 
-const store = useAuthsStore();
-const { userRegistration } = store;
+const { userRegistration } = useAuthsStore();
+const { toast } = storeToRefs(useAuthsStore());
 const router = useRouter();
 
 // STATE
@@ -124,31 +125,21 @@ const formData = reactive({
 
 const roleSelect = ref([
   { title: "Select your Role", value: "" },
-  { title: "Job Seeker", value: "jobseeeker" },
+  { title: "Job Seeker", value: "jobseeker" },
   { title: "Employer", value: "employer" },
 ]);
 
 // METHODS
 const handleSubmit = () => {
   if (formData.password !== formData.confirmPassword) {
-    alert("Not Match the Password");
+    toast.error("Not Match the Password");
     return;
   }
   // console.log(formData);
   const userData = { ...formData };
   delete userData.confirmPassword;
 
-  try {
-    if (formData.role === "jobseeeker") {
-      store.jobseekerRegistration(userData);
-    } else if (formData.role === "employer") {
-      store.employerRegistration(userData);
-    }
-    // window.alert("Registration Successfully Completed");
-    router.replace("/login");
-  } catch (e) {
-    console.log("Someting is Wrong..");
-  }
+  userRegistration(userData);
 };
 
 const signInGoogle = () => {

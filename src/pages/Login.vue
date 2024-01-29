@@ -48,7 +48,7 @@
       </div>
 
       <!-- Form -->
-      <form @submit.prevent="handleSubmit()" class="space-y-6">
+      <form @submit.prevent="authStore.userLogin(formData)" class="space-y-6">
         <FormSelect
           v-model="formData.role"
           labelName="Role"
@@ -117,29 +117,29 @@ const formData = ref({
 });
 const roleSelect = ref([
   { title: "Select your Role", value: "" },
-  { title: "Job Seeker", value: "jobseeeker" },
+  { title: "Job Seeker", value: "jobseeker" },
   { title: "Employer", value: "employer" },
 ]);
 
 // METHODS
-const handleSubmit = async () => {
-  try {
-    await authStore.userLogin(formData.value);
-    toast.success("Successfully Login!");
-    router.replace("/");
-  } catch (error) {
-    toast.error("User Not Found");
-    // console.log("User Not Found");
-  }
+// const handleSubmit = async () => {
+//   try {
+//     await authStore.userLogin(formData.value);
+//     toast.success("Successfully Login!");
+//     router.replace("/");
+//   } catch (error) {
+//     toast.error("User Not Found");
+//   }
 
-  formData.value.role = "";
-  formData.value.email = "";
-  formData.value.password = "";
-};
+//   formData.value.role = "";
+//   formData.value.email = "";
+//   formData.value.password = "";
+// };
 
 onMounted(() => {
-  authStore.getEmployerLoginData();
-  authStore.getJobseekerLoginData();
+  authStore.getUsersData();
+  // authStore.getEmployerLoginData();
+  // authStore.getJobseekerLoginData();
 });
 
 const signInGoogle = () => {

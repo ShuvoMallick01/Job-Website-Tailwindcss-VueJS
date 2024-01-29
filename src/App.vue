@@ -13,14 +13,14 @@ import { useJobsStore } from "./stores/jobStore";
 import { useEmployesStore } from "./stores/employerStore";
 
 // State
-const jobseekerStore = useJobseekersStore();
-const jobStore = useJobsStore();
-const employerStore = useEmployesStore();
+// const jobseekerStore = useJobseekersStore();
+// const jobStore = useJobsStore();
+// const employerStore = useEmployesStore();
 
-onMounted(() => {
-  jobseekerStore.getJobseekerList();
-  jobseekerStore.getResumeList();
-  jobStore.getJobList();
-  employerStore.getCompanyProfiles();
-});
+// onMounted(() => {
+//   jobseekerStore.getJobseekerList();
+//   jobseekerStore.getResumeList();
+//   jobStore.getJobList();
+//   employerStore.getCompanyProfiles();
+// });
 </script>

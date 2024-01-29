@@ -3,10 +3,7 @@ import mock from "../axios-mock";
 const jobseekersList = [
   {
     id: 1,
-    jobseekerId: 1,
-    role: "jobseeker",
-    name: "Shuvo Mallick",
-    image: "../../src/assets/images/user-profile-pic-1.jpg",
+    jobseekerId: 4,
     profession: "Web Developer",
     language: ["Bengali", "English"],
     age: 27,
@@ -21,13 +18,7 @@ const jobseekersList = [
   },
   {
     id: 2,
-    jobseekerId: 2,
-    role: "jobseeker",
-    name: "Nabed Khan",
-    image: "../../src/assets/images/user-profile-pic-2.jpg",
-    email: "shuvo@gmail.com",
-    password: "jobseeker",
-    profession: "Web Developer",
+    jobseekerId: 5,
     language: ["Bengali", "English"],
     age: 27,
     currentSalary: 2000,
@@ -41,11 +32,49 @@ const jobseekersList = [
   },
   {
     id: 3,
-    jobseekerId: 3,
-    role: "jobseeker",
-    name: "Nabed Khan",
-    image: "../../src/assets/images/user-profile-pic-2.jpg",
-    profession: "Web Developer",
+    jobseekerId: 6,
+    language: ["Bengali", "English"],
+    age: 27,
+    currentSalary: 2000,
+    expectedSalary: 3000,
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+    phone: "0123456789",
+    country: "Bangladesh",
+    fullAddress: "Rangunia, Chittagong",
+    favoriteJobId: [1, 3, 4],
+    appliedJobId: [2, 5],
+  },
+  {
+    id: 4,
+    jobseekerId: 7,
+    language: ["Bengali", "English"],
+    age: 27,
+    currentSalary: 2000,
+    expectedSalary: 3000,
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+    phone: "0123456789",
+    country: "Bangladesh",
+    fullAddress: "Rangunia, Chittagong",
+    favoriteJobId: [1, 3, 4],
+    appliedJobId: [2, 5],
+  },
+  {
+    id: 5,
+    jobseekerId: 8,
+    language: ["Bengali", "English"],
+    age: 27,
+    currentSalary: 2000,
+    expectedSalary: 3000,
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+    phone: "0123456789",
+    country: "Bangladesh",
+    fullAddress: "Rangunia, Chittagong",
+    favoriteJobId: [1, 3, 4],
+    appliedJobId: [2, 5],
+  },
+  {
+    id: 6,
+    jobseekerId: 9,
     language: ["Bengali", "English"],
     age: 27,
     currentSalary: 2000,
@@ -59,27 +88,12 @@ const jobseekersList = [
   },
 ];
 
-let jobseekerLoginData = [
-  {
-    id: 1,
-    role: "jobseeker",
-    name: "Shuvo Mallick",
-    email: "jobseeker@gmail.com",
-    password: "jobseeker",
-  },
-  {
-    id: 2,
-    role: "jobseeker",
-    name: "Bit Skyber",
-    email: "shuvo01@gmail.com",
-    password: "bitskyber",
-  },
-];
-
+// Get Jobseekers List
 mock.onGet("/jobseekers-list").reply(() => {
   return [200, { success: true, data: jobseekersList }];
 });
 
+// Get Jobseeker
 mock.onGet("/jobseeker").reply((config) => {
   const jobseekerId = config.params.id;
 
@@ -93,53 +107,21 @@ mock.onGet("/jobseeker").reply((config) => {
   return [200, { success: true, data: findJobseeker }];
 });
 
-// Update Jobseeker
+// Update Jobseeker Profile
 mock.onPost("/jobseeker-profile").reply((config) => {
-  const updatedData = JSON.parse(config.data);
-  return [201, { success: true, data: updatedData }];
-});
-
-// LOGIN DATA
-mock.onGet("/jobseeker-login-data").reply(() => {
-  return [200, { success: true, data: jobseekerLoginData }];
-});
-
-mock.onPost("/jobseeker-logindata").reply((config) => {
-  const newJobseeker = {
-    ...JSON.parse(config.data),
-    id: jobseekerLoginData.length + 1,
-  };
-
-  jobseekerLoginData.push(newJobseeker);
-  return [201, { success: true, data: newJobseeker }];
-});
-
-// Password Change
-mock.onPost("/jobseeker-password").reply((config) => {
   const jobseekerId = config.params.id;
-  const loginData = jobseekerLoginData.find((data) => data.id === jobseekerId);
-  const payload = JSON.parse(config.data);
-  console.log(payload);
+  const updatedData = JSON.parse(config.data);
 
-  if (loginData.password === payload.oldPassword) {
-    jobseekerLoginData = jobseekerLoginData.map((item) =>
-      item.id === jobseekerId
-        ? { ...item, password: payload.newPassword }
-        : item
-    );
-    console.log("Password Update Successfully");
-  } else {
-    throw new Error("Not Match Password");
+  const findJobseeker = jobseekersList.find(
+    (seeker) => seeker.jobseekerId === jobseekerId
+  );
+
+  if (!findJobseeker) {
+    console.log("Not Found Data");
+    jobseekersList.push(updatedData);
+  } else if (findJobseeker) {
+    jobseekersList[jobseekerId - 1] = updatedData;
   }
 
-  return [201, { success: true, data: jobseekerLoginData }];
-});
-
-// Delete Profile
-mock.onPost("/jobseeker-delete").reply((config) => {
-  const jobseekerData = JSON.parse(config.data);
-  jobseekerLoginData = jobseekerLoginData.filter(
-    (item) => item.id !== jobseekerData.id
-  );
-  return [201, { success: true, data: jobseekerLoginData }];
+  return [201, { success: true, data: updatedData }];
 });

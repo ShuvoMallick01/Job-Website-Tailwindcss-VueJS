@@ -19,15 +19,16 @@ export const useAuthsStore = defineStore("auths", () => {
   });
   const jobseekerLoginData = ref([]);
   const employerLoginData = ref([]);
+  const usersData = ref([]);
+  const userData = ref({});
 
   // METHODS
-  // Get Employer Login Data
-  const getEmployerLoginData = async () => {
+  // Get Users Data
+  const getUsersData = async () => {
     try {
       employerStore.loading = true;
-      const { data } = await axios.get("/employer-login-data");
-      // console.log(data.data);
-      employerLoginData.value = data.data;
+      const { data } = await axios.get("/users-data");
+      usersData.value = data.data;
     } catch (error) {
       console.log(error.response);
     } finally {
@@ -35,13 +36,16 @@ export const useAuthsStore = defineStore("auths", () => {
     }
   };
 
-  // Get JobSeeker Login Data
-  const getJobseekerLoginData = async () => {
+  // Get User
+  const getUser = async (id) => {
+    // console.log(id);
     try {
       employerStore.loading = true;
-      const { data } = await axios.get("/jobseeker-login-data");
+      const { data } = await axios.get("/user-data", {
+        params: { id: id },
+      });
       // console.log(data.data);
-      jobseekerLoginData.value = data.data;
+      userData.value = data.data;
     } catch (error) {
       console.log(error.response);
     } finally {
@@ -49,81 +53,122 @@ export const useAuthsStore = defineStore("auths", () => {
     }
   };
 
-  // Job Seeker Registration
-  const jobseekerRegistration = async (payload) => {
-    const isUserExist = jobseekerLoginData.value.some(
-      (item) => item.email === payload.email
-    );
-
-    if (!isUserExist) {
-      try {
-        employerStore.loading = true;
-        const { data } = await axios.post("/jobseeker-logindata", payload);
-        console.log(data.data);
-      } catch (error) {
-        console.log(error.response);
-      } finally {
-        employerStore.loading = false;
-      }
-    }
-  };
-
-  // Employer Registration
-  const employerRegistration = async (payload) => {
-    const isUserExist = employerLoginData.value.some(
-      (item) => item.email === payload.email
-    );
-
-    if (!isUserExist) {
-      try {
-        employerStore.loading = true;
-        const { data } = await axios.post("/employer-logindata", payload);
-        console.log(data.data);
-      } catch (error) {
-        console.log(error.response);
-      } finally {
-        employerStore.loading = false;
-      }
+  // Update User Basic Info
+  const updateUserBasicInfo = async (payload, id) => {
+    // console.log(payload, id);
+    try {
+      employerStore.loading = true;
+      const { data } = await axios.post("/update-user-basicinfo", payload, {
+        params: { id: id },
+      });
+      console.log(data.data);
+      userData.value = data.data;
+    } catch (error) {
+      console.log(error.response);
+    } finally {
+      employerStore.loading = false;
     }
   };
 
   // Login
   const userLogin = async (payload) => {
-    const promise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (payload.role === "jobseeeker") {
-          const findUserData = jobseekerLoginData.value.filter(
-            (item) => item.email === payload.email
-          );
-          console.log(findUserData[0]);
-
-          if (findUserData.length > 0) {
-            localStorage.setItem("user", JSON.stringify(findUserData[0]));
-            userState.user = findUserData[0];
-            return resolve();
-          } else {
-            return reject("User Not found..");
-          }
-        } else if (payload.role === "employer") {
-          const findUserData = employerLoginData.value.filter(
-            (item) => item.email === payload.email
-          );
-
-          if (findUserData.length > 0) {
-            localStorage.setItem("user", JSON.stringify(findUserData[0]));
-            userState.user = findUserData[0];
-            return resolve();
-          } else {
-            return reject("User Not found..");
-          }
-        } else {
-          return reject("Someting Wents Wrong..");
-        }
-      }, 1000);
-    });
-
-    return promise;
+    try {
+      console.log(payload);
+      employerStore.loading = true;
+      const { data } = await axios.get("/user-login", { payload });
+      localStorage.setItem("user", JSON.stringify(data.data));
+      userState.user = data.data;
+      toast.success("Successfully Login!");
+      router.replace("/");
+    } catch (error) {
+      toast.error("Invlid Login Data");
+      console.log(error);
+    } finally {
+      employerStore.loading = false;
+    }
   };
+
+  // Registration
+  const userRegistration = async (payload) => {
+    try {
+      employerStore.loading = true;
+      const { data } = await axios.post("/user-registration", payload);
+      console.log(data.data);
+
+      toast.success("Registration Successfully Complete!");
+      router.replace("/login");
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      employerStore.loading = false;
+    }
+  };
+
+  // Get Employer Login Data
+  // const getEmployerLoginData = async () => {
+  //   try {
+  //     employerStore.loading = true;
+  //     const { data } = await axios.get("/employer-login-data");
+  //     // console.log(data.data);
+  //     employerLoginData.value = data.data;
+  //   } catch (error) {
+  //     console.log(error.response);
+  //   } finally {
+  //     employerStore.loading = false;
+  //   }
+  // };
+
+  // Get JobSeeker Login Data
+  // const getJobseekerLoginData = async () => {
+  //   try {
+  //     employerStore.loading = true;
+  //     const { data } = await axios.get("/jobseeker-login-data");
+  //     // console.log(data.data);
+  //     jobseekerLoginData.value = data.data;
+  //   } catch (error) {
+  //     console.log(error.response);
+  //   } finally {
+  //     employerStore.loading = false;
+  //   }
+  // };
+
+  // Job Seeker Registration
+  // const jobseekerRegistration = async (payload) => {
+  //   const isUserExist = jobseekerLoginData.value.some(
+  //     (item) => item.email === payload.email
+  //   );
+
+  //   if (!isUserExist) {
+  //     try {
+  //       employerStore.loading = true;
+  //       const { data } = await axios.post("/jobseeker-logindata", payload);
+  //       console.log(data.data);
+  //     } catch (error) {
+  //       console.log(error.response);
+  //     } finally {
+  //       employerStore.loading = false;
+  //     }
+  //   }
+  // };
+
+  // Employer Registration
+  // const employerRegistration = async (payload) => {
+  //   const isUserExist = employerLoginData.value.some(
+  //     (item) => item.email === payload.email
+  //   );
+
+  //   if (!isUserExist) {
+  //     try {
+  //       employerStore.loading = true;
+  //       const { data } = await axios.post("/employer-logindata", payload);
+  //       console.log(data.data);
+  //     } catch (error) {
+  //       console.log(error.response);
+  //     } finally {
+  //       employerStore.loading = false;
+  //     }
+  //   }
+  // };
 
   // Check Authenitcation
   const isAuthenticated = computed(() => {
@@ -167,7 +212,7 @@ export const useAuthsStore = defineStore("auths", () => {
   // Delete Profile
   const handleDeleteProfilebyUser = async () => {
     // console.log("Handle Delete Profile");
-    toast.alert("Are you sure to delete your profile?");
+    // toast.alert("Are you sure to delete your profile?");
     if (userState.user.role === "jobseeker") {
       try {
         employerStore.loading = true;
@@ -212,14 +257,15 @@ export const useAuthsStore = defineStore("auths", () => {
     userState,
     jobseekerLoginData,
     employerLoginData,
-    jobseekerRegistration,
-    employerRegistration,
     userLogin,
     isAuthenticated,
     handleLogout,
     handlePasswordChange,
     handleDeleteProfilebyUser,
-    getEmployerLoginData,
-    getJobseekerLoginData,
+    getUsersData,
+    userRegistration,
+    userData,
+    getUser,
+    updateUserBasicInfo,
   };
 });

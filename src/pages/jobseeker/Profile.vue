@@ -12,14 +12,14 @@
 
 <!-- SCRIPT -->
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
 import { useAuthsStore } from "../../stores/authStore";
 import LayoutDashboard from "../../components/layout/LayoutDashboard.vue";
 
 const jobseekerStore = useJobseekersStore();
-const { userState } = useAuthsStore();
+const { userState, getUser } = useAuthsStore();
 const route = useRoute();
 const userNavList = ref([
   {
@@ -74,5 +74,9 @@ const userNavList = ref([
 
 const activeNav = computed(() => {
   return route.path;
+});
+
+onMounted(() => {
+  getUser(userState.user.id);
 });
 </script>
