@@ -14,7 +14,7 @@
 
 <!-- SCRIPT -->
 <script setup>
-import { ref, provide } from "vue";
+import { ref, provide, onMounted } from "vue";
 import { useJobsStore } from "../../stores/jobStore";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
 import Table from "../../components/dashboard/Table.vue";
@@ -26,8 +26,13 @@ const jobStore = useJobsStore();
 const jobseekerStore = useJobseekersStore();
 const jobList = jobStore.jobList;
 const fieldList = ref(["Job Title", "Criteria", "Created", "Action"]);
+const { getJobList } = useJobsStore();
 
 const handleAlertDelete = (userId) => {
   return jobseekerStore.handleAlertJobsDeleteByUser(userId);
 };
+
+onMounted(() => {
+  getJobList();
+});
 </script>

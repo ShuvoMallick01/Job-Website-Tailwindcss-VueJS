@@ -2,7 +2,7 @@ import mock from "../axios-mock";
 
 const resumeList = [
   {
-    jobseekerId: 1,
+    jobseekerId: 4,
     cvVersion: "CV Version 1.0",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
     education: [
@@ -43,7 +43,7 @@ const resumeList = [
   },
 
   {
-    jobseekerId: 2,
+    jobseekerId: 5,
     cvVersion: "CV Version 1.0",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
     education: [

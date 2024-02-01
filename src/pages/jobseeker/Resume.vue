@@ -5,7 +5,7 @@
 
     <!-- Updated CV Version List -->
     <form
-      @submit.prevent="jobseekerStore.updateResume(resume, resume.jobseekerId)"
+      @submit.prevent="resumeStore.updateResume(resume, resume.jobseekerId)"
       class="space-y-5"
     >
       <FormSelect
@@ -75,6 +75,7 @@ import { ref, reactive, computed, onMounted } from "vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
 import { useAuthsStore } from "../../stores/authStore";
 import { storeToRefs } from "pinia";
+import { useResumeStore } from "../../stores/resumeStore";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 import FormInput from "../../components/form/FormInput.vue";
 import Textarea from "../../components/form/Textarea.vue";
@@ -83,9 +84,9 @@ import Button from "../../components/Button/Button.vue";
 import ComboInfoCard from "../../components/dashboard/jobseeker/ComboInfoCard.vue";
 
 // State
-const jobseekerStore = useJobseekersStore();
+const resumeStore = useResumeStore();
 const { userState } = useAuthsStore();
-const { resume } = storeToRefs(useJobseekersStore());
+const { resume } = storeToRefs(useResumeStore());
 // const resume = jobseekerStore.resumeList[0];
 const CvVersionList = ref([
   { title: "Choose your Update CV", value: null },
@@ -101,8 +102,8 @@ const CvVersionList = ref([
 // });
 
 onMounted(() => {
-  jobseekerStore.getResumeList();
-  jobseekerStore.getResume(userState.user.id);
+  resumeStore.getResumeList();
+  resumeStore.getResume(userState.user.id);
 });
 
 // console.log(getUserResumeData.value.skills);

@@ -41,7 +41,9 @@
   <!-- Second Form -->
   <form
     v-if="jobseeekerData"
-    @submit.prevent="updateJobseekerProfile(jobseeekerData, jobseeekerData.id)"
+    @submit.prevent="
+      updateJobseekerProfile(jobseeekerData, jobseeekerData.jobseekerId)
+    "
     class="space-y-5"
   >
     <!-- Title -->
@@ -251,6 +253,7 @@ import { storeToRefs } from "pinia";
 // STATE
 const { userData } = storeToRefs(useAuthsStore());
 const { userState, getUser, updateUserBasicInfo } = useAuthsStore();
+
 const { getJobseeker, updateJobseekerProfile } = useJobseekersStore();
 const { jobseeekerData } = storeToRefs(useJobseekersStore());
 
@@ -269,7 +272,7 @@ const formData = ref({
 
 // For New Registered User
 const handleForm = () => {
-  console.log(formData);
+  console.log("New Registred User:" + formData);
 };
 
 onMounted(() => {

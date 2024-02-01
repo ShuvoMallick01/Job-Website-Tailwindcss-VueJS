@@ -7,12 +7,17 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
 import JobPostCard from "../../components/JobPostCard.vue";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
+import { useJobsStore } from "../../stores/jobStore";
 
 // State
+const { getJobList } = useJobsStore();
 const jobStore = useJobseekersStore();
-// const filterAppliedJobs = jobStore.handleFilterAppliedJobs(1);
+
+onMounted(() => {
+  getJobList();
+});
 </script>

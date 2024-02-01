@@ -53,12 +53,12 @@ export const useAuthsStore = defineStore("auths", () => {
     }
   };
 
-  // Update User Basic Info
+  // Update User
   const updateUserBasicInfo = async (payload, id) => {
     // console.log(payload, id);
     try {
       employerStore.loading = true;
-      const { data } = await axios.post("/update-user-basicinfo", payload, {
+      const { data } = await axios.post("/user-update", payload, {
         params: { id: id },
       });
       console.log(data.data);
@@ -177,75 +177,37 @@ export const useAuthsStore = defineStore("auths", () => {
 
   // User Password Update
   const handlePasswordChange = async (payload) => {
-    // console.log(payload);
-    if (userState.user.role === "jobseeker") {
-      try {
-        employerStore.loading = true;
-        const { data } = await axios.post("/jobseeker-password", payload, {
-          params: { id: userState.user.id },
-        });
-        console.log(data.data);
-        jobseekerLoginData.value = data.data;
-        toast.success("Successfully Password Changed!");
-      } catch (error) {
-        console.log(error);
-      } finally {
-        employerStore.loading = false;
-      }
-    } else if (userState.user.role === "employer") {
-      try {
-        employerStore.loading = true;
-        const { data } = await axios.post("/employer-password", payload, {
-          params: { id: userState.user.id },
-        });
-        console.log(data.data);
-        employerLoginData.value = data.data;
-        toast.success("Successfully Password Changed!");
-      } catch (error) {
-        console.log(error);
-      } finally {
-        employerStore.loading = false;
-      }
+    try {
+      employerStore.loading = true;
+      const { data } = await axios.post("/user-password", payload, {
+        params: { id: userState.user.id },
+      });
+      console.log(data.data);
+      toast.success("Successfully Password Changed!");
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      employerStore.loading = false;
     }
   };
 
   // Delete Profile
   const handleDeleteProfilebyUser = async () => {
-    // console.log("Handle Delete Profile");
-    // toast.alert("Are you sure to delete your profile?");
-    if (userState.user.role === "jobseeker") {
-      try {
-        employerStore.loading = true;
-        const { data } = await axios.post("/jobseeker-delete", {
-          params: { id: userState.user.id },
-        });
-        console.log(userState.user.id);
-        jobseekerLoginData.value = data.data;
-        console.log("JobSeeker Deleted her Profile");
-        handleLogout();
-      } catch (error) {
-        console.log(error);
-      } finally {
-        employerStore.loading = false;
-      }
-    } else if (userState.user.role === "employer") {
-      try {
-        employerStore.loading = true;
-        const { data } = await axios.post("/employer-delete", {
-          params: { id: userState.user.id },
-        });
-        console.log(userState.user.id);
-        employerLoginData.value = data.data;
-        console.log("Employeer Deleted her Profile");
-        handleLogout();
-      } catch (error) {
-        console.log(error);
-      } finally {
-        employerStore.loading = false;
-      }
+    try {
+      employerStore.loading = true;
+      const { data } = await axios.post("/user-delete", {
+        params: { id: userState.user.id },
+      });
+      toast.success("Deleted Profile Successfully");
+      handleLogout();
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      employerStore.loading = false;
     }
   };
 
+  // Logout
   const handleLogout = () => {
     localStorage.removeItem("user");
     userState.user = "";

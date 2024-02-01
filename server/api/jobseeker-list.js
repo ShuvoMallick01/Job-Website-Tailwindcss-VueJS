@@ -118,10 +118,10 @@ mock.onPost("/jobseeker-profile").reply((config) => {
 
   if (!findJobseeker) {
     console.log("Not Found Data");
-    jobseekersList.push(updatedData);
+    // jobseekersList.push(updatedData);
   } else if (findJobseeker) {
     jobseekersList[jobseekerId - 1] = updatedData;
   }
 
-  return [201, { success: true, data: updatedData }];
+  return [201, { success: true, data: findJobseeker }];
 });

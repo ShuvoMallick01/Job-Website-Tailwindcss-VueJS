@@ -169,66 +169,31 @@ mock.onPost("/user-registration").reply((config) => {
   return [201, { success: true, data: newUser }];
 });
 
-// User Basic Info Update
-mock.onPost("/update-user-basicinfo").reply((config) => {
+// User Update
+mock.onPost("/user-update").reply((config) => {
   const updatedData = JSON.parse(config.data);
   return [201, { success: true, data: updatedData }];
 });
 
-// mock.onPost("/employer-logindata").reply((config) => {
-//   const newEmployer = {
-//     ...JSON.parse(config.data),
-//     id: employerLoginData.length + 1,
-//   };
+// User Password Change
+mock.onPost("/user-password").reply((config) => {
+  const userId = config.params.id;
 
-//   employerLoginData.push(newEmployer);
-//   return [201, { success: true, data: newEmployer }];
-// });
-
-// mock.onPost("/employer-logindata").reply((config) => {
-//   const newEmployer = {
-//     ...JSON.parse(config.data),
-//     id: employerLoginData.length + 1,
-//   };
-
-//   employerLoginData.push(newEmployer);
-//   return [201, { success: true, data: newEmployer }];
-// });
-
-// Employer Login
-// mock.onGet("/employer-login-data").reply(() => {
-//   return [200, { success: true, data: employerLoginData }];
-// });
-
-// mock.onPost("/employer-logindata").reply((config) => {
-//   const newEmployer = {
-//     ...JSON.parse(config.data),
-//     id: employerLoginData.length + 1,
-//   };
-
-//   employerLoginData.push(newEmployer);
-//   return [201, { success: true, data: newEmployer }];
-// });
-
-// Employer Password Update
-mock.onPost("/employer-password").reply((config) => {
-  const employerId = config.params.id;
-  console.log(employerId);
-  const loginData = employerLoginData.find((data) => data.id === employerId);
   const payload = JSON.parse(config.data);
-  console.log(loginData.password, payload.oldPassword);
+  const findUser = usersList.find(
+    (user) => user.id === userId && user.password === payload.oldPassword
+  );
 
-  if (loginData.password === payload.oldPassword) {
-    console.log("enter");
-    employerLoginData = employerLoginData.map((item) =>
-      item.id === employerId ? { ...item, password: payload.newPassword } : item
+  if (findUser) {
+    usersList = usersList.map((item) =>
+      item.id === userId ? { ...item, password: payload.newPassword } : item
     );
     console.log("Password Update Successfully");
   } else {
     throw new Error("Not Match Password");
   }
 
-  return [201, { success: true, data: employerLoginData }];
+  return [201, { success: true, data: payload }];
 });
 
 // Delete Profile
@@ -279,10 +244,9 @@ mock.onPost("/jobseeker-password").reply((config) => {
 });
 
 // Delete Profile
-mock.onPost("/jobseeker-delete").reply((config) => {
+mock.onPost("/user-delete").reply((config) => {
   const jobseekerData = JSON.parse(config.data);
-  jobseekerLoginData = jobseekerLoginData.filter(
-    (item) => item.id !== jobseekerData.id
-  );
-  return [201, { success: true, data: jobseekerLoginData }];
+
+  usersList = usersList.filter((item) => item.id !== jobseekerData.id);
+  return [201, { success: true, data: "Successfully Deleted Profile" }];
 });
