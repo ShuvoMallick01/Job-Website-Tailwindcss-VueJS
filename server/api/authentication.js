@@ -1,39 +1,5 @@
 import mock from "../axios-mock";
 
-// let employerLoginData = [
-//   {
-//     id: 1,
-//     role: "employer",
-//     name: "Employer 01",
-//     email: "employer01@gmail.com",
-//     password: "employer01",
-//   },
-//   {
-//     id: 2,
-//     role: "employer",
-//     name: "Employer 02",
-//     email: "employer02@gmail.com",
-//     password: "employer02",
-//   },
-// ];
-
-// let jobseekerLoginData = [
-//   {
-//     id: 1,
-//     role: "jobseeker",
-//     name: "Shuvo Mallick",
-//     email: "jobseeker@gmail.com",
-//     password: "jobseeker",
-//   },
-//   {
-//     id: 2,
-//     role: "jobseeker",
-//     name: "Bit Skyber",
-//     email: "shuvo01@gmail.com",
-//     password: "bitskyber",
-//   },
-// ];
-
 let usersList = [
   {
     id: 1,
@@ -204,23 +170,6 @@ mock.onPost("/employer-delete").reply((config) => {
   );
   return [201, { success: true, data: employerLoginData }];
 });
-
-// JOB SEEKER
-
-// LOGIN DATA
-// mock.onGet("/jobseeker-login-data").reply(() => {
-//   return [200, { success: true, data: jobseekerLoginData }];
-// });
-
-// mock.onPost("/jobseeker-logindata").reply((config) => {
-//   const newJobseeker = {
-//     ...JSON.parse(config.data),
-//     id: jobseekerLoginData.length + 1,
-//   };
-
-//   jobseekerLoginData.push(newJobseeker);
-//   return [201, { success: true, data: newJobseeker }];
-// });
 
 // Password Change
 mock.onPost("/jobseeker-password").reply((config) => {

@@ -30,7 +30,7 @@ export const useJobsStore = defineStore("jobs", () => {
       const { data } = await axios.get("/job-list");
       jobList.value = data.data;
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error.message);
     } finally {
       employerStore.loading = false;
     }

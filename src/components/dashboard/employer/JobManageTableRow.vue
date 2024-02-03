@@ -3,8 +3,7 @@
     <td class="px-4 py-4">
       <Checkbox />
     </td>
-    <th
-      scope="row"
+    <td
       class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
     >
       {{ item.jobTitle }} <br />
@@ -13,7 +12,7 @@
         <Badge :title="item.jobRole" color="gray" />
         <Badge :title="item.isRemote ? 'Remote' : 'Not Remote'" color="gray" />
       </div>
-    </th>
+    </td>
 
     <td class="px-6 py-4">{{ item.applicantsId.length }} Applied</td>
     <td class="px-6 py-4">{{ item.isActice ? "Active" : "Deactive" }}</td>

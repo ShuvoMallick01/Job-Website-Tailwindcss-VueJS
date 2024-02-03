@@ -25,7 +25,7 @@
         'form-input-size-sm': size === 'small',
       }"
       :value="modelValue"
-      @change="$emit('update:modelValue', $event.target.value)"
+      @input="$emit('update:modelValue', $event.target.value)"
     >
       <option
         v-for="(item, index) in optionList"

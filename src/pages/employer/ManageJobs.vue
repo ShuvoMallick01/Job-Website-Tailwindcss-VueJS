@@ -8,7 +8,11 @@
 
   <!-- Table -->
   <Table :fieldList="fieldList">
-    <span><JobManageTableRow v-for="job in ownJobList" :item="job" /></span>
+    <span
+      ><JobManageTableRow
+        v-for="job in employerStore.getJobsByEmployer"
+        :item="job"
+    /></span>
   </Table>
 </template>
 
@@ -24,7 +28,7 @@ import Table from "../../components/dashboard/Table.vue";
 
 const employerStore = useEmployesStore();
 const jobStore = useJobsStore();
-const ownJobList = employerStore.handleEmployerJobs();
+
 const fieldList = ref(["Job Title", "Applications", "Status", "Action"]);
 const formSelectList = ref([
   [

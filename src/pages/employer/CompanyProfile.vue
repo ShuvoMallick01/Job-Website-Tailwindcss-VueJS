@@ -9,7 +9,7 @@
   <form
     v-else
     @submit.prevent="
-      employerStore.updteCompanyProfile(companyProfile, companyProfile.id)
+      updteCompanyProfile(companyProfile, companyProfile.employerId)
     "
     class="space-y-6"
   >
@@ -156,11 +156,11 @@ import Textarea from "../../components/form/Textarea.vue";
 
 // STATE
 const { userState } = useAuthsStore();
-const employerStore = useEmployesStore();
-const { companyProfile, loading } = storeToRefs(employerStore);
+const { getComapnyProfile, updteCompanyProfile } = useEmployesStore();
+const { companyProfile, loading } = storeToRefs(useEmployesStore());
 
 // METHODS
 onMounted(() => {
-  employerStore.getComapnyProfile(userState.user.id);
+  getComapnyProfile(userState.user.id);
 });
 </script>

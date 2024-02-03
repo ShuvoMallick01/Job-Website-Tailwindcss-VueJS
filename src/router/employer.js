@@ -5,9 +5,10 @@ import EmployerChangePassword from "../pages/employer/ChangePassword.vue";
 import EmployerManageJobs from "../pages/employer/ManageJobs.vue";
 import EmployerMessages from "../pages/employer/Messages.vue";
 import EmployerPostNewJobs from "../pages/employer/PostNewJobs.vue";
-import EmployerProfileInfo from "../pages/employer/ProfileInfo.vue";
+import EmployerProfileInfo from "../pages/employer/EmployerProfile.vue";
 import EmployerResumeAlerts from "../pages/employer/ResumeAlerts.vue";
 import EmployerShortlistedResumes from "../pages/employer/ShortlistedResumes.vue";
+import CompanyProfile from "../pages/employer/CompanyProfile.vue";
 
 export const employerRoutes = [
   {
@@ -23,6 +24,11 @@ export const employerRoutes = [
         alias: "/employer-profile",
       },
       {
+        path: "company-profile",
+        component: CompanyProfile,
+        name: "companyProfile",
+      },
+      {
         path: "post-new-job",
         component: EmployerPostNewJobs,
         name: "employerPostNewJobs",
@@ -33,7 +39,7 @@ export const employerRoutes = [
         name: "employerManageJobs",
       },
       {
-        path: "all-applicants",
+        path: "manage-applicants",
         component: EmployerAllApplicants,
         name: "employerAllApplicants",
       },

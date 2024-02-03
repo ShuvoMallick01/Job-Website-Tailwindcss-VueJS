@@ -242,13 +242,13 @@
 <!-- SCRIPT -->
 <script setup>
 import { computed, ref, onMounted } from "vue";
+import { storeToRefs } from "pinia";
 import { useJobseekersStore } from "../../stores/jobseekerStore";
 import { useAuthsStore } from "../../stores/authStore";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 import Button from "../../components/Button/Button.vue";
 import FormInput from "../../components/form/FormInput.vue";
 import Textarea from "../../components/form/Textarea.vue";
-import { storeToRefs } from "pinia";
 
 // STATE
 const { userData } = storeToRefs(useAuthsStore());

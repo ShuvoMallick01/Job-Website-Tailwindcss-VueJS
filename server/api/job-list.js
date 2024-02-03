@@ -157,12 +157,22 @@ const jobList = [
   },
 ];
 
+// Get Job List
 mock.onGet("/job-list").reply(() => {
   return [200, { success: true, data: jobList }];
 });
 
+// Add New Job
 mock.onPost("/job-list").reply((config) => {
   const newJob = { ...JSON.parse(config.data), id: jobList.length + 1 };
   jobList.push(newJob);
   return [201, { success: true, data: newJob }];
 });
+
+// Get Jobs By Employer
+// mock.onGet("/employer-joblist").reply((config) => {
+//   const filterJobs = jobList.filter(
+//     (job) => job.employerId === config.params.id
+//   );
+//   return [200, { success: true, data: filterJobs }];
+// });

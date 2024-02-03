@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { useJobsStore } from "./jobStore";
 import { useAuthsStore } from "./authStore";
 import axios from "axios";
@@ -13,21 +13,22 @@ export const useEmployesStore = defineStore("employes", () => {
   let loading = ref(false);
 
   // METHODS
-  const handleEmployerJobs = () => {
-    if (authsStore.isAuthenticated) {
-      const employerJobs = jobStore.jobList.filter(
-        (job) => job.employerId === authsStore.userState.user.id
-      );
-      if (employerJobs.length === 0) {
-        console.log("Data Not Found");
-        return;
-      }
-      return employerJobs;
-    } else {
-      console.log("Not Found any employerId");
-    }
-  };
+  // const handleEmployerJobs = () => {
+  //   if (authsStore.isAuthenticated) {
+  //     const employerJobs = jobStore.jobList.filter(
+  //       (job) => job.employerId === authsStore.userState.user.id
+  //     );
+  //     if (employerJobs.length === 0) {
+  //       console.log("Data Not Found");
+  //       return;
+  //     }
+  //     return employerJobs;
+  //   } else {
+  //     console.log("Not Found any employerId");
+  //   }
+  // };
 
+  // Get Company Profiles
   const getCompanyProfiles = async () => {
     try {
       loading.value = true;
@@ -41,6 +42,7 @@ export const useEmployesStore = defineStore("employes", () => {
     }
   };
 
+  // Get Company Profile
   const getComapnyProfile = async (id) => {
     try {
       loading.value = true;
@@ -55,6 +57,7 @@ export const useEmployesStore = defineStore("employes", () => {
     }
   };
 
+  // Update Company Profile
   const updteCompanyProfile = async (payload, id) => {
     try {
       loading.value = true;
@@ -71,13 +74,29 @@ export const useEmployesStore = defineStore("employes", () => {
     }
   };
 
+  // Get Job List By Employer
+  const getJobsByEmployer = computed(() => {
+    if (authsStore.isAuthenticated) {
+      const employerJobs = jobStore.jobList.filter(
+        (job) => job.employerId === authsStore.userState.user.id
+      );
+
+      if (employerJobs.length === 0) {
+        console.log("Data Not Found");
+      }
+      return employerJobs;
+    } else {
+      console.log("Not Found any employerId");
+    }
+  });
+
   return {
     companyProfileList,
-    handleEmployerJobs,
     getCompanyProfiles,
     getComapnyProfile,
     companyProfile,
     loading,
     updteCompanyProfile,
+    getJobsByEmployer,
   };
 });
