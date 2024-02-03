@@ -5,6 +5,7 @@ import { useRouter } from "vue-router";
 import axios from "axios";
 import { useEmployesStore } from "./employerStore";
 import { useToast } from "vue-toastification";
+import VueSweetalert2 from "vue-sweetalert2";
 
 export const useAuthsStore = defineStore("auths", () => {
   // STATE
@@ -21,6 +22,7 @@ export const useAuthsStore = defineStore("auths", () => {
   const employerLoginData = ref([]);
   const usersData = ref([]);
   const userData = ref({});
+  const sweetAlert = new VueSweetalert2();
 
   // METHODS
   // Get Users Data
@@ -127,17 +129,20 @@ export const useAuthsStore = defineStore("auths", () => {
 
   // Delete Profile
   const handleDeleteProfilebyUser = async () => {
-    try {
-      employerStore.loading = true;
-      const { data } = await axios.post("/user-delete", {
-        params: { id: userState.user.id },
-      });
-      toast.success("Deleted Profile Successfully");
-      handleLogout();
-    } catch (error) {
-      toast.error(error.message);
-    } finally {
-      employerStore.loading = false;
+    // console.log(sweetAlert({ title: "Error" }));
+    if (window.confirm("Are you Sure?")) {
+      try {
+        employerStore.loading = true;
+        const { data } = await axios.post("/user-delete", {
+          params: { id: userState.user.id },
+        });
+        toast.success("Deleted Profile Successfully");
+        handleLogout();
+      } catch (error) {
+        toast.error(error.message);
+      } finally {
+        employerStore.loading = false;
+      }
     }
   };
 

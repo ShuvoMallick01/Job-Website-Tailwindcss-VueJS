@@ -1,11 +1,13 @@
 import "./assets/css/main.css";
 import App from "./App.vue";
-import { createApp } from "vue";
-import { router } from "./router/routes";
-import { createPinia } from "pinia";
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import "../server";
+import { createApp } from "vue";
+import { router } from "./router/routes";
+import { createPinia } from "pinia";
+import VueSweetalert2 from "vue-sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 
 // Pages
 import Home from "./pages/Home.vue";
@@ -52,6 +54,19 @@ app.use(Toast, {
   closeButton: "button",
   icon: true,
   rtl: false,
+});
+
+app.use(VueSweetalert2, {
+  customClass: {
+    popup: "bg-slate-600 text-slate-300 rounded-2xl py-12",
+    iconHtml: "pt-1",
+  },
+
+  showCancelButton: true,
+  showConfirmButton: true,
+  confirmButtonText: "Delete",
+  titleText: "Are you sure?",
+  icon: "warning",
 });
 
 app.use(router);

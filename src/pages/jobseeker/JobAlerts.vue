@@ -8,6 +8,7 @@
       v-for="item in jobseekerStore.handleAlertJobsByUser"
       :item="item"
       @deleteAlert="handleAlertDelete"
+      class="left-0"
     />
   </Table>
 </template>

@@ -13,21 +13,6 @@ export const useEmployesStore = defineStore("employes", () => {
   let loading = ref(false);
 
   // METHODS
-  // const handleEmployerJobs = () => {
-  //   if (authsStore.isAuthenticated) {
-  //     const employerJobs = jobStore.jobList.filter(
-  //       (job) => job.employerId === authsStore.userState.user.id
-  //     );
-  //     if (employerJobs.length === 0) {
-  //       console.log("Data Not Found");
-  //       return;
-  //     }
-  //     return employerJobs;
-  //   } else {
-  //     console.log("Not Found any employerId");
-  //   }
-  // };
-
   // Get Company Profiles
   const getCompanyProfiles = async () => {
     try {
