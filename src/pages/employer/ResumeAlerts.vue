@@ -4,23 +4,27 @@
 
   <!-- Table -->
   <Table :fieldList="fieldList">
-    <ResumeAlertTableRow v-for="job in filterJobsByEmployerId" :job="job" />
+    <ResumeAlertTableRow
+      v-for="job in employerStore.getJobsByEmployer"
+      :job="job"
+    />
   </Table>
 </template>
 
 <script setup>
-import { ref, provide } from "vue";
+import { ref, provide, onMounted } from "vue";
 import { useJobsStore } from "../../stores/jobStore";
-import { useJobseekersStore } from "../../stores/jobseekerStore";
+import { useEmployesStore } from "../../stores/employerStore";
 import SubSectionHeading from "../../components/dashboard/SubSectionHeading.vue";
 import ResumeAlertTableRow from "../../components/dashboard/employer/ResumeAlertTableRow.vue";
 import Table from "../../components/dashboard/Table.vue";
 // State
 const jobStore = useJobsStore();
-const jobSeekerStore = useJobseekersStore();
-const filterJobsByEmployerId = jobStore.jobList;
-const filterApplicantsByJobId = jobSeekerStore.jobseekersList;
-// console.log(filterJobsByEmployerId);
+const employerStore = useEmployesStore();
 
 const fieldList = ref(["Job Title", "Applicant Details", "times", "Action"]);
+
+onMounted(() => {
+  jobStore.getJobList();
+});
 </script>

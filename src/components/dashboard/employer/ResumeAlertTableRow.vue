@@ -1,5 +1,5 @@
 <template>
-  <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+  <tr class="flex bg-white border-b dark:bg-gray-900 dark:border-gray-700">
     <!-- :v-for="data in alert" -->
     <td class="px-4 py-4">
       <Checkbox />

@@ -1,6 +1,6 @@
 import EmployerProfile from "../pages/employer/Profile.vue";
 // Admin Pages
-import EmployerAllApplicants from "../pages/employer/AllApplicants.vue";
+import EmployerManageApplicants from "../pages/employer/ManageApplicants.vue";
 import EmployerChangePassword from "../pages/employer/ChangePassword.vue";
 import EmployerManageJobs from "../pages/employer/ManageJobs.vue";
 import EmployerMessages from "../pages/employer/Messages.vue";
@@ -40,8 +40,8 @@ export const employerRoutes = [
       },
       {
         path: "manage-applicants",
-        component: EmployerAllApplicants,
-        name: "employerAllApplicants",
+        component: EmployerManageApplicants,
+        name: "employerManageApplicants",
       },
       {
         path: "short-listed-resumes",

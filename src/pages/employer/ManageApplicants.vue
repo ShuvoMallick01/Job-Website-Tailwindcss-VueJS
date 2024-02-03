@@ -1,5 +1,5 @@
 <template>
-  <SubSectionHeading headingName="Shortlishted Resume">
+  <SubSectionHeading headingName="Manage Applicants">
     <div class="flex gap-2">
       <FormSelect
         v-if="getJobTitleList"

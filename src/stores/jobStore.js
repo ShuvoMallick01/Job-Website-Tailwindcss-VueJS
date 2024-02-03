@@ -8,6 +8,7 @@ export const useJobsStore = defineStore("jobs", () => {
   const employerStore = useEmployesStore();
   let userId = ref(1);
   let jobList = ref([]);
+  let jobData = ref({});
   let filterJobList = reactive({
     jobType: [],
     jobRole: [],
@@ -29,6 +30,20 @@ export const useJobsStore = defineStore("jobs", () => {
       employerStore.loading = true;
       const { data } = await axios.get("/job-list");
       jobList.value = data.data;
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      employerStore.loading = false;
+    }
+  };
+
+  // Get Job
+  const getJob = async (id) => {
+    try {
+      employerStore.loading = true;
+      const { data } = await axios.get("/single-job", { params: { id: id } });
+      console.log(data.data);
+      jobData.value = data.data;
     } catch (error) {
       console.log(error.message);
     } finally {
@@ -125,5 +140,7 @@ export const useJobsStore = defineStore("jobs", () => {
     filterJobsByJobseeker,
     getJobList,
     addNewJob,
+    getJob,
+    jobData,
   };
 });

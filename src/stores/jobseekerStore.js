@@ -12,6 +12,7 @@ export const useJobseekersStore = defineStore("jobseekers", () => {
   const employerStore = useEmployesStore;
   const jobseekersList = ref([]);
   const jobseeekerData = ref({});
+  const jobseekerListByJob = ref([]);
 
   // METHODS
   // Get Jobseekers
@@ -59,6 +60,13 @@ export const useJobseekersStore = defineStore("jobseekers", () => {
     }
   };
 
+  // Get Jobseeker List by Job
+  const getJobseekerListByJob = async (arr) => {
+    jobseekerListByJob.value = await jobseekersList.value.filter((jobseeker) =>
+      arr.includes(jobseeker.jobseekerId)
+    );
+  };
+
   // Filter Saved Jobs by User
   const handleFilterSavedJobsByUser = computed(() => {
     return jobStore.jobList.filter(
@@ -101,5 +109,7 @@ export const useJobseekersStore = defineStore("jobseekers", () => {
     getJobseeker,
     jobseeekerData,
     updateJobseekerProfile,
+    getJobseekerListByJob,
+    jobseekerListByJob,
   };
 });
