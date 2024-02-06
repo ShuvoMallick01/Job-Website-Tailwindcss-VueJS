@@ -67,9 +67,11 @@ const selectedJob = ref({});
 // Get Job title List
 const getJobTitleList = computed(() => {
   let getJobTitleList = [];
+
   let newJobList = jobStore.jobList.filter(
     (job) => job.employerId === authStore.userState.user.id
   );
+
   if (jobStore.jobList) {
     getJobTitleList = newJobList.map((job) => {
       if (job.employerId === authStore.userState.user.id) {

@@ -22,7 +22,6 @@ export const useAuthsStore = defineStore("auths", () => {
   const employerLoginData = ref([]);
   const usersData = ref([]);
   const userData = ref({});
-  const sweetAlert = new VueSweetalert2();
 
   // METHODS
   // Get Users Data
@@ -129,7 +128,6 @@ export const useAuthsStore = defineStore("auths", () => {
 
   // Delete Profile
   const handleDeleteProfilebyUser = async () => {
-    // console.log(sweetAlert({ title: "Error" }));
     if (window.confirm("Are you Sure?")) {
       try {
         employerStore.loading = true;
