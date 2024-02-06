@@ -1,6 +1,7 @@
-# Job Website Using Vuejs - Version 1.0
+# Job Website Using Vuejs | v-1.0
 
-Live: https://job-website-vuejs.netlify.app/
+- Without Mock Server
+- Live: https://job-website-vuejs.netlify.app/
 
 ## Project Overview
 
